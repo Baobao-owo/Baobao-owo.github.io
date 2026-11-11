@@ -716,6 +716,39 @@
 
 
 
+	<div id="post_comment" class="card shadow-sm">
+		<div id="giscus"></div>
+<script>
+  function loadGiscus() {
+    const old = document.querySelector('#giscus script');
+    if (old) old.remove();
+
+    const script = document.createElement('script');
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "Baobao-owo/Baobao-owo.github.io");
+    script.setAttribute("data-repo-id", "R_kgDOVqnN2A");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOVqnN2M4DK41l");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", "light");
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    script.async = true;
+    script.crossOrigin = "anonymous";
+
+    document.getElementById("giscus").appendChild(script);
+  }
+
+  loadGiscus();
+
+  document.addEventListener('pjax:end', () => {
+    loadGiscus();
+  });
+</script>
+
+	</div>
+
 
 
 <div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2026/11/08/chunithm-15-study/" rel="prev"> 15 级谱面研究：先读谱，再上手</a></div><div class="post-navigation-item post-navigation-next"></div></div>
@@ -754,6 +787,32 @@
 </noscript>
 </body>
 
+<script>
+  (function () {
+    var last = null;
+    function want() {
+      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+    }
+    function sync() {
+      var f = document.querySelector('iframe.giscus-frame');
+      if (!f || !f.contentWindow) return;
+      var t = want();
+      if (t === last) return;
+      last = t;
+      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.setDarkmode) {
+        var orig = window.setDarkmode;
+        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+      }
+      window.addEventListener('message', function (e) {
+        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+      });
+      setTimeout(sync, 1500);
+    });
+  })();
+</script>
 
 
 </html>

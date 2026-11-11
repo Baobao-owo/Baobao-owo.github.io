@@ -617,6 +617,32 @@
 </noscript>
 </body>
 
+<script>
+  (function () {
+    var last = null;
+    function want() {
+      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+    }
+    function sync() {
+      var f = document.querySelector('iframe.giscus-frame');
+      if (!f || !f.contentWindow) return;
+      var t = want();
+      if (t === last) return;
+      last = t;
+      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.setDarkmode) {
+        var orig = window.setDarkmode;
+        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+      }
+      window.addEventListener('message', function (e) {
+        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+      });
+      setTimeout(sync, 1500);
+    });
+  })();
+</script>
 
 
 </html>

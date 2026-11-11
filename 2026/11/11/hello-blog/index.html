@@ -16,7 +16,7 @@
 <meta property="og:description" content="博客这事想了挺久的。 之前笔记散得太开了：手机备忘录里一段、B 站动态里一条、跟人解释的时候又要重新打一遍……找的时候全是碎的。所以还是得有个自己的地方，按分类放好，想写什么写什么，不用管平台给不给流量。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-11-11T09:40:00.000Z">
-<meta property="article:modified_time" content="2026-11-11T12:49:08.152Z">
+<meta property="article:modified_time" content="2026-11-11T12:58:45.659Z">
 <meta property="article:author" content="baobao">
 <meta property="article:tag" content="Argon">
 <meta property="article:tag" content="Hexo">
@@ -561,7 +561,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2026-11-11 17:40:00 | 编辑于 2026-11-11 20:49:08">2026-11-11 17:40
+							<time title="发布于 2026-11-11 17:40:00 | 编辑于 2026-11-11 20:58:45">2026-11-11 17:40
 							</time>
 						</div>
 					
@@ -605,7 +605,7 @@
 <p>封面地址也在 <code>argon.yml</code>（<code>banner_background_url</code>）；显示时怎么裁切、底边怎么过渡到页面底色，在 <code>source/assets/css/baobao.css</code> 里。</p>
 <h2 id="接下来想做的"><a href="#接下来想做的" class="headerlink" title="接下来想做的"></a>接下来想做的</h2><ul>
 <li><input disabled="" type="checkbox"> 把以前的谱面笔记搬过来</li>
-<li><input disabled="" type="checkbox"> 加个评论区（giscus 还是 twikoo，还没想好）</li>
+<li><input checked="" disabled="" type="checkbox"> 加个评论区（giscus，评论存在仓库的 GitHub Discussions 里）</li>
 <li><input checked="" disabled="" type="checkbox"> 上线，让别人也能打开（<a href="https://baobao-owo.github.io/">https://baobao-owo.github.io/</a> ）</li>
 </ul>
 
@@ -731,6 +731,39 @@
 
 
 
+	<div id="post_comment" class="card shadow-sm">
+		<div id="giscus"></div>
+<script>
+  function loadGiscus() {
+    const old = document.querySelector('#giscus script');
+    if (old) old.remove();
+
+    const script = document.createElement('script');
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "Baobao-owo/Baobao-owo.github.io");
+    script.setAttribute("data-repo-id", "R_kgDOVqnN2A");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOVqnN2M4DK41l");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", "light");
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    script.async = true;
+    script.crossOrigin = "anonymous";
+
+    document.getElementById("giscus").appendChild(script);
+  }
+
+  loadGiscus();
+
+  document.addEventListener('pjax:end', () => {
+    loadGiscus();
+  });
+</script>
+
+	</div>
+
 
 
 <div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2026/11/08/chunithm-15-study/" rel="next"> 15 级谱面研究：先读谱，再上手</a></div></div>
@@ -769,6 +802,32 @@
 </noscript>
 </body>
 
+<script>
+  (function () {
+    var last = null;
+    function want() {
+      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+    }
+    function sync() {
+      var f = document.querySelector('iframe.giscus-frame');
+      if (!f || !f.contentWindow) return;
+      var t = want();
+      if (t === last) return;
+      last = t;
+      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.setDarkmode) {
+        var orig = window.setDarkmode;
+        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+      }
+      window.addEventListener('message', function (e) {
+        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+      });
+      setTimeout(sync, 1500);
+    });
+  })();
+</script>
 
 
 </html>

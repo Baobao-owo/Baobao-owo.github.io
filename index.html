@@ -525,7 +525,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2026-11-11 17:40:00 | 编辑于 2026-11-11 20:49:08">2026-11-11 17:40
+							<time title="发布于 2026-11-11 17:40:00 | 编辑于 2026-11-11 20:58:45">2026-11-11 17:40
 							</time>
 						</div>
 					
@@ -704,6 +704,32 @@
 </noscript>
 </body>
 
+<script>
+  (function () {
+    var last = null;
+    function want() {
+      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+    }
+    function sync() {
+      var f = document.querySelector('iframe.giscus-frame');
+      if (!f || !f.contentWindow) return;
+      var t = want();
+      if (t === last) return;
+      last = t;
+      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.setDarkmode) {
+        var orig = window.setDarkmode;
+        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+      }
+      window.addEventListener('message', function (e) {
+        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+      });
+      setTimeout(sync, 1500);
+    });
+  })();
+</script>
 
 
 </html>
