@@ -759,6 +759,95 @@ html.darkmode .board-card-kids span {
   border: 1px solid rgba(79, 127, 156, 0.14);
 }
 
+/* v2：封面上方整条大图 + 难度切换（覆盖上面那套旧的横排小图） */
+.map-info {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  background: #f5f8fb;
+}
+
+.map-info-cover {
+  width: 100%;
+  height: 158px;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.map-info-body {
+  padding: 14px 16px 16px;
+}
+
+.map-diffs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.map-diff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  font-size: 0.8rem;
+  color: #3f4b57;
+  background: #fff;
+}
+
+.map-diff-btn:hover {
+  border-color: var(--themecolor);
+  color: var(--themecolor);
+  text-decoration: none;
+}
+
+.map-diff-btn.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-diff-name {
+  font-weight: 600;
+}
+
+.map-diff-sr {
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+
+.map-link-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.map-link-label {
+  flex: 0 0 auto;
+  color: #a3aebb;
+}
+
+.map-link-row code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(79, 127, 156, 0.12);
+  color: #43708d;
+  font-size: 0.78rem;
+}
+
+html.darkmode .map-diff-btn {
+  background: #333945;
+  border-color: #444b57;
+  color: #dfe8ef;
+}
+
 .map-info-cover {
   flex: 0 0 180px;
   height: 110px;

@@ -8,26 +8,45 @@ tags: [osu!mania, 4k, Arcaea]
 map:
   artist: Dj Grimoire
   mapper: FDShijing
-  diff: '[4K] x1.0'
-  sr: 5.84
   keys: 4
   bpm: 185
-  length: '2:31'
+  status: Graveyard
   set_id: 2285703
   beatmap_id: 4875709
-  status: Graveyard
+  diffs:
+    - name: x0.9
+      sr: 5.35
+      keys: 4
+      id: 4875708
+      length: '2:48'
+    - name: x1.0
+      sr: 5.85
+      keys: 4
+      id: 4875709
+      length: '2:31'
+    - name: x1.1
+      sr: 6.33
+      keys: 4
+      id: 4875710
+      length: '2:17'
+    - name: x1.2
+      sr: 6.84
+      keys: 4
+      id: 4875711
+      length: '2:06'
+    - name: x1.3
+      sr: 7.30
+      keys: 4
+      id: 4875712
+      length: '1:56'
 ---
 
 <!--more-->
 
-## 这首想做什么
+## 简介
 
-（待补：最先抓住你的是哪一段，整体想做出什么感觉）
+（待补：这是什么谱、曲子出处、几套难度各自定在哪、大概什么水平的人能打）
 
-## 结构怎么处理
+## 杂谈
 
-（待补：段落怎么分、哪里留白、哪里堆密度）
-
-## 手感上注意什么
-
-（待补：键位走向、手型、要练的地方）
+（待补：做的时候怎么想的、踩了什么坑、想让人注意哪一段）

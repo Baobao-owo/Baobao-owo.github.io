@@ -86,17 +86,6 @@ collections:
             name: mapper
             widget: string
             required: false
-          - label: 难度名
-            name: diff
-            widget: string
-            required: false
-            hint: 例如 [4K] x1.0
-          - label: 星级
-            name: sr
-            widget: number
-            value_type: float
-            required: false
-            hint: 填数字，卡片上会显示成 ★ 5.84
           - label: 键数
             name: keys
             widget: number
@@ -108,28 +97,55 @@ collections:
             widget: number
             value_type: float
             required: false
-          - label: 时长
-            name: length
-            widget: string
-            required: false
-            hint: 例如 2:31
-          - label: osu 谱面集 ID
-            name: set_id
-            widget: number
-            value_type: int
-            required: false
-            hint: 链接里 beatmapsets/2285703 就是 2285703；填了自动用 osu 封面
-          - label: 单个难度 ID
-            name: beatmap_id
-            widget: number
-            value_type: int
-            required: false
-            hint: 链接里 #mania/4875709 就是 4875709；填了“在 osu! 上看”会直接跳到这个难度
           - label: 状态
             name: status
             widget: select
             options: [Ranked, Loved, Graveyard, WIP]
             required: false
+          - label: osu 谱面集 ID
+            name: set_id
+            widget: number
+            value_type: int
+            required: false
+            hint: "链接里 beatmapsets/2285703 就是 2285703；填了自动用 osu 封面"
+          - label: 默认难度 ID
+            name: beatmap_id
+            widget: number
+            value_type: int
+            required: false
+            hint: "链接里 #mania/4875709 的那个数字；「谱面链接」默认跳这个难度"
+          - label: 难度列表
+            name: diffs
+            widget: list
+            required: false
+            label_singular: 一个难度
+            summary: "{{fields.name}}  ★{{fields.sr}}"
+            fields:
+              - label: 难度名
+                name: name
+                widget: string
+                hint: 例如 x1.0
+              - label: 星级
+                name: sr
+                widget: number
+                value_type: float
+                required: false
+              - label: 键数
+                name: keys
+                widget: number
+                value_type: int
+                required: false
+              - label: 难度 ID
+                name: id
+                widget: number
+                value_type: int
+                required: false
+                hint: "在 osu 链接的 #mania/数字 里"
+              - label: 时长
+                name: length
+                widget: string
+                required: false
+                hint: "例如 2:31"
           - label: 自定义封面
             name: cover
             widget: image

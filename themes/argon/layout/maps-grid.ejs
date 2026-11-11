@@ -22,6 +22,17 @@
 		if (map.set_id) return 'https://assets.ppy.sh/beatmaps/' + map.set_id + '/covers/cover.jpg';
 		return '';
 	}
+	function diffSummary(map) {
+		const diffs = (map.diffs || []).filter(function (d) { return d && d.name; });
+		const srs = diffs.map(function (d) { return Number(d.sr); }).filter(function (n) { return !isNaN(n) && n > 0; });
+		if (!diffs.length) {
+			return { count: 0, sr: map.sr ? String(map.sr) : (map.diff || '') };
+		}
+		const min = Math.min.apply(null, srs);
+		const max = Math.max.apply(null, srs);
+		const sr = srs.length === 0 ? '' : (min === max ? min.toFixed(2) : min.toFixed(2) + '–' + max.toFixed(2));
+		return { count: diffs.length, sr: sr };
+	}
 	const boardPath = pathOf[boardName];
 %>
 <article class="post post-full card bg-white shadow-sm border-0">
@@ -52,6 +63,7 @@
 						const map = post.map || {};
 						const cover = coverOf(post);
 						const sub = subOf(post);
+						const sum = diffSummary(map);
 					%>
 					<a class="map-card" href="<%= url_for(post.path) %>">
 						<div class="map-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
@@ -65,16 +77,15 @@
 						<div class="map-body">
 							<div class="map-title"><%= post.title %></div>
 							<% if (map.artist) { %><div class="map-artist"><%= map.artist %></div><% } %>
-							<% if (map.diff || map.sr) { %>
+							<% if (sum.count || sum.sr) { %>
 								<div class="map-line">
-									<% if (map.diff) { %><span class="map-diff"><%= map.diff %></span><% } %>
-									<% if (map.sr) { %><span class="map-sr">★ <%= map.sr %></span><% } %>
+									<% if (sum.count) { %><span class="map-diff"><%= sum.count %> 个难度</span><% } %>
+									<% if (sum.sr) { %><span class="map-sr">★ <%= sum.sr %></span><% } %>
 								</div>
 							<% } %>
 							<div class="map-meta">
 								<% if (map.keys) { %><span><%= map.keys %>K</span><% } %>
 								<% if (map.bpm) { %><span><%= map.bpm %> BPM</span><% } %>
-								<% if (map.length) { %><span><%= map.length %></span><% } %>
 								<% if (map.mapper) { %><span>谱师 <%= map.mapper %></span><% } %>
 								<span class="map-sub"><%= sub %></span>
 							</div>
