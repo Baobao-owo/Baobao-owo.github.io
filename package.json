@@ -1,0 +1,39 @@
+{
+  "name": "baobao-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "baobao 的小站 —— Hexo + Argon 主题",
+  "scripts": {
+    "build": "hexo generate",
+    "dev": "hexo server",
+    "clean": "hexo clean",
+    "new": "hexo new",
+    "deploy": "hexo deploy",
+    "publish": "hexo clean && hexo generate && hexo deploy",
+    "redeploy": "hexo clean && hexo generate"
+  },
+  "hexo": {
+    "version": "8.1.2"
+  },
+  "keywords": [],
+  "author": "baobao",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "hexo": "^8.1.2",
+    "hexo-cli": "^4.3.2",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-searchdb": "^1.5.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-server": "^3.0.0"
+  },
+  "devDependencies": {
+    "hexo-deployer-git": "^4.0.0",
+    "puppeteer-core": "^25.17.0"
+  }
+}

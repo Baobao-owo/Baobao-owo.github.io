@@ -1,0 +1,58 @@
+<%
+	// 首页：最新更新 + 按分类分板块
+	const latest = site.posts.sort('date', -1).limit(4);
+	const cats = site.categories.toArray().sort(function (a, b) {
+		const pa = a.posts.sort('date', -1).first();
+		const pb = b.posts.sort('date', -1).first();
+		return new Date(pb.date) - new Date(pa.date);
+	});
+%>
+<div class="home-sections">
+	<section class="home-section card bg-white shadow-sm border-0">
+		<div class="home-section-head">
+			<h2 class="home-section-title"><span class="home-section-dot"></span>最新更新</h2>
+			<span class="home-section-count"><%= site.posts.length %> 篇</span>
+		</div>
+		<div class="home-post-list">
+			<% latest.each(function(post){ %>
+				<article class="home-post-item">
+					<a class="home-post-title" href="<%= url_for(post.path) %>"><%= post.title %></a>
+					<div class="home-post-meta">
+						<%= post.date.format('YYYY-MM-DD') %>
+						<% if (post.categories.length) { %> · <%= post.categories.map(function(c){ return c.name; }).join(' / ') %><% } %>
+					</div>
+				</article>
+			<% }); %>
+		</div>
+		<a class="home-section-more" href="<%= url_for('/archives/') %>">查看归档 →</a>
+	</section>
+<% cats.forEach(function(cat){ %>
+	<section class="home-section card bg-white shadow-sm border-0">
+		<div class="home-section-head">
+			<h2 class="home-section-title"><span class="home-section-dot"></span><%= cat.name %></h2>
+			<span class="home-section-count"><%= cat.length %> 篇</span>
+		</div>
+		<div class="home-post-list">
+			<%
+				let i = 0;
+				cat.posts.sort('date', -1).limit(5).each(function(post){
+			%>
+				<article class="home-post-item">
+					<a class="home-post-title" href="<%= url_for(post.path) %>"><%= post.title %></a>
+					<div class="home-post-meta"><%= post.date.format('YYYY-MM-DD') %></div>
+					<% if (i === 0) { %>
+						<p class="home-post-excerpt"><%- getexcerpt(post.excerpt || post.content, 76, false) %></p>
+					<% } %>
+				</article>
+			<%
+					i++;
+				});
+			%>
+		</div>
+		<a class="home-section-more" href="<%= url_for(cat.path) %>">查看全部 →</a>
+	</section>
+<% }); %>
+</div>
+<div class="home-all">
+	<a class="home-all-link" href="<%= url_for('/archives/') %>">全部文章 · 归档 →</a>
+</div>

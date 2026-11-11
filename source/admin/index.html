@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>内容管理 · 宝宝的小站</title>
+    <link rel="icon" href="/assets/img/favicon-flower.ico" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f5f7;
+        color: #3f4b57;
+        font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+        font-size: 14px;
+      }
+      .loading { text-align: center; line-height: 1.9; }
+      .loading .dot { color: #4f7f9c; }
+    </style>
+  </head>
+  <body>
+    <div class="loading" id="boot">
+      <div>正在加载后台<span class="dot">…</span></div>
+      <div style="font-size: 12px; color: #94a1ad">第一次打开会慢一点</div>
+    </div>
+
+    <script>
+      (function () {
+        // 优先 jsdelivr，连不上就换 unpkg；两边都是 decap-cms 官方 dist
+        var sources = [
+          'https://fastly.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js',
+          'https://unpkg.com/decap-cms@3/dist/decap-cms.js',
+        ];
+        var loaded = false;
+        function load(i) {
+          if (loaded || i >= sources.length) return;
+          var s = document.createElement('script');
+          s.src = sources[i];
+          s.onload = function () {
+            loaded = true;
+            var boot = document.getElementById('boot');
+            if (boot) boot.remove();
+          };
+          s.onerror = function () {
+            load(i + 1);
+          };
+          document.body.appendChild(s);
+        }
+        load(0);
+      })();
+    </script>
+  </body>
+</html>

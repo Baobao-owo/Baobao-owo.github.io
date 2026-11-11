@@ -1,0 +1,110 @@
+# Hexo 站点配置
+# 文档：https://hexo.io/zh-cn/docs/configuration
+
+# 站点
+title: 宝宝的小站
+subtitle: 学习 · 谱面 · 还有乱七八糟的日常
+description: 一个放着笔记、谱面研究和日常想法的角落
+keywords: 博客, 学习笔记, CHUNITHM, 谱面, 日常
+author: baobao
+language: zh-CN
+timezone: Asia/Shanghai
+
+# 网址
+url: https://baobao-owo.github.io
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
+# 目录
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - 'admin/**'
+
+# 写作
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude:
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+# 首页
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+
+default_category: 随笔
+category_map:
+tag_map:
+
+# 元信息
+meta_generator: true
+
+# 日期格式
+date_format: YYYY-MM-DD
+time_format: HH:mm
+updated_option: 'mtime'
+
+# 分页
+per_page: 8
+pagination_dir: page
+
+# 搜索（Argon 用）
+search:
+  path: search.xml
+  field: post
+  content: true
+
+# 归档 / 分类 / 标签生成器
+archive_generator:
+  enabled: true
+  per_page: 8
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
+
+category_generator:
+  enabled: true
+  per_page: 8
+
+tag_generator:
+  enabled: true
+  per_page: 8
+
+include:
+exclude:
+ignore:
+
+# 主题
+theme: argon
+
+# 部署（GitHub Pages 用户站）
+deploy:
+  type: git
+  repo: git@github.com:Baobao-owo/Baobao-owo.github.io.git
+  branch: gh-pages
+  message: 'Site updated: {{ now("yyyy-MM-dd HH:mm:ss") }}'

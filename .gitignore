@@ -1,0 +1,9 @@
+node_modules/
+public/
+.deploy_git/
+db.json
+_shots/
+*.log
+.dsh-office-*/
+tools/_pkg/
+.DS_Store

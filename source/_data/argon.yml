@@ -1,0 +1,166 @@
+# Argon 主题配置
+# 说明：改完记得 hexo clean && hexo g 才会生效
+
+# 全局
+theme_color: '#4f7f9c' # 主题色（冷钢蓝，取自进站封面）
+show_customize_theme_color_picker: true # 右下角设置面板里能换主题色
+darkmode_autoswitch: false # 日夜模式：false 默认日间 / alwayson / system / time
+enable_amoled_dark: false
+card_radius: 14 # 卡片圆角
+card_shadow: small # small / big
+font: sans-serif
+enable_headroom: true # 滚动时自动收起顶栏
+
+# 顶栏
+toolbar_icon: ''
+toolbar_icon_link: ''
+toolbar_title: ''
+toolbar_menu:
+  首页: /
+  归档: /archives
+  关于: /about
+
+# Banner
+banner_title: ''
+enable_banner_title_typing_effect: true
+banner_typing_effect_interval: 110
+banner_subtitle: '学习笔记 · 谱面研究 · 日常碎碎念'
+banner_background_url: '/assets/img/banner-euthanasia.jpg'
+banner_background_hide_shapes: true
+banner_background_color_type: 'shape-primary'
+
+# 侧栏
+sidebar_banner_title: ''
+sidebar_banner_subtitle: '今天也要开心一点'
+sidebar_announcement: ''
+leftbar_menu:
+  首页: /
+  归档: /archives
+  关于: /about
+sidebar_auther_image: '/assets/img/avatar-flower.jpg'
+sidebar_auther_name: 'baobao'
+leftbar_author_links:
+  Bilibili: https://space.bilibili.com/324184620
+leftbar_friend_links: false
+show_headindex_number: true
+
+# 文章
+excerpt: true
+first_image_as_thumbnail: true
+article_meta: time|categories|readingtime
+reading_speed_cn: 300
+reading_speed_en: 160
+donate_qrcode_url: ''
+additional_content_after_post: '本文地址：%link%'
+article_header_style: default
+
+# 背景
+page_background_url: ''
+page_background_dark_url: ''
+page_background_opacity: 1
+transparent_banner: false
+show_toolbar_mask: true
+
+# 浮动按钮
+fab_show_darkmode_button: true
+fab_show_settings_button: true
+fab_show_gotocomment_button: false
+
+# 平滑滚动
+smoothscroll: 1
+
+# 图片
+enable_zoomify: true
+zoomify_duration: 200
+zoomify_easing: cubic-bezier(0.4,0,0,1)
+zoomify_scale: 0.9
+
+# 懒加载
+enable_lazyload: true
+lazyload_threshold: 800
+lazyload_effect: fadeIn
+lazyload_loading_style: 1
+
+# 中英文之间自动加空格
+enable_pangu: true
+
+# 其他
+pjax_disabled: false
+enable_into_article_animation: false
+enable_mobile_scale: false
+
+# 页脚
+footer_html: '<div>用 <i class="fa fa-heart"></i> 记一点东西</div>'
+
+# 数学公式
+math_render: ''
+
+# 代码高亮
+enable_code_highlight: false
+code_theme: atom-one-light
+
+# 自定义脚本
+custom_html_head: |
+  <link rel="stylesheet" href="/assets/css/baobao.css">
+custom_html_foot: |
+  <script>
+    (function () {
+      var last = null;
+      function want() {
+        return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+      }
+      function sync() {
+        var f = document.querySelector('iframe.giscus-frame');
+        if (!f || !f.contentWindow) return;
+        var t = want();
+        if (t === last) return;
+        last = t;
+        f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.setDarkmode) {
+          var orig = window.setDarkmode;
+          window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+        }
+        window.addEventListener('message', function (e) {
+          if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+        });
+        setTimeout(sync, 1500);
+      });
+    })();
+  </script>
+
+# 评论（先全关，以后要开再配）
+gitalk:
+  enable: false
+  owner: ''
+  repo: ''
+  admin: ''
+  clientID: ''
+  clientSecret: ''
+giscus: # https://giscus.app/zh-CN
+  enable: true
+  repo: 'Baobao-owo/Baobao-owo.github.io'
+  repo_id: 'R_kgDOVqnN2A'
+  category: 'Announcements'
+  category_id: 'DIC_kwDOVqnN2M4DK41l'
+  mapping: pathname
+  input_position: top
+  theme: light # 夜间模式由 custom_html_foot 里的脚本切换
+  lang: zh-CN
+  loading: lazy
+waline:
+  enable: false
+  server_url: ''
+twikoo:
+  enable: false
+  envID: ''
+  lang: zh-CN
+
+# 统计
+baidu_analytics:
+  enable: false
+  id: ''
+gtag:
+  enable: false
+  id: ''

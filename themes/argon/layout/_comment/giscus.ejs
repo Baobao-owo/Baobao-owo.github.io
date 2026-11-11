@@ -1,0 +1,29 @@
+<div id="giscus"></div>
+<script>
+  function loadGiscus() {
+    const old = document.querySelector('#giscus script');
+    if (old) old.remove();
+
+    const script = document.createElement('script');
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "<%= theme.giscus.repo %>");
+    script.setAttribute("data-repo-id", "<%= theme.giscus.repo_id %>");
+    script.setAttribute("data-category", "<%= theme.giscus.category %>");
+    script.setAttribute("data-category-id", "<%= theme.giscus.category_id %>");
+    script.setAttribute("data-mapping", "<%= theme.giscus.mapping %>");
+    script.setAttribute("data-input-position", "<%= theme.giscus.input_position %>");
+    script.setAttribute("data-theme", "<%= theme.giscus.theme %>");
+    script.setAttribute("data-lang", "<%= theme.giscus.lang %>");
+    script.setAttribute("data-loading", "<%= theme.giscus.loading %>");
+    script.async = true;
+    script.crossOrigin = "anonymous";
+
+    document.getElementById("giscus").appendChild(script);
+  }
+
+  loadGiscus();
+
+  document.addEventListener('pjax:end', () => {
+    loadGiscus();
+  });
+</script>

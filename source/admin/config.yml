@@ -1,0 +1,84 @@
+# Decap CMS 配置
+# 后台地址：https://baobao-owo.github.io/admin/
+# 登录走 GitHub OAuth，需要把 base_url 换成你自己的 OAuth 代理地址
+
+backend:
+  name: github
+  repo: Baobao-owo/Baobao-owo.github.io
+  branch: main
+  # ↓ 换成你的 OAuth 代理地址（DecapBridge 或自建的 Cloudflare Worker）
+  base_url: https://REPLACE_ME_OAUTH_PROXY
+  auth_endpoint: /auth
+
+locale: zh_Hans
+site_url: https://baobao-owo.github.io
+display_url: https://baobao-owo.github.io
+logo_url: https://baobao-owo.github.io/assets/img/avatar-flower.jpg
+
+media_folder: source/assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 一篇文章
+    folder: source/_posts
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}  ·  {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: [date, title]
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 发布日期
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: 分类
+        name: categories
+        widget: string
+        default: 随笔
+        hint: 直接填分类名；写一个没见过的，首页就会多一块板块
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        default: []
+        allow_add: true
+      - label: 正文
+        name: body
+        widget: markdown
+        hint: 想让首页显示摘要，在正文里单独加一行 <!--more-->
+
+  - name: pages
+    label: 页面
+    label_singular: 一个页面
+    folder: source/about
+    create: false
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 日期
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: 布局
+        name: layout
+        widget: hidden
+        default: page
+      - label: 评论
+        name: comments
+        widget: hidden
+        default: false
+      - label: 正文
+        name: body
+        widget: markdown
