@@ -6,19 +6,19 @@
 # description 板块标题下面的小字，可留空
 # aliases     曾用名，逗号分隔；构建时会自动把文章里的旧分类名改成 name
 #
-# 想新建分类：直接在文章的分类栏里填一个新名字，首页会自动多一块；
-# 再到这个文件里给它排个序、写句简介就行。
+# 没有文章的分类也会在首页占一个位置（显示「还没有文章」），
+# 方便先把结构立起来，之后再往里放内容。
 
 categories:
-  - name: 折腾
+  - name: 杂谈
     order: 1
-    description: 建站、脚本、各种折腾
+    description: 闲聊、杂谈、记录，想到什么写什么
     aliases: ''
-  - name: 游戏
+  - name: 4k谱面记录
     order: 2
-    description: 音游、谱面研究
+    description: 4K 下落式谱面，制作与记录
     aliases: ''
-  - name: 随笔
+  - name: 中二节奏
     order: 3
-    description: 想到什么写什么
+    description: CHUNITHM 成绩、谱面研究
     aliases: ''

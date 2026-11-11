@@ -1,15 +1,27 @@
 <%
 	// 首页：最新更新 + 按分类分板块
-	// 板块顺序和简介来自 source/_data/categories.yml（后台「分类管理」可改），
-	// 没配置过的分类按各自最新文章的先后排在后面。
+	// 板块顺序、简介、以及「还没有文章」的占位板块都来自 source/_data/categories.yml，
+	// 后台「分类管理」可改。没在配置里出现过的分类按各自最新文章排在后面。
 	const latest = site.posts.sort('date', -1).limit(4);
-	const cats = site.categories.toArray().sort(function (a, b) {
-		const oa = cat_meta(a.name).order;
-		const ob = cat_meta(b.name).order;
+	const cfg = configured_categories();
+	const existing = site.categories.toArray();
+	const existingNames = {};
+	existing.forEach(function (c) { existingNames[c.name] = true; });
+
+	const sections = [];
+	existing.forEach(function (cat) {
+		sections.push({ name: cat.name, cat: cat, meta: cat_meta(cat.name) });
+	});
+	cfg.forEach(function (m) {
+		if (!existingNames[m.name]) {
+			sections.push({ name: m.name, cat: null, meta: m });
+		}
+	});
+	sections.sort(function (a, b) {
+		const oa = a.meta.order === undefined || a.meta.order === null ? 999 : Number(a.meta.order);
+		const ob = b.meta.order === undefined || b.meta.order === null ? 999 : Number(b.meta.order);
 		if (oa !== ob) return oa - ob;
-		const pa = a.posts.sort('date', -1).first();
-		const pb = b.posts.sort('date', -1).first();
-		return new Date(pb.date) - new Date(pa.date);
+		return String(a.name).localeCompare(String(b.name), 'zh');
 	});
 %>
 <div class="home-sections">
@@ -31,36 +43,39 @@
 		</div>
 		<a class="home-section-more" href="<%= url_for('/archives/') %>">查看归档 →</a>
 	</section>
-<% cats.forEach(function(cat){ %>
-	<%
-		const meta = cat_meta(cat.name);
-	%>
+<% sections.forEach(function(sec){ %>
 	<section class="home-section card bg-white shadow-sm border-0">
 		<div class="home-section-head">
-			<h2 class="home-section-title"><span class="home-section-dot"></span><%= cat.name %></h2>
-			<span class="home-section-count"><%= cat.length %> 篇</span>
+			<h2 class="home-section-title"><span class="home-section-dot"></span><%= sec.name %></h2>
+			<span class="home-section-count"><%= sec.cat ? sec.cat.length : 0 %> 篇</span>
 		</div>
-		<% if (meta.description) { %>
-			<p class="home-section-desc"><%= meta.description %></p>
+		<% if (sec.meta.description) { %>
+			<p class="home-section-desc"><%= sec.meta.description %></p>
 		<% } %>
-		<div class="home-post-list">
-			<%
-				let i = 0;
-				cat.posts.sort('date', -1).limit(5).each(function(post){
-			%>
-				<article class="home-post-item">
-					<a class="home-post-title" href="<%= url_for(post.path) %>"><%= post.title %></a>
-					<div class="home-post-meta"><%= post.date.format('YYYY-MM-DD') %></div>
-					<% if (i === 0) { %>
-						<p class="home-post-excerpt"><%- getexcerpt(post.excerpt || post.content, 76, false) %></p>
-					<% } %>
-				</article>
-			<%
-					i++;
-				});
-			%>
-		</div>
-		<a class="home-section-more" href="<%= url_for(cat.path) %>">查看全部 →</a>
+		<% if (sec.cat) { %>
+			<div class="home-post-list">
+				<%
+					let i = 0;
+					sec.cat.posts.sort('date', -1).limit(5).each(function(post){
+				%>
+					<article class="home-post-item">
+						<a class="home-post-title" href="<%= url_for(post.path) %>"><%= post.title %></a>
+						<div class="home-post-meta"><%= post.date.format('YYYY-MM-DD') %></div>
+						<% if (i === 0) { %>
+							<p class="home-post-excerpt"><%- getexcerpt(post.excerpt || post.content, 76, false) %></p>
+						<% } %>
+					</article>
+				<%
+						i++;
+					});
+				%>
+			</div>
+			<a class="home-section-more" href="<%= url_for(sec.cat.path) %>">查看全部 →</a>
+		<% } else { %>
+			<div class="home-post-list">
+				<p class="home-section-empty">还没有文章，之后往这里放～</p>
+			</div>
+		<% } %>
 	</section>
 <% }); %>
 </div>

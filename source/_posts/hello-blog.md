@@ -1,7 +1,7 @@
 ---
 title: 开站啦：从零把博客搭起来
 date: 2026-11-11 17:40:00
-categories: 折腾
+categories: 杂谈
 tags: [Hexo, Argon, 建站]
 ---
 

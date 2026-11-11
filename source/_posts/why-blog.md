@@ -1,7 +1,7 @@
 ---
 title: 为什么还要写博客
 date: 2026-11-05 23:10:00
-categories: 随笔
+categories: 杂谈
 tags: [随笔, 建站]
 ---
 

@@ -343,6 +343,16 @@ html.darkmode figure.highlight .meta {
   color: #94a1ad;
 }
 
+.home-section-empty {
+  margin: 8px 0 4px;
+  font-size: 0.85rem;
+  color: #a7b2bd;
+}
+
+html.darkmode .home-section-empty {
+  color: #7d8996;
+}
+
 html.darkmode .home-section-desc {
   color: #8b97a3;
 }

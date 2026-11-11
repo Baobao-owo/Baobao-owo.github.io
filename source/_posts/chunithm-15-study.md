@@ -1,7 +1,7 @@
 ---
 title: 15 级谱面研究：先读谱，再上手
 date: 2026-11-08 21:15:00
-categories: 游戏
+categories: 中二节奏
 tags: [CHUNITHM, 谱面研究, 音游]
 ---
 

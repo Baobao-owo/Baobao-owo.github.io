@@ -34,3 +34,18 @@ hexo.extend.helper.register('cat_meta', function (name) {
     description: hit.description || ''
   };
 });
+
+// 配置里声明的全部分类（包括还没有文章的），首页用来占位
+hexo.extend.helper.register('configured_categories', function () {
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  const list = (data && data.categories && data.categories.categories) || [];
+  return list
+    .filter(function (c) { return c && c.name; })
+    .map(function (c) {
+      return {
+        name: String(c.name),
+        order: c.order === undefined || c.order === null ? 999 : Number(c.order),
+        description: c.description || ''
+      };
+    });
+});
