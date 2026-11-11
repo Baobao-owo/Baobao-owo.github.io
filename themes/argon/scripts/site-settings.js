@@ -23,11 +23,25 @@ hexo.on('generateBefore', function () {
   if (site.announcement) cfg.site_announcement = site.announcement;
 });
 
+function categoryList() {
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  return (data && data.categories && data.categories.categories) || [];
+}
+
+function configuredChildren(name) {
+  const hit = categoryList().find(function (c) { return c && String(c.name) === String(name); });
+  const kids = (hit && hit.children) || [];
+  return kids
+    .map(function (k) {
+      if (typeof k === 'string') return { name: k, description: '' };
+      return { name: String(k.name), description: k.description || '' };
+    })
+    .filter(function (k) { return k.name; });
+}
+
 // 分类（板块）的排序和简介，交给首页模板用
 hexo.extend.helper.register('cat_meta', function (name) {
-  const data = hexo.locals.get ? hexo.locals.get('data') : null;
-  const list = (data && data.categories && data.categories.categories) || [];
-  const hit = list.find(function (c) { return c && String(c.name) === String(name); });
+  const hit = categoryList().find(function (c) { return c && String(c.name) === String(name); });
   if (!hit) return { order: 999, description: '' };
   return {
     order: hit.order === undefined || hit.order === null ? 999 : Number(hit.order),
@@ -37,9 +51,7 @@ hexo.extend.helper.register('cat_meta', function (name) {
 
 // 配置里声明的全部分类（包括还没有文章的），首页用来占位
 hexo.extend.helper.register('configured_categories', function () {
-  const data = hexo.locals.get ? hexo.locals.get('data') : null;
-  const list = (data && data.categories && data.categories.categories) || [];
-  return list
+  return categoryList()
     .filter(function (c) { return c && c.name; })
     .map(function (c) {
       return {
@@ -50,29 +62,28 @@ hexo.extend.helper.register('configured_categories', function () {
     });
 });
 
-// 某个分类的子分类列表（来自 categories.yml 的 children）
+// 某个分类的子分类列表，统一成 { name, description }
 hexo.extend.helper.register('category_children', function (name) {
-  const data = hexo.locals.get ? hexo.locals.get('data') : null;
-  const list = (data && data.categories && data.categories.categories) || [];
-  const hit = list.find(function (c) { return c && String(c.name) === String(name); });
-  return (hit && hit.children) || [];
+  return configuredChildren(name);
+});
+
+// 这个分类是不是「带子分类的板块」（首页点进去先看子分类的那种）
+hexo.extend.helper.register('is_board_with_children', function (name) {
+  if (!name) return false;
+  return configuredChildren(name).length > 0;
 });
 
 // 这个分类名是不是「谱面记录」板块里的（父分类本身或它的子分类）
 hexo.extend.helper.register('is_chart_board', function (name) {
   if (!name) return false;
-  const data = hexo.locals.get ? hexo.locals.get('data') : null;
-  const list = (data && data.categories && data.categories.categories) || [];
-  const board = list.find(function (c) { return c && c.children && c.children.length; });
+  const board = categoryList().find(function (c) { return c && c.children && c.children.length; });
   if (!board) return false;
   if (String(board.name) === String(name)) return true;
-  return (board.children || []).some(function (x) { return String(x) === String(name); });
+  return configuredChildren(board.name).some(function (k) { return String(k.name) === String(name); });
 });
 
 // 谱面记录板块的父分类名
 hexo.extend.helper.register('chart_board_name', function () {
-  const data = hexo.locals.get ? hexo.locals.get('data') : null;
-  const list = (data && data.categories && data.categories.categories) || [];
-  const board = list.find(function (c) { return c && c.children && c.children.length; });
+  const board = categoryList().find(function (c) { return c && c.children && c.children.length; });
   return board ? String(board.name) : '';
 });

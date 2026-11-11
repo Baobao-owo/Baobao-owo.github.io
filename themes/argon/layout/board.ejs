@@ -1,0 +1,41 @@
+<%
+	// 带子分类的板块页：先列出子分类，点进去才是内容
+	const boardName = String(page.category || '');
+	const kids = category_children(boardName);
+	const pathOf = {};
+	site.categories.each(function (c) { pathOf[c.name] = c.path; });
+
+	const posts = page.posts.toArray();
+	function countIn(name) {
+		return posts.filter(function (p) {
+			return p.categories.some(function (c) { return String(c.name) === String(name); });
+		}).length;
+	}
+%>
+<article class="post post-full card bg-white shadow-sm border-0">
+	<div class="post-content" id="post_content">
+		<div class="child-grid">
+		<% kids.forEach(function (kid) { %>
+			<%
+				const path = pathOf[kid.name];
+				const count = countIn(kid.name);
+			%>
+			<% if (path) { %>
+				<a class="child-card" href="<%= url_for(path) %>">
+			<% } else { %>
+				<div class="child-card child-card-empty">
+			<% } %>
+				<div class="child-card-top">
+					<h3><%= kid.name %></h3>
+					<span><%= count %> 篇</span>
+				</div>
+				<% if (kid.description) { %>
+					<p><%= kid.description %></p>
+				<% } %>
+				<span class="child-card-more"><%= path ? '查看 →' : '还没有内容' %></span>
+			<% if (path) { %></a><% } else { %></div><% } %>
+		<% }); %>
+		</div>
+		<p class="board-hint">想看全部？<a href="<%= url_for('/archives/') %>">归档</a> 里按时间列了所有文章。</p>
+	</div>
+</article>

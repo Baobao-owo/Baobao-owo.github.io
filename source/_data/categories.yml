@@ -3,15 +3,14 @@
 #
 # name        显示名，也是文章里该填的分类名
 # order       首页板块的先后（数字小的在前）
-# description 板块标题下面的小字，可留空
-# children    子分类（只在有需要的板块里写，目前是「谱面记录」）
+# description 板块/子分类下面的说明，可留空
+# children    子分类；只有写了 children 的板块在首页点进去会先看到子分类
 # aliases     曾用名，逗号分隔；构建时会自动把文章里的旧分类名改成 name
 #
-# 写法：文章 front-matter 里
+# 写法：文章 front-matter 里属层级分类
 #   categories:
 #     - 谱面记录
 #     - 4k下落式
-# 第一层是父分类，第二层是子分类（Hexo 的层级分类）。
 
 categories:
   - name: 杂谈
@@ -23,9 +22,12 @@ categories:
     description: 自己做的谱面，顺带写点做谱思路
     aliases: '4k谱面记录'
     children:
-      - 4k下落式
-      - 中二节奏谱面
-      - 其它
+      - name: 4k下落式
+        description: osu!mania 之类的 4K 下落式
+      - name: 中二节奏谱面
+        description: CHUNITHM 自制谱
+      - name: 其它
+        description: 不属于上面两类的
   - name: 中二节奏
     order: 3
     description: CHUNITHM 成绩、谱面研究

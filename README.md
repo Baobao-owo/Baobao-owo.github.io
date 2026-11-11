@@ -71,6 +71,15 @@ tags: [Hexo, 建站]
 配置在 `source/_data/argon.yml` 的 `giscus` 段，`repo_id` 和 `category_id` 已经填好了，改仓库或类别才需要动。
 夜间模式靠 `custom_html_foot` 里那一小段脚本给评论框发主题。
 
+## 站点结构（三层）
+
+- **首页**：只放板块入口卡（`themes/argon/layout/home.ejs`），显示板块名、简介、篇数，有子分类的会列出子分类小标签
+- **板块页**：带子分类的板块（目前是「谱面记录」）先列子分类卡（`board.ejs`）；没子分类的板块（杂谈、中二节奏）直接是文章列表（`index.ejs`）
+- **子分类页**：「谱面记录」的子分类用卡片网格（`maps-grid.ejs`），其它子分类走列表
+- **文章页**：内容 + 简介
+
+配置都在 `source/_data/categories.yml`，后台「分类管理」可改。
+
 ## 谱面记录（卡片页）
 
 「谱面记录」板块的分类页不是普通列表，而是卡片网格（`themes/argon/layout/maps-grid.ejs`）：

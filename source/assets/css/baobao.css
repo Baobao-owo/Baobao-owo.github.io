@@ -498,6 +498,193 @@ html.darkmode .map-meta .map-sub {
   color: #b7d0e0;
 }
 
+/* ===== 首页：板块入口 ===== */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* .home-all 也要提上来，否则会被封面图盖住 */
+.home-all {
+  position: relative;
+  z-index: 1;
+}
+
+.board-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 18px;
+  background: #fff;
+  border-radius: var(--card-radius, 12px);
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  box-shadow: 0 2px 12px rgba(79, 127, 156, 0.07);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+a.board-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(79, 127, 156, 0.18);
+  text-decoration: none;
+}
+
+.board-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.board-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.board-card-count {
+  font-size: 0.78rem;
+  color: #97a4b0;
+  white-space: nowrap;
+}
+
+.board-card-desc {
+  margin: 8px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #6b7884;
+}
+
+.board-card-kids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.board-card-kids span {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(79, 127, 156, 0.1);
+  color: #43708d;
+  font-size: 0.74rem;
+}
+
+.board-card-more {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--themecolor);
+}
+
+.board-card-empty {
+  opacity: 0.62;
+}
+
+.board-card-empty .board-card-more {
+  color: #a7b2bd;
+}
+
+/* ===== 板块页：子分类 ===== */
+.child-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(222px, 1fr));
+  gap: 16px;
+}
+
+.child-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.child-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(79, 127, 156, 0.16);
+  text-decoration: none;
+}
+
+.child-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.child-card-top h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.child-card-top span {
+  font-size: 0.76rem;
+  color: #97a4b0;
+  white-space: nowrap;
+}
+
+.child-card p {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #6b7884;
+}
+
+.child-card-more {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--themecolor);
+}
+
+.child-card-empty {
+  opacity: 0.62;
+}
+
+.board-hint {
+  margin: 16px 0 0;
+  font-size: 0.82rem;
+  color: #94a1ad;
+}
+
+.map-back {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  color: var(--themecolor);
+}
+
+/* 夜间 */
+html.darkmode .board-card,
+html.darkmode .child-card {
+  background: #2b3038;
+  border-color: #3a404b;
+  box-shadow: none;
+}
+
+html.darkmode .board-card-title,
+html.darkmode .child-card-top h3 {
+  color: #e7eef4;
+}
+
+html.darkmode .board-card-desc,
+html.darkmode .child-card p {
+  color: #a6b2bd;
+}
+
+html.darkmode .board-card-kids span {
+  background: rgba(79, 127, 156, 0.24);
+  color: #b7d0e0;
+}
+
 html.darkmode .home-section-desc {
   color: #8b97a3;
 }
