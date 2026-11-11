@@ -1,5 +1,5 @@
 <%
-	// 谱面记录的子分类页：卡片网格 + 子分类切换
+	// 谱面记录的子分类页：卡片网格 + 状态/星级筛选 + 排序（默认按上传时间新→旧）
 	const boardName = chart_board_name();
 	const kids = category_children(boardName);
 	const childNames = kids.map(function (k) { return k.name; });
@@ -9,13 +9,6 @@
 	site.categories.each(function (c) { pathOf[c.name] = c.path; });
 
 	const posts = page.posts.sort('date', -1).toArray();
-	function subOf(post) {
-		const names = post.categories.map(function (c) { return c.name; });
-		for (let i = 0; i < names.length; i++) {
-			if (childNames.indexOf(names[i]) !== -1) return names[i];
-		}
-		return '其它';
-	}
 	function coverOf(post) {
 		const map = post.map || {};
 		if (map.cover) return map.cover;
@@ -26,12 +19,12 @@
 		const diffs = (map.diffs || []).filter(function (d) { return d && d.name; });
 		const srs = diffs.map(function (d) { return Number(d.sr); }).filter(function (n) { return !isNaN(n) && n > 0; });
 		if (!diffs.length) {
-			return { count: 0, sr: map.sr ? String(map.sr) : (map.diff || '') };
+			return { count: 0, srMin: null, srMax: null, srText: map.sr ? String(map.sr) : (map.diff || '') };
 		}
 		const min = Math.min.apply(null, srs);
 		const max = Math.max.apply(null, srs);
-		const sr = srs.length === 0 ? '' : (min === max ? min.toFixed(2) : min.toFixed(2) + '–' + max.toFixed(2));
-		return { count: diffs.length, sr: sr };
+		const srText = srs.length === 0 ? '' : (min === max ? min.toFixed(2) : min.toFixed(2) + '–' + max.toFixed(2));
+		return { count: diffs.length, srMin: srs.length ? min : null, srMax: srs.length ? max : null, srText: srText };
 	}
 	const boardPath = pathOf[boardName];
 %>
@@ -57,15 +50,50 @@
 			<% if (posts.length === 0) { %>
 				<div class="map-empty">这个分类还没有谱面，等我做出来再放上来～</div>
 			<% } else { %>
-				<div class="map-grid">
+				<div class="map-filters">
+					<div class="map-filter-group">
+						<span class="map-filter-label">状态</span>
+						<button type="button" class="map-filter-chip active" data-filter="status" data-value="all">全部</button>
+						<button type="button" class="map-filter-chip" data-filter="status" data-value="Graveyard">坟场</button>
+						<button type="button" class="map-filter-chip" data-filter="status" data-value="Ranked">Ranked</button>
+						<button type="button" class="map-filter-chip" data-filter="status" data-value="Loved">Loved</button>
+					</div>
+					<div class="map-filter-group">
+						<span class="map-filter-label">星级</span>
+						<button type="button" class="map-filter-chip active" data-filter="sr" data-value="all">全部</button>
+						<button type="button" class="map-filter-chip" data-filter="sr" data-value="0-4">&lt;4</button>
+						<button type="button" class="map-filter-chip" data-filter="sr" data-value="4-5">4–5</button>
+						<button type="button" class="map-filter-chip" data-filter="sr" data-value="5-6">5–6</button>
+						<button type="button" class="map-filter-chip" data-filter="sr" data-value="6-7">6–7</button>
+						<button type="button" class="map-filter-chip" data-filter="sr" data-value="7-99">7+</button>
+					</div>
+					<label class="map-sort">
+						排序
+						<select id="map-sort">
+							<option value="date-desc">上传时间（新→旧）</option>
+							<option value="date-asc">上传时间（旧→新）</option>
+							<option value="sr-desc">星级（高→低）</option>
+							<option value="sr-asc">星级（低→高）</option>
+							<option value="title">标题</option>
+						</select>
+					</label>
+					<span class="map-count" id="map-count"></span>
+				</div>
+
+				<div class="map-grid" id="map-grid">
 				<% posts.forEach(function (post) { %>
 					<%
 						const map = post.map || {};
 						const cover = coverOf(post);
-						const sub = subOf(post);
 						const sum = diffSummary(map);
+						const srMax = sum.srMax === null ? '' : sum.srMax.toFixed(2);
 					%>
-					<a class="map-card" href="<%= url_for(post.path) %>">
+					<a class="map-card"
+					   href="<%= url_for(post.path) %>"
+					   data-status="<%= map.status || '' %>"
+					   data-sr="<%= srMax %>"
+					   data-date="<%= post.date.format('YYYY-MM-DD') %>"
+					   data-title="<%= post.title %>">
 						<div class="map-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
 							<% if (map.status) { %>
 								<span class="map-status map-status-<%= String(map.status).toLowerCase() %>"><%= map.status %></span>
@@ -77,18 +105,77 @@
 						<div class="map-body">
 							<div class="map-title"><%= post.title %></div>
 							<% if (map.artist) { %><div class="map-artist"><%= map.artist %></div><% } %>
-							<% if (sum.count || sum.sr) { %>
+							<% if (sum.count || sum.srText) { %>
 								<div class="map-line">
 									<% if (sum.count) { %><span class="map-diff"><%= sum.count %> 个难度</span><% } %>
-									<% if (sum.sr) { %><span class="map-sr">★ <%= sum.sr %></span><% } %>
+									<% if (sum.srText) { %><span class="map-sr">★ <%= sum.srText %></span><% } %>
 								</div>
 							<% } %>
+							<div class="map-date"><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= post.date.format('YYYY-MM-DD') %></div>
 						</div>
 					</a>
 				<% }); %>
 				</div>
 			<% } %>
 		</div>
-		<%- partial('_partial/pagination', {page: page}) %>
 	</div>
 </article>
+
+<% if (posts.length > 0) { %>
+<script>
+(function () {
+	var state = { status: 'all', sr: 'all', sort: 'date-desc' };
+	var grid = document.getElementById('map-grid');
+	if (!grid) return;
+	var cards = Array.prototype.slice.call(grid.querySelectorAll('.map-card'));
+	var countEl = document.getElementById('map-count');
+
+	function num(v) { var n = Number(v); return isNaN(n) ? -1 : n; }
+	function inRange(sr, range) {
+		if (range === 'all') return true;
+		var parts = range.split('-');
+		var a = Number(parts[0]);
+		var b = Number(parts[1]);
+		var v = num(sr);
+		if (v < 0) return false;
+		return v >= a && (v < b || (b >= 90 && v >= a));
+	}
+	function matches(card) {
+		if (state.status !== 'all' && card.getAttribute('data-status') !== state.status) return false;
+		return inRange(card.getAttribute('data-sr'), state.sr);
+	}
+	function sortCards() {
+		var list = cards.slice();
+		if (state.sort === 'date-desc') list.sort(function (a, b) { return a.getAttribute('data-date') < b.getAttribute('data-date') ? 1 : -1; });
+		if (state.sort === 'date-asc') list.sort(function (a, b) { return a.getAttribute('data-date') > b.getAttribute('data-date') ? 1 : -1; });
+		if (state.sort === 'sr-desc') list.sort(function (a, b) { return num(b.getAttribute('data-sr')) - num(a.getAttribute('data-sr')); });
+		if (state.sort === 'sr-asc') list.sort(function (a, b) { return num(a.getAttribute('data-sr')) - num(b.getAttribute('data-sr')); });
+		if (state.sort === 'title') list.sort(function (a, b) { return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'), 'zh'); });
+		list.forEach(function (c) { grid.appendChild(c); });
+	}
+	function apply() {
+		var shown = 0;
+		cards.forEach(function (c) {
+			var ok = matches(c);
+			c.style.display = ok ? '' : 'none';
+			if (ok) shown++;
+		});
+		sortCards();
+		if (countEl) countEl.textContent = '显示 ' + shown + ' / ' + cards.length;
+	}
+	document.querySelectorAll('.map-filter-chip').forEach(function (chip) {
+		chip.addEventListener('click', function () {
+			var group = chip.getAttribute('data-filter');
+			state[group] = chip.getAttribute('data-value');
+			document.querySelectorAll('.map-filter-chip[data-filter="' + group + '"]').forEach(function (c) {
+				c.classList.toggle('active', c === chip);
+			});
+			apply();
+		});
+	});
+	var sel = document.getElementById('map-sort');
+	if (sel) sel.addEventListener('change', function () { state.sort = sel.value; apply(); });
+	apply();
+})();
+</script>
+<% } %>

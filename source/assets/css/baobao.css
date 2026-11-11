@@ -1020,8 +1020,7 @@ html.darkmode .home-section-count {
   color: #7f8b96;
 }
 
-/* ===== 属性面板（抄官网那套） ===== */
-.map-stats {
+/* ===== 属性面板（抄官网那套） ===== */.map-stats {
   display: flex;
   flex-wrap: wrap;
   gap: 26px;
@@ -1101,4 +1100,106 @@ html.darkmode .map-bar-value {
 
 html.darkmode .map-bar-track {
   background: #3a404b;
+}
+
+/* ===== 谱面卡片：日期 + 筛选栏 ===== */
+.map-date {
+  margin-top: 8px;
+  font-size: 0.74rem;
+  color: #9aa7b3;
+}
+
+.map-date i {
+  margin-right: 4px;
+}
+
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin: 4px 0 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.12);
+}
+
+.map-filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.map-filter-label {
+  font-size: 0.76rem;
+  color: #97a4b0;
+  margin-right: 2px;
+}
+
+.map-filter-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 0.76rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.map-filter-chip:hover {
+  background: rgba(79, 127, 156, 0.08);
+}
+
+.map-filter-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #97a4b0;
+}
+
+.map-sort select {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #3f4b57;
+  font-size: 0.76rem;
+}
+
+.map-count {
+  margin-left: auto;
+  font-size: 0.74rem;
+  color: #9aa7b3;
+}
+
+html.darkmode .map-filters {
+  background: #2b3038;
+  border-color: #3a404b;
+}
+
+html.darkmode .map-filter-chip,
+html.darkmode .map-sort select {
+  background: #333945;
+  border-color: #444b57;
+  color: #cfe0ec;
+}
+
+html.darkmode .map-filter-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+html.darkmode .map-date {
+  color: #8b98a5;
 }

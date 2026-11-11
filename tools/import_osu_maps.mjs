@@ -119,12 +119,6 @@ for (const s of owned) {
   }
   lines.push('---');
   lines.push('');
-  lines.push('<!--more-->');
-  lines.push('');
-  lines.push('## 简介/杂谈');
-  lines.push('');
-  lines.push('（待补：这首谱想做的东西、结构上怎么处理、踩过什么坑）');
-  lines.push('');
 
   const file = path.join(POSTS, 'osu-' + sid + '.md');
   if (dry) {
