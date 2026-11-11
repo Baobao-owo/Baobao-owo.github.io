@@ -98,3 +98,43 @@ collections:
       - label: 正文
         name: body
         widget: markdown
+
+  - name: settings
+    label: 站点设置
+    label_singular: 站点设置
+    files:
+      - name: site
+        label: 站点信息
+        file: source/_data/site.yml
+        format: yaml
+        fields:
+          - label: 站点名
+            name: title
+            widget: string
+            hint: 顶栏、侧栏、浏览器标题都用它
+          - label: 副标题
+            name: subtitle
+            widget: string
+            hint: 首页封面下面那一行
+          - label: 描述
+            name: description
+            widget: text
+            required: false
+            hint: 给搜索引擎看的摘要
+          - label: 关键词
+            name: keywords
+            widget: string
+            required: false
+          - label: 作者
+            name: author
+            widget: string
+          - label: 封面标语
+            name: banner_subtitle
+            widget: string
+            required: false
+            hint: 封面大标题下面那行小字
+          - label: 侧栏公告
+            name: announcement
+            widget: text
+            required: false
+            hint: 留空就不显示

@@ -327,7 +327,7 @@
 		<% } else { %>
 			<div class="banner-title text-white" data-text="<%= banner_title; %>" data-interval="<%= theme.banner_typing_effect_interval || 100 %>"><span class="banner-title-inner">&nbsp;</span>
 		<% } %>
-		<%- theme.banner_subtitle == '' ? '' : ('<span class="banner-subtitle d-block">' + theme.banner_subtitle + '</span>') %></div>
+		<% let _banner_sub = config.site_banner_subtitle || theme.banner_subtitle; %><%- _banner_sub == '' ? '' : ('<span class="banner-subtitle d-block">' + _banner_sub + '</span>') %></div>
 	</div>
 	<% if (theme.banner_background_url != '') { %>
 		<style>

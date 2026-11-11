@@ -1,10 +1,10 @@
 <div id="sidebar_mask"></div>
 <aside id="leftbar" class="leftbar widget-area" role="complementary">
-		<% if (theme.sidebar_announcement != ''){ %>
+		<% let _ann = config.site_announcement || theme.sidebar_announcement; %><% if (_ann != ''){ %>
 			<div id="leftbar_announcement" class="card bg-white shadow-sm border-0">
 				<div class="leftbar-announcement-body">
 					<div class="leftbar-announcement-title text-white">公告</div>
-					<div class="leftbar-announcement-content text-white"><%= theme.sidebar_announcement %></div>
+					<div class="leftbar-announcement-content text-white"><%= _ann %></div>
 				</div>
 			</div>
 		<% } %>
