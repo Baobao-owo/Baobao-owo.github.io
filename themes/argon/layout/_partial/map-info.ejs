@@ -1,5 +1,5 @@
 <%
-	// 谱面信息条：只在带 map 字段的文章里显示
+	// 谱面信息：封面 + 难度切换 + 官网那套属性面板
 	const map = post.map;
 	if (map) {
 		const cover = map.cover
@@ -8,12 +8,17 @@
 		const mode = map.mode || 'mania';
 		const diffs = (map.diffs || []).filter(function (d) { return d && d.name; });
 		const defaultId = map.beatmap_id ? String(map.beatmap_id) : (diffs.length ? String(diffs[0].id) : '');
-		function osuUrlOf(id) {
-			return 'https://osu.ppy.sh/beatmapsets/' + map.set_id +
-				(id ? ('#' + mode + '/' + id) : '');
-		}
-		const mainUrl = map.set_id ? osuUrlOf(defaultId) : '';
-		const mirrorId = map.set_id ? String(map.set_id) : '';
+		let active = diffs[0] || {};
+		diffs.forEach(function (d) { if (String(d.id) === defaultId) active = d; });
+		const mainUrl = map.set_id
+			? ('https://osu.ppy.sh/beatmapsets/' + map.set_id + (active.id ? ('#' + mode + '/' + active.id) : ''))
+			: '';
+		const statList = [
+			{ key: 'keys', label: '按键数量', max: 10, cls: '' },
+			{ key: 'hp', label: '掉血速度', max: 10, cls: '' },
+			{ key: 'od', label: '准确度要求', max: 10, cls: '' },
+			{ key: 'sr', label: '难度星级', max: 10, cls: 'sr' }
+		];
 %>
 <div class="map-info">
 	<% if (cover) { %>
@@ -30,9 +35,16 @@
 		<% if (diffs.length) { %>
 			<div class="map-diffs">
 				<% diffs.forEach(function (d) { %>
+					<%
+						const payload = {
+							id: d.id, name: d.name, sr: d.sr, keys: d.keys, hp: d.hp, od: d.od,
+							length: d.length, circles: d.circles, combo: d.combo
+						};
+					%>
 					<a class="map-diff-btn<%= String(d.id) === defaultId ? ' active' : '' %>"
-					   href="<%= osuUrlOf(d.id) %>" target="_blank" rel="noopener"
-					   title="在 osu! 上查看这个难度">
+					   href="<%= 'https://osu.ppy.sh/beatmapsets/' + map.set_id + (d.id ? ('#' + mode + '/' + d.id) : '') %>"
+					   target="_blank" rel="noopener"
+					   data-stats="<%- JSON.stringify(payload).replace(/&/g, '&amp;').replace(/"/g, '&quot;') %>">
 						<span class="map-diff-name"><%= d.name %></span>
 						<% if (d.sr) { %><span class="map-diff-sr">★ <%= d.sr %></span><% } %>
 					</a>
@@ -40,27 +52,100 @@
 			</div>
 		<% } %>
 
-		<div class="map-info-grid">
-			<% if (map.keys) { %><div><span>键数</span><b><%= map.keys %>K</b></div><% } %>
-			<% if (map.bpm) { %><div><span>BPM</span><b><%= map.bpm %></b></div><% } %>
-			<% if (map.length) { %><div><span>时长</span><b><%= map.length %></b></div><% } %>
-			<% if (diffs.length) { %><div><span>难度数</span><b><%= diffs.length %></b></div><% } %>
+		<div class="map-stats">
+			<div class="map-stat">
+				<i class="fa fa-clock-o" aria-hidden="true"></i>
+				<span class="map-stat-value" id="stat-length"><%= active.length || '—' %></span>
+				<span>时长</span>
+			</div>
+			<div class="map-stat">
+				<i class="fa fa-music" aria-hidden="true"></i>
+				<span class="map-stat-value"><%= map.bpm || '—' %></span>
+				<span>BPM</span>
+			</div>
+			<div class="map-stat">
+				<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+				<span class="map-stat-value" id="stat-circles"><%= active.circles || '—' %></span>
+				<span>物件数</span>
+			</div>
+			<div class="map-stat">
+				<i class="fa fa-bolt" aria-hidden="true"></i>
+				<span class="map-stat-value" id="stat-combo"><%= active.combo || '—' %></span>
+				<span>最大连击</span>
+			</div>
 		</div>
 
-		<div class="map-info-links">
-			<% if (mainUrl) { %>
+		<div class="map-bars">
+			<% statList.forEach(function (b) { %>
+				<%
+					const v = Number(active[b.key]);
+					const w = isNaN(v) ? 0 : Math.max(0, Math.min(100, (v / b.max) * 100));
+				%>
+				<div class="map-bar">
+					<span class="map-bar-label"><%= b.label %></span>
+					<span class="map-bar-track"><span class="map-bar-fill <%= b.cls %>" id="bar-<%= b.key %>" style="width:<%= w %>%"></span></span>
+					<span class="map-bar-value" id="val-<%= b.key %>"><%= isNaN(v) ? '—' : v %></span>
+				</div>
+			<% }); %>
+		</div>
+
+		<% if (mainUrl) { %>
+			<div class="map-info-links">
 				<div class="map-link-row">
 					<span class="map-link-label">谱面链接</span>
-					<a href="<%= mainUrl %>" target="_blank" rel="noopener"><%= mainUrl %></a>
+					<a id="map-osu-link" href="<%= mainUrl %>" target="_blank" rel="noopener"><%= mainUrl %></a>
 				</div>
-			<% } %>
-			<% if (mirrorId) { %>
-				<div class="map-link-row">
-					<span class="map-link-label">镜像站</span>
-					<span>把 <code><%= mirrorId %></code> 输入 <a href="https://osu.sayobot.cn/home" target="_blank" rel="noopener">osu.sayobot.cn</a> 的搜索框就能下载</span>
-				</div>
-			<% } %>
-		</div>
+			</div>
+		<% } %>
 	</div>
 </div>
+
+<% if (diffs.length) { %>
+<script>
+(function () {
+	var SET = '<%= map.set_id %>';
+	var MODE = '<%= mode %>';
+	function pct(v, max) {
+		v = Number(v);
+		if (isNaN(v) || v < 0) return 0;
+		return Math.max(0, Math.min(100, (v / max) * 100));
+	}
+	function setText(id, text) {
+		var el = document.getElementById(id);
+		if (el) el.textContent = (text === undefined || text === null || text === '') ? '—' : text;
+	}
+	function apply(d) {
+		var btns = document.querySelectorAll('.map-diff-btn');
+		for (var i = 0; i < btns.length; i++) {
+			var stats = JSON.parse(btns[i].getAttribute('data-stats'));
+			btns[i].classList.toggle('active', String(stats.id) === String(d.id));
+		}
+		setText('stat-length', d.length);
+		setText('stat-circles', d.circles);
+		setText('stat-combo', d.combo);
+		['keys', 'hp', 'od'].forEach(function (k) {
+			var bar = document.getElementById('bar-' + k);
+			if (bar) bar.style.width = pct(d[k], 10) + '%';
+			setText('val-' + k, d[k]);
+		});
+		var srBar = document.getElementById('bar-sr');
+		if (srBar) srBar.style.width = pct(d.sr, 10) + '%';
+		setText('val-sr', d.sr);
+		var link = document.getElementById('map-osu-link');
+		if (link && d.id) {
+			var url = 'https://osu.ppy.sh/beatmapsets/' + SET + '#' + MODE + '/' + d.id;
+			link.href = url;
+			link.textContent = url;
+		}
+	}
+	var buttons = document.querySelectorAll('.map-diff-btn');
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', function (e) {
+			e.preventDefault();
+			apply(JSON.parse(this.getAttribute('data-stats')));
+		});
+	}
+})();
+</script>
+<% } %>
 <% } %>

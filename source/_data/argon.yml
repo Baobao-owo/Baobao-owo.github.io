@@ -100,8 +100,7 @@ enable_code_highlight: false
 code_theme: atom-one-light
 
 # 自定义脚本
-custom_html_head: |
-  <link rel="stylesheet" href="/assets/css/baobao.css">
+custom_html_head: '' # baobao.css 现在在 header.ejs 里带版本号引入
 custom_html_foot: |
   <script>
     (function () {

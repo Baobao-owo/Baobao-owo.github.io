@@ -769,7 +769,8 @@ html.darkmode .board-card-kids span {
 
 .map-info-cover {
   width: 100%;
-  height: 158px;
+  height: auto;
+  aspect-ratio: 900 / 250;
   border-radius: 0;
   background-size: cover;
   background-position: center;
@@ -848,15 +849,6 @@ html.darkmode .map-diff-btn {
   color: #dfe8ef;
 }
 
-.map-info-cover {
-  flex: 0 0 180px;
-  height: 110px;
-  border-radius: 8px;
-  background-size: cover;
-  background-position: center;
-  background-color: #e8eef3;
-}
-
 .map-info-cover-empty {
   background: linear-gradient(150deg, #dbe7f0, #c3d6e4);
 }
@@ -915,11 +907,6 @@ html.darkmode .map-diff-btn {
 @media (max-width: 640px) {
   .map-info {
     flex-direction: column;
-  }
-  .map-info-cover {
-    flex: none;
-    width: 100%;
-    height: 140px;
   }
 }
 
@@ -1031,4 +1018,87 @@ html.darkmode .home-post-excerpt {
 
 html.darkmode .home-section-count {
   color: #7f8b96;
+}
+
+/* ===== 属性面板（抄官网那套） ===== */
+.map-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 16px;
+}
+
+.map-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 62px;
+  font-size: 0.72rem;
+  color: #8b98a5;
+}
+
+.map-stat i {
+  font-size: 1rem;
+  color: var(--themecolor);
+}
+
+.map-stat-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #26313c;
+}
+
+.map-bars {
+  max-width: 540px;
+  margin-top: 16px;
+}
+
+.map-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 0.78rem;
+  color: #6b7884;
+}
+
+.map-bar-label {
+  flex: 0 0 76px;
+}
+
+.map-bar-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: #e4ebf2;
+  overflow: hidden;
+}
+
+.map-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: #4f7f9c;
+  transition: width 0.25s ease;
+}
+
+.map-bar-fill.sr {
+  background: #e0a43a;
+}
+
+.map-bar-value {
+  flex: 0 0 42px;
+  text-align: right;
+  font-weight: 600;
+  color: #3f4b57;
+}
+
+html.darkmode .map-stat-value,
+html.darkmode .map-bar-value {
+  color: #e7eef4;
+}
+
+html.darkmode .map-bar-track {
+  background: #3a404b;
 }

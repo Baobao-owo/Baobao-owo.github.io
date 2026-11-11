@@ -45,6 +45,11 @@ for (const b of bids) {
   lines.push(`    - name: ${b.version}`);
   lines.push(`      sr: ${Number(b.star || 0).toFixed(2)}`);
   lines.push(`      keys: ${Math.round(Number(b.CS) || 4)}`);
+  lines.push(`      hp: ${b.HP || ''}`);
+  lines.push(`      od: ${b.OD || ''}`);
+  lines.push(`      ar: ${b.AR || ''}`);
+  lines.push(`      circles: ${b.circles || ''}`);
+  lines.push(`      combo: ${b.maxcombo || ''}`);
   lines.push(`      id: ${b.bid}`);
   lines.push(`      length: '${secToLen(b.length)}'`);
 }

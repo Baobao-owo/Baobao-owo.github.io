@@ -17,36 +17,57 @@ map:
     - name: x0.9
       sr: 5.35
       keys: 4
+      hp: 6
+      od: 8
+      ar: 5
+      circles: 2869
+      combo: 3109
       id: 4875708
       length: '2:48'
     - name: x1.0
       sr: 5.85
       keys: 4
+      hp: 6
+      od: 8
+      ar: 5
+      circles: 2869
+      combo: 3101
       id: 4875709
       length: '2:31'
     - name: x1.1
       sr: 6.33
       keys: 4
+      hp: 6
+      od: 8
+      ar: 5
+      circles: 2869
+      combo: 3093
       id: 4875710
       length: '2:17'
     - name: x1.2
       sr: 6.84
       keys: 4
+      hp: 6
+      od: 8
+      ar: 5
+      circles: 2869
+      combo: 3089
       id: 4875711
       length: '2:06'
     - name: x1.3
       sr: 7.30
       keys: 4
+      hp: 6
+      od: 8
+      ar: 5
+      circles: 2869
+      combo: 3067
       id: 4875712
       length: '1:56'
 ---
 
 <!--more-->
 
-## 简介
+## 简介/杂谈
 
-（待补：这是什么谱、曲子出处、几套难度各自定在哪、大概什么水平的人能打）
-
-## 杂谈
-
-（待补：做的时候怎么想的、踩了什么坑、想让人注意哪一段）
+（待补：这是什么谱、曲子出处、几套难度各自定在哪；做的时候怎么想的、踩了什么坑、想让人注意哪一段）

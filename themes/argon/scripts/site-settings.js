@@ -87,3 +87,16 @@ hexo.extend.helper.register('chart_board_name', function () {
   const board = categoryList().find(function (c) { return c && c.children && c.children.length; });
   return board ? String(board.name) : '';
 });
+
+// 给自定义 CSS 加版本号，改完样式不用手动清缓存
+hexo.extend.helper.register('asset_version', function () {
+  try {
+    const crypto = require('crypto');
+    const fs = require('fs');
+    const path = require('path');
+    const file = path.join(hexo.base_dir, 'source/assets/css/baobao.css');
+    return crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+  } catch (e) {
+    return 'dev';
+  }
+});

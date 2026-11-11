@@ -135,6 +135,26 @@ collections:
                 widget: number
                 value_type: int
                 required: false
+              - label: 掉血 HP
+                name: hp
+                widget: number
+                value_type: float
+                required: false
+              - label: 准确度 OD
+                name: od
+                widget: number
+                value_type: float
+                required: false
+              - label: 物件数
+                name: circles
+                widget: number
+                value_type: int
+                required: false
+              - label: 最大连击
+                name: combo
+                widget: number
+                value_type: int
+                required: false
               - label: 难度 ID
                 name: id
                 widget: number
