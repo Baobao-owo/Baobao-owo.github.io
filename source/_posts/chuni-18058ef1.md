@@ -2,7 +2,8 @@
 title: 'Break The Speakers'
 date: 2026-03-04 12:00:00
 categories:
-  - 中二节奏
+  - 谱面记录
+  - 中二节奏谱面
 tags: [CHUNITHM, 自制谱]
 chuni:
   artist: 'DJ Myosuke'

@@ -1,62 +1,84 @@
 <%
-	// 中二节奏：自制谱卡片（难度分类放在原来星数的位置）
+	// 中二节奏自制谱卡片（难度分类放在原来星数的位置）
+	const boardName = chart_board_name();
+	const kids = category_children(boardName);
+	const current = String(page.category || '');
+	const isChild = kids.some(function (k) { return String(k.name) === current; });
+	const pathOf = {};
+	site.categories.each(function (c) { pathOf[c.name] = c.path; });
+	const boardPath = pathOf[boardName];
+
 	const allPosts = page.posts.sort('date', -1).toArray();
 	const posts = allPosts.filter(function (p) { return p.chuni; });
 	const others = allPosts.filter(function (p) { return !p.chuni; });
-	function coverOf(post) {
-		const c = post.chuni || {};
-		return c.cover || '';
-	}
 %>
 <article class="post post-full card bg-white shadow-sm border-0">
 	<div class="post-content" id="post_content">
-		<% if (posts.length === 0 && others.length === 0) { %>
-			<div class="map-empty">还没有谱面，等我做出来再放上来～</div>
-		<% } else { %>
-			<% if (posts.length) { %>
-			<div class="map-grid">
-			<% posts.forEach(function (post) { %>
-				<%
-					const c = post.chuni || {};
-					const cover = coverOf(post);
-					const diffs = (c.diffs || []).filter(function (d) { return d && (d.cls || d.value); });
-				%>
-				<a class="map-card chuni-card" href="<%= url_for(post.path) %>"
-				   data-date="<%= post.date.format('YYYY-MM-DD') %>"
-				   data-title="<%= post.title %>">
-					<div class="map-cover chuni-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
-						<% if (!cover) { %>
-							<span class="map-cover-letter"><%= post.title.slice(0, 1) %></span>
-						<% } %>
-					</div>
-					<div class="map-body">
-						<div class="map-title"><%= post.title %></div>
-						<% if (c.artist) { %><div class="map-artist"><%= c.artist %></div><% } %>
-						<% if (diffs.length) { %>
-							<div class="map-line chuni-diffs">
-								<% diffs.forEach(function (d) { %>
-									<span class="chuni-diff"><%= d.cls === '速' ? '速 ' + d.value : (d.cls || d.value) %></span>
-								<% }); %>
-							</div>
-						<% } %>
-						<div class="map-date"><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= post.date.format('YYYY-MM-DD') %></div>
-					</div>
-				</a>
-			<% }); %>
-			</div>
+		<div class="map-board">
+			<% if (isChild && boardPath) { %>
+				<a class="map-back" href="<%= url_for(boardPath) %>">← 返回 <%= boardName %></a>
 			<% } %>
-
-			<% if (others.length) { %>
-				<div class="chuni-others">
-					<div class="chuni-others-title">笔记 / 其它</div>
-					<% others.forEach(function (p) { %>
-						<a class="chuni-others-item" href="<%= url_for(p.path) %>">
-							<span><%= p.title %></span>
-							<time><%= p.date.format('YYYY-MM-DD') %></time>
-						</a>
-					<% }); %>
+			<% if (isChild) { %>
+				<div class="map-chips">
+				<% kids.forEach(function (kid) { %>
+					<% const path = pathOf[kid.name]; %>
+					<% if (path) { %>
+						<a class="map-chip<%= current === String(kid.name) ? ' active' : '' %>" href="<%= url_for(path) %>"><%= kid.name %></a>
+					<% } else { %>
+						<span class="map-chip disabled"><%= kid.name %></span>
+					<% } %>
+				<% }); %>
 				</div>
 			<% } %>
-		<% } %>
+
+			<% if (posts.length === 0 && others.length === 0) { %>
+				<div class="map-empty">还没有谱面，等我做出来再放上来～</div>
+			<% } else { %>
+				<% if (posts.length) { %>
+				<div class="map-grid">
+				<% posts.forEach(function (post) { %>
+					<%
+						const c = post.chuni || {};
+						const cover = c.cover || '';
+						const diffs = (c.diffs || []).filter(function (d) { return d && (d.cls || d.value); });
+					%>
+					<a class="map-card chuni-card" href="<%= url_for(post.path) %>"
+					   data-date="<%= post.date.format('YYYY-MM-DD') %>"
+					   data-title="<%= post.title %>">
+						<div class="map-cover chuni-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
+							<% if (!cover) { %>
+								<span class="map-cover-letter"><%= post.title.slice(0, 1) %></span>
+							<% } %>
+						</div>
+						<div class="map-body">
+							<div class="map-title"><%= post.title %></div>
+							<% if (c.artist) { %><div class="map-artist"><%= c.artist %></div><% } %>
+							<% if (diffs.length) { %>
+								<div class="map-line chuni-diffs">
+									<% diffs.forEach(function (d) { %>
+										<span class="chuni-diff"><%= d.cls === '速' ? '速 ' + d.value : (d.cls || d.value) %></span>
+									<% }); %>
+								</div>
+							<% } %>
+							<div class="map-date"><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= post.date.format('YYYY-MM-DD') %></div>
+						</div>
+					</a>
+				<% }); %>
+				</div>
+				<% } %>
+
+				<% if (others.length) { %>
+					<div class="chuni-others">
+						<div class="chuni-others-title">笔记 / 其它</div>
+						<% others.forEach(function (p) { %>
+							<a class="chuni-others-item" href="<%= url_for(p.path) %>">
+								<span><%= p.title %></span>
+								<time><%= p.date.format('YYYY-MM-DD') %></time>
+							</a>
+						<% }); %>
+					</div>
+				<% } %>
+			<% } %>
+		</div>
 	</div>
 </article>

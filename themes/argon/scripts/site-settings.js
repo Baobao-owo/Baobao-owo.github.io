@@ -33,8 +33,8 @@ function configuredChildren(name) {
   const kids = (hit && hit.children) || [];
   return kids
     .map(function (k) {
-      if (typeof k === 'string') return { name: k, description: '' };
-      return { name: String(k.name), description: k.description || '' };
+      if (typeof k === 'string') return { name: k, description: '', style: '' };
+      return { name: String(k.name), description: k.description || '', style: k.style || '' };
     })
     .filter(function (k) { return k.name; });
 }
@@ -88,10 +88,19 @@ hexo.extend.helper.register('chart_board_name', function () {
   return board ? String(board.name) : '';
 });
 
-// 分类的自定义版式（categories.yml 里的 style 字段）
+// 分类的自定义版式（categories.yml 里的 style 字段，板块或子分类都可以写）
 hexo.extend.helper.register('category_style', function (name) {
-  const hit = categoryList().find(function (c) { return c && String(c.name) === String(name); });
-  return (hit && hit.style) || '';
+  if (!name) return '';
+  const n = String(name);
+  const tops = categoryList();
+  for (let i = 0; i < tops.length; i++) {
+    const c = tops[i];
+    if (!c || !c.name) continue;
+    if (String(c.name) === n) return c.style || '';
+    const hit = configuredChildren(c.name).find(function (k) { return String(k.name) === n; });
+    if (hit && hit.style) return hit.style;
+  }
+  return '';
 });
 
 // 给自定义 CSS 加版本号，改完样式不用手动清缓存

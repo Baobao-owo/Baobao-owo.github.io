@@ -26,10 +26,10 @@ categories:
         description: osu!mania 之类的 4K 下落式
       - name: 中二节奏谱面
         description: CHUNITHM 自制谱
+        style: chuni
       - name: 其它
         description: 不属于上面两类的
   - name: 中二节奏
     order: 3
-    description: CHUNITHM 自制谱、成绩记录
+    description: CHUNITHM 成绩、谱面研究笔记
     aliases: ''
-    style: chuni

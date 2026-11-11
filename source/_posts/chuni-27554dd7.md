@@ -2,7 +2,8 @@
 title: 'Just Hold on (To All Fighters)'
 date: 2026-05-23 12:00:00
 categories:
-  - 中二节奏
+  - 谱面记录
+  - 中二节奏谱面
 tags: [CHUNITHM, 自制谱]
 chuni:
   artist: 'void'

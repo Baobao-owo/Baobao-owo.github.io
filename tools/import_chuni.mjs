@@ -105,7 +105,8 @@ for (const item of list) {
   out.push('title: ' + yamlStr(title || '未命名'));
   out.push('date: ' + date);
   out.push('categories:');
-  out.push('  - 中二节奏');
+  out.push('  - 谱面记录');
+  out.push('  - 中二节奏谱面');
   out.push('tags: [CHUNITHM, 自制谱]');
   out.push('chuni:');
   out.push('  artist: ' + yamlStr(artist));
