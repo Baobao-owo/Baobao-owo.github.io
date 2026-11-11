@@ -30,8 +30,9 @@
 
     <script>
       (function () {
-        // 优先 jsdelivr，连不上就换 unpkg；两边都是 decap-cms 官方 dist
+        // 优先用站内打包的版本（不依赖 CDN）；万一丢了再退回 jsdelivr / unpkg
         var sources = [
+          '/admin/static/decap-cms.js',
           'https://fastly.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js',
           'https://unpkg.com/decap-cms@3/dist/decap-cms.js',
         ];
@@ -51,6 +52,20 @@
           document.body.appendChild(s);
         }
         load(0);
+
+        // 登录代理还没填的时候，给个明确提示，别让人对着报错发愣
+        fetch('/admin/config.yml')
+          .then(function (r) { return r.text(); })
+          .then(function (t) {
+            if (t.indexOf('REPLACE_ME_OAUTH_PROXY') === -1) return;
+            var d = document.createElement('div');
+            d.textContent = '登录还没接好：OAuth 代理地址待填写';
+            d.style.cssText =
+              'position:fixed;top:12px;left:50%;transform:translateX(-50%);background:#fff3cd;color:#7a5b00;' +
+              'padding:8px 14px;border-radius:8px;font-size:13px;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,.08)';
+            document.body.appendChild(d);
+          })
+          .catch(function () {});
       })();
     </script>
   </body>
