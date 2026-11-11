@@ -25,7 +25,7 @@ banner_title: ''
 enable_banner_title_typing_effect: true
 banner_typing_effect_interval: 110
 banner_subtitle: '学习笔记 · 谱面研究 · 日常碎碎念'
-banner_background_url: '/assets/img/banner-euthanasia.jpg'
+banner_background_url: '' # 现在由 site.yml 的 banner_image 管，见 header.ejs 的 --banner-image
 banner_background_hide_shapes: true
 banner_background_color_type: 'shape-primary'
 

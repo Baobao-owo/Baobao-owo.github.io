@@ -1,0 +1,24 @@
+# 板块（分类）管理
+# 后台「分类管理」里改的就是这个文件。
+#
+# name        显示名，也是文章里该填的分类名
+# order       首页板块的先后（数字小的在前）
+# description 板块标题下面的小字，可留空
+# aliases     曾用名，逗号分隔；构建时会自动把文章里的旧分类名改成 name
+#
+# 想新建分类：直接在文章的分类栏里填一个新名字，首页会自动多一块；
+# 再到这个文件里给它排个序、写句简介就行。
+
+categories:
+  - name: 折腾
+    order: 1
+    description: 建站、脚本、各种折腾
+    aliases: ''
+  - name: 游戏
+    order: 2
+    description: 音游、谱面研究
+    aliases: ''
+  - name: 随笔
+    order: 3
+    description: 想到什么写什么
+    aliases: ''

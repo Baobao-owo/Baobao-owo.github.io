@@ -19,5 +19,18 @@ hexo.on('generateBefore', function () {
   });
 
   if (site.banner_subtitle) cfg.site_banner_subtitle = site.banner_subtitle;
+  if (site.banner_image) cfg.site_banner_image = site.banner_image;
   if (site.announcement) cfg.site_announcement = site.announcement;
+});
+
+// 分类（板块）的排序和简介，交给首页模板用
+hexo.extend.helper.register('cat_meta', function (name) {
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  const list = (data && data.categories && data.categories.categories) || [];
+  const hit = list.find(function (c) { return c && String(c.name) === String(name); });
+  if (!hit) return { order: 999, description: '' };
+  return {
+    order: hit.order === undefined || hit.order === null ? 999 : Number(hit.order),
+    description: hit.description || ''
+  };
 });

@@ -304,6 +304,12 @@
 	</div>
 </div>
 <!--Banner-->
+<%
+	let _banner_img = config.site_banner_image || '/assets/img/banner-euthanasia.jpg';
+%>
+<style id="site_banner_image_css">
+	:root { --banner-image: url("<%= _banner_img %>"); }
+</style>
 <section id="banner" class="banner section section-lg section-shaped">
 	<div class="shape <%= theme.banner_background_hide_shapes ? '' : 'shape-style-1' %> <%= theme.banner_background_color_type %>">
 		<span></span>

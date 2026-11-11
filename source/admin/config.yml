@@ -138,3 +138,44 @@ collections:
             widget: text
             required: false
             hint: 留空就不显示
+          - label: 进站封面
+            name: banner_image
+            widget: image
+            required: false
+            hint: 建议用横向图（1920 宽左右）
+
+  - name: categories
+    label: 分类管理
+    label_singular: 分类
+    files:
+      - name: categories
+        label: 板块
+        file: source/_data/categories.yml
+        format: yaml
+        fields:
+          - label: 分类列表
+            name: categories
+            widget: list
+            label_singular: 分类
+            summary: "{{fields.name}}（排序 {{fields.order}}）"
+            fields:
+              - label: 显示名
+                name: name
+                widget: string
+                hint: 也是文章里该填的分类名
+              - label: 排序
+                name: order
+                widget: number
+                value_type: int
+                default: 99
+                hint: 数字小的排前面
+              - label: 简介
+                name: description
+                widget: string
+                required: false
+                hint: 显示在板块标题下面，可留空
+              - label: 曾用名
+                name: aliases
+                widget: string
+                required: false
+                hint: 多个用逗号分隔；保存后构建时会自动把文章里的旧分类名改过来

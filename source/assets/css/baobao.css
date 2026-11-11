@@ -79,7 +79,7 @@ section#banner.banner {
       rgba(244, 245, 247, 0.6) 79%,
       #f4f5f7 100%
     ),
-    url("/assets/img/banner-euthanasia.jpg") !important;
+    var(--banner-image, url("/assets/img/banner-euthanasia.jpg")) !important;
   background-size: cover !important;
   background-position: center 62% !important;
   background-repeat: no-repeat !important;
@@ -99,7 +99,7 @@ html.darkmode section#banner.banner {
       #303030 100%
     ),
     linear-gradient(rgba(16, 22, 30, 0.45), rgba(16, 22, 30, 0.45)),
-    url("/assets/img/banner-euthanasia.jpg") !important;
+    var(--banner-image, url("/assets/img/banner-euthanasia.jpg")) !important;
 }
 
 /* 正文小标题前面点一颗小圆点（跟随主题色） */
@@ -335,6 +335,16 @@ html.darkmode figure.highlight .meta {
 .home-section-count {
   font-size: 0.78rem;
   color: #97a4b0;
+}
+
+.home-section-desc {
+  margin: -2px 0 4px;
+  font-size: 0.8rem;
+  color: #94a1ad;
+}
+
+html.darkmode .home-section-desc {
+  color: #8b97a3;
 }
 
 .home-post-list {

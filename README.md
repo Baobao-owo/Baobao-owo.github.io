@@ -71,6 +71,16 @@ tags: [Hexo, 建站]
 配置在 `source/_data/argon.yml` 的 `giscus` 段，`repo_id` 和 `category_id` 已经填好了，改仓库或类别才需要动。
 夜间模式靠 `custom_html_foot` 里那一小段脚本给评论框发主题。
 
+## 网页后台
+
+线上有 `/admin`（<https://baobao-owo.github.io/admin/>），Decap CMS + DecapBridge 登录，能改：
+
+- **文章**、**页面**（关于）
+- **站点设置**：站名、副标题、描述、关键词、作者、封面标语、侧栏公告、进站封面图
+- **分类管理**：板块顺序、简介、改名（填「曾用名」，构建时自动把文章里的旧分类名换掉）
+
+站点设置写的是 `source/_data/site.yml`，分类管理写的是 `source/_data/categories.yml`，都不会碰 `_config.yml` 里那些注释和部署配置。保存后 Actions 自动构建，一两分钟上线。
+
 ## 已经上线
 
 线上地址：<https://baobao-owo.github.io/>

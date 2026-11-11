@@ -1,7 +1,12 @@
 <%
 	// 首页：最新更新 + 按分类分板块
+	// 板块顺序和简介来自 source/_data/categories.yml（后台「分类管理」可改），
+	// 没配置过的分类按各自最新文章的先后排在后面。
 	const latest = site.posts.sort('date', -1).limit(4);
 	const cats = site.categories.toArray().sort(function (a, b) {
+		const oa = cat_meta(a.name).order;
+		const ob = cat_meta(b.name).order;
+		if (oa !== ob) return oa - ob;
 		const pa = a.posts.sort('date', -1).first();
 		const pb = b.posts.sort('date', -1).first();
 		return new Date(pb.date) - new Date(pa.date);
@@ -27,11 +32,17 @@
 		<a class="home-section-more" href="<%= url_for('/archives/') %>">查看归档 →</a>
 	</section>
 <% cats.forEach(function(cat){ %>
+	<%
+		const meta = cat_meta(cat.name);
+	%>
 	<section class="home-section card bg-white shadow-sm border-0">
 		<div class="home-section-head">
 			<h2 class="home-section-title"><span class="home-section-dot"></span><%= cat.name %></h2>
 			<span class="home-section-count"><%= cat.length %> 篇</span>
 		</div>
+		<% if (meta.description) { %>
+			<p class="home-section-desc"><%= meta.description %></p>
+		<% } %>
 		<div class="home-post-list">
 			<%
 				let i = 0;
