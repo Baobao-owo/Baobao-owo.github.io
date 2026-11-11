@@ -56,15 +56,62 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
       - label: 分类
         name: categories
-        widget: string
-        default: 随笔
-        hint: 直接填分类名；写一个没见过的，首页就会多一块板块
+        widget: select
+        multiple: true
+        options:
+          - 杂谈
+          - 谱面记录
+          - 4k下落式
+          - 中二节奏谱面
+          - 其它
+          - 中二节奏
+        default: [杂谈]
+        hint: 谱面的先选「谱面记录」，再选一个子分类（4k下落式 / 中二节奏谱面 / 其它）
       - label: 标签
         name: tags
         widget: list
         required: false
         default: []
         allow_add: true
+      - label: 谱面信息（谱面记录用，其它文章留空）
+        name: map
+        widget: object
+        required: false
+        fields:
+          - label: 艺术家
+            name: artist
+            widget: string
+            required: false
+          - label: 难度名
+            name: diff
+            widget: string
+            required: false
+          - label: BPM
+            name: bpm
+            widget: number
+            value_type: float
+            required: false
+          - label: 时长
+            name: length
+            widget: string
+            required: false
+            hint: 例如 2:34
+          - label: osu 谱面集 ID
+            name: set_id
+            widget: number
+            value_type: int
+            required: false
+            hint: 填了会自动用 osu 的封面图，比如链接里 beatmapsets/2285703 就是 2285703
+          - label: 状态
+            name: status
+            widget: select
+            options: [Ranked, Loved, Graveyard, WIP]
+            required: false
+          - label: 自定义封面
+            name: cover
+            widget: image
+            required: false
+            hint: 不填就用 osu 封面
       - label: 正文
         name: body
         widget: markdown

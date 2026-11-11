@@ -1,0 +1,75 @@
+<%
+	// 谱面记录：按子分类筛卡片，点卡片进文章看思路
+	const boardName = chart_board_name();
+	const children = category_children(boardName);
+	const current = String(page.category || '');
+	const isBoardPage = current === boardName;
+
+	const existingPath = {};
+	site.categories.each(function (c) { existingPath[c.name] = c.path; });
+
+	const posts = page.posts.sort('date', -1).toArray();
+	function subOf(post) {
+		const names = post.categories.map(function (c) { return c.name; });
+		for (let i = 0; i < names.length; i++) {
+			if (children.indexOf(names[i]) !== -1) return names[i];
+		}
+		return '其它';
+	}
+	function coverOf(post) {
+		const map = post.map || {};
+		if (map.cover) return map.cover;
+		if (map.set_id) return 'https://assets.ppy.sh/beatmaps/' + map.set_id + '/covers/cover.jpg';
+		return '';
+	}
+%>
+<article class="post post-full card bg-white shadow-sm border-0">
+	<div class="post-content" id="post_content">
+		<div class="map-board">
+			<div class="map-chips">
+				<a class="map-chip<%= isBoardPage ? ' active' : '' %>" href="<%= url_for(existingPath[boardName] || '/archives/') %>">全部</a>
+			<% children.forEach(function (name) { %>
+				<%
+					const path = existingPath[name];
+				%>
+				<% if (path) { %>
+					<a class="map-chip<%= current === String(name) ? ' active' : '' %>" href="<%= url_for(path) %>"><%= name %></a>
+				<% } else { %>
+					<span class="map-chip disabled"><%= name %></span>
+				<% } %>
+			<% }); %>
+			</div>
+
+			<% if (posts.length === 0) { %>
+				<div class="map-empty">这个板块还没有谱面，等我做出来再放上来～</div>
+			<% } else { %>
+				<div class="map-grid">
+				<% posts.forEach(function (post) { %>
+					<%
+						const map = post.map || {};
+						const cover = coverOf(post);
+						const sub = subOf(post);
+					%>
+					<a class="map-card" href="<%= url_for(post.path) %>">
+						<div class="map-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
+							<% if (!cover) { %>
+								<span><%= post.title.slice(0, 1) %></span>
+							<% } %>
+						</div>
+						<div class="map-body">
+							<div class="map-title"><%= post.title %></div>
+							<% if (map.artist) { %><div class="map-artist"><%= map.artist %></div><% } %>
+							<div class="map-meta">
+								<% if (map.diff) { %><span><%= map.diff %></span><% } %>
+								<% if (map.bpm) { %><span><%= map.bpm %> BPM</span><% } %>
+								<% if (map.length) { %><span><%= map.length %></span><% } %>
+								<span class="map-sub"><%= sub %></span>
+							</div>
+						</div>
+					</a>
+				<% }); %>
+				</div>
+			<% } %>
+		</div>
+	</div>
+</article>

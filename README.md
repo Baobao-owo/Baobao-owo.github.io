@@ -71,6 +71,17 @@ tags: [Hexo, 建站]
 配置在 `source/_data/argon.yml` 的 `giscus` 段，`repo_id` 和 `category_id` 已经填好了，改仓库或类别才需要动。
 夜间模式靠 `custom_html_foot` 里那一小段脚本给评论框发主题。
 
+## 谱面记录（卡片页）
+
+「谱面记录」板块的分类页不是普通列表，而是卡片网格（`themes/argon/layout/maps-grid.ejs`）：
+
+- 顶部是子分类筛选条（4k下落式 / 中二节奏谱面 / 其它）
+- 每张卡片读文章 front-matter 里的 `map` 字段：`artist`、`diff`、`bpm`、`length`、`set_id`、`status`、`cover`
+- 填了 `set_id` 会自动用 osu 的封面图（`assets.ppy.sh/beatmaps/<id>/covers/cover.jpg`），也可以用 `cover` 传自己的图
+- 卡片点进去就是文章，正文里写做谱思路
+
+文章分类要写成层级：先 `谱面记录`，再选一个子分类。
+
 ## 网页后台
 
 线上有 `/admin`（<https://baobao-owo.github.io/admin/>），Decap CMS + DecapBridge 登录，能改：

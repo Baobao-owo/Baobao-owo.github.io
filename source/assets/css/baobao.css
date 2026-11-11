@@ -353,6 +353,151 @@ html.darkmode .home-section-empty {
   color: #7d8996;
 }
 
+/* ===== 谱面记录：卡片 ===== */
+.map-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.map-chip {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.3);
+  font-size: 0.82rem;
+  color: #4f7f9c;
+  background: transparent;
+}
+
+.map-chip:hover {
+  background: rgba(79, 127, 156, 0.08);
+  text-decoration: none;
+}
+
+.map-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-chip.disabled {
+  color: #b3bec8;
+  border-color: #e3e8ed;
+  cursor: default;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 16px;
+}
+
+.map-card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  box-shadow: 0 2px 10px rgba(79, 127, 156, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(79, 127, 156, 0.18);
+  text-decoration: none;
+}
+
+.map-cover {
+  height: 112px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.map-cover-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, #dbe7f0, #c3d6e4);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.map-body {
+  padding: 10px 12px 12px;
+}
+
+.map-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #26313c;
+  line-height: 1.4;
+}
+
+.map-artist {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #8b98a5;
+}
+
+.map-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+  font-size: 0.72rem;
+  color: #6b7884;
+}
+
+.map-meta span {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #f2f5f8;
+}
+
+.map-meta .map-sub {
+  background: rgba(79, 127, 156, 0.12);
+  color: #43708d;
+}
+
+.map-empty {
+  padding: 26px 4px;
+  font-size: 0.88rem;
+  color: #a7b2bd;
+}
+
+/* 夜间 */
+html.darkmode .map-card {
+  background: #2b3038;
+  border-color: #3a404b;
+  box-shadow: none;
+}
+
+html.darkmode .map-title {
+  color: #e7eef4;
+}
+
+html.darkmode .map-artist {
+  color: #8b98a5;
+}
+
+html.darkmode .map-meta {
+  color: #a6b2bd;
+}
+
+html.darkmode .map-meta span {
+  background: #343a44;
+}
+
+html.darkmode .map-meta .map-sub {
+  background: rgba(79, 127, 156, 0.28);
+  color: #b7d0e0;
+}
+
 html.darkmode .home-section-desc {
   color: #8b97a3;
 }

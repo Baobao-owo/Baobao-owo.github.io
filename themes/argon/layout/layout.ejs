@@ -27,7 +27,11 @@
 			<%- include('index.ejs') %>
 		<% } %>
 		<% if (is_category()) { %>
-			<%- include('index.ejs') %>
+			<% if (is_chart_board(page.category)) { %>
+				<%- include('maps-grid.ejs') %>
+			<% } else { %>
+				<%- include('index.ejs') %>
+			<% } %>
 		<% } %>
 
 <%- include('footer.ejs') %>

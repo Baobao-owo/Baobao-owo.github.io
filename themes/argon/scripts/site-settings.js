@@ -49,3 +49,30 @@ hexo.extend.helper.register('configured_categories', function () {
       };
     });
 });
+
+// 某个分类的子分类列表（来自 categories.yml 的 children）
+hexo.extend.helper.register('category_children', function (name) {
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  const list = (data && data.categories && data.categories.categories) || [];
+  const hit = list.find(function (c) { return c && String(c.name) === String(name); });
+  return (hit && hit.children) || [];
+});
+
+// 这个分类名是不是「谱面记录」板块里的（父分类本身或它的子分类）
+hexo.extend.helper.register('is_chart_board', function (name) {
+  if (!name) return false;
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  const list = (data && data.categories && data.categories.categories) || [];
+  const board = list.find(function (c) { return c && c.children && c.children.length; });
+  if (!board) return false;
+  if (String(board.name) === String(name)) return true;
+  return (board.children || []).some(function (x) { return String(x) === String(name); });
+});
+
+// 谱面记录板块的父分类名
+hexo.extend.helper.register('chart_board_name', function () {
+  const data = hexo.locals.get ? hexo.locals.get('data') : null;
+  const list = (data && data.categories && data.categories.categories) || [];
+  const board = list.find(function (c) { return c && c.children && c.children.length; });
+  return board ? String(board.name) : '';
+});
