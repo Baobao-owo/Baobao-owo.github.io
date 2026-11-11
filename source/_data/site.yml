@@ -1,10 +1,7 @@
-# 站点信息（后台「站点设置」里改的就是这个文件）
-# 这里的值会覆盖 _config.yml 里的同名项，改完提交后自动构建生效
-
-title: 宝宝的小站
+title: FDShijing的小站
 subtitle: 学习 · 谱面 · 还有乱七八糟的日常
-description: 一个放着笔记、谱面研究和日常想法的角落
+description: 闲聊，杂谈，记录，部分工具
 keywords: 博客, 学习笔记, CHUNITHM, 谱面, 日常
-author: baobao
+author: FDShijing
 banner_subtitle: 学习笔记 · 谱面研究 · 日常碎碎念
-announcement: ''
+announcement: ""
