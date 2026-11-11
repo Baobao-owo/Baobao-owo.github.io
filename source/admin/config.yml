@@ -1,14 +1,30 @@
 # Decap CMS 配置
-# 后台地址：https://baobao-owo.github.io/admin/
-# 登录走 GitHub OAuth，需要把 base_url 换成你自己的 OAuth 代理地址
+# 后台：https://baobao-owo.github.io/admin/
+# 登录走 DecapBridge（PKCE），提交通过它的 gateway 落到仓库 main
 
 backend:
-  name: github
+  name: git-gateway
   repo: Baobao-owo/Baobao-owo.github.io
   branch: main
-  # ↓ 换成你的 OAuth 代理地址（DecapBridge 或自建的 Cloudflare Worker）
-  base_url: https://REPLACE_ME_OAUTH_PROXY
-  auth_endpoint: /auth
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/8f0f951c-346f-401d-ad2b-c39dc10f739e/pkce
+  auth_token_endpoint: /sites/8f0f951c-346f-401d-ad2b-c39dc10f739e/token
+  gateway_url: https://gateway.decapbridge.com
+
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
 
 locale: zh_Hans
 site_url: https://baobao-owo.github.io
