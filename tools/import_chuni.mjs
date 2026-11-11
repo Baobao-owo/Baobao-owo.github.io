@@ -8,13 +8,7 @@ const EXE = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const ROOT = process.cwd();
 const POSTS = path.join(ROOT, 'source/_posts');
 const dry = process.argv.includes('--dry');
-const listPath = path.join(ROOT, '_shots/pgko.json');
-
-if (!fs.existsSync(listPath)) {
-  console.error('缺少 _shots/pgko.json（先用抓取脚本拿列表）');
-  process.exit(1);
-}
-const list = JSON.parse(fs.readFileSync(listPath, 'utf8'));
+const PROFILE = 'https://pgko.dev/users/fdshijing';
 
 const yamlStr = (v) => "'" + String(v).replace(/'/g, "''") + "'";
 
@@ -32,6 +26,35 @@ const browser = await puppeteer.launch({
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 1400 });
+
+// 1. 先从个人页抓歌包列表（id / 封面 / 卡片文字）
+await page.goto(PROFILE, { waitUntil: 'networkidle2', timeout: 90000 });
+await new Promise((r) => setTimeout(r, 4000));
+for (let i = 0; i < 12; i++) {
+  await page.evaluate(() => window.scrollBy(0, 1200));
+  await new Promise((r) => setTimeout(r, 700));
+}
+const list = await page.evaluate(() => {
+  const out = [];
+  const seen = new Set();
+  document.querySelectorAll('a[href*="/bundles/"]').forEach((a) => {
+    const m = a.href.match(/\/bundles\/([0-9a-f-]{36})/);
+    if (!m) return;
+    const id = m[1];
+    if (seen.has(id)) return;
+    let el = a;
+    let card = null;
+    for (let i = 0; i < 8 && el; i++) {
+      el = el.parentElement;
+      if (el && el.querySelector('img') && (el.innerText || '').length > 20) { card = el; break; }
+    }
+    seen.add(id);
+    const img = card ? card.querySelector('img') : null;
+    out.push({ id, img: img ? img.getAttribute('src') : null, text: card ? (card.innerText || '').replace(/\s+/g, ' ').slice(0, 300) : '' });
+  });
+  return out;
+});
+console.log('歌包数量:', list.length);
 
 let created = 0;
 for (const item of list) {
@@ -72,6 +95,10 @@ for (const item of list) {
 
   const date = parseDate(item.text) || '2026-01-01 12:00:00';
   const file = path.join(POSTS, 'chuni-' + item.id.slice(-8) + '.md');
+  if (fs.existsSync(file) && !process.argv.includes('--force')) {
+    console.log('已存在，跳过', path.basename(file));
+    continue;
+  }
 
   const out = [];
   out.push('---');
