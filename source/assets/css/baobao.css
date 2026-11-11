@@ -685,6 +685,173 @@ html.darkmode .board-card-kids span {
   color: #b7d0e0;
 }
 
+/* ===== 谱面卡片上的状态徽章、星级 ===== */
+.map-cover {
+  position: relative;
+}
+
+.map-status {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #8b98a5;
+}
+
+.map-status-ranked {
+  background: #3fa66e;
+}
+
+.map-status-loved {
+  background: #e06ea8;
+}
+
+.map-status-graveyard {
+  background: #7c8a99;
+}
+
+.map-status-wip {
+  background: #c9922f;
+}
+
+.map-cover-letter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.map-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.map-diff {
+  color: #4f7f9c;
+  font-weight: 600;
+}
+
+.map-sr {
+  color: #b06a2a;
+  font-weight: 600;
+}
+
+/* ===== 文章页：谱面信息条 ===== */
+.map-info {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.14);
+}
+
+.map-info-cover {
+  flex: 0 0 180px;
+  height: 110px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.map-info-cover-empty {
+  background: linear-gradient(150deg, #dbe7f0, #c3d6e4);
+}
+
+.map-info-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-info-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.map-info-artist {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #8b98a5;
+}
+
+.map-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: 6px 10px;
+  margin-top: 10px;
+}
+
+.map-info-grid div {
+  font-size: 0.78rem;
+}
+
+.map-info-grid div span {
+  display: block;
+  font-size: 0.68rem;
+  color: #a3aebb;
+}
+
+.map-info-grid div b {
+  color: #3f4b57;
+  font-weight: 600;
+}
+
+.map-info-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.map-info-links a {
+  color: var(--themecolor);
+}
+
+@media (max-width: 640px) {
+  .map-info {
+    flex-direction: column;
+  }
+  .map-info-cover {
+    flex: none;
+    width: 100%;
+    height: 140px;
+  }
+}
+
+html.darkmode .map-info {
+  background: #2b3038;
+  border-color: #3a404b;
+}
+
+html.darkmode .map-info-title {
+  color: #e7eef4;
+}
+
+html.darkmode .map-info-grid div b {
+  color: #dfe8ef;
+}
+
+html.darkmode .map-info-grid div span,
+html.darkmode .map-info-artist {
+  color: #8b98a5;
+}
+
 html.darkmode .home-section-desc {
   color: #8b97a3;
 }

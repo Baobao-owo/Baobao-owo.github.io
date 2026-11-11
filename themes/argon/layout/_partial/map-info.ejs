@@ -1,0 +1,33 @@
+<%
+	// 谱面信息条：只在带 map 字段的文章里显示
+	const map = post.map;
+	if (map) {
+		const cover = map.cover
+			? map.cover
+			: (map.set_id ? 'https://assets.ppy.sh/beatmaps/' + map.set_id + '/covers/cover.jpg' : '');
+		const osuUrl = map.set_id
+			? ('https://osu.ppy.sh/beatmapsets/' + map.set_id + (map.beatmap_id ? ('#mania/' + map.beatmap_id) : ''))
+			: '';
+		const mirrorUrl = map.set_id ? ('https://osu.sayobot.cn/beatmaps/' + map.set_id) : '';
+%>
+<div class="map-info">
+	<div class="map-info-cover<%= cover ? '' : ' map-info-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>></div>
+	<div class="map-info-body">
+		<h3 class="map-info-title"><%= post.title %></h3>
+		<% if (map.artist) { %><div class="map-info-artist"><%= map.artist %></div><% } %>
+		<div class="map-info-grid">
+			<% if (map.diff) { %><div><span>难度</span><b><%= map.diff %></b></div><% } %>
+			<% if (map.sr) { %><div><span>星级</span><b>★ <%= map.sr %></b></div><% } %>
+			<% if (map.keys) { %><div><span>键数</span><b><%= map.keys %>K</b></div><% } %>
+			<% if (map.bpm) { %><div><span>BPM</span><b><%= map.bpm %></b></div><% } %>
+			<% if (map.length) { %><div><span>时长</span><b><%= map.length %></b></div><% } %>
+			<% if (map.mapper) { %><div><span>谱师</span><b><%= map.mapper %></b></div><% } %>
+			<% if (map.status) { %><div><span>状态</span><b><%= map.status %></b></div><% } %>
+		</div>
+		<div class="map-info-links">
+			<% if (osuUrl) { %><a href="<%= osuUrl %>" target="_blank" rel="noopener">在 osu! 上看 →</a><% } %>
+			<% if (mirrorUrl) { %><a href="<%= mirrorUrl %>" target="_blank" rel="noopener">镜像站 →</a><% } %>
+		</div>
+	</div>
+</div>
+<% } %>

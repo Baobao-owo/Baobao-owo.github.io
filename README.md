@@ -85,8 +85,10 @@ tags: [Hexo, 建站]
 「谱面记录」板块的分类页不是普通列表，而是卡片网格（`themes/argon/layout/maps-grid.ejs`）：
 
 - 顶部是子分类筛选条（4k下落式 / 中二节奏谱面 / 其它）
-- 每张卡片读文章 front-matter 里的 `map` 字段：`artist`、`diff`、`bpm`、`length`、`set_id`、`status`、`cover`
+- 每张卡片读文章 front-matter 里的 `map` 字段：`artist`、`mapper`、`diff`、`sr`、`keys`、`bpm`、`length`、`set_id`、`beatmap_id`、`status`、`cover`
 - 填了 `set_id` 会自动用 osu 的封面图（`assets.ppy.sh/beatmaps/<id>/covers/cover.jpg`），也可以用 `cover` 传自己的图
+- `beatmap_id` 填了之后，「在 osu! 上看」会直接跳到那个难度
+- 文章页顶部会根据同一份 `map` 数据渲染一块「谱面信息」（`_partial/map-info.ejs`）
 - 卡片点进去就是文章，正文里写做谱思路
 
 文章分类要写成层级：先 `谱面记录`，再选一个子分类。

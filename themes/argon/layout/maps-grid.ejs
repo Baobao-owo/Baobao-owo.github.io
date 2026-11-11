@@ -55,17 +55,27 @@
 					%>
 					<a class="map-card" href="<%= url_for(post.path) %>">
 						<div class="map-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
+							<% if (map.status) { %>
+								<span class="map-status map-status-<%= String(map.status).toLowerCase() %>"><%= map.status %></span>
+							<% } %>
 							<% if (!cover) { %>
-								<span><%= post.title.slice(0, 1) %></span>
+								<span class="map-cover-letter"><%= post.title.slice(0, 1) %></span>
 							<% } %>
 						</div>
 						<div class="map-body">
 							<div class="map-title"><%= post.title %></div>
 							<% if (map.artist) { %><div class="map-artist"><%= map.artist %></div><% } %>
+							<% if (map.diff || map.sr) { %>
+								<div class="map-line">
+									<% if (map.diff) { %><span class="map-diff"><%= map.diff %></span><% } %>
+									<% if (map.sr) { %><span class="map-sr">★ <%= map.sr %></span><% } %>
+								</div>
+							<% } %>
 							<div class="map-meta">
-								<% if (map.diff) { %><span><%= map.diff %></span><% } %>
+								<% if (map.keys) { %><span><%= map.keys %>K</span><% } %>
 								<% if (map.bpm) { %><span><%= map.bpm %> BPM</span><% } %>
 								<% if (map.length) { %><span><%= map.length %></span><% } %>
+								<% if (map.mapper) { %><span>谱师 <%= map.mapper %></span><% } %>
 								<span class="map-sub"><%= sub %></span>
 							</div>
 						</div>
