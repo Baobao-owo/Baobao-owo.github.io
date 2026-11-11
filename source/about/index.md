@@ -1,5 +1,5 @@
 ---
-title: 关于
+title: 关于我
 date: 2026-11-05 12:00:00
 layout: page
 comments: false
