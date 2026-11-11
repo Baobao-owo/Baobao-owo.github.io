@@ -80,6 +80,15 @@ tags: [Hexo, 建站]
 
 配置都在 `source/_data/categories.yml`，后台「分类管理」可改。
 
+## 中二节奏（自制谱卡片）
+
+「中二节奏」板块的分类页是自制谱卡片（`themes/argon/layout/chuni-grid.ejs`），在 `categories.yml` 里用 `style: chuni` 指定：
+
+- 卡片读 front-matter 里的 `chuni` 字段：`artist`、`authors`、`bundle`、`cover`、`diffs[]`（`cls` 难度分类 / `value` 数值 / `mapper`）
+- 难度分类（14+ / 15+ / 速）显示在原来星数的位置
+- 没带 `chuni` 数据的文章（比如笔记）会排在卡片下面，单列成「笔记 / 其它」
+- 批量导入：`node tools/import_chuni.mjs`（数据来自 pgko.dev 上自己的歌包）
+
 ## 谱面记录（卡片页）
 
 「谱面记录」板块的分类页不是普通列表，而是卡片网格（`themes/argon/layout/maps-grid.ejs`）：

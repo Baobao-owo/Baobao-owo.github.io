@@ -88,6 +88,12 @@ hexo.extend.helper.register('chart_board_name', function () {
   return board ? String(board.name) : '';
 });
 
+// 分类的自定义版式（categories.yml 里的 style 字段）
+hexo.extend.helper.register('category_style', function (name) {
+  const hit = categoryList().find(function (c) { return c && String(c.name) === String(name); });
+  return (hit && hit.style) || '';
+});
+
 // 给自定义 CSS 加版本号，改完样式不用手动清缓存
 hexo.extend.helper.register('asset_version', function () {
   try {

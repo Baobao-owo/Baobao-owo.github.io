@@ -94,6 +94,7 @@
 	</header>
 
 	<%- partial('_partial/map-info', {post: post}) %>
+	<%- partial('_partial/chuni-info', {post: post}) %>
 
 	<div class="post-content" id="post_content">
 		<%- argon_preprocess_article(post.content, theme, false) %>

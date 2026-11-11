@@ -29,6 +29,8 @@
 		<% if (is_category()) { %>
 			<% if (is_board_with_children(page.category)) { %>
 				<%- include('board.ejs') %>
+			<% } else if (category_style(page.category) === 'chuni') { %>
+				<%- include('chuni-grid.ejs') %>
 			<% } else if (is_chart_board(page.category)) { %>
 				<%- include('maps-grid.ejs') %>
 			<% } else { %>

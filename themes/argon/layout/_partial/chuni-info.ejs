@@ -1,0 +1,37 @@
+<%
+	// 中二节奏谱面信息条
+	const c = post.chuni;
+	if (c) {
+		const diffs = (c.diffs || []).filter(function (d) { return d && (d.cls || d.value); });
+%>
+<div class="map-info">
+	<% if (c.cover) { %>
+		<div class="chuni-info-cover" style="background-image:url('<%= c.cover %>')"></div>
+	<% } %>
+	<div class="map-info-body">
+		<h3 class="map-info-title"><%= post.title %></h3>
+		<div class="map-info-artist">
+			<%= c.artist || '' %>
+			<% if (c.authors) { %> · 谱师 <%= c.authors %><% } %>
+		</div>
+		<% if (diffs.length) { %>
+			<div class="map-diffs">
+				<% diffs.forEach(function (d) { %>
+					<span class="map-diff-btn chuni-diff-btn">
+						<span class="map-diff-name"><%= d.cls === '速' ? '速' : (d.cls || '') %></span>
+						<% if (d.value) { %><span class="map-diff-sr"><%= d.value %></span><% } %>
+					</span>
+				<% }); %>
+			</div>
+		<% } %>
+		<% if (c.bundle) { %>
+			<div class="map-info-links">
+				<div class="map-link-row">
+					<span class="map-link-label">歌包链接</span>
+					<a href="<%= c.bundle %>" target="_blank" rel="noopener"><%= c.bundle %></a>
+				</div>
+			</div>
+		<% } %>
+	</div>
+</div>
+<% } %>

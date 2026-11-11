@@ -30,5 +30,6 @@ categories:
         description: 不属于上面两类的
   - name: 中二节奏
     order: 3
-    description: CHUNITHM 成绩、谱面研究
+    description: CHUNITHM 自制谱、成绩记录
     aliases: ''
+    style: chuni
