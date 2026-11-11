@@ -89,7 +89,7 @@ archive_generator:
 
 category_generator:
   enabled: true
-  per_page: 8
+  per_page: 100
 
 tag_generator:
   enabled: true

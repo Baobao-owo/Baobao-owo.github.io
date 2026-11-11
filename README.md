@@ -89,6 +89,7 @@ tags: [Hexo, 建站]
 - `diffs` 是难度列表（`name` / `sr` / `keys` / `id` / `length`），文章页顶部会渲染成一排可点的难度（点了去 osu 对应难度）
 - 填了 `set_id` 会自动用 osu 的封面图（`assets.ppy.sh/beatmaps/<id>/covers/cover.jpg`），也可以用 `cover` 传自己的图
 - 加新谱面：`node tools/fetch_set.mjs 2285703` 会从镜像站接口拉出整套难度，输出直接粘进 front-matter（记得手动补 BPM）
+- 批量导入自己 osu 上的谱面：`node tools/import_osu_maps.mjs`（先加 `--dry` 看清单）。它会从 osu.direct 搜索接口拿列表、用 sayobot 补难度数据，给每套谱生成一篇文章；已经导入过的 `set_id` 会自动跳过，可以反复跑
 - 卡片点进去就是文章，正文里写做谱思路
 
 文章分类要写成层级：先 `谱面记录`，再选一个子分类。
