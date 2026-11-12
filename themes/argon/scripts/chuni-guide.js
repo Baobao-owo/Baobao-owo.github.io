@@ -33,12 +33,25 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const versionIndex = new Map(d.versions.map(function (v, i) { return [v.key, i]; }));
   const versionLabel = new Map(d.versions.map(function (v) { return [v.key, v.abbr]; }));
 
+  const designerMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designers) || {};
+  const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
+
   const songs = d.songs.map(function (s, i) {
-    const levels = s.sheets.map(function (sh) {
+    const fromMaster = designerMap[String(s.title).trim()] || {};
+    const enriched = Object.assign({}, s, {
+      sheets: s.sheets.map(function (sh) {
+        const letter = DIFF_LETTER[sh.difficulty];
+        const masterDesigner = fromMaster[letter];
+        return Object.assign({}, sh, {
+          designer: masterDesigner || sh.designer || ''
+        });
+      })
+    });
+    const levels = enriched.sheets.map(function (sh) {
       return Number(sh.internalValue);
     }).filter(function (n) { return !isNaN(n); });
     return {
-      raw: s,
+      raw: enriched,
       slug: slugOf(s.id),
       sortIndex: i,
       versionIndex: versionIndex.has(s.version) ? versionIndex.get(s.version) : 0,
