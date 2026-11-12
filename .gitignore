@@ -7,3 +7,5 @@ _shots/
 .dsh-office-*/
 tools/_pkg/
 .DS_Store
+
+_tmp/
