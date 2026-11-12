@@ -137,6 +137,7 @@
 		function maxConst(r) {
 			var best = -1;
 			(r.sh || []).forEach(function (sh) {
+				if (DIFF_ORDER.indexOf(sh.d) === -1) return;
 				var v = (state.version === 'cn' && sh.cn != null) ? sh.cn : sh.iv;
 				if (v != null && !isNaN(v) && v > best) best = v;
 			});
@@ -149,7 +150,12 @@
 				if (d) return d * state.dir;
 			}
 			if (state.sortConst) {
-				d = maxConst(y) - maxConst(x);
+				var mx = maxConst(x);
+				var my = maxConst(y);
+				// 没有任何紫/黑等标准谱面的曲目统一排到最后
+				if (mx < 0 && my >= 0) return 1;
+				if (my < 0 && mx >= 0) return -1;
+				d = mx - my;
 				if (d) return d * state.dir;
 			}
 			if (state.sortTitle || (!state.sortVersion && !state.sortConst)) {
