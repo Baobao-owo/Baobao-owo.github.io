@@ -1,4 +1,4 @@
-// 从 B 站谱面确认合集的分P里，给每首歌匹配「曲名 + 难度 → 视频链接」
+﻿// 从 B 站谱面确认合集的分P里，给每首歌匹配「曲名 + 难度 → 视频链接」
 // 用法: node tools/import_chuni_confirm.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -60,10 +60,30 @@ function norm(s) {
     .toLowerCase();
 }
 
+const keyOf = (t) =>
+  String(t || '')
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[!！?？:：;；,，.。~～\-–—_'"“”‘’「」『』【】\[\]()（）〈〉《》・/\\|]/g, '')
+    .replace(/[&＆]/g, 'and')
+    .replace(/[\s\u3000]/g, '');
+const coreOf = (t) =>
+  String(t || '').replace(/[\(（\[［【][^\)）\]］】]*[\)）\]］】]\s*$/g, '').trim();
+
 const songIndex = new Map();
+const songCore = new Map();
 for (const s of guide.songs) {
-  const k = norm(s.title);
-  if (!songIndex.has(k)) songIndex.set(k, s);
+  const k = keyOf(s.title);
+  if (k && !songIndex.has(k)) songIndex.set(k, s);
+  const c = keyOf(coreOf(s.title));
+  if (c && !songCore.has(c)) songCore.set(c, s);
+}
+function findSong(title) {
+  const k = keyOf(title);
+  if (songIndex.has(k)) return songIndex.get(k);
+  const c = keyOf(coreOf(title));
+  if (songCore.has(c)) return songCore.get(c);
+  return null;
 }
 
 const DIFF = { MASTER: 'M', ULTIMA: 'U', EXPERT: 'E', ADVANCED: 'A', BASIC: 'B' };
@@ -94,7 +114,7 @@ for (const v of videos) {
     if (!m) continue;
     const title = m[1].trim();
     const diff = DIFF[m[2]] || '';
-    const song = songIndex.get(norm(title));
+    const song = findSong(title);
     if (!song || !diff) {
       unmatched++;
       continue;
