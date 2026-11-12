@@ -1803,3 +1803,20 @@ html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; co
 .chuni-confirm-btn:hover { background: rgba(251, 114, 153, 0.1); text-decoration: none; }
 .chuni-confirm-src { font-size: 11px; color: #d94f7a; }
 html.darkmode .chuni-confirm-btn { background: #333945; border-color: #444b57; color: #dfe8ef !important; }
+
+/* 谱面确认：每行一个难度 */
+.chuni-confirm-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+.chuni-confirm-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  color: #3f4b57 !important;
+  font-size: 13px;
+  min-width: 150px;
+}
+.chuni-confirm-name:hover { background: #eef3f8; text-decoration: none; }
+html.darkmode .chuni-confirm-name { background: #2b3038; border-color: #3a404b; color: #dfe8ef !important; }

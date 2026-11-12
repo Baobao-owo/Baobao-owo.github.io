@@ -39,6 +39,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
+  const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 
   const songs = d.songs.map(function (s, i) {
@@ -77,6 +78,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     }
     enriched.previews = previews;
     enriched.confirms = confirmMap[String(s.title).trim()] || {};
+    enriched.youtube = ytMap[String(s.title).trim()] || {};
     return {
       raw: enriched,
       slug: slugOf(s.id),

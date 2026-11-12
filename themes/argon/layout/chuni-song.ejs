@@ -260,31 +260,43 @@
 				<div class="chuni-section-title">谱面确认</div>
 				<%
 					const confirms = s.confirms || {};
-					const confirmList = sheets.map(function (sh) {
-						const letter = diffLetter[sh.difficulty];
-						return confirms[letter] ? { sh: sh, letter: letter, url: confirms[letter] } : null;
-					}).filter(Boolean);
+					const ytMap = s.youtube || {};
+					const confirmRows = sheets
+						.filter(function (sh) { return sh.difficulty === 'master' || sh.difficulty === 'ultima'; })
+						.map(function (sh) {
+							const letter = diffLetter[sh.difficulty];
+							return { sh: sh, letter: letter, bili: confirms[letter] || '', yt: ytMap[letter] || [] };
+						})
+						.filter(function (r) { return r.bili || r.yt.length; });
 					const biliSearch = 'https://search.bilibili.com/all?keyword=' + encodeURIComponent(s.title + ' CHUNITHM 谱面确认');
 					const ytSearch = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(s.title + ' CHUNITHM 譜面確認');
 				%>
-				<% if (confirmList.length) { %>
+				<% if (confirmRows.length) { %>
 					<div class="chuni-confirm-list">
-						<% confirmList.forEach(function (c) { %>
-							<a class="chuni-confirm-btn" href="<%= c.url %>" target="_blank" rel="noopener">
-								<span class="chuni-badge chuni-badge-<%= c.sh.difficulty %>"><%= c.letter %></span>
-								<span><%= diffName[c.sh.difficulty] %></span>
-								<span class="chuni-confirm-src">B 站</span>
-							</a>
+						<% confirmRows.forEach(function (r) { %>
+							<div class="chuni-confirm-row">
+								<a class="chuni-confirm-name" href="<%= r.bili || ('https://www.youtube.com/watch?v=' + r.yt[0]) %>" target="_blank" rel="noopener">
+									<span class="chuni-badge chuni-badge-<%= r.sh.difficulty %>"><%= r.letter %></span>
+									<span><%= diffName[r.sh.difficulty] %></span>
+									<span class="chuni-confirm-src"><%= r.sh.level %></span>
+								</a>
+								<% if (r.bili) { %>
+									<a class="chuni-video-link bili" href="<%= r.bili %>" target="_blank" rel="noopener">B 站</a>
+								<% } %>
+								<% r.yt.forEach(function (id, i) { %>
+									<a class="chuni-video-link yt" href="https://www.youtube.com/watch?v=<%= id %>" target="_blank" rel="noopener"><%= r.yt.length > 1 ? (i === 0 ? 'YouTube' : 'YouTube 备用') : 'YouTube' %></a>
+								<% }); %>
+							</div>
 						<% }); %>
 					</div>
-					<div class="chuni-chart-hint">来自 B 站「Mr__CirCle」的谱面确认合集，按难度点开。</div>
+					<div class="chuni-chart-hint">B 站来自「Mr__CirCle」的谱面确认合集；YouTube 来自 sdvx.in 谱面保管所。</div>
 				<% } %>
 				<div class="chuni-video-links">
 					<a class="chuni-video-link bili" href="<%= biliSearch %>" target="_blank" rel="noopener">B 站搜索</a>
 					<a class="chuni-video-link yt" href="<%= ytSearch %>" target="_blank" rel="noopener">YouTube 搜索</a>
 				</div>
-				<% if (!confirmList.length) { %>
-					<div class="chuni-chart-hint">这首还没匹配到合集分P，用上面的搜索找找看。</div>
+				<% if (!confirmRows.length) { %>
+					<div class="chuni-chart-hint">这首的紫/黑谱还没找到确认视频，用上面的搜索找找看。</div>
 				<% } %>
 			</div>
 		</div>
