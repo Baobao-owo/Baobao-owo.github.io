@@ -36,6 +36,31 @@ function sliceSection(html, startText, endTexts) {
   return html.slice(i, end);
 }
 
+function parseTableWithBg(html) {
+  const m = html.match(/<table[\s\S]*?<\/table>/);
+  if (!m) return [];
+  const rows = [];
+  for (const tr of m[0].matchAll(/<tr[\s\S]*?<\/tr>/g)) {
+    const cells = [];
+    for (const c of tr[0].matchAll(/<t[dh]([^>]*)>([\s\S]*?)<\/t[dh]>/g)) {
+      const attr = c[1] || '';
+      const bgm = attr.match(/background-color\s*:\s*([^;"]+)/i);
+      cells.push({ text: stripTags(c[2]), bg: bgm ? bgm[1].trim().toLowerCase() : '' });
+    }
+    if (cells.length) rows.push(cells);
+  }
+  return rows;
+}
+
+function titleKind(bg) {
+  if (!bg) return '';
+  if (bg.includes('d3d3d3') || bg.includes('gray') || bg.includes('grey')) return 'gray';
+  if (bg.includes('c0c0c0') || bg.includes('silver')) return 'silver';
+  if (bg.includes('ffd700') || bg.includes('gold')) return 'gold';
+  if (bg.includes('e5e4e2') || bg.includes('platinum') || bg.includes('e0e0e0')) return 'platinum';
+  return '';
+}
+
 function parseTable(html) {
   const m = html.match(/<table[\s\S]*?<\/table>/);
   if (!m) return [];
@@ -110,12 +135,17 @@ for (const song of guide.songs) {
 
   const historyIntro = [];
 
-  const titlesRows = parseTable(titlesHtml);
+  const titlesRaw = parseTableWithBg(titlesHtml);
+  const titlesRows = titlesRaw.map(function (r) { return r.map(function (c) { return c.text; }); });
+  const titleKinds = titlesRaw.slice(1).map(function (r) { return titleKind(r[0] && r[0].bg); });
   const origins = parseListItems(originsHtml);
 
   const e = extra[song.id] || (extra[song.id] = {});
   if (historyRows.length) e.history = { rows: historyRows };
-  if (titlesRows.length) e.titles = titlesRows;
+  if (titlesRows.length) {
+    e.titles = titlesRows;
+    e.title_kinds = titleKinds;
+  }
   if (origins.length) e.origins = origins;
   done++;
 }

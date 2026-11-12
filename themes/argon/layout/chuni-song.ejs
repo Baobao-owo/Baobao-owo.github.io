@@ -24,6 +24,7 @@
 	const hasHist = hist && hist.rows && hist.rows.length > 1;
 	const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
 	const titlesZh = (extra2.titles_zh || []).filter(function (r) { return r && r.length >= 2; });
+	const titleKinds = extra2.title_kinds || [];
 	const hasTitles = titlesRows.length > 1;
 	const origins = (extra2.origins || []).filter(Boolean);
 	const originsZh = (extra2.origins_zh || []).filter(Boolean);
@@ -158,9 +159,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<% titlesRows.slice(1).forEach(function (r) { %>
+						<% titlesRows.slice(1).forEach(function (r, ri) { %>
 							<tr>
-								<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+								<% r.forEach(function (c, ci) { %>
+									<td<%- ci === 0 && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
+								<% }); %>
 							</tr>
 						<% }); %>
 					</tbody>
@@ -173,9 +176,11 @@
 								<tr><th>称号</th><th>条件</th></tr>
 							</thead>
 							<tbody>
-								<% titlesZh.slice(1).forEach(function (r) { %>
+								<% titlesZh.slice(1).forEach(function (r, ri) { %>
 									<tr>
-										<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+										<% r.forEach(function (c, ci) { %>
+											<td<%- ci === 0 && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
+										<% }); %>
 									</tr>
 								<% }); %>
 							</tbody>

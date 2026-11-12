@@ -1735,3 +1735,16 @@ html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #f
   pointer-events: none;
 }
 .chuni-chart-link:hover .chuni-chart-open { background: rgba(0, 0, 0, 0.75); }
+
+/* 称号等级配色（对应 wiki 的格子底色） */
+.chuni-title { font-weight: 600; }
+.chuni-title-gray { color: #7a8895; background: rgba(122, 136, 149, 0.08); }
+.chuni-title-silver { color: #6f8ba0; background: rgba(160, 180, 196, 0.16); }
+.chuni-title-gold { color: #b8860b; background: rgba(201, 146, 47, 0.14); }
+.chuni-title-platinum { color: #3f9fbf; background: rgba(127, 212, 232, 0.16); }
+
+/* 折叠翻译和上下内容留点空隙 */
+.chuni-zh { margin: 14px 0 10px; }
+.chuni-zh[open] > summary { margin-bottom: 10px; }
+.chuni-zh .chuni-wiki-zh,
+.chuni-zh .chuni-origins { margin-top: 0; }
