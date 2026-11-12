@@ -1865,3 +1865,14 @@ html.darkmode .chuni-sort-btn.active { background: #4f7f9c; color: #fff; }
 .chuni-row-badges { display: flex; gap: 6px; flex: 0 0 auto; }
 .chuni-row-badges .chuni-badge { min-width: 52px; justify-content: center; text-align: center; }
 .chuni-badge-slot { width: 52px; flex: 0 0 52px; }
+
+/* 空/未选中的难度位：淡灰占位 */
+.chuni-row-badges .chuni-badge-empty {
+  background: rgba(90, 105, 120, 0.12);
+  color: rgba(90, 105, 120, 0.45);
+  box-shadow: none;
+}
+html.darkmode .chuni-row-badges .chuni-badge-empty {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.28);
+}

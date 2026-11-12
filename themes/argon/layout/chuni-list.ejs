@@ -165,10 +165,10 @@
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			var badges = DIFF_ORDER.map(function (d) {
 				var sh = byDiff[d];
-				if (!sh) return '<span class="chuni-badge-slot"></span>';
+				if (!sh) return '<span class="chuni-badge chuni-badge-empty">—</span>';
 				// 选了等级时，只显示对应等级的那张谱，其它难度留空
 				if (state.levels.length && state.levels.indexOf(levelKey(sh.lv)) === -1) {
-					return '<span class="chuni-badge-slot"></span>';
+					return '<span class="chuni-badge chuni-badge-empty">—</span>';
 				}
 				var useCn = state.version === 'cn' && sh.cn != null;
 				var val = useCn ? sh.cn : sh.iv;
