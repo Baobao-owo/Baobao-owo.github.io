@@ -114,7 +114,16 @@
     }
   });
 
-  CMS.registerWidget('word', WordControl, null);
+    var WordPreview = createClass({
+      render: function () {
+        return h('div', {
+          className: 'word-preview',
+          dangerouslySetInnerHTML: { __html: this.props.value || '' }
+        });
+      }
+    });
+
+  CMS.registerWidget('word', WordControl, WordPreview);
     window.__wordEditorReady = true;
     console.log('[word-editor] 已注册');
     return true;
