@@ -1,88 +1,62 @@
-﻿<%
+<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
-	const catLabel = (function () {
-		const cats = (page.guide && page.guide.categories) || [];
-		const hit = cats.find(function (c) { return c.key === s.category; });
-		return hit ? hit.label : (s.category || '');
-	})();
+	const winfo = extra2.wiki_info || {};
+	const cats = (page.guide && page.guide.categories) || [];
+	const catHit = cats.find(function (c) { return c.key === s.category; });
+	const catLabel = catHit ? catHit.label : (s.category || '');
 	const diffName = { basic: 'BASIC', advanced: 'ADVANCED', expert: 'EXPERT', master: 'MASTER', ultima: 'ULTIMA' };
 	const diffLetter = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
+
+	// 楽曲情報：优先用 wiki 抓到的，没有就用数据集
+	const infoRows = [
+		{ k: 'ジャンル', v: winfo['ジャンル'] || catLabel },
+		{ k: 'タイトル', v: winfo['タイトル'] || s.title },
+		{ k: 'アーティスト', v: winfo['アーティスト'] || s.artist },
+		{ k: '原曲', v: winfo['原曲'] || '' },
+		{ k: 'BPM', v: winfo['BPM'] || (s.bpm || '') },
+		{ k: '解禁方法', v: winfo['解禁方法'] || (s.release || '') }
+	].filter(function (r) { return r.v; });
+
+	const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
+	const zhText = extra2.wiki_zh || '';
 %>
 <article class="post post-full card bg-white shadow-sm border-0">
 	<div class="post-content" id="post_content">
 		<div class="chuni-song">
 			<a class="map-back" href="/chuni/">← 返回曲目导览</a>
 
-			<div class="chuni-song-head">
-				<% if (s.cover) { %>
-					<img class="chuni-song-cover" src="<%= s.cover %>" alt="" />
-				<% } %>
-				<div class="chuni-song-headtext">
-					<h1 class="chuni-song-title"><%= s.title %></h1>
-					<div class="chuni-song-artist"><%= s.artist %></div>
-					<div class="chuni-song-meta">
-						<span><%= catLabel %></span>
-						<% if (s.bpm) { %><span>BPM <%= s.bpm %></span><% } %>
-						<% if (page.versionLabel) { %><span><%= page.versionLabel %></span><% } %>
-						<% if (s.release) { %><span><%= s.release %></span><% } %>
+			<div class="chuni-wiki-head">
+				<div class="chuni-jacket-box">
+					<% if (s.cover) { %>
+						<img class="chuni-jacket" src="<%= s.cover %>" alt="" />
+					<% } %>
+					<div class="chuni-jacket-caption">
+						<div class="chuni-jacket-caption-title">ジャケット</div>
+						<div class="chuni-jacket-caption-sub"><%= s.title %></div>
 					</div>
+				</div>
+				<div class="chuni-info-box">
+					<div class="chuni-info-box-title">楽曲情報</div>
+					<table class="chuni-info-table">
+						<tbody>
+						<% infoRows.forEach(function (r) { %>
+							<tr>
+								<th><%= r.k %></th>
+								<td><%= r.v %></td>
+							</tr>
+						<% }); %>
+						</tbody>
+					</table>
+					<% if (page.versionLabel) { %>
+						<div class="chuni-info-version">收录版本：<%= page.versionLabel %></div>
+					<% } %>
 				</div>
 			</div>
 
 			<div class="chuni-section">
-				<div class="chuni-section-title">谱面</div>
-				<table class="chuni-table">
-					<thead>
-						<tr>
-							<th>难度</th>
-							<th>定数</th>
-							<th>谱师</th>
-							<th>音符</th>
-							<th>地区</th>
-						</tr>
-					</thead>
-					<tbody>
-					<% sheets.forEach(function (sh) { %>
-						<%
-							const n = sh.notes || {};
-							const noteText = n.total ? (n.tap || 0) + ' / ' + (n.hold || 0) + ' / ' + (n.slide || 0) : '—';
-							const reg = sh.regions || {};
-							const regions = [];
-							if (reg.jp) regions.push('日服');
-							if (reg.intl) regions.push('国际');
-						%>
-						<tr>
-							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %>"><%= diffLetter[sh.difficulty] %> <%= diffName[sh.difficulty] %></span></td>
-							<td class="chuni-lv"><%= sh.internal && sh.internal !== sh.level ? sh.level + '（' + sh.internal + '）' : sh.level %></td>
-							<td class="chuni-designer"><%= sh.designer || '—' %></td>
-							<td class="chuni-notes"><%= noteText %></td>
-							<td><%= regions.join(' / ') || '—' %></td>
-						</tr>
-					<% }); %>
-					</tbody>
-				</table>
-			</div>
-
-			<div class="chuni-section">
-				<div class="chuni-section-title">wiki 搬运 / 翻译</div>
-				<%
-					const winfo = extra2.wiki_info || {};
-					const wikiRows = ['ジャンル', '原曲', '解禁方法'].filter(function (k) { return winfo[k]; });
-					const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
-					const zhText = extra2.wiki_zh || '';
-				%>
-				<% if (wikiRows.length) { %>
-					<div class="chuni-wiki-info">
-						<% wikiRows.forEach(function (k) { %>
-							<div class="chuni-wiki-info-row">
-								<span class="chuni-wiki-info-key"><%= k %></span>
-								<span class="chuni-wiki-info-val"><%= winfo[k] %></span>
-							</div>
-						<% }); %>
-					</div>
-				<% } %>
+				<div class="chuni-section-title">情報</div>
 				<% if (jpText) { %>
 					<div class="chuni-wiki-label">日文原文</div>
 					<div class="chuni-wiki-jp"><%= jpText %></div>
@@ -91,9 +65,54 @@
 					<div class="chuni-wiki-label">中文翻译</div>
 					<div class="chuni-wiki-zh"><%= zhText %></div>
 				<% } %>
-				<% if (!wikiRows.length && !jpText && !zhText) { %>
-					<div class="chuni-placeholder">wiki 内容还没搬，之后再补。</div>
+				<% if (!jpText && !zhText) { %>
+					<div class="chuni-placeholder">wiki 的曲目介绍还没搬，之后再补。</div>
 				<% } %>
+			</div>
+
+			<div class="chuni-section">
+				<div class="chuni-section-title">詳細</div>
+				<table class="chuni-detail-table">
+					<thead>
+						<tr>
+							<th>難易度</th>
+							<th>Lv</th>
+							<th>総数</th>
+							<th>Tap</th>
+							<th>Hold</th>
+							<th>Slide</th>
+							<th>Air</th>
+							<th>Flick</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% sheets.forEach(function (sh) { %>
+						<%
+							const n = sh.notes || {};
+							const lvText = sh.internal && sh.internal !== sh.level ? sh.level + '（' + sh.internal + '）' : sh.level;
+						%>
+						<tr>
+							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %>"><%= diffLetter[sh.difficulty] %></span> <span class="chuni-diff-name"><%= diffName[sh.difficulty] %></span></td>
+							<td class="chuni-lv"><%= lvText %></td>
+							<td><%= n.total || '—' %></td>
+							<td><%= n.tap === null || n.tap === undefined ? '—' : n.tap %></td>
+							<td><%= n.hold === null || n.hold === undefined ? '—' : n.hold %></td>
+							<td><%= n.slide === null || n.slide === undefined ? '—' : n.slide %></td>
+							<td><%= n.air === null || n.air === undefined ? '—' : n.air %></td>
+							<td><%= n.flick === null || n.flick === undefined ? '—' : n.flick %></td>
+						</tr>
+					<% }); %>
+					</tbody>
+				</table>
+				<div class="chuni-detail-foot">
+					<% 
+						const designersList = sheets.filter(function (sh) { return sh.designer && sh.designer !== '-'; });
+					%>
+					<% if (designersList.length) { %>
+						<div><span class="chuni-detail-key">譜面作者</span> <%= designersList.map(function (sh) { return diffLetter[sh.difficulty] + ' …' + sh.designer; }).join('、') %></div>
+					<% } %>
+					<div><span class="chuni-detail-key">譜面定数</span> <%= sheets.map(function (sh) { return diffLetter[sh.difficulty] + ' …' + (sh.internal || sh.level); }).join('、') %></div>
+				</div>
 			</div>
 
 			<div class="chuni-section">

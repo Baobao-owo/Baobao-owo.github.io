@@ -1,4 +1,4 @@
-/* baobao 小站的自定义样式 —— 只做小幅修饰，不跟 Argon 打架 */
+﻿/* baobao 小站的自定义样式 —— 只做小幅修饰，不跟 Argon 打架 */
 
 /* 字体：优先系统里的圆体/现代黑体，回落到 YaHei */
 body,
@@ -1595,3 +1595,36 @@ html.darkmode .chuni-wiki-info-val { color: #cfdae4; }
   font-size: 13px;
   white-space: nowrap;
 }
+
+/* 单曲页：wiki 式布局 */
+.chuni-wiki-head { display: flex; gap: 16px; margin: 12px 0 18px; align-items: flex-start; }
+.chuni-jacket-box { flex: 0 0 220px; border: 1px solid #e6ecf2; border-radius: 8px; overflow: hidden; background: #fff; }
+.chuni-jacket { width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+.chuni-jacket-caption { padding: 8px 10px; text-align: center; border-top: 1px solid #eef2f6; }
+.chuni-jacket-caption-title { font-size: 12px; color: #97a4b0; }
+.chuni-jacket-caption-sub { font-size: 12px; color: #5b6a77; margin-top: 2px; }
+.chuni-info-box { flex: 1; min-width: 0; border: 1px solid #e6ecf2; border-radius: 8px; overflow: hidden; }
+.chuni-info-box-title { padding: 6px 10px; font-size: 12px; color: #4f7f9c; background: #f3f7fa; border-bottom: 1px solid #e6ecf2; }
+.chuni-info-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-info-table th { width: 106px; white-space: nowrap; text-align: left; padding: 6px 10px; background: #f7f9fb; color: #7a8895; font-weight: 600; border-bottom: 1px solid #eef2f6; }
+.chuni-info-table td { padding: 6px 10px; border-bottom: 1px solid #eef2f6; color: #3f4b57; }
+.chuni-info-version { padding: 6px 10px; font-size: 12px; color: #97a4b0; }
+.chuni-detail-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-detail-table th { background: #f3f7fa; color: #7a8895; font-weight: 600; font-size: 12px; padding: 6px 8px; border-bottom: 1px solid #e6ecf2; text-align: left; }
+.chuni-detail-table td { padding: 7px 8px; border-bottom: 1px solid #eef2f6; color: #3f4b57; }
+.chuni-detail-foot { margin-top: 10px; font-size: 13px; color: #5b6a77; line-height: 1.9; }
+.chuni-detail-key { color: #97a4b0; margin-right: 6px; }
+.chuni-diff-name { font-size: 12px; color: #7a8895; }
+
+@media (max-width: 640px) {
+	.chuni-wiki-head { flex-direction: column; }
+	.chuni-jacket-box { flex: none; width: 100%; }
+}
+
+html.darkmode .chuni-jacket-box,
+html.darkmode .chuni-info-box { border-color: #3a404b; background: #2b3038; }
+html.darkmode .chuni-info-box-title,
+html.darkmode .chuni-detail-table th { background: #333945; color: #a9bccb; border-bottom-color: #3a404b; }
+html.darkmode .chuni-info-table th { background: #2f353e; color: #a9bccb; border-bottom-color: #3a404b; }
+html.darkmode .chuni-info-table td,
+html.darkmode .chuni-detail-table td { color: #dfe8ef; border-bottom-color: #343a44; }
