@@ -1,28 +1,31 @@
-﻿/* 自定义 Decap 部件：真正的所见即所得编辑器（TinyMCE），发文不用写 Markdown */
+/* 自定义 Decap 部件：所见即所得编辑器（TinyMCE）
+   用 Decap 自己暴露的 window.h / window.createClass，避免 React 版本冲突（否则报 #525） */
 (function () {
-  if (!window.CMS || typeof CMS.registerWidget !== 'function') return;
-  if (!window.React || !window.tinymce) {
-    console.warn('[word-editor] 缺少 React 或 TinyMCE，退回到富文本模式');
+  if (typeof window.CMS === 'undefined' || typeof CMS.registerWidget !== 'function') return;
+  if (typeof window.h !== 'function' || typeof window.createClass !== 'function') {
+    console.warn('[word-editor] 缺少 window.h / window.createClass，跳过');
     return;
   }
 
-  var h = window.React.createElement;
+  var h = window.h;
+  var createClass = window.createClass;
   var seq = 0;
 
-  var WordControl = (function () {
-    function WordControl(props) {
-      window.React.Component.call(this, props);
-      this.uid = 'word-editor-' + ++seq;
+  var WordControl = createClass({
+    getInitialState: function () {
+      this.editorId = 'word-editor-' + ++seq;
       this.editor = null;
       this.syncing = false;
-    }
-    WordControl.prototype = Object.create(window.React.Component.prototype);
-    WordControl.prototype.constructor = WordControl;
+      return {};
+    },
 
-    WordControl.prototype.componentDidMount = function () {
+    componentDidMount: function () {
       var self = this;
-      var target = document.getElementById(this.uid);
-      if (!target) return;
+      var target = document.getElementById(this.editorId);
+      if (!target || !window.tinymce) {
+        // TinyMCE 没加载成功时，textarea 本身还能用
+        return;
+      }
       window.tinymce.init({
         target: target,
         license_key: 'gpl',
@@ -33,7 +36,6 @@
         resize: true,
         elementpath: false,
         toolbar_mode: 'wrap',
-        toolbar_sticky: false,
         skin_url: '/admin/vendor/tinymce/skins/ui/oxide',
         content_css: false,
         plugins:
@@ -69,30 +71,40 @@
           });
         }
       });
-    };
+    },
 
-    WordControl.prototype.componentWillUnmount = function () {
-      if (this.editor) {
-        this.editor.remove();
-        this.editor = null;
-      }
-    };
-
-    WordControl.prototype.componentDidUpdate = function (prev) {
-      if (!this.editor || prev.value === this.props.value) return;
+    componentDidUpdate: function (prevProps) {
+      if (!this.editor || prevProps.value === this.props.value) return;
       var next = this.props.value || '';
       if (this.editor.getContent() === next) return;
       this.syncing = true;
       this.editor.setContent(next);
       this.syncing = false;
-    };
+    },
 
-    WordControl.prototype.render = function () {
-      return h('div', { className: 'word-editor-wrap' }, h('textarea', { id: this.uid, defaultValue: '' }));
-    };
+    componentWillUnmount: function () {
+      if (this.editor) {
+        this.editor.remove();
+        this.editor = null;
+      }
+    },
 
-    return WordControl;
-  })();
+    render: function () {
+      var self = this;
+      return h(
+        'div',
+        { className: 'word-editor-wrap' },
+        h('textarea', {
+          id: this.editorId,
+          defaultValue: this.props.value || '',
+          onChange: function (e) {
+            if (!self.editor) self.props.onChange(e.target.value);
+          }
+        })
+      );
+    }
+  });
 
   CMS.registerWidget('word', WordControl, null);
+  window.__wordEditorReady = true;
 })();

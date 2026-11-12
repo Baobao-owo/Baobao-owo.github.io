@@ -38,6 +38,8 @@
 
     <script>
       (function () {
+        // 手动初始化：等自定义编辑器注册完再启动 CMS
+        window.CMS_MANUAL_INIT = true;
         // 优先用站内打包的版本（不依赖 CDN）；万一丢了再退回 jsdelivr / unpkg
         var sources = [
           '/admin/static/decap-cms.js',
@@ -67,12 +69,14 @@
                 CMS.registerPreviewStyle('/admin/preview.css');
               }
             } catch (e) {}
-            // 真正的所见即所得编辑器：React + TinyMCE（都放在站内，不依赖 CDN）
-            loadScript('/admin/vendor/react.production.min.js', function () {
-              loadScript('/admin/vendor/react-dom.production.min.js', function () {
-                loadScript('/admin/vendor/tinymce/tinymce.min.js', function () {
-                  loadScript('/admin/word-editor.js', function () {});
-                });
+            // 编辑器要赶在 CMS 初始化之前注册好，否则打开文章时会找不到 word 部件
+            loadScript('/admin/vendor/tinymce/tinymce.min.js', function () {
+              loadScript('/admin/word-editor.js', function () {
+                try {
+                  CMS.init();
+                } catch (e) {
+                  console.warn('[admin] CMS 初始化失败', e);
+                }
               });
             });
           };
