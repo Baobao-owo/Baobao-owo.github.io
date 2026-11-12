@@ -1,11 +1,11 @@
-/* 后台界面微调：让 Decap 的默认样式更接近站点（冷蓝灰、圆角、留白） */
+/* 后台界面：照主站的路子来（封面图做顶栏、冷蓝灰、圆角） */
 :root {
   --accent: #4f7f9c;
   --accent-soft: rgba(79, 127, 156, 0.12);
   --ink: #2b3a47;
   --ink-mute: #7a8895;
   --line: #e2e8ef;
-  --paper: #f5f7fa;
+  --paper: #f4f6f9;
 }
 
 html body {
@@ -13,6 +13,77 @@ html body {
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
+}
+
+/* 顶部站点条：用主站的封面图 + 冷色压暗，和首页那套一致 */
+.admin-ribbon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  color: #fff;
+  background-image: linear-gradient(90deg, rgba(38, 60, 76, 0.86), rgba(58, 88, 108, 0.72)),
+    url("/assets/img/banner-euthanasia.jpg");
+  background-size: cover;
+  background-position: center 62%;
+  box-shadow: 0 2px 10px rgba(30, 45, 58, 0.18);
+}
+
+.admin-ribbon-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.admin-ribbon-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.admin-ribbon-brand:hover,
+.admin-ribbon-back:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.admin-ribbon-back {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.admin-ribbon-back:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* 给 CMS 让出顶栏的高度 */
+#nc-root {
+  position: fixed !important;
+  top: 52px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: auto;
 }
 
 /* 输入控件统一 */
@@ -41,18 +112,11 @@ html body {
   line-height: 1.7 !important;
 }
 
-/* 标签更清楚 */
 #nc-root label {
   font-size: 13px !important;
   font-weight: 600 !important;
   color: var(--ink) !important;
   letter-spacing: 0.01em;
-}
-
-/* 顶部导航和卡片阴影 */
-#nc-root nav,
-#nc-root header {
-  box-shadow: 0 1px 0 var(--line);
 }
 
 #nc-root hr {
@@ -74,13 +138,25 @@ html body {
   background: #b8c5d2;
 }
 
-/* 编辑器正文区域宽一点、行距舒服点 */
-#nc-root .nc-entry-editor,
-#nc-root [class*="Editor"] {
-  font-size: 14px;
+/* 主按钮走站点主色 */
+#nc-root button[class*="primary"],
+#nc-root a[class*="primary"] {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  border-radius: 8px !important;
 }
 
-/* 登录页也顺手收拾一下 */
-body > div:not(#boot) {
-  color: var(--ink);
+/* 登录页：也用封面图，白卡片居中 */
+body:not(:has(#nc-root > div)) {
+  background: none;
+}
+
+.admin-login-bg {
+  display: none;
+}
+
+/* 加载提示 */
+#boot {
+  margin-top: 52px;
+  color: var(--ink-mute);
 }

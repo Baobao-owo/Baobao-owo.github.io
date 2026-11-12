@@ -234,6 +234,7 @@ collections:
       - label: 正文
         name: body
         widget: markdown
+        modes: [rich_text]
         required: false
         hint: "谱面文章可以留空，卡片页的信息是自动生成的；想让首页显示摘要，在正文里单独加一行 <!--more-->"
 
@@ -265,6 +266,7 @@ collections:
       - label: 正文
         name: body
         widget: markdown
+        modes: [rich_text]
 
   - name: settings
     label: 站点设置
