@@ -143,6 +143,11 @@
 		});
 		var vIndex = {};
 		VERSION_KEYS.forEach(function (k, i) { vIndex[k] = i; });
+		function starOf(r) {
+			if (!r.we || !r.we.length) return 0;
+			return Math.max.apply(null, r.we);
+		}
+
 		function maxConst(r) {
 			var best = -1;
 			(r.sh || []).forEach(function (sh) {
@@ -159,9 +164,19 @@
 				if (d) return d * state.dir;
 			}
 			if (state.sortConst) {
+				var starX = starOf(x);
+				var starY = starOf(y);
+				// 两边都是 WE：按星星数
+				if (starX && starY) {
+					d = starX - starY;
+					if (d) return d * state.dir;
+					return 0;
+				}
+				// 一边 WE 一边普通：普通在前
+				if (starX && !starY) return 1;
+				if (starY && !starX) return -1;
 				var mx = maxConst(x);
 				var my = maxConst(y);
-				// 没有任何紫/黑等标准谱面的曲目统一排到最后
 				if (mx < 0 && my >= 0) return 1;
 				if (my < 0 && mx >= 0) return -1;
 				d = mx - my;
