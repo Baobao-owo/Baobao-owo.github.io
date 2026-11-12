@@ -1748,3 +1748,21 @@ html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #f
 .chuni-zh[open] > summary { margin-bottom: 10px; }
 .chuni-zh .chuni-wiki-zh,
 .chuni-zh .chuni-origins { margin-top: 0; }
+
+/* 定数履历：四列等宽，版本列居中 */
+.chuni-history-table { table-layout: fixed; }
+.chuni-history-table th,
+.chuni-history-table td { width: 19.5%; text-align: center; }
+.chuni-history-table th:first-child,
+.chuni-history-table td:first-child { width: 22%; text-align: center; }
+
+/* 称号表：铺开 + 居中 */
+.chuni-titles-table th,
+.chuni-titles-table td { text-align: center; }
+.chuni-titles-table th:first-child,
+.chuni-titles-table td:first-child { width: 42%; text-align: center; }
+.chuni-titles-table td { padding: 12px 14px; }
+
+/* 曲绘放大并垂直居中 */
+.chuni-wiki-head { align-items: center; }
+.chuni-jacket-box { flex: 0 0 280px; }

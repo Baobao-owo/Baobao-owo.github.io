@@ -55,7 +55,7 @@
 					</table>
 					<div class="chuni-info-version">
 						<% if (page.versionLabel) { %>收录版本：<%= page.versionLabel %><% } %>
-						<% if (s.musicId) { %><span class="chuni-music-id">ID <%= s.musicId %></span><% } %>
+						<% if (s.musicId) { %><span class="chuni-music-id">歌曲id：<%= s.musicId %></span><% } %>
 					</div>
 				</div>
 			</div>
@@ -152,7 +152,7 @@
 			<% if (hasTitles) { %>
 			<div class="chuni-section">
 				<div class="chuni-section-title">可获得称号</div>
-				<table class="chuni-detail-table">
+				<table class="chuni-detail-table chuni-titles-table">
 					<thead>
 						<tr>
 							<% titlesRows[0].forEach(function (h) { %><th><%= h === '称号' ? '称号' : (h === '条件' ? '条件' : h) %></th><% }); %>
@@ -171,7 +171,7 @@
 				<% if (titlesZh.length > 1) { %>
 					<details class="chuni-zh">
 						<summary>中文翻译</summary>
-						<table class="chuni-detail-table">
+						<table class="chuni-detail-table chuni-titles-table">
 							<thead>
 								<tr><th>称号</th><th>条件</th></tr>
 							</thead>
