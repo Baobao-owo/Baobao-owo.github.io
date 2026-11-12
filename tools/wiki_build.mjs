@@ -95,6 +95,22 @@ function parseWiki(text) {
     return out;
   }
 
+  // 没有「情報」小节的页面：从信息表后面兜底取正文
+  if (!commentLines.length) {
+    const startIdx = lines.findIndex((l) => /^解禁方法/.test(l));
+    if (startIdx >= 0) {
+      let endIdx = -1;
+      for (let i = startIdx + 1; i < lines.length; i++) {
+        if (/^(詳細|譜面作者|譜面定数|攻略|歌唱|収録|配信|備考)/.test(lines[i])) {
+          endIdx = i;
+          break;
+        }
+      }
+      if (endIdx < 0) endIdx = Math.min(lines.length, startIdx + 10);
+      commentLines = lines.slice(startIdx + 1, endIdx).filter((l) => l.length > 1);
+    }
+  }
+
   return {
     info,
     comment: commentLines.join('\n').trim(),
