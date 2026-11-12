@@ -128,13 +128,9 @@
 			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
 			var isDel = !!(r.rm || r.cnrm);
 			var isWE = !!(r.we && r.we.length);
-			if (state.removed) {
-				if (!isDel) return false;
-			} else if (state.we) {
-				if (!isWE) return false;
-			} else {
-				if (isDel || isWE) return false;
-			}
+			if (state.removed && !isDel) return false;
+			if (state.we && !isWE) return false;
+			if (!state.removed && !state.we && (isDel || isWE)) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
@@ -330,11 +326,6 @@
 	var weBtn = document.getElementById('chuni-we');
 	if (weBtn) weBtn.addEventListener('click', function () {
 		state.we = !state.we;
-		if (state.we) {
-			state.removed = false;
-			var rb = document.getElementById('chuni-removed');
-			if (rb) rb.classList.remove('active');
-		}
 		weBtn.classList.toggle('active', state.we);
 		state.page = 1;
 		renderRows();
@@ -346,11 +337,6 @@
 	var rmBtn = document.getElementById('chuni-removed');
 	if (rmBtn) rmBtn.addEventListener('click', function () {
 		state.removed = !state.removed;
-		if (state.removed) {
-			state.we = false;
-			var wb = document.getElementById('chuni-we');
-			if (wb) wb.classList.remove('active');
-		}
 		rmBtn.classList.toggle('active', state.removed);
 		state.page = 1;
 		renderRows();
