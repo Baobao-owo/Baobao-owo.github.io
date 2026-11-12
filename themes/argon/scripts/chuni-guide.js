@@ -34,11 +34,13 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const versionLabel = new Map(d.versions.map(function (v) { return [v.key, v.abbr]; }));
 
   const designerMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designers) || {};
+  const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 
   const songs = d.songs.map(function (s, i) {
     const fromMaster = designerMap[String(s.title).trim()] || {};
     const enriched = Object.assign({}, s, {
+      musicId: idMap[String(s.title).trim()] || '',
       sheets: s.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const masterDesigner = fromMaster[letter];

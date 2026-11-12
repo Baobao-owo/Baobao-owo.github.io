@@ -1664,3 +1664,10 @@ html.darkmode .chuni-history-notes { color: #8b98a5; }
 .chuni-zh > summary:hover { background: rgba(79, 127, 156, 0.1); }
 .chuni-zh .chuni-wiki-zh { margin-top: 8px; }
 html.darkmode .chuni-zh > summary { border-color: #444b57; color: #a9c4d8; }
+
+.chuni-music-id { margin-left: 12px; color: #a3aebb; }
+.chuni-jacket-box { background: #fff; }
+.chuni-detail-table th:first-child,
+.chuni-detail-table td:first-child { text-align: left; width: 150px; }
+.chuni-history-table th:first-child,
+.chuni-history-table td:first-child { width: auto; }
