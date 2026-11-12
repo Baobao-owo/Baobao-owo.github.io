@@ -37,6 +37,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
 
   const designerMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designers) || {};
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
+  const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 
   const songs = d.songs.map(function (s, i) {
@@ -58,6 +59,11 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     const previews = [];
     if (musicId) {
       for (let si = 0; si < enriched.sheets.length; si++) {
+        const manifestKey = musicId + '_' + si;
+        if (previewMap[manifestKey]) {
+          previews[si] = previewMap[manifestKey];
+          continue;
+        }
         const exts = ['.webp', '.png', '.svg'];
         for (let ei = 0; ei < exts.length; ei++) {
           const rel = 'assets/chuni/preview/' + musicId + '_' + si + exts[ei];
