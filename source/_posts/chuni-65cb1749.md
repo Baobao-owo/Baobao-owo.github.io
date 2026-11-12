@@ -9,6 +9,7 @@ chuni:
   artist: 'niki'
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019d259a-5e2d-7000-8357-b8bf65cb1749'
+  video: 'https://www.bilibili.com/video/BV1eqQfBXEYh'
   cover: 'https://cdn.pgko.dev/jackets/blake3-ffc462bc4087572818368959e1daa0371f21e7fbb8ffc0389c43a1c154213865-8pxh-300.webp'
   diffs:
     - cls: '15+'

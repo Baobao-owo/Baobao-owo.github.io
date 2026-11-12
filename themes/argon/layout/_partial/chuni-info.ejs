@@ -10,10 +10,8 @@
 	<% } %>
 	<div class="map-info-body">
 		<h3 class="map-info-title"><%= post.title %></h3>
-		<div class="map-info-artist">
-			<%= c.artist || '' %>
-			<% if (c.authors) { %> · 谱师 <%= c.authors %><% } %>
-		</div>
+		<% if (c.artist) { %><div class="map-info-artist"><%= c.artist %></div><% } %>
+		<% if (c.authors) { %><div class="map-info-mapper">谱师 <%= c.authors %></div><% } %>
 		<% if (diffs.length) { %>
 			<div class="map-diffs">
 				<% diffs.forEach(function (d) { %>
@@ -24,12 +22,20 @@
 				<% }); %>
 			</div>
 		<% } %>
-		<% if (c.bundle) { %>
+		<% if (c.bundle || c.video) { %>
 			<div class="map-info-links">
-				<div class="map-link-row">
-					<span class="map-link-label">歌包链接</span>
-					<a href="<%= c.bundle %>" target="_blank" rel="noopener"><%= c.bundle %></a>
-				</div>
+				<% if (c.bundle) { %>
+					<div class="map-link-row">
+						<span class="map-link-label">歌包链接</span>
+						<a href="<%= c.bundle %>" target="_blank" rel="noopener"><%= c.bundle %></a>
+					</div>
+				<% } %>
+				<% if (c.video) { %>
+					<div class="map-link-row">
+						<span class="map-link-label">B 站视频</span>
+						<a href="<%= c.video %>" target="_blank" rel="noopener"><%= c.video %></a>
+					</div>
+				<% } %>
 			</div>
 		<% } %>
 	</div>

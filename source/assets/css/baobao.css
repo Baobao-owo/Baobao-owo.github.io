@@ -1295,3 +1295,10 @@ html.darkmode .chuni-others {
 html.darkmode .chuni-others-item {
   color: #dfe8ef;
 }
+
+/* 谱面信息：谱师单独一行 */
+.map-info-mapper {
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: #8b98a5;
+}

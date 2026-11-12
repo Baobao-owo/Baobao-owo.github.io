@@ -84,10 +84,12 @@ tags: [Hexo, 建站]
 
 自制谱放在「谱面记录 > 中二节奏谱面」这个子分类下，分类页是自制谱卡片（`themes/argon/layout/chuni-grid.ejs`）。在 `categories.yml` 给这个子分类写 `style: chuni` 就会用它：
 
-- 卡片读 front-matter 里的 `chuni` 字段：`artist`、`authors`、`bundle`、`cover`、`diffs[]`（`cls` 难度分类 / `value` 数值 / `mapper`）
+- 卡片读 front-matter 里的 `chuni` 字段：`artist`、`authors`、`bundle`、`video`、`cover`、`diffs[]`（`cls` 难度分类 / `value` 数值 / `mapper`）
+- 文章页顶部：曲名、艺术家、谱师（单独一行）、难度徽章、歌包链接、B 站视频链接
 - 难度分类（14+ / 15+ / 速）显示在原来星数的位置
 - 没带 `chuni` 数据的文章（比如笔记）会排在卡片下面，单列成「笔记 / 其它」
 - 批量导入：`node tools/import_chuni.mjs`（数据来自 pgko.dev 上自己的歌包；已导入的按歌包 id 跳过）
+- 补视频链接：`node tools/backfill_chuni_video.mjs`（给已导入但没视频的文章补 B 站链接）
 
 顶层「中二节奏」板块留作成绩、研究笔记，普通列表版式。
 

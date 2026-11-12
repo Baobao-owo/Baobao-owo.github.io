@@ -65,7 +65,9 @@ for (const item of list) {
     await new Promise((r) => setTimeout(r, 2500));
     detail = await page.evaluate(() => {
       const lines = document.body.innerText.split('\n').map((s) => s.trim()).filter(Boolean);
-      return { lines };
+      const va = document.querySelector('a[href*="bilibili.com/video"]');
+      const video = va ? va.href.split('?')[0].replace(/\/$/, '') : '';
+      return { lines, video };
     });
   } catch (e) {
     console.log('抓取失败', item.id, String(e).slice(0, 60));
@@ -112,6 +114,7 @@ for (const item of list) {
   out.push('  artist: ' + yamlStr(artist));
   out.push('  authors: ' + yamlStr(authors));
   out.push('  bundle: ' + yamlStr(url));
+  if (detail.video) out.push('  video: ' + yamlStr(detail.video));
   if (item.img) out.push('  cover: ' + yamlStr(item.img));
   out.push('  diffs:');
   for (const d of diffs) {

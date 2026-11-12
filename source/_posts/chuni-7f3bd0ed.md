@@ -9,6 +9,7 @@ chuni:
   artist: 'momocaca (月乃×Capchii)'
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019e541f-2a96-7000-93ea-bbba7f3bd0ed'
+  video: 'https://www.bilibili.com/video/BV1MPdPBaEj4'
   cover: 'https://cdn.pgko.dev/jackets/blake3-68953b2dc8546bc87a2b6c8f33cf1389ba807f897006b860626efcfcb4d5ec51-dk9p-300.webp'
   diffs:
     - cls: '15'
