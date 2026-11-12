@@ -33,6 +33,7 @@
 					<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
 				</div>
 				<button type="button" class="chuni-removed-btn" id="chuni-removed">显示删除曲</button>
+				<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
 				<span class="chuni-count" id="chuni-count"></span>
 			</div>
 
@@ -56,7 +57,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, we: false, page: 1 };
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -126,6 +127,7 @@
 		var rows = all.filter(function (r) {
 			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
 			if (!state.removed && r.rm) return false;
+			if (state.we ? !(r.we && r.we.length) : (r.we && r.we.length)) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
@@ -187,6 +189,15 @@
 		var pageRows = rows.slice(start, start + PAGE_SIZE);
 
 		var html = pageRows.map(function (r) {
+			if (r.we && r.we.length && state.we) {
+				var stars = r.we.map(function (n) { return '<span class="chuni-badge chuni-badge-we">☆' + n + '</span>'; }).join('');
+				return '<a class="chuni-row" href="' + r.u + '">' +
+					'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
+					'<div class="chuni-row-main"><div class="chuni-row-title">' + r.t + '</div>' +
+					'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div></div>' +
+					'<div class="chuni-row-badges">' + stars + '</div>' +
+					'</a>';
+			}
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			var badges = DIFF_ORDER.map(function (d) {
@@ -293,6 +304,14 @@
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
 	var sa = document.getElementById('chuni-search-artist');
 	if (sa) sa.addEventListener('input', function () { state.qa = sa.value; state.page = 1; renderRows(); });
+
+	var weBtn = document.getElementById('chuni-we');
+	if (weBtn) weBtn.addEventListener('click', function () {
+		state.we = !state.we;
+		weBtn.classList.toggle('active', state.we);
+		state.page = 1;
+		renderRows();
+	});
 
 	var cat = document.getElementById('chuni-cat');
 	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });

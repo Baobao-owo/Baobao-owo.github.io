@@ -1,4 +1,4 @@
-﻿<%
+<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -21,7 +21,8 @@
 	const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
 	const zhText = extra2.wiki_comment_zh || extra2.wiki_zh || '';
 	const hist = extra2.history;
-	const hasHist = hist && hist.rows && hist.rows.length > 1;
+	const isWE = sheets.length > 0 && sheets.every(function (sh) { return /^【.*】$/.test(sh.difficulty); });
+	const hasHist = !isWE && hist && hist.rows && hist.rows.length > 1;
 	const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
 	const titlesZh = (extra2.titles_zh || []).filter(function (r) { return r && r.length >= 2; });
 	const titleKinds = extra2.title_kinds || [];

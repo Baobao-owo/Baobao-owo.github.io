@@ -1898,3 +1898,6 @@ html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
   color: #a05a5a;
   margin-left: 6px;
 }
+
+/* WORLD'S END 星级徽章 */
+.chuni-badge-we { background: #2b2b46; color: #ffd76a; min-width: 52px; justify-content: center; }

@@ -1,4 +1,4 @@
-// 曲目导览：用公开数据集生成静态页面
+﻿// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -45,6 +45,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
   const removedIds = new Set((removedData.matched || []).map(function (x) { return String(x.id); }));
   const cnRemovedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_removed) || {};
+  const weData = ((hexo.locals.get('data') && hexo.locals.get('data').chuni_we) || {}).songs || {};
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
 
   function normTitle(t) {
@@ -110,6 +111,19 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     const levels = enriched.sheets.map(function (sh) {
       return Number(sh.internalValue);
     }).filter(function (n) { return !isNaN(n); });
+    const isWE = (enriched.sheets || []).length && enriched.sheets.every(function (sh) { return /^【.*】$/.test(sh.difficulty); });
+    const weInfo = isWE ? (weData[String(enriched.title).trim()] || null) : null;
+    if (weInfo) {
+      enriched.weInfo = weInfo;
+      enriched.sheets = enriched.sheets.map(function (sh) {
+        if (!/^【.*】$/.test(sh.difficulty)) return sh;
+        return Object.assign({}, sh, {
+          attr: sh.difficulty,
+          level: '☆' + (weInfo.stars || 1),
+          designer: weInfo.designer || sh.designer || ''
+        });
+      });
+    }
     const musicId = enriched.musicId;
     const previews = [];
     if (musicId) {
@@ -165,6 +179,18 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       cn: e.inCN ? 1 : 0,
       rm: e.removed ? 1 : 0,
       cnrm: e.cnRemoved ? 1 : 0,
+      we: (function () {
+        var stars = [];
+        (e.raw.sheets || []).forEach(function (sh) {
+          if (sh.difficulty && /^【.*】$/.test(sh.difficulty)) {
+            var lv = String(sh.level || '');
+            var m = lv.match(/☆(\d+)/);
+            var n = m ? Number(m[1]) : (lv.match(/☆/g) || []).length || 1;
+            stars.push(n);
+          }
+        });
+        return stars;
+      })(),
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
