@@ -1876,3 +1876,25 @@ html.darkmode .chuni-row-badges .chuni-badge-empty {
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.28);
 }
+
+/* 显示删除曲开关 */
+.chuni-removed-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px dashed rgba(160, 80, 80, 0.5);
+  background: #fff;
+  color: #a05a5a;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-removed-btn.active { background: #a05a5a; border-style: solid; border-color: #a05a5a; color: #fff; }
+html.darkmode .chuni-removed-btn { background: #333945; border-color: #6b4b4b; color: #dda9a9; }
+html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
+.chuni-row-tag-removed {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(160, 80, 80, 0.12);
+  color: #a05a5a;
+  margin-left: 6px;
+}

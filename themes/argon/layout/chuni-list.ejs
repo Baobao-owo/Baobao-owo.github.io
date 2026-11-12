@@ -30,6 +30,7 @@
 					<button type="button" class="chuni-sort-btn active" data-sort="title">标题顺</button>
 					<button type="button" class="chuni-sort-btn" data-sort="version">版本顺</button>
 				</div>
+				<button type="button" class="chuni-removed-btn" id="chuni-removed">显示删除曲</button>
 				<span class="chuni-count" id="chuni-count"></span>
 			</div>
 
@@ -53,7 +54,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sort: 'title', page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sort: 'title', removed: false, page: 1 };
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -122,6 +123,7 @@
 		var qa = state.qa.trim().toLowerCase();
 		var rows = all.filter(function (r) {
 			if (state.version === 'cn' && !r.cn) return false;
+			if (!state.removed && r.rm) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
@@ -181,7 +183,7 @@
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 				'<div class="chuni-row-main">' +
-				'<div class="chuni-row-title">' + r.t + '</div>' +
+				'<div class="chuni-row-title">' + r.t + (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '') + '</div>' +
 				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 				'</div>' +
 				'<div class="chuni-row-badges">' + badges + '</div>' +
@@ -260,6 +262,14 @@
 
 	var cat = document.getElementById('chuni-cat');
 	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });
+
+	var rmBtn = document.getElementById('chuni-removed');
+	if (rmBtn) rmBtn.addEventListener('click', function () {
+		state.removed = !state.removed;
+		rmBtn.classList.toggle('active', state.removed);
+		state.page = 1;
+		renderRows();
+	});
 
 	fetch('/chuni-songs.json')
 		.then(function (r) { return r.json(); })

@@ -1,4 +1,4 @@
-// 曲目导览：用公开数据集生成静态页面
+﻿// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -42,6 +42,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
   const cnSongMap = cnData.songs || {};
+  const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
+  const removedIds = new Set((removedData.matched || []).map(function (x) { return String(x.id); }));
 
   function normTitle(t) {
     return String(t)
@@ -137,6 +139,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       maxLevel: levels.length ? Math.max.apply(null, levels) : 0,
       minLevel: levels.length ? Math.min.apply(null, levels) : 0,
       inCN: cnEntry ? true : (Object.keys(cnSongMap).length ? false : cnVersions.has(s.version)),
+      removed: removedIds.has(String(s.id)),
       cnConsts: cnConsts,
       cover: s.cover || ''
     };
@@ -157,6 +160,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       min: e.minLevel,
       max: e.maxLevel,
       cn: e.inCN ? 1 : 0,
+      rm: e.removed ? 1 : 0,
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
