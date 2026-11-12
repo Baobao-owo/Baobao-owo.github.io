@@ -259,22 +259,33 @@
 			<div class="chuni-section">
 				<div class="chuni-section-title">谱面确认</div>
 				<%
+					const confirms = s.confirms || {};
+					const confirmList = sheets.map(function (sh) {
+						const letter = diffLetter[sh.difficulty];
+						return confirms[letter] ? { sh: sh, letter: letter, url: confirms[letter] } : null;
+					}).filter(Boolean);
 					const biliSearch = 'https://search.bilibili.com/all?keyword=' + encodeURIComponent(s.title + ' CHUNITHM 谱面确认');
 					const ytSearch = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(s.title + ' CHUNITHM 譜面確認');
 				%>
+				<% if (confirmList.length) { %>
+					<div class="chuni-confirm-list">
+						<% confirmList.forEach(function (c) { %>
+							<a class="chuni-confirm-btn" href="<%= c.url %>" target="_blank" rel="noopener">
+								<span class="chuni-badge chuni-badge-<%= c.sh.difficulty %>"><%= c.letter %></span>
+								<span><%= diffName[c.sh.difficulty] %></span>
+								<span class="chuni-confirm-src">B 站</span>
+							</a>
+						<% }); %>
+					</div>
+					<div class="chuni-chart-hint">来自 B 站「Mr__CirCle」的谱面确认合集，按难度点开。</div>
+				<% } %>
 				<div class="chuni-video-links">
-					<% if (extra2.bili) { %>
-						<a class="chuni-video-link bili" href="<%= extra2.bili %>" target="_blank" rel="noopener">B 站 · 已收录</a>
-					<% } else { %>
-						<a class="chuni-video-link bili" href="<%= biliSearch %>" target="_blank" rel="noopener">B 站搜索</a>
-					<% } %>
-					<% if (extra2.youtube) { %>
-						<a class="chuni-video-link yt" href="<%= extra2.youtube %>" target="_blank" rel="noopener">YouTube · 已收录</a>
-					<% } else { %>
-						<a class="chuni-video-link yt" href="<%= ytSearch %>" target="_blank" rel="noopener">YouTube 搜索</a>
-					<% } %>
+					<a class="chuni-video-link bili" href="<%= biliSearch %>" target="_blank" rel="noopener">B 站搜索</a>
+					<a class="chuni-video-link yt" href="<%= ytSearch %>" target="_blank" rel="noopener">YouTube 搜索</a>
 				</div>
-				<div class="chuni-chart-hint">搜「<%= s.title %> CHUNITHM 譜面確認」就能找到各难度的确认视频。</div>
+				<% if (!confirmList.length) { %>
+					<div class="chuni-chart-hint">这首还没匹配到合集分P，用上面的搜索找找看。</div>
+				<% } %>
 			</div>
 		</div>
 	</div>

@@ -1786,3 +1786,20 @@ html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #f
 .chuni-video-link.yt { border-color: rgba(220, 60, 60, 0.4); color: #c93b3b !important; }
 .chuni-video-link.yt:hover { background: rgba(220, 60, 60, 0.1); }
 html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; color: #cfe0ec !important; }
+
+/* 谱面确认按钮 */
+.chuni-confirm-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.chuni-confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 114, 153, 0.35);
+  background: #fff;
+  color: #3f4b57 !important;
+  font-size: 13px;
+}
+.chuni-confirm-btn:hover { background: rgba(251, 114, 153, 0.1); text-decoration: none; }
+.chuni-confirm-src { font-size: 11px; color: #d94f7a; }
+html.darkmode .chuni-confirm-btn { background: #333945; border-color: #444b57; color: #dfe8ef !important; }
