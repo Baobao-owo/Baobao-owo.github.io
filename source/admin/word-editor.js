@@ -1,15 +1,24 @@
 /* 自定义 Decap 部件：所见即所得编辑器（TinyMCE）
    用 Decap 自己暴露的 window.h / window.createClass，避免 React 版本冲突（否则报 #525） */
 (function () {
-  if (typeof window.CMS === 'undefined' || typeof CMS.registerWidget !== 'function') return;
-  if (typeof window.h !== 'function' || typeof window.createClass !== 'function') {
-    console.warn('[word-editor] 缺少 window.h / window.createClass，跳过');
-    return;
+  function fail(reason) {
+    console.error('[word-editor] ' + reason);
+    var bar = document.createElement('div');
+    bar.style.cssText =
+      'position:fixed;left:50%;top:70px;transform:translateX(-50%);z-index:200000;background:#fff3cd;color:#7a5b00;' +
+      'padding:10px 16px;border-radius:8px;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.12)';
+    bar.textContent = '正文编辑器没加载成功（' + reason + '），按 Ctrl+F5 强制刷新一次';
+    document.body.appendChild(bar);
   }
 
-  var h = window.h;
-  var createClass = window.createClass;
-  var seq = 0;
+  function register() {
+    if (window.__wordEditorReady) return true;
+    if (typeof window.CMS === 'undefined' || typeof CMS.registerWidget !== 'function') return false;
+    if (typeof window.h !== 'function' || typeof window.createClass !== 'function') return false;
+
+    var h = window.h;
+    var createClass = window.createClass;
+    var seq = 0;
 
   var WordControl = createClass({
     getInitialState: function () {
@@ -106,5 +115,22 @@
   });
 
   CMS.registerWidget('word', WordControl, null);
-  window.__wordEditorReady = true;
+    window.__wordEditorReady = true;
+    console.log('[word-editor] 已注册');
+    return true;
+  }
+
+  if (!register()) {
+    var tries = 0;
+    var timer = setInterval(function () {
+      if (register()) {
+        clearInterval(timer);
+        return;
+      }
+      if (++tries >= 20) {
+        clearInterval(timer);
+        fail('依赖没就绪');
+      }
+    }, 150);
+  }
 })();
