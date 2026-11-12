@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const g = page.guide || {};
 	const cats = g.categories || [];
 	const versions = g.versions || [];
@@ -149,8 +149,8 @@
 		return (Math.abs(v % 1) < 0.05) ? String(Math.round(v)) : v.toFixed(1);
 	}
 
-	function badge(letter, value, diff) {
-		return '<span class="chuni-badge chuni-badge-' + diff + '">' + letter + fmtConst(value) + '</span>';
+	function badge(value, diff) {
+		return '<span class="chuni-badge chuni-badge-' + diff + '">' + fmtConst(value) + '</span>';
 	}
 
 	function renderRows() {
@@ -168,7 +168,7 @@
 				if (!sh) return '<span class="chuni-badge-slot"></span>';
 				var useCn = state.version === 'cn' && sh.cn != null;
 				var val = useCn ? sh.cn : sh.iv;
-				var html = badge(DIFF_LETTER[d], val, d);
+				var html = badge(val, d);
 				if (state.version === 'cn' && sh.cn == null) {
 					html = html.replace('<span ', '<span title="暂无国服数据，显示的是 MATE 定数" ');
 				}
