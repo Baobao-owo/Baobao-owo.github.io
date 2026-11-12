@@ -1,4 +1,4 @@
-﻿// 追加解析：定数变更履历 / 可取得称号 / ND名义·称号由来
+// 追加解析：定数变更履历 / 可取得称号 / ND名义·称号由来
 // 用法：node tools/wiki_extra_sections.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -76,7 +76,9 @@ for (const song of guide.songs) {
       .split(/(?=※|譜面定数)/)
       .map((s) => s.trim())
       .filter((s) => s && (s.startsWith('※') || s.startsWith('譜面定数')))
-      .map((s) => s.replace(/^(譜面定数変更履歴|レベルの推移)[\s　]*/, '').trim())\n      .filter(Boolean)\n      .forEach((s) => historyNotes.push(s));
+      .map((s) => s.replace(/^(譜面定数変更履歴|レベルの推移)[\s　]*/, '').trim())
+      .filter(Boolean)
+      .forEach((s) => historyNotes.push(s));
   }
   const historyIntro = parseListItems(historyHtml).slice(0, 3);
 
