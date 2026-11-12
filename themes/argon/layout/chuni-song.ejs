@@ -67,15 +67,31 @@
 
 			<div class="chuni-section">
 				<div class="chuni-section-title">wiki 搬运 / 翻译</div>
-				<% if (extra2.wiki_jp) { %>
+				<%
+					const winfo = extra2.wiki_info || {};
+					const wikiRows = ['ジャンル', '原曲', '解禁方法'].filter(function (k) { return winfo[k]; });
+					const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
+					const zhText = extra2.wiki_zh || '';
+				%>
+				<% if (wikiRows.length) { %>
+					<div class="chuni-wiki-info">
+						<% wikiRows.forEach(function (k) { %>
+							<div class="chuni-wiki-info-row">
+								<span class="chuni-wiki-info-key"><%= k %></span>
+								<span class="chuni-wiki-info-val"><%= winfo[k] %></span>
+							</div>
+						<% }); %>
+					</div>
+				<% } %>
+				<% if (jpText) { %>
 					<div class="chuni-wiki-label">日文原文</div>
-					<div class="chuni-wiki-jp"><%= extra2.wiki_jp %></div>
+					<div class="chuni-wiki-jp"><%= jpText %></div>
 				<% } %>
-				<% if (extra2.wiki_zh) { %>
+				<% if (zhText) { %>
 					<div class="chuni-wiki-label">中文翻译</div>
-					<div class="chuni-wiki-zh"><%= extra2.wiki_zh %></div>
+					<div class="chuni-wiki-zh"><%= zhText %></div>
 				<% } %>
-				<% if (!extra2.wiki_jp && !extra2.wiki_zh) { %>
+				<% if (!wikiRows.length && !jpText && !zhText) { %>
 					<div class="chuni-placeholder">wiki 内容还没搬，之后再补。</div>
 				<% } %>
 			</div>

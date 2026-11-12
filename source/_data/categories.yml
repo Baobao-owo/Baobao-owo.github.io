@@ -1,4 +1,4 @@
-# 板块（分类）管理
+﻿# 板块（分类）管理
 # 后台「分类管理」里改的就是这个文件。
 #
 # name        显示名，也是文章里该填的分类名
@@ -31,5 +31,6 @@ categories:
         description: 不属于上面两类的
   - name: 中二节奏
     order: 3
-    description: CHUNITHM 成绩、谱面研究笔记
+    description: CHUNITHM 曲目导览、谱面信息
     aliases: ''
+    style: tool

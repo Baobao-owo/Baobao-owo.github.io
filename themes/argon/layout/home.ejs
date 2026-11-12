@@ -1,4 +1,4 @@
-<%
+﻿<%
 	// 首页只放大板块入口：点进去才是子分类 / 列表，再点才是文章
 	const boards = configured_categories();
 	const countOf = {};
@@ -17,8 +17,30 @@
 		return !boards.some(function (b) { return b.name === c.name; });
 	});
 %>
+<%
+	const toolBoards = boards.filter(function (b) { return category_style(b.name) === 'tool'; });
+	const normalBoards = boards.filter(function (b) { return category_style(b.name) !== 'tool'; });
+	const chuniData = (site.data && site.data.chuni) || null;
+	const toolSongCount = chuniData && chuniData.songs ? chuniData.songs.length : 0;
+	const toolSheetCount = chuniData && chuniData.songs
+		? chuniData.songs.reduce(function (n, s) { return n + (s.sheets ? s.sheets.length : 0); }, 0)
+		: 0;
+%>
+<% toolBoards.forEach(function (tb) { %>
+	<a class="tool-banner" href="/chuni/">
+		<div class="tool-banner-main">
+			<div class="tool-banner-kicker">工具站</div>
+			<h2 class="tool-banner-title"><%= tb.name %> · 曲目导览</h2>
+			<p class="tool-banner-desc">
+				<%= toolSongCount %> 首曲目 · <%= toolSheetCount %> 张谱 · 日服 MATE / 国服 2027 切换
+				· 查定数、谱师、wiki 搬运、谱面预览，评论区聊手法
+			</p>
+		</div>
+		<span class="tool-banner-cta">进入导览 →</span>
+	</a>
+<% }); %>
 <div class="board-grid">
-<% boards.forEach(function (board) { %>
+<% normalBoards.forEach(function (board) { %>
 	<%
 		const kids = category_children(board.name);
 		const path = pathOf[board.name];
