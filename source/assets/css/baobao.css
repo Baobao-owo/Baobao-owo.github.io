@@ -1700,3 +1700,38 @@ html.darkmode .chuni-zh > summary { border-color: #444b57; color: #a9c4d8; }
 .chuni-chart-hint { margin-top: 8px; font-size: 12px; color: #97a4b0; }
 html.darkmode .chuni-chart-tab { background: #333945; border-color: #444b57; color: #cfe0ec; }
 html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #fff; }
+
+/* 单曲页：平面图（点开看原图） */
+.chuni-chart-link {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1b2027;
+  border: 1px solid rgba(79, 127, 156, 0.18);
+}
+.chuni-chart-link img { display: block; width: 100%; height: auto; }
+.chuni-chart-link:hover { opacity: .96; }
+
+/* 平面图缩略：只露开头一段，点开原图 */
+.chuni-chart-link {
+  position: relative;
+  display: block;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1b2027;
+  border: 1px solid rgba(79, 127, 156, 0.18);
+}
+.chuni-chart-link img { display: block; height: 100%; width: auto; max-width: none; }
+.chuni-chart-open {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12px;
+  pointer-events: none;
+}
+.chuni-chart-link:hover .chuni-chart-open { background: rgba(0, 0, 0, 0.75); }

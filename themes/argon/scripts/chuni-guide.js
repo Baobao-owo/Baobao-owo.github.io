@@ -58,7 +58,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     const previews = [];
     if (musicId) {
       for (let si = 0; si < enriched.sheets.length; si++) {
-        const exts = ['.png', '.svg'];
+        const exts = ['.webp', '.png', '.svg'];
         for (let ei = 0; ei < exts.length; ei++) {
           const rel = 'assets/chuni/preview/' + musicId + '_' + si + exts[ei];
           if (fs.existsSync(path.join(hexo.base_dir, 'source', rel))) {

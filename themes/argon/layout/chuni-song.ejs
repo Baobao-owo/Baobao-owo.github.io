@@ -220,10 +220,11 @@
 							</button>
 						<% }); %>
 					</div>
-					<div class="chuni-chart-box">
-						<img id="chuni-chart-img" src="<%= previewSheets[0].url %>" alt="谱面平面图" />
-					</div>
-					<div class="chuni-chart-hint">平面图从游戏谱面文件渲染，横向 12 轨、竖向时间；上下滚动查看，点上面的难度切换。</div>
+					<a class="chuni-chart-link" id="chuni-chart-link" href="<%= previewSheets[0].url %>" target="_blank" rel="noopener">
+						<img id="chuni-chart-img" src="<%= previewSheets[0].url %>" alt="谱面平面图" loading="lazy" />
+						<span class="chuni-chart-open">点击看大图 ↗</span>
+					</a>
+					<div class="chuni-chart-hint">上面只显示开头一段，点图片在新标签打开整张原图（可右键另存）；难度用上面的按钮切换。</div>
 				<% } %>
 				<% if (extra2.bili) { %>
 					<div class="chuni-preview-row">
@@ -242,9 +243,9 @@
 					btn.addEventListener('click', function () {
 						document.querySelectorAll('.chuni-chart-tab').forEach(function (b) { b.classList.toggle('active', b === btn); });
 						var img = document.getElementById('chuni-chart-img');
+						var link = document.getElementById('chuni-chart-link');
 						if (img) img.src = btn.getAttribute('data-url');
-						var box = img && img.parentElement;
-						if (box) box.scrollTop = 0;
+						if (link) link.href = btn.getAttribute('data-url');
 					});
 				});
 			})();
