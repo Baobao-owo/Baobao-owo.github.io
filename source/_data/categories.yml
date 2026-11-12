@@ -1,4 +1,4 @@
-﻿# 板块（分类）管理
+# 板块（分类）管理
 # 后台「分类管理」里改的就是这个文件。
 #
 # name        显示名，也是文章里该填的分类名
@@ -19,7 +19,7 @@ categories:
     aliases: ''
   - name: 谱面记录
     order: 2
-    description: 自己做的谱面，顺带写点做谱思路
+    description: 记录情感的瞬间
     aliases: '4k谱面记录'
     children:
       - name: 4k下落式
