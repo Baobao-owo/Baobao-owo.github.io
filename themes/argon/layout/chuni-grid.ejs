@@ -41,11 +41,14 @@
 						const c = post.chuni || {};
 						const cover = c.cover || '';
 						const diffs = (c.diffs || []).filter(function (d) { return d && (d.cls || d.value); });
+						const tagArr = post.tags ? post.tags.toArray().map(function (t) { return String(t.name); }) : [];
+						const isCollab = tagArr.indexOf('合作谱') !== -1;
 					%>
 					<a class="map-card chuni-card" href="<%= url_for(post.path) %>"
 					   data-date="<%= post.date.format('YYYY-MM-DD') %>"
 					   data-title="<%= post.title %>">
 						<div class="map-cover chuni-cover<%= cover ? '' : ' map-cover-empty' %>"<% if (cover) { %> style="background-image:url('<%= cover %>')"<% } %>>
+							<% if (isCollab) { %><span class="chuni-collab">合作</span><% } %>
 							<% if (!cover) { %>
 								<span class="map-cover-letter"><%= post.title.slice(0, 1) %></span>
 							<% } %>

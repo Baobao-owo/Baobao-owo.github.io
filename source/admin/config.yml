@@ -171,6 +171,62 @@ collections:
             widget: image
             required: false
             hint: 不填就用 osu 封面
+      - label: 中二谱面信息（中二节奏谱面用，其它文章留空）
+        name: chuni
+        widget: object
+        required: false
+        fields:
+          - label: 艺术家
+            name: artist
+            widget: string
+            required: false
+          - label: 谱师
+            name: authors
+            widget: string
+            required: false
+            hint: 合作谱写成 a & b，tag 里再加个「合作谱」
+          - label: 歌包链接
+            name: bundle
+            widget: string
+            required: false
+          - label: B 站视频
+            name: video
+            widget: string
+            required: false
+          - label: B 站简介原文
+            name: video_desc
+            widget: text
+            required: false
+            hint: 从视频简介搬来的文字，显示在「B 站简介」里
+          - label: 补充说明
+            name: note
+            widget: text
+            required: false
+            hint: 你自己写的话，显示在「补充说明」里
+          - label: 曲绘
+            name: cover
+            widget: image
+            required: false
+          - label: 难度列表
+            name: diffs
+            widget: list
+            required: false
+            label_singular: 一个难度
+            summary: "{{fields.cls}} {{fields.value}}"
+            fields:
+              - label: 难度分类
+                name: cls
+                widget: string
+                hint: 例如 14+ / 15 / 速
+              - label: 数值
+                name: value
+                widget: string
+                required: false
+                hint: 例如 15.6 / 2★
+              - label: 谱师
+                name: mapper
+                widget: string
+                required: false
       - label: 正文
         name: body
         widget: markdown

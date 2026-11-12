@@ -4,7 +4,7 @@ date: 2026-05-23 12:00:00
 categories:
   - 谱面记录
   - 中二节奏谱面
-tags: [CHUNITHM, 自制谱]
+tags: [CHUNITHM, 自制谱, 合作谱]
 chuni:
   artist: '/ 曲：テラ(少女理論観測所)／歌：藍原 椿(CV：橋本 ちななみ)'
   authors: 'FDShijing & imocent'

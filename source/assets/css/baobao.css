@@ -1320,3 +1320,47 @@ html.darkmode .chuni-desc {
   background: rgba(79, 127, 156, 0.14);
   color: #b9c8d4;
 }
+
+/* 中二：合作谱标记、简介标签、补充说明 */
+.chuni-collab {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #fff;
+  background: #c96f9a;
+}
+
+.chuni-collab-inline {
+  position: static;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.chuni-block-label {
+  margin-top: 14px;
+  font-size: 0.74rem;
+  color: #97a4b0;
+}
+
+.chuni-note {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--themecolor);
+  border-radius: 6px;
+  background: rgba(79, 127, 156, 0.06);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: #4a5866;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+html.darkmode .chuni-note {
+  background: rgba(79, 127, 156, 0.12);
+  color: #c6d4df;
+}

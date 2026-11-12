@@ -3,13 +3,18 @@
 	const c = post.chuni;
 	if (c) {
 		const diffs = (c.diffs || []).filter(function (d) { return d && (d.cls || d.value); });
+		const tagArr = post.tags ? post.tags.toArray().map(function (t) { return String(t.name); }) : [];
+		const isCollab = tagArr.indexOf('合作谱') !== -1;
 %>
 <div class="map-info">
 	<% if (c.cover) { %>
 		<div class="chuni-info-cover" style="background-image:url('<%= c.cover %>')"></div>
 	<% } %>
 	<div class="map-info-body">
-		<h3 class="map-info-title"><%= post.title %></h3>
+		<h3 class="map-info-title">
+			<%= post.title %>
+			<% if (isCollab) { %><span class="chuni-collab chuni-collab-inline">合作</span><% } %>
+		</h3>
 		<% if (c.artist) { %><div class="map-info-artist"><%= c.artist %></div><% } %>
 		<% if (c.authors) { %><div class="map-info-mapper">谱师 <%= c.authors %></div><% } %>
 		<% if (diffs.length) { %>
@@ -39,7 +44,12 @@
 			</div>
 		<% } %>
 		<% if (c.video_desc) { %>
+			<div class="chuni-block-label">B 站简介</div>
 			<div class="chuni-desc"><%= c.video_desc %></div>
+		<% } %>
+		<% if (c.note) { %>
+			<div class="chuni-block-label">补充说明</div>
+			<div class="chuni-note"><%= c.note %></div>
 		<% } %>
 	</div>
 </div>
