@@ -1671,3 +1671,32 @@ html.darkmode .chuni-zh > summary { border-color: #444b57; color: #a9c4d8; }
 .chuni-detail-table td:first-child { text-align: left; width: 150px; }
 .chuni-history-table th:first-child,
 .chuni-history-table td:first-child { width: auto; }
+
+/* 单曲页：平面图预览 */
+.chuni-chart-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.chuni-chart-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chuni-chart-tab.active { background: var(--themecolor); border-color: var(--themecolor); color: #fff; }
+.chuni-chart-tab .chuni-badge { font-size: 10px; padding: 1px 5px; }
+.chuni-chart-tab-lv { opacity: .8; }
+.chuni-chart-box {
+  max-height: 620px;
+  overflow: auto;
+  background: #1b2027;
+  border-radius: 10px;
+  padding: 6px;
+}
+.chuni-chart-box img { display: block; width: 100%; border-radius: 6px; }
+.chuni-chart-hint { margin-top: 8px; font-size: 12px; color: #97a4b0; }
+html.darkmode .chuni-chart-tab { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #fff; }

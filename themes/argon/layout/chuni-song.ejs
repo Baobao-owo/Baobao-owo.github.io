@@ -204,22 +204,51 @@
 
 			<div class="chuni-section">
 				<div class="chuni-section-title">谱面预览</div>
+				<%
+					const previews = (s.previews || []).filter(Boolean);
+					const previewSheets = sheets.map(function (sh, i) {
+						return previews[i] ? { sh: sh, url: previews[i], index: i } : null;
+					}).filter(Boolean);
+				%>
+				<% if (previewSheets.length) { %>
+					<div class="chuni-chart-tabs">
+						<% previewSheets.forEach(function (p, k) { %>
+							<button type="button" class="chuni-chart-tab<%= k === 0 ? ' active' : '' %>" data-url="<%= p.url %>">
+								<span class="chuni-badge chuni-badge-<%= p.sh.difficulty %>"><%= diffLetter[p.sh.difficulty] %></span>
+								<span class="chuni-chart-tab-name"><%= diffName[p.sh.difficulty] %></span>
+								<span class="chuni-chart-tab-lv"><%= p.sh.level %></span>
+							</button>
+						<% }); %>
+					</div>
+					<div class="chuni-chart-box">
+						<img id="chuni-chart-img" src="<%= previewSheets[0].url %>" alt="谱面平面图" />
+					</div>
+					<div class="chuni-chart-hint">平面图从游戏谱面文件渲染，横向 12 轨、竖向时间；上下滚动查看，点上面的难度切换。</div>
+				<% } %>
 				<% if (extra2.bili) { %>
 					<div class="chuni-preview-row">
 						<span class="chuni-preview-label">B 站</span>
 						<a href="<%= extra2.bili %>" target="_blank" rel="noopener"><%= extra2.bili %></a>
 					</div>
 				<% } %>
-				<% if (extra2.flat) { %>
-					<div class="chuni-preview-row">
-						<span class="chuni-preview-label">平面图</span>
-						<a href="<%= extra2.flat %>" target="_blank" rel="noopener"><%= extra2.flat %></a>
-					</div>
-				<% } %>
-				<% if (!extra2.bili && !extra2.flat) { %>
-					<div class="chuni-placeholder">还没有预览，之后补 B 站视频或平面图。</div>
+				<% if (!previewSheets.length && !extra2.bili && !extra2.flat) { %>
+					<div class="chuni-placeholder">还没有预览，之后补平面图或 B 站视频。</div>
 				<% } %>
 			</div>
+
+			<script>
+			(function () {
+				document.querySelectorAll('.chuni-chart-tab').forEach(function (btn) {
+					btn.addEventListener('click', function () {
+						document.querySelectorAll('.chuni-chart-tab').forEach(function (b) { b.classList.toggle('active', b === btn); });
+						var img = document.getElementById('chuni-chart-img');
+						if (img) img.src = btn.getAttribute('data-url');
+						var box = img && img.parentElement;
+						if (box) box.scrollTop = 0;
+					});
+				});
+			})();
+			</script>
 
 			<div class="chuni-section">
 				<div class="chuni-section-title">手法交流</div>

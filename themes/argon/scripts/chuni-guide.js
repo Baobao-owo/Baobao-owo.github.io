@@ -1,6 +1,8 @@
 ﻿// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
+const fs = require('fs');
+const path = require('path');
 
 function slugOf(id) {
   const base = String(id)
@@ -52,6 +54,15 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     const levels = enriched.sheets.map(function (sh) {
       return Number(sh.internalValue);
     }).filter(function (n) { return !isNaN(n); });
+    const musicId = enriched.musicId;
+    const previews = [];
+    if (musicId) {
+      for (let si = 0; si < enriched.sheets.length; si++) {
+        const rel = 'assets/chuni/preview/' + musicId + '_' + si + '.svg';
+        if (fs.existsSync(path.join(hexo.base_dir, 'source', rel))) previews[si] = '/' + rel;
+      }
+    }
+    enriched.previews = previews;
     return {
       raw: enriched,
       slug: slugOf(s.id),
