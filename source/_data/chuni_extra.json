@@ -1,0 +1,11 @@
+{
+  "_comment": "按曲目 ID 存放 wiki 搬运/翻译与预览链接；key 用数据集里的 songId，例如 \"B.B.K.K.B.K.K.\"",
+  "_example": {
+    "B.B.K.K.B.K.K.": {
+      "wiki_jp": "日文 wiki 原文",
+      "wiki_zh": "中文翻译",
+      "bili": "https://www.bilibili.com/video/BVxxxx",
+      "flat": "https://example.com/flat.png"
+    }
+  }
+}

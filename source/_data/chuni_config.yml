@@ -1,0 +1,27 @@
+# 曲目导览配置
+# 版本切换：日服 MATE（全部） / 国服 2027（只显示下面列出的版本及更早的歌）
+
+# 国服 2027 截止的日服版本（写版本 key，越靠后越多歌）
+# 可选项见 source/_data/chuni.json 里的 versions
+cn_versions:
+  - CHUNITHM
+  - CHUNITHM PLUS
+  - AIR
+  - AIR PLUS
+  - STAR
+  - STAR PLUS
+  - AMAZON
+  - AMAZON PLUS
+  - CRYSTAL
+  - CRYSTAL PLUS
+  - PARADISE
+  - PARADISE LOST
+  - CHUNITHM NEW
+  - CHUNITHM NEW PLUS
+  - SUN
+  - SUN PLUS
+  - LUMINOUS
+  - LUMINOUS PLUS
+  - VERSE
+  - X-VERSE
+  - X-VERSE-X

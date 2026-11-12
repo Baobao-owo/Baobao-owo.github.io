@@ -1,4 +1,4 @@
-# Argon 主题配置
+﻿# Argon 主题配置
 # 说明：改完记得 hexo clean && hexo g 才会生效
 
 # 全局
@@ -17,6 +17,7 @@ toolbar_icon_link: ''
 toolbar_title: ''
 toolbar_menu:
   首页: /
+  中二: /chuni/
   归档: /archives
   关于: /about
 

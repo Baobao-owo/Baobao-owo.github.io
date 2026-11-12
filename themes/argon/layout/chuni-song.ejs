@@ -1,0 +1,122 @@
+<%
+	const s = page.song || {};
+	const sheets = s.sheets || [];
+	const extra2 = page.extra || {};
+	const catLabel = (function () {
+		const cats = (page.guide && page.guide.categories) || [];
+		const hit = cats.find(function (c) { return c.key === s.category; });
+		return hit ? hit.label : (s.category || '');
+	})();
+	const diffName = { basic: 'BASIC', advanced: 'ADVANCED', expert: 'EXPERT', master: 'MASTER', ultima: 'ULTIMA' };
+	const diffLetter = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
+%>
+<article class="post post-full card bg-white shadow-sm border-0">
+	<div class="post-content" id="post_content">
+		<div class="chuni-song">
+			<a class="map-back" href="/chuni/">← 返回曲目导览</a>
+
+			<div class="chuni-song-head">
+				<% if (s.cover) { %>
+					<img class="chuni-song-cover" src="<%= s.cover %>" alt="" />
+				<% } %>
+				<div class="chuni-song-headtext">
+					<h1 class="chuni-song-title"><%= s.title %></h1>
+					<div class="chuni-song-artist"><%= s.artist %></div>
+					<div class="chuni-song-meta">
+						<span><%= catLabel %></span>
+						<% if (s.bpm) { %><span>BPM <%= s.bpm %></span><% } %>
+						<% if (page.versionLabel) { %><span><%= page.versionLabel %></span><% } %>
+						<% if (s.release) { %><span><%= s.release %></span><% } %>
+					</div>
+				</div>
+			</div>
+
+			<div class="chuni-section">
+				<div class="chuni-section-title">谱面</div>
+				<table class="chuni-table">
+					<thead>
+						<tr>
+							<th>难度</th>
+							<th>定数</th>
+							<th>谱师</th>
+							<th>音符</th>
+							<th>地区</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% sheets.forEach(function (sh) { %>
+						<%
+							const n = sh.notes || {};
+							const noteText = n.total ? (n.tap || 0) + ' / ' + (n.hold || 0) + ' / ' + (n.slide || 0) : '—';
+							const reg = sh.regions || {};
+							const regions = [];
+							if (reg.jp) regions.push('日服');
+							if (reg.intl) regions.push('国际');
+						%>
+						<tr>
+							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %>"><%= diffLetter[sh.difficulty] %> <%= diffName[sh.difficulty] %></span></td>
+							<td class="chuni-lv"><%= sh.internal && sh.internal !== sh.level ? sh.level + '（' + sh.internal + '）' : sh.level %></td>
+							<td class="chuni-designer"><%= sh.designer || '—' %></td>
+							<td class="chuni-notes"><%= noteText %></td>
+							<td><%= regions.join(' / ') || '—' %></td>
+						</tr>
+					<% }); %>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="chuni-section">
+				<div class="chuni-section-title">wiki 搬运 / 翻译</div>
+				<% if (extra2.wiki_jp) { %>
+					<div class="chuni-wiki-jp"><%= extra2.wiki_jp %></div>
+				<% } %>
+				<% if (extra2.wiki_zh) { %>
+					<div class="chuni-wiki-zh"><%= extra2.wiki_zh %></div>
+				<% } %>
+				<% if (!extra2.wiki_jp && !extra2.wiki_zh) { %>
+					<div class="chuni-placeholder">wiki 内容还没搬，之后再补。</div>
+				<% } %>
+			</div>
+
+			<div class="chuni-section">
+				<div class="chuni-section-title">谱面预览</div>
+				<% if (extra2.bili) { %>
+					<div class="chuni-preview-row">
+						<span class="chuni-preview-label">B 站</span>
+						<a href="<%= extra2.bili %>" target="_blank" rel="noopener"><%= extra2.bili %></a>
+					</div>
+				<% } %>
+				<% if (extra2.flat) { %>
+					<div class="chuni-preview-row">
+						<span class="chuni-preview-label">平面图</span>
+						<a href="<%= extra2.flat %>" target="_blank" rel="noopener"><%= extra2.flat %></a>
+					</div>
+				<% } %>
+				<% if (!extra2.bili && !extra2.flat) { %>
+					<div class="chuni-placeholder">还没有预览，之后补 B 站视频或平面图。</div>
+				<% } %>
+			</div>
+
+			<div class="chuni-section">
+				<div class="chuni-section-title">手法交流</div>
+				<div class="chuni-comments">
+					<script src="https://giscus.app/client.js"
+						data-repo="Baobao-owo/Baobao-owo.github.io"
+						data-repo-id="R_kgDOVqnN2A"
+						data-category="Announcements"
+						data-category-id="DIC_kwDOVqnN2M4DK41l"
+						data-mapping="pathname"
+						data-strict="0"
+						data-reactions-enabled="1"
+						data-emit-metadata="0"
+						data-input-position="top"
+						data-theme="preferred_color_scheme"
+						data-lang="zh-CN"
+						crossorigin="anonymous"
+						async>
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

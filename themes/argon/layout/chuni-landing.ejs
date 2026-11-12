@@ -1,0 +1,29 @@
+<%
+	const d = (site.data && site.data.chuni) || null;
+	const totalSongs = d ? d.songs.length : 0;
+	const totalSheets = d && d.songs ? d.songs.reduce(function (n, s) { return n + (s.sheets ? s.sheets.length : 0); }, 0) : 0;
+	const updated = d ? d.updated : '';
+%>
+<article class="post post-full card bg-white shadow-sm border-0">
+	<div class="post-content" id="post_content">
+		<div class="chuni-landing">
+			<div class="chuni-landing-top">
+				<div class="chuni-landing-text">
+					<h1 class="chuni-landing-title">中二节奏 · 曲目导览</h1>
+					<p class="chuni-landing-desc">
+						这里是个小工具站：查曲目、看每个难度的定数和谱师、翻日文 wiki 的搬运和翻译、找谱面预览，
+						再在评论区聊手法。
+					</p>
+					<div class="chuni-landing-stats">
+						<span><b><%= totalSongs %></b> 首曲目</span>
+						<span><b><%= totalSheets %></b> 张谱面</span>
+						<% if (updated) { %><span>数据更新 <b><%= updated %></b></span><% } %>
+					</div>
+					<a class="chuni-landing-cta" href="/chuni/">进入曲目导览 →</a>
+					<div class="chuni-landing-version">支持日服 MATE / 国服 2027 两个版本切换</div>
+				</div>
+				<div class="chuni-landing-mark">CHUNITHM</div>
+			</div>
+		</div>
+	</div>
+</article>

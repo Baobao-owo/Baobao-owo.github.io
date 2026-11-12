@@ -1364,3 +1364,171 @@ html.darkmode .chuni-note {
   background: rgba(79, 127, 156, 0.12);
   color: #c6d4df;
 }
+
+/* ===== 中二节奏：曲目导览 ===== */
+.chuni-guide-head { margin-bottom: 14px; }
+.chuni-guide-title { margin: 8px 0 4px; font-size: 22px; color: #26313c; }
+.chuni-guide-meta { font-size: 12px; color: #97a4b0; }
+
+.chuni-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.12);
+}
+
+.chuni-seg { display: inline-flex; border-radius: 999px; overflow: hidden; border: 1px solid rgba(79, 127, 156, 0.25); }
+.chuni-seg-btn {
+  padding: 5px 14px;
+  border: 0;
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-seg-btn.active { background: var(--themecolor); color: #fff; }
+
+.chuni-search,
+.chuni-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  font-size: 13px;
+  background: #fff;
+  color: #3f4b57;
+}
+.chuni-search { min-width: 200px; }
+.chuni-count { margin-left: auto; font-size: 12px; color: #9aa7b3; }
+
+.chuni-list { display: flex; flex-direction: column; }
+.chuni-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 8px;
+  border-radius: 8px;
+  border-bottom: 1px solid #eef2f6;
+  color: inherit;
+}
+.chuni-row:hover { background: #f6f9fc; text-decoration: none; color: inherit; }
+.chuni-thumb { width: 46px; height: 46px; border-radius: 6px; object-fit: cover; flex: 0 0 auto; background: #e8eef3; }
+.chuni-row-main { flex: 1; min-width: 0; }
+.chuni-row-title { font-size: 14px; font-weight: 600; color: #26313c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chuni-row-sub { font-size: 12px; color: #8b98a5; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chuni-row-badges { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+
+.chuni-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.chuni-badge-basic { background: #a8c93a; }
+.chuni-badge-advanced { background: #f0a03c; }
+.chuni-badge-expert { background: #dd5555; }
+.chuni-badge-master { background: #9a5db3; }
+.chuni-badge-ultima { background: #333; }
+
+.chuni-empty { padding: 18px; text-align: center; color: #97a4b0; }
+
+/* 单曲页 */
+.chuni-song-head { display: flex; gap: 16px; margin: 10px 0 18px; }
+.chuni-song-cover { width: 128px; height: 128px; border-radius: 10px; object-fit: cover; background: #e8eef3; flex: 0 0 auto; }
+.chuni-song-title { margin: 0 0 4px; font-size: 22px; color: #26313c; }
+.chuni-song-artist { font-size: 14px; color: #6b7884; }
+.chuni-song-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; font-size: 12px; color: #97a4b0; }
+
+.chuni-section { margin: 18px 0; }
+.chuni-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4f7f9c;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  border-left: 3px solid var(--themecolor);
+}
+
+.chuni-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-table th { text-align: left; color: #97a4b0; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #e6ecf2; font-size: 12px; }
+.chuni-table td { padding: 8px; border-bottom: 1px solid #eef2f6; color: #3f4b57; vertical-align: middle; }
+.chuni-lv { font-weight: 700; }
+.chuni-designer { color: #5b6a77; }
+.chuni-notes { color: #8b98a5; font-size: 12px; }
+
+.chuni-wiki-jp, .chuni-wiki-zh {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f7f9fb;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #4a5866;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+.chuni-wiki-zh { border-left: 3px solid var(--themecolor); }
+
+.chuni-placeholder { font-size: 13px; color: #a3aebb; padding: 10px 0; }
+.chuni-preview-row { display: flex; gap: 10px; font-size: 13px; margin: 6px 0; word-break: break-all; }
+.chuni-preview-label { flex: 0 0 56px; color: #97a4b0; }
+
+html.darkmode .chuni-toolbar { background: #2b3038; border-color: #3a404b; }
+html.darkmode .chuni-search,
+html.darkmode .chuni-select { background: #333945; border-color: #444b57; color: #dfe8ef; }
+html.darkmode .chuni-seg-btn { background: #333945; color: #cfe0ec; }
+html.darkmode .chuni-seg-btn.active { background: var(--themecolor); color: #fff; }
+html.darkmode .chuni-row { border-bottom-color: #343a44; }
+html.darkmode .chuni-row:hover { background: #2e343d; }
+html.darkmode .chuni-row-title,
+html.darkmode .chuni-song-title { color: #e7eef4; }
+html.darkmode .chuni-table td { color: #cfdae4; border-bottom-color: #343a44; }
+html.darkmode .chuni-wiki-jp,
+html.darkmode .chuni-wiki-zh { background: #2b3038; color: #c6d4df; }
+
+/* ===== 中二节奏：工具落地页 ===== */
+.chuni-landing { padding: 6px 2px; }
+.chuni-landing-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(79, 127, 156, 0.1), rgba(79, 127, 156, 0.02));
+  border: 1px solid rgba(79, 127, 156, 0.14);
+}
+.chuni-landing-title { margin: 0 0 8px; font-size: 24px; color: #26313c; }
+.chuni-landing-desc { margin: 0 0 14px; font-size: 14px; line-height: 1.9; color: #5b6a77; max-width: 560px; }
+.chuni-landing-stats { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: #8b98a5; margin-bottom: 16px; }
+.chuni-landing-stats b { color: #26313c; font-size: 16px; }
+.chuni-landing-cta {
+  display: inline-block;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: var(--themecolor);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.chuni-landing-cta:hover { opacity: .9; text-decoration: none; }
+.chuni-landing-version { margin-top: 10px; font-size: 12px; color: #97a4b0; }
+.chuni-landing-mark {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(79, 127, 156, 0.35);
+  white-space: nowrap;
+}
+html.darkmode .chuni-landing-top { background: linear-gradient(135deg, rgba(79, 127, 156, 0.18), rgba(79, 127, 156, 0.04)); border-color: #3a404b; }
+html.darkmode .chuni-landing-title,
+html.darkmode .chuni-landing-stats b { color: #e7eef4; }
+html.darkmode .chuni-landing-desc { color: #b9c8d4; }

@@ -1,4 +1,4 @@
-<%- include('header.ejs') %>
+﻿<%- include('header.ejs') %>
 
 <div class="page-information-card-container">
 	<% if (is_tag() || is_category() || (is_archive() && page.year != undefined)) { %>
@@ -26,8 +26,19 @@
 		<% if (is_tag()) { %>
 			<%- include('index.ejs') %>
 		<% } %>
+		<% if (page.chuniKind === 'list') { %>
+			<%- include('chuni-list.ejs') %>
+		<% } %>
+		<% if (page.chuniKind === 'song') { %>
+			<%- include('chuni-song.ejs') %>
+		<% } %>
+		<% if (page.chuniKind === 'landing') { %>
+			<%- include('chuni-landing.ejs') %>
+		<% } %>
 		<% if (is_category()) { %>
-			<% if (is_board_with_children(page.category)) { %>
+			<% if (page.category === '中二节奏') { %>
+				<%- include('chuni-landing.ejs') %>
+			<% } else if (is_board_with_children(page.category)) { %>
 				<%- include('board.ejs') %>
 			<% } else if (category_style(page.category) === 'chuni') { %>
 				<%- include('chuni-grid.ejs') %>
