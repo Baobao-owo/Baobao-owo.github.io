@@ -10,6 +10,16 @@ chuni:
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019e541d-3fc5-7000-959b-df4327554dd7'
   video: 'https://www.bilibili.com/video/BV1rFLP6XEJS'
+  video_desc: |
+    Title:Just Hold on (To All Fighters)
+    Artist:void
+    BPM:170
+    Difficulty:MASTER 15.4
+    Note Designer:FDShijing to all Fighters
+    
+    For my 20th birthday, and for everyone.
+    
+    For my 20th birthday, and for everyone.
   cover: 'https://cdn.pgko.dev/jackets/blake3-fb8c0e9b0adb1c647156de91cf190dd785e5998f2087ddeb31c74e1918042bc0-7q41-300.webp'
   diffs:
     - cls: '15'

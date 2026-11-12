@@ -10,6 +10,16 @@ chuni:
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019cb1ed-3f9e-7000-b301-854ab7b36a28'
   video: 'https://www.bilibili.com/video/BV14Az9BtEji'
+  video_desc: |
+    Title:sense of wonder
+    Artist:Yu_Asahina
+    BPM:178
+    Difficulty:MASTER 15
+    Note Designer:Seal of sense
+    
+    写artcore真传之梦到啥写啥，倾家荡产掏配置
+    
+    写artcore真传之梦到啥写啥，倾家荡产掏配置
   cover: 'https://cdn.pgko.dev/jackets/blake3-b7e1d3bf6464e74c0af63a25116631c18244e5ac502e8b6b2aa0827ba911fa8a-55ehy-300.webp'
   diffs:
     - cls: '15'

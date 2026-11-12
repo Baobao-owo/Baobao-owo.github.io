@@ -10,6 +10,16 @@ chuni:
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019cb200-4521-7000-9530-0ba118058ef1'
   video: 'https://www.bilibili.com/video/BV1TdPjz9ERk'
+  video_desc: |
+    Title:Break The Speakers
+    Artist:DJ Myosuke
+    BPM:185
+    Difficulty:MASTER 15
+    Note Designer:Code:SEAL
+    
+    重复片段过多写起来略显头疼
+    
+    重复片段过多写起来略显头疼
   cover: 'https://cdn.pgko.dev/jackets/blake3-438d06cbfc41add727dc4c910976c568ce90bd39611667044e314d58ce523d8a-7njh-300.webp'
   diffs:
     - cls: '15'

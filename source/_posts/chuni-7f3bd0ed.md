@@ -10,6 +10,24 @@ chuni:
   authors: 'FDShijing'
   bundle: 'https://pgko.dev/bundles/019e541f-2a96-7000-93ea-bbba7f3bd0ed'
   video: 'https://www.bilibili.com/video/BV1MPdPBaEj4'
+  video_desc: |
+    Title:Ö<3rf10₩
+    Artist:momocaca (月乃×Capchii)
+    BPM:200
+    Difficulty:MASTER 15
+    Note Designer:I=0$h!j!∩9
+    
+    祝@imtinpetrichor  生日快乐
+    
+    中二字体库还是太菜了标题和名义都显示不全
+    背景是施主要求
+    歌完全没有休息段下手，打起来特别特别累
+    
+    祝@imtinpetrichor  生日快乐
+    
+    中二字体库还是太菜了标题和名义都显示不全
+    背景是施主要求
+    歌完全没有休息段下手，打起来特别特别累
   cover: 'https://cdn.pgko.dev/jackets/blake3-68953b2dc8546bc87a2b6c8f33cf1389ba807f897006b860626efcfcb4d5ec51-dk9p-300.webp'
   diffs:
     - cls: '15'

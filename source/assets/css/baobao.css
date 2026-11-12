@@ -1302,3 +1302,21 @@ html.darkmode .chuni-others-item {
   font-size: 0.8rem;
   color: #8b98a5;
 }
+
+/* 中二谱面：视频简介搬过来的文字 */
+.chuni-desc {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(79, 127, 156, 0.07);
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: #5b6a77;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+html.darkmode .chuni-desc {
+  background: rgba(79, 127, 156, 0.14);
+  color: #b9c8d4;
+}

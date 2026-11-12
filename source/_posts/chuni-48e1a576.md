@@ -10,6 +10,22 @@ chuni:
   authors: 'FDShijing & imocent'
   bundle: 'https://pgko.dev/bundles/019e5420-2f71-7000-8015-349048e1a576'
   video: 'https://www.bilibili.com/video/BV12JDpBvEMJ'
+  video_desc: |
+    Title:耐冬花麗
+    Artist:/ 曲：テラ(少女理論観測所)／歌：藍原 椿(CV：橋本 ちななみ)
+    BPM:184
+    Difficulty:MASTER 14
+    Note Designer:FDShijing vs. imocent
+    
+    祝@KoKo_McAlawn  生日快乐
+    
+    很早就有写的想法了，蓝原椿唱歌确实有点东西在的
+    友情或者不友情地客串了各种配置，但两个人都疑似各自专盯一个谱师输出，深柜来了。。
+    
+    祝@KoKo_McAlawn  生日快乐
+    
+    很早就有写的想法了，蓝原椿唱歌确实有点东西在的
+    友情或者不友情地客串了各种配置，但两个人都疑似各自专盯一个谱师输出，深柜来了。。
   cover: 'https://cdn.pgko.dev/jackets/blake3-eec8f0ba94c6a91a59892b3c9b2a5f02d50c8d8c63b901b479dd03e7942f60c1-capn-300.webp'
   diffs:
     - cls: '14'
