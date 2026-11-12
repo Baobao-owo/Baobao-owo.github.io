@@ -257,24 +257,24 @@
 			</script>
 
 			<div class="chuni-section">
-				<div class="chuni-section-title">手法交流</div>
-				<div class="chuni-comments">
-					<script src="https://giscus.app/client.js"
-						data-repo="Baobao-owo/Baobao-owo.github.io"
-						data-repo-id="R_kgDOVqnN2A"
-						data-category="Announcements"
-						data-category-id="DIC_kwDOVqnN2M4DK41l"
-						data-mapping="pathname"
-						data-strict="0"
-						data-reactions-enabled="1"
-						data-emit-metadata="0"
-						data-input-position="top"
-						data-theme="preferred_color_scheme"
-						data-lang="zh-CN"
-						crossorigin="anonymous"
-						async>
-					</script>
+				<div class="chuni-section-title">谱面确认</div>
+				<%
+					const biliSearch = 'https://search.bilibili.com/all?keyword=' + encodeURIComponent(s.title + ' CHUNITHM 谱面确认');
+					const ytSearch = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(s.title + ' CHUNITHM 譜面確認');
+				%>
+				<div class="chuni-video-links">
+					<% if (extra2.bili) { %>
+						<a class="chuni-video-link bili" href="<%= extra2.bili %>" target="_blank" rel="noopener">B 站 · 已收录</a>
+					<% } else { %>
+						<a class="chuni-video-link bili" href="<%= biliSearch %>" target="_blank" rel="noopener">B 站搜索</a>
+					<% } %>
+					<% if (extra2.youtube) { %>
+						<a class="chuni-video-link yt" href="<%= extra2.youtube %>" target="_blank" rel="noopener">YouTube · 已收录</a>
+					<% } else { %>
+						<a class="chuni-video-link yt" href="<%= ytSearch %>" target="_blank" rel="noopener">YouTube 搜索</a>
+					<% } %>
 				</div>
+				<div class="chuni-chart-hint">搜「<%= s.title %> CHUNITHM 譜面確認」就能找到各难度的确认视频。</div>
 			</div>
 		</div>
 	</div>

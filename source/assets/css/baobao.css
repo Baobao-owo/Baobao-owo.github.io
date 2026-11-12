@@ -1766,3 +1766,23 @@ html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #f
 /* 曲绘放大并垂直居中 */
 .chuni-wiki-head { align-items: center; }
 .chuni-jacket-box { flex: 0 0 280px; }
+
+/* 单曲页：谱面确认链接 */
+.chuni-video-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.chuni-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  background: #fff;
+  color: #4f7f9c !important;
+}
+.chuni-video-link:hover { background: rgba(79, 127, 156, 0.08); text-decoration: none; }
+.chuni-video-link.bili { border-color: rgba(251, 114, 153, 0.4); color: #d94f7a !important; }
+.chuni-video-link.bili:hover { background: rgba(251, 114, 153, 0.1); }
+.chuni-video-link.yt { border-color: rgba(220, 60, 60, 0.4); color: #c93b3b !important; }
+.chuni-video-link.yt:hover { background: rgba(220, 60, 60, 0.1); }
+html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; color: #cfe0ec !important; }
