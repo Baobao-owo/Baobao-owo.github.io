@@ -108,16 +108,37 @@
 			<% if (hasHist) { %>
 			<div class="chuni-section">
 				<div class="chuni-section-title">定数变更履历</div>
+				<%
+					function lvVal(t) {
+						const m = String(t).trim().match(/^(\d+)(\+)?$/);
+						if (!m) return null;
+						return Number(m[1]) + (m[2] ? 0.5 : 0);
+					}
+					const histRows = hist.rows.slice(1);
+				%>
 				<table class="chuni-detail-table chuni-history-table">
 					<thead>
 						<tr>
-							<% hist.rows[0].forEach(function (h) { %><th><%= h %></th><% }); %>
+							<% hist.rows[0].forEach(function (h) { %><th><%= h === 'バージョン' ? '版本' : h %></th><% }); %>
 						</tr>
 					</thead>
 					<tbody>
-						<% hist.rows.slice(1).forEach(function (r) { %>
+						<% histRows.forEach(function (r, ri) { %>
 							<tr>
-								<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+								<% r.forEach(function (c, ci) { %>
+									<%
+										let cls = '';
+										if (ci > 0 && ri > 0) {
+											const cur = lvVal(c);
+											const prev = lvVal(histRows[ri - 1][ci]);
+											if (cur !== null && prev !== null) {
+												if (cur > prev) cls = (cur - prev >= 1 ? 'lv-up lv-big' : 'lv-up');
+												else if (cur < prev) cls = (prev - cur >= 1 ? 'lv-down lv-big' : 'lv-down');
+											}
+										}
+									%>
+									<td class="<%= cls %>"><%= c %></td>
+								<% }); %>
 							</tr>
 						<% }); %>
 					</tbody>

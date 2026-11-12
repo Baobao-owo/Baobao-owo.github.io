@@ -1639,3 +1639,7 @@ html.darkmode .chuni-detail-table td { color: #dfe8ef; border-bottom-color: #343
 .chuni-origins li { margin: 4px 0; }
 html.darkmode .chuni-origins { color: #c6d4df; }
 html.darkmode .chuni-history-notes { color: #8b98a5; }
+
+.chuni-history-table td.lv-up { color: #d0453b; font-weight: 600; }
+.chuni-history-table td.lv-down { color: #2f74c0; font-weight: 600; }
+.chuni-history-table td.lv-big { text-decoration: underline; }
