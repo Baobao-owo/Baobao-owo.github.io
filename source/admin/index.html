@@ -6,6 +6,7 @@
     <meta name="robots" content="noindex" />
     <title>内容管理 · 宝宝的小站</title>
     <link rel="icon" href="/assets/img/favicon-flower.ico" />
+    <link rel="stylesheet" href="/admin/admin.css" />
     <style>
       body {
         margin: 0;
@@ -45,6 +46,11 @@
             loaded = true;
             var boot = document.getElementById('boot');
             if (boot) boot.remove();
+            try {
+              if (window.CMS && CMS.registerPreviewStyle) {
+                CMS.registerPreviewStyle('/admin/preview.css');
+              }
+            } catch (e) {}
           };
           s.onerror = function () {
             load(i + 1);

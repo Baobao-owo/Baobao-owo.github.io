@@ -1,0 +1,86 @@
+/* 后台预览面板的样式：尽量贴近站点的正文排版 */
+body {
+  font-family: "Microsoft YaHei UI", "PingFang SC", "Hiragino Sans GB", system-ui, -apple-system, sans-serif;
+  color: #3d4b58;
+  font-size: 15px;
+  line-height: 1.85;
+  padding: 18px 22px;
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #26313c;
+  line-height: 1.45;
+  margin: 1.3em 0 0.6em;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+p {
+  margin: 0.7em 0;
+}
+
+a {
+  color: #4f7f9c;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding: 8px 14px;
+  border-left: 3px solid #4f7f9c;
+  background: #f5f8fb;
+  color: #5b6a77;
+  border-radius: 4px;
+}
+
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(79, 127, 156, 0.12);
+  color: #43708d;
+  font-size: 0.9em;
+}
+
+pre {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #2f3b46;
+  color: #e6edf3;
+  overflow: auto;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e6ecf2;
+  margin: 1.6em 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #e2e8ef;
+  padding: 6px 10px;
+}
