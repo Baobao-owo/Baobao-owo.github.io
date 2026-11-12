@@ -1,11 +1,44 @@
 {
-  "_comment": "按曲目 ID 存放 wiki 搬运/翻译与预览链接；key 用数据集里的 songId，例如 \"B.B.K.K.B.K.K.\"",
-  "_example": {
-    "B.B.K.K.B.K.K.": {
-      "wiki_jp": "日文 wiki 原文",
-      "wiki_zh": "中文翻译",
-      "bili": "https://www.bilibili.com/video/BVxxxx",
-      "flat": "https://example.com/flat.png"
-    }
+ "_comment": "按曲目 ID 存放 wiki 搬运/翻译与预览链接；key 用数据集里的 songId，例如 \"B.B.K.K.B.K.K.\"",
+ "_example": {
+  "B.B.K.K.B.K.K.": {
+   "wiki_jp": "日文 wiki 原文",
+   "wiki_zh": "中文翻译",
+   "bili": "https://www.bilibili.com/video/BVxxxx",
+   "flat": "https://example.com/flat.png"
   }
+ },
+ "初音ミクの消失": {
+  "wiki_jp": "初音ミク黎明期（2007年～2008年）の大ヒット曲の一つ。\nCHUNITHMに収録されている音源はmaimaiと同様、1stアルバム「初音ミクの消失」収録のリメイクバージョンを短縮したもの。\n太鼓の達人には似たタイトルの「初音ミクの消失-劇場版-」が収録されているが、一部のフレーズが共通しているのみで全くの別物。\nまた、Project DIVAでは何故か「 初音ミクの激唱 」にも本楽曲のジャケットが充てられている。それぞれ多機種勢は混同に要注意。\n譜面作者：EXP …rioN、 MAS …如月ゆかりの消失\n譜面定数：EXP …12.0、 MAS …14.5",
+  "wiki_title": "初音ミクの消失",
+  "wiki_zh": "初音未来黎明期（2007～2008 年）的大热曲之一。\nCHUNITHM 收录的音源和 maimai 一样，是首张专辑《初音ミクの消失》里重制版的缩短版本。\n太鼓达人有首标题相近的《初音ミクの消失-劇場版-》，但只有部分乐句相同，完全是两首曲子。\n另外 Project DIVA 里不知为何把本曲的封面安到了《初音ミクの激唱》上，多机种玩家容易混淆，注意分辨。\n\n谱面作者：EXP …rioN、MAS …如月ゆかりの消失\n谱面定数：EXP …12.0、MAS …14.5"
+ },
+ "千本桜": {
+  "wiki_jp": "2023/2/9 ULTIMA追加\n2011年9月17日投稿。2016年2月にニコニコ動画で1000万再生を達成。\n2012年の「好きなボカロ曲ランキング」調査で1位を獲得、様々なアーティストのカバーやタイアップにも起用されるなど、ボーカロイド楽曲の中でもトップクラスの知名度を誇る。\n使用VOCALOID:初音ミク\nギター：hajime\n譜面作者：EXP …某S氏、 MAS …rioN、 ULT …Redarrow\n譜面定数：MAS …12.6、 ULT …13.7",
+  "wiki_title": "千本桜"
+ },
+ "DRAGONLADY": {
+  "wiki_jp": "BMSイベント「BOF2009」個人戦スコア部門優勝楽曲。ジャンルはHAPPY。\n｢ドラゴンレディ｣とは、西洋における東・南アジア女性のステレオタイプ *1 を示す言葉。\nBGAに一瞬登場する戦闘機や文章から推測するに、楽曲のモチーフはその言葉を愛称とするアメリカの高高度偵察機「U-2」であると思われる。\n何故かアーティスト名の表記がBGA作者との連名になっている。\n譜面作者：EXP …ロシェ＠ペンギン、 MAS …Revo@LC vs ぴちネコ、WE…( ﾟдﾟ )彡\n譜面定数：EXP …11.5、 MAS …14.2",
+  "wiki_title": "DRAGONLADY"
+ },
+ "taboo tears you up": {
+  "wiki_jp": "2024/3/21 ULTIMA追加\n「東方萃翠酒酔」収録楽曲。\nセルフアレンジ版として「taboo tears you up 2008」「taboo tears you up 2017」も存在する。\nBEMANIシリーズの楽曲からのフレーズ・声ネタの引用が多々見受けられる。\n作詞：宮戸 建、REDALiCE(HARDCORE TANO*C)\n譜面作者：EXP …ロシェ@ペンギン、 MAS …ぴちネコ、 ULT …Taboo \"Forbidden Notes\"、WE…FLICK BATTLE(超上級)\n譜面定数：MAS …13.8、 ULT …15.0",
+  "wiki_title": "taboo tears you up"
+ },
+ "ナイト・オブ・ナイツ": {
+  "wiki_jp": "2014/11/28 第1回ロケテスト先行収録\nアルバム「 花詠束 」収録楽曲。\n英語表記については、作曲者曰く「 「Night of Knights」「Knight of Nights」「Night of Nights」「Knight of Knights」全部正解だけど、全部不正解 」とのこと。\nジャケットはmaimai収録時の独自ムービーより。\nもしかして：ナイト・オブ・ナイツ\nもしかして：ナイト・オブ・ナイツ\n「 ナイト・オブ・ナイツ 」(「 花詠束 」収録 *1 )\n「 ナイト・オブ・ナイツ (Cranky Remix) 」(「 オールナイト・オブ・ナイツ 」収録)\n「 ナイト・オブ・ナイツ (USAO Remix) 」(「 オールナイト・オブ・ナイツ ルナティック 」収録)\n「 ナイト・オブ・ナイツ (かめりあ’s“ワンス・アポン・ア・ナイト”Remix) 」(同上)\n譜面作者：EXP …Techno Kitchen、 MAS …Revo@LC、WE…時符「咲夜特製ストップウォッチ」\n譜面定数：MAS …12.2",
+  "wiki_title": "ナイト・オブ・ナイツ"
+ },
+ "一触即発☆禅ガール": {
+  "wiki_jp": "2014/11/28 第1回ロケテスト先行収録\n2013年7月12日投稿。\n使用VOCALOID: 初音ミク・GUMI\n譜面作者：EXP …ロシェ＠ペンギン、 MAS …ロシェ＠ペンギン、WE…一触即発☆ダメージノーツ\n譜面定数：MAS …13.0",
+  "wiki_title": "一触即発☆禅ガール"
+ },
+ "ドーナツホール": {
+  "wiki_jp": "2026/7/30 ULTIMA追加\n2013年10月投稿。同年12月にはミリオン再生達成。\n2ndアルバム「 YANKEE 」には米津玄師氏自身でカバーしたバージョンが収録されており、太鼓の達人 Vバージョンではこちらの音源が収録されている。\n使用VOCALOID：GUMI\n譜面作者：EXP …Moon Strix、 MAS …ぴちネコ、 ULT …ロシェ@ペンギン\n譜面定数：MAS …13.4、 ULT …14.0",
+  "wiki_title": "ドーナツホール"
+ },
+ "Blue Noise": {
+  "wiki_jp": "2014/11/28 第1回ロケテスト先行収録\n1998年リリース、プロデュース開発・ナムコ販売のアーケード音楽ゲーム「パカパカパッション」に収録されていた楽曲。\n収録当時のジャンル名は「Rave More First Techno」。\nCHUNITHM収録にあたり原曲から一部カットされているほか、音源自体も サウンドトラック版 のものと同一になっている。\n作曲：Teruo Konishi(小西 輝男)\n譜面作者：EXP …ロシェ＠ペンギン、 MAS …譜面-100号、WE招…チュウニペンギン（上級）、WE敷…Orange Noise\n譜面定数：MAS …14.5",
+  "wiki_title": "Blue Noise"
+ }
 }

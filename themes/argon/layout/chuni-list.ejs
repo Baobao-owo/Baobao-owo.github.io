@@ -1,8 +1,8 @@
-<%
+﻿<%
 	const g = page.guide || {};
-	const songs = g.songs || [];
 	const cats = g.categories || [];
-	const versionList = g.versions || [];
+	const versions = g.versions || [];
+	const cfg = (site.data && site.data.chuni_config) || {};
 %>
 <article class="post post-full card bg-white shadow-sm border-0">
 	<div class="post-content" id="post_content">
@@ -11,7 +11,7 @@
 				<a class="map-back" href="/categories/中二节奏/">← 返回 中二节奏</a>
 				<h2 class="chuni-guide-title">曲目导览</h2>
 				<div class="chuni-guide-meta">
-					共 <%= songs.length %> 首 · 数据更新 <%= g.updated || '' %> · 来源 <%= g.source || '' %>
+					<span id="chuni-total">—</span> 首 · 数据更新 <%= g.updated || '' %> · 来源 <%= g.source || '' %>
 				</div>
 			</div>
 
@@ -39,92 +39,131 @@
 				<span class="chuni-count" id="chuni-count"></span>
 			</div>
 
-			<div class="chuni-list" id="chuni-list">
-				<% songs.forEach(function (s, idx) { %>
-					<%
-						const song = s.raw;
-						const badges = song.sheets.map(function (sh) {
-							const letter = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' }[sh.difficulty] || '?';
-							return { letter: letter, level: sh.level, internal: sh.internal, diff: sh.difficulty };
-						});
-					%>
-					<a class="chuni-row"
-					   href="/chuni/<%= s.slug %>/"
-					   data-title="<%= song.title %>"
-					   data-artist="<%= song.artist %>"
-					   data-cat="<%= song.category %>"
-					   data-ver="<%= s.versionIndex %>"
-					   data-cn="<%= s.inCN ? 1 : 0 %>"
-					   data-min="<%= s.minLevel %>"
-					   data-max="<%= s.maxLevel %>"
-					   data-idx="<%= idx %>">
-						<img class="chuni-thumb" src="<%= s.cover %>" alt="" loading="lazy" />
-						<div class="chuni-row-main">
-							<div class="chuni-row-title"><%= song.title %></div>
-							<div class="chuni-row-sub"><%= song.artist %> · BPM <%= song.bpm || '?' %> · <%= s.versionLabel %></div>
-						</div>
-						<div class="chuni-row-badges">
-							<% badges.forEach(function (b) { %>
-								<span class="chuni-badge chuni-badge-<%= b.diff %>" title="<%= b.diff %>"><%= b.letter %> <%= b.level %></span>
-							<% }); %>
-						</div>
-					</a>
-				<% }); %>
-			</div>
+			<div class="chuni-list" id="chuni-list"></div>
 			<div class="chuni-empty" id="chuni-empty" hidden>没有符合条件的曲目</div>
+			<div class="chuni-pager" id="chuni-pager"></div>
+			<div class="chuni-loading" id="chuni-loading">正在加载曲目…</div>
 		</div>
 	</div>
 </article>
 
 <script>
 (function () {
-	var state = { version: 'all', q: '', cat: 'all', diff: 'all' };
-	var rows = Array.prototype.slice.call(document.querySelectorAll('.chuni-row'));
-	var countEl = document.getElementById('chuni-count');
-	var emptyEl = document.getElementById('chuni-empty');
+	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
+	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
+	var PAGE_SIZE = 50;
+	var state = { version: 'all', q: '', cat: 'all', diff: 'all', page: 1 };
 
-	function inDiff(min, max) {
-		var r = state.diff;
-		if (r === 'all') return true;
-		var parts = r.split('-');
+	var all = [];
+	var listEl = document.getElementById('chuni-list');
+	var pagerEl = document.getElementById('chuni-pager');
+	var countEl = document.getElementById('chuni-count');
+	var totalEl = document.getElementById('chuni-total');
+	var emptyEl = document.getElementById('chuni-empty');
+	var loadingEl = document.getElementById('chuni-loading');
+
+	function diffMatch(row) {
+		if (state.diff === 'all') return true;
+		var parts = state.diff.split('-');
 		var a = Number(parts[0]);
 		var b = Number(parts[1]);
-		return max >= a && min <= b;
+		return row.max >= a && row.min <= b;
 	}
 
-	function apply() {
-		var shown = 0;
+	function filtered() {
 		var q = state.q.trim().toLowerCase();
-		rows.forEach(function (row) {
-			var ok = true;
-			if (state.version === 'cn' && row.getAttribute('data-cn') !== '1') ok = false;
-			if (ok && state.cat !== 'all' && row.getAttribute('data-cat') !== state.cat) ok = false;
-			if (ok && !inDiff(Number(row.getAttribute('data-min')), Number(row.getAttribute('data-max')))) ok = false;
-			if (ok && q) {
-				var hay = (row.getAttribute('data-title') + ' ' + row.getAttribute('data-artist')).toLowerCase();
-				if (hay.indexOf(q) === -1) ok = false;
-			}
-			row.style.display = ok ? '' : 'none';
-			if (ok) shown++;
+		return all.filter(function (r) {
+			if (state.version === 'cn' && !r.cn) return false;
+			if (state.cat !== 'all' && r.c !== state.cat) return false;
+			if (!diffMatch(r)) return false;
+			if (q && (r.t + ' ' + r.a).toLowerCase().indexOf(q) === -1) return false;
+			return true;
 		});
-		if (countEl) countEl.textContent = '显示 ' + shown + ' / ' + rows.length;
-		if (emptyEl) emptyEl.hidden = shown !== 0;
 	}
+
+	function badge(letter, lv, diff) {
+		return '<span class="chuni-badge chuni-badge-' + diff + '">' + letter + ' ' + lv + '</span>';
+	}
+
+	function renderRows() {
+		var rows = filtered();
+		var pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+		if (state.page > pages) state.page = pages;
+		var start = (state.page - 1) * PAGE_SIZE;
+		var pageRows = rows.slice(start, start + PAGE_SIZE);
+
+		var html = pageRows.map(function (r) {
+			var badges = r.sh.map(function (sh) {
+				var letter = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' }[sh.d] || '?';
+				return badge(letter, sh.lv, sh.d);
+			}).join('');
+			return '<a class="chuni-row" href="' + r.u + '">' +
+				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
+				'<div class="chuni-row-main">' +
+				'<div class="chuni-row-title">' + r.t + '</div>' +
+				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
+				'</div>' +
+				'<div class="chuni-row-badges">' + badges + '</div>' +
+				'</a>';
+		}).join('');
+
+		listEl.innerHTML = html;
+		emptyEl.hidden = rows.length !== 0;
+		countEl.textContent = '显示 ' + (rows.length ? start + 1 : 0) + '–' + (start + pageRows.length) + ' / ' + rows.length;
+		totalEl.textContent = String(all.length);
+		renderPager(pages);
+	}
+
+	function renderPager(pages) {
+		if (pages <= 1) { pagerEl.innerHTML = ''; return; }
+		var html = '';
+		html += '<button type="button" class="chuni-pg" data-page="' + (state.page - 1) + '"' + (state.page <= 1 ? ' disabled' : '') + '>上一页</button>';
+		var windowStart = Math.max(1, state.page - 2);
+		var windowEnd = Math.min(pages, windowStart + 4);
+		if (windowStart > 1) html += '<button type="button" class="chuni-pg" data-page="1">1</button>' + (windowStart > 2 ? '<span class="chuni-pg-gap">…</span>' : '');
+		for (var p = windowStart; p <= windowEnd; p++) {
+			html += '<button type="button" class="chuni-pg' + (p === state.page ? ' active' : '') + '" data-page="' + p + '">' + p + '</button>';
+		}
+		if (windowEnd < pages) html += (windowEnd < pages - 1 ? '<span class="chuni-pg-gap">…</span>' : '') + '<button type="button" class="chuni-pg" data-page="' + pages + '">' + pages + '</button>';
+		html += '<button type="button" class="chuni-pg" data-page="' + (state.page + 1) + '"' + (state.page >= pages ? ' disabled' : '') + '>下一页</button>';
+		html += '<span class="chuni-pg-info">第 ' + state.page + ' / ' + pages + ' 页</span>';
+		pagerEl.innerHTML = html;
+	}
+
+	pagerEl.addEventListener('click', function (e) {
+		var b = e.target.closest('.chuni-pg');
+		if (!b || b.disabled) return;
+		var p = Number(b.getAttribute('data-page'));
+		if (!p || p === state.page) return;
+		state.page = p;
+		renderRows();
+		window.scrollTo({ top: listEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+	});
 
 	document.querySelectorAll('#chuni-version .chuni-seg-btn').forEach(function (b) {
 		b.addEventListener('click', function () {
 			document.querySelectorAll('#chuni-version .chuni-seg-btn').forEach(function (x) { x.classList.toggle('active', x === b); });
 			state.version = b.getAttribute('data-version');
-			apply();
+			state.page = 1;
+			renderRows();
 		});
 	});
 	var search = document.getElementById('chuni-search');
-	if (search) search.addEventListener('input', function () { state.q = search.value; apply(); });
+	if (search) search.addEventListener('input', function () { state.q = search.value; state.page = 1; renderRows(); });
 	var cat = document.getElementById('chuni-cat');
-	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; apply(); });
+	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });
 	var diff = document.getElementById('chuni-diff');
-	if (diff) diff.addEventListener('change', function () { state.diff = diff.value; apply(); });
+	if (diff) diff.addEventListener('change', function () { state.diff = diff.value; state.page = 1; renderRows(); });
 
-	apply();
+	fetch('/chuni-songs.json')
+		.then(function (r) { return r.json(); })
+		.then(function (rows) {
+			all = rows;
+			if (loadingEl) loadingEl.remove();
+			renderRows();
+		})
+		.catch(function () {
+			if (loadingEl) loadingEl.textContent = '曲目数据加载失败';
+		});
 })();
 </script>

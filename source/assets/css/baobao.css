@@ -1532,3 +1532,31 @@ html.darkmode .chuni-landing-top { background: linear-gradient(135deg, rgba(79, 
 html.darkmode .chuni-landing-title,
 html.darkmode .chuni-landing-stats b { color: #e7eef4; }
 html.darkmode .chuni-landing-desc { color: #b9c8d4; }
+
+.chuni-wiki-label {
+  font-size: 12px;
+  color: #97a4b0;
+  margin: 10px 0 4px;
+}
+.chuni-wiki-label:first-child { margin-top: 0; }
+
+/* 曲目导览：分页 */
+.chuni-pager { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; }
+.chuni-pg {
+  min-width: 34px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-pg:hover:not(:disabled) { background: rgba(79, 127, 156, 0.08); }
+.chuni-pg.active { background: var(--themecolor); border-color: var(--themecolor); color: #fff; }
+.chuni-pg:disabled { opacity: .45; cursor: default; }
+.chuni-pg-gap { color: #97a4b0; padding: 0 2px; }
+.chuni-pg-info { margin-left: auto; font-size: 12px; color: #9aa7b3; }
+.chuni-loading { padding: 24px; text-align: center; color: #97a4b0; font-size: 13px; }
+html.darkmode .chuni-pg { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-pg.active { background: var(--themecolor); color: #fff; }

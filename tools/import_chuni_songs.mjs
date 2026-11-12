@@ -70,3 +70,32 @@ fs.writeFileSync(OUT, JSON.stringify(out), 'utf8');
 const totalSheets = songs.reduce((n, s) => n + s.sheets.length, 0);
 console.log('songs:', songs.length, 'sheets:', totalSheets, 'size:', (fs.statSync(OUT).size / 1024).toFixed(0), 'KB');
 console.log('sample:', JSON.stringify(songs[0]).slice(0, 300));
+
+// 额外生成一份给列表页用的精简数据（前端分页渲染）
+const compact = {
+  updated: out.updated,
+  songs: songs.map((s, i) => {
+    const levels = s.sheets.map((sh) => Number(sh.internalValue) || 0);
+    const max = levels.length ? Math.max.apply(null, levels) : 0;
+    const min = levels.length ? Math.min.apply(null, levels) : 0;
+    return {
+      i,
+      id: s.id,
+      t: s.title,
+      a: s.artist,
+      c: s.category,
+      v: s.version,
+      b: s.bpm,
+      cov: s.cover,
+      min,
+      max,
+      sh: s.sheets.map((sh) => ({
+        d: sh.difficulty,
+        lv: sh.level,
+        dr: sh.designer || ''
+      }))
+    };
+  })
+};
+fs.writeFileSync(path.join(process.cwd(), 'source/chuni-songs.json'), JSON.stringify(compact), 'utf8');
+console.log('compact list:', (fs.statSync(path.join(process.cwd(), 'source/chuni-songs.json')).size / 1024).toFixed(0), 'KB');

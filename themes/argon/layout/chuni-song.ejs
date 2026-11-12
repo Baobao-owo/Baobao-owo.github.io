@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -68,9 +68,11 @@
 			<div class="chuni-section">
 				<div class="chuni-section-title">wiki 搬运 / 翻译</div>
 				<% if (extra2.wiki_jp) { %>
+					<div class="chuni-wiki-label">日文原文</div>
 					<div class="chuni-wiki-jp"><%= extra2.wiki_jp %></div>
 				<% } %>
 				<% if (extra2.wiki_zh) { %>
+					<div class="chuni-wiki-label">中文翻译</div>
 					<div class="chuni-wiki-zh"><%= extra2.wiki_zh %></div>
 				<% } %>
 				<% if (!extra2.wiki_jp && !extra2.wiki_zh) { %>

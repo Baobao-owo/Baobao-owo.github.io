@@ -1,4 +1,4 @@
-// 曲目导览：用公开数据集生成静态页面
+﻿// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 
@@ -51,6 +51,26 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   });
 
   const routes = [];
+
+  // 给列表页用的精简数据（前端分页渲染）
+  const compact = songs.map(function (e) {
+    return {
+      u: '/chuni/' + e.slug + '/',
+      t: e.raw.title,
+      a: e.raw.artist,
+      c: e.raw.category,
+      v: e.raw.version,
+      b: e.raw.bpm,
+      cov: e.cover,
+      min: e.minLevel,
+      max: e.maxLevel,
+      cn: e.inCN ? 1 : 0,
+      sh: e.raw.sheets.map(function (sh) {
+        return { d: sh.difficulty, lv: sh.level };
+      })
+    };
+  });
+  hexo.route.set('chuni-songs.json', JSON.stringify(compact));
 
   routes.push({
     path: 'chuni/index.html',
