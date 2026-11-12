@@ -122,7 +122,7 @@
 		var qt = state.qt.trim().toLowerCase();
 		var qa = state.qa.trim().toLowerCase();
 		var rows = all.filter(function (r) {
-			if (state.version === 'cn' && !r.cn) return false;
+			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
 			if (!state.removed && r.rm) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if (!levelMatch(r)) return false;
@@ -183,7 +183,7 @@
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 				'<div class="chuni-row-main">' +
-				'<div class="chuni-row-title">' + r.t + (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '') + '</div>' +
+				'<div class="chuni-row-title">' + r.t + (r.cnrm ? '<span class="chuni-row-tag-removed">国服已删除</span>' : (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '')) + '</div>' +
 				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 				'</div>' +
 				'<div class="chuni-row-badges">' + badges + '</div>' +

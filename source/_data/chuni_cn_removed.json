@@ -1,0 +1,363 @@
+{
+ "source": "maimai.lxns.net 版本快照对比",
+ "note": "国服历史版本里出现过、当前列表没有的曲目（覆盖 NEW 之后的快照）",
+ "total": 71,
+ "matched": [
+  {
+   "title": "Reach For The Stars",
+   "id": "(WE) Reach For The Stars",
+   "version": "X-VERSE"
+  },
+  {
+   "title": "FREELY TOMORROW",
+   "id": "FREELY TOMORROW",
+   "version": null
+  },
+  {
+   "title": "Daydream café",
+   "id": "Daydream café",
+   "version": null
+  },
+  {
+   "title": "ヒビカセ",
+   "id": "ヒビカセ",
+   "version": "STAR PLUS"
+  },
+  {
+   "title": "メルティランドナイトメア",
+   "id": "メルティランドナイトメア",
+   "version": "CRYSTAL PLUS"
+  },
+  {
+   "title": "テリトリーバトル",
+   "id": "テリトリーバトル",
+   "version": null
+  },
+  {
+   "title": "ごまかし",
+   "id": "ごまかし",
+   "version": null
+  },
+  {
+   "title": "真赤な誓い",
+   "id": "真赤な誓い",
+   "version": null
+  },
+  {
+   "title": "歩いていこう！",
+   "id": "歩いていこう！",
+   "version": null
+  },
+  {
+   "title": "君のせい",
+   "id": "君のせい",
+   "version": null
+  },
+  {
+   "title": "Phantom Joke",
+   "id": "Phantom Joke",
+   "version": null
+  },
+  {
+   "title": "脳裏上のクラッカー",
+   "id": "脳裏上のクラッカー",
+   "version": null
+  },
+  {
+   "title": "サクリファイス",
+   "id": "サクリファイス",
+   "version": null
+  },
+  {
+   "title": "猫 ～THE FIRST TAKE ver.～",
+   "id": "猫 ～THE FIRST TAKE ver.～",
+   "version": null
+  },
+  {
+   "title": "インフェルノ",
+   "id": "インフェルノ",
+   "version": null
+  },
+  {
+   "title": "廻廻奇譚",
+   "id": "廻廻奇譚",
+   "version": null
+  },
+  {
+   "title": "名前のない怪物",
+   "id": "名前のない怪物",
+   "version": null
+  },
+  {
+   "title": "心予報",
+   "id": "心予報",
+   "version": null
+  },
+  {
+   "title": "拝啓、桜舞い散るこの日に",
+   "id": "拝啓、桜舞い散るこの日に",
+   "version": null
+  },
+  {
+   "title": "深海のリトルクライ feat. 土岐麻子",
+   "id": "深海のリトルクライ feat. 土岐麻子",
+   "version": null
+  },
+  {
+   "title": "]-[|/34<#!",
+   "id": "(WE) ]-[|/34<#!",
+   "version": null
+  },
+  {
+   "title": "キズナミュージック♪",
+   "id": "キズナミュージック♪",
+   "version": null
+  },
+  {
+   "title": "FIRE BIRD",
+   "id": "(WE) FIRE BIRD",
+   "version": null
+  },
+  {
+   "title": "天空カフェテリア",
+   "id": "天空カフェテリア",
+   "version": null
+  },
+  {
+   "title": "永遠のAria",
+   "id": "永遠のAria",
+   "version": null
+  },
+  {
+   "title": "まっすぐ→→→ストリーム！",
+   "id": "(WE) まっすぐ→→→ストリーム！",
+   "version": "SUN"
+  },
+  {
+   "title": "CAT'S EYE",
+   "id": "CAT'S EYE",
+   "version": null
+  },
+  {
+   "title": "ビバハピ",
+   "id": "ビバハピ",
+   "version": null
+  },
+  {
+   "title": "愛言葉",
+   "id": "愛言葉",
+   "version": "AIR"
+  },
+  {
+   "title": "すきなことだけでいいです",
+   "id": "すきなことだけでいいです",
+   "version": "AIR PLUS"
+  },
+  {
+   "title": "違う、そうじゃない",
+   "id": "違う、そうじゃない",
+   "version": null
+  },
+  {
+   "title": "怪物",
+   "id": "怪物",
+   "version": null
+  },
+  {
+   "title": "明け星",
+   "id": "明け星",
+   "version": null
+  },
+  {
+   "title": "ギラギラ",
+   "id": "ギラギラ",
+   "version": null
+  },
+  {
+   "title": "Dig Delight!",
+   "id": "Dig Delight!",
+   "version": null
+  },
+  {
+   "title": "Floor Killer",
+   "id": "Floor Killer",
+   "version": null
+  },
+  {
+   "title": "くらべられっ子",
+   "id": "くらべられっ子",
+   "version": null
+  },
+  {
+   "title": "あの世行きのバスに乗ってさらば。",
+   "id": "あの世行きのバスに乗ってさらば。",
+   "version": null
+  },
+  {
+   "title": "泥の分際で私だけの大切を奪おうだなんて",
+   "id": "泥の分際で私だけの大切を奪おうだなんて",
+   "version": null
+  },
+  {
+   "title": "＊ハロー、プラネット。",
+   "id": "＊ハロー、プラネット。",
+   "version": "CRYSTAL"
+  },
+  {
+   "title": "Before I Rise",
+   "id": "Before I Rise",
+   "version": null
+  },
+  {
+   "title": "阿修羅ちゃん",
+   "id": "阿修羅ちゃん",
+   "version": null
+  },
+  {
+   "title": "なにやってもうまくいかない",
+   "id": "(WE) なにやってもうまくいかない",
+   "version": null
+  },
+  {
+   "title": "irony",
+   "id": "irony",
+   "version": "SUN"
+  },
+  {
+   "title": "アマカミサマ",
+   "id": "アマカミサマ",
+   "version": "SUN"
+  },
+  {
+   "title": "だじゃれくりえぃしょん",
+   "id": "だじゃれくりえぃしょん",
+   "version": "SUN"
+  },
+  {
+   "title": "魔法少女とチョコレゐト",
+   "id": "魔法少女とチョコレゐト",
+   "version": "SUN"
+  },
+  {
+   "title": "Burn My Soul",
+   "id": "Burn My Soul",
+   "version": null
+  },
+  {
+   "title": "新時代（ウタfrom ONE PIECE FILM RED）",
+   "id": "新時代（ウタfrom ONE PIECE FILM RED）",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "祝福",
+   "id": "祝福",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "刃渡り2億センチ(TV edit)",
+   "id": "刃渡り2億センチ(TV edit)",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "おとせサンダー",
+   "id": "おとせサンダー",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "カレシのジュード",
+   "id": "カレシのジュード",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "Night Spider",
+   "id": "Night Spider",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "Sad Creature",
+   "id": "Sad Creature",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "Goodbye Innocence",
+   "id": "Goodbye Innocence",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "Love Cheat!",
+   "id": "Love Cheat!",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "未来への咆哮",
+   "id": "未来への咆哮",
+   "version": "SUN PLUS"
+  },
+  {
+   "title": "ALIVE",
+   "id": "ALIVE",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "可愛くてごめん",
+   "id": "(WE) 可愛くてごめん",
+   "version": "X-VERSE"
+  },
+  {
+   "title": "トウキョウ・シャンディ・ランデヴ feat. 花譜, ツミキ",
+   "id": "トウキョウ・シャンディ・ランデヴ feat. 花譜, ツミキ",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "アイドル",
+   "id": "アイドル",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "STORM",
+   "id": "STORM",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "さくゆいたいそう",
+   "id": "さくゆいたいそう",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "アイデン貞貞メルトダウン",
+   "id": "アイデン貞貞メルトダウン",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "ひめごと＊クライシスターズ",
+   "id": "ひめごと＊クライシスターズ",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "リレイアウター",
+   "id": "リレイアウター",
+   "version": "LUMINOUS"
+  },
+  {
+   "title": "【ゆっくり実況】ゆっくりペンギンが怒槌をやってみた！ Part1",
+   "id": "(WE) 【ゆっくり実況】ゆっくりペンギンが怒槌をやってみた！ Part1",
+   "version": "X-VERSE-X"
+  },
+  {
+   "title": "なるがちゃんなぎにいよいよえれー目にあわされる話",
+   "id": "(WE) なるがちゃんなぎにいよいよえれー目にあわされる話",
+   "version": "X-VERSE-X"
+  },
+  {
+   "title": "【3Dサウンド】小野ちゃんが真夏のビーチでスイカを叩き割る話【イヤホン推奨】",
+   "id": "(WE) 【3Dサウンド】小野ちゃんが真夏のビーチでスイカを叩き割る話【イヤホン推奨】",
+   "version": "X-VERSE-X"
+  },
+  {
+   "title": "ラストバトル ～サシュウとの戦い～",
+   "id": "(WE) ラストバトル ～サシュウとの戦い～",
+   "version": "X-VERSE-X"
+  }
+ ],
+ "unmatched": []
+}
