@@ -1860,3 +1860,8 @@ html.darkmode .chuni-sort-btn.active { background: #4f7f9c; color: #fff; }
 .chuni-levels.filtering .chuni-lv-chip:not(.active) { opacity: .38; }
 .chuni-lv-chip { opacity: 1; }
 .chuni-lv-chip:not(.active) { filter: none; }
+
+/* 列表难度徽章：显示定数并五列对齐 */
+.chuni-row-badges { display: flex; gap: 6px; flex: 0 0 auto; }
+.chuni-row-badges .chuni-badge { min-width: 52px; justify-content: center; text-align: center; }
+.chuni-badge-slot { width: 52px; flex: 0 0 52px; }

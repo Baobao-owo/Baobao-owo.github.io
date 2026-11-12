@@ -140,8 +140,17 @@
 		return rows;
 	}
 
-	function badge(letter, lv, diff) {
-		return '<span class="chuni-badge chuni-badge-' + diff + '">' + letter + ' ' + lv + '</span>';
+	var DIFF_ORDER = ['basic', 'advanced', 'expert', 'master', 'ultima'];
+	var DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
+
+	function fmtConst(n) {
+		if (n == null || isNaN(n)) return '';
+		var v = Math.round(Number(n) * 10) / 10;
+		return (Math.abs(v % 1) < 0.05) ? String(Math.round(v)) : v.toFixed(1);
+	}
+
+	function badge(letter, value, diff) {
+		return '<span class="chuni-badge chuni-badge-' + diff + '">' + letter + fmtConst(value) + '</span>';
 	}
 
 	function renderRows() {
@@ -152,9 +161,18 @@
 		var pageRows = rows.slice(start, start + PAGE_SIZE);
 
 		var html = pageRows.map(function (r) {
-			var badges = r.sh.map(function (sh) {
-				var letter = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' }[sh.d] || '?';
-				return badge(letter, sh.lv, sh.d);
+			var byDiff = {};
+			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
+			var badges = DIFF_ORDER.map(function (d) {
+				var sh = byDiff[d];
+				if (!sh) return '<span class="chuni-badge-slot"></span>';
+				var useCn = state.version === 'cn' && sh.cn != null;
+				var val = useCn ? sh.cn : sh.iv;
+				var html = badge(DIFF_LETTER[d], val, d);
+				if (state.version === 'cn' && sh.cn == null) {
+					html = html.replace('<span ', '<span title="暂无国服数据，显示的是 MATE 定数" ');
+				}
+				return html;
 			}).join('');
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +

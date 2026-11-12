@@ -1,4 +1,4 @@
-﻿// 曲目导览：用公开数据集生成静态页面
+// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -42,7 +42,37 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 
+  // 从 wiki 的定数履历里取「国服 2027 当时」的定数
+  function cnConstsOf(entry, cnMaxIdx) {
+    const rows = (entry && (entry.history_expanded || (entry.history && entry.history.rows))) || [];
+    if (!rows.length || cnMaxIdx < 0) return null;
+    const header = rows[0];
+    const col = {};
+    header.forEach(function (h, i) { col[h] = i; });
+    let bestIdx = -1;
+    let bestRow = null;
+    rows.slice(1).forEach(function (r) {
+      const label = String(r[0] || '');
+      const start = label.split(/[～~]/)[0].trim();
+      if (!versionIndex.has(start)) return;
+      const idx = versionIndex.get(start);
+      if (idx <= cnMaxIdx && idx > bestIdx) {
+        bestIdx = idx;
+        bestRow = r;
+      }
+    });
+    if (!bestRow) return null;
+    const out = {};
+    ['B', 'A', 'E', 'M'].forEach(function (l) {
+      if (col[l] != null && bestRow[col[l]]) out[l] = bestRow[col[l]];
+    });
+    return out;
+  }
+
   const songs = d.songs.map(function (s, i) {
+    const extraEntry = extra[String(s.id)] || extra[String(s.title).trim()] || {};
+    const cnMaxIdx = Math.max.apply(null, Array.from(cnVersions).map(function (v) { return versionIndex.has(v) ? versionIndex.get(v) : -1; }).concat([-1]));
+    const cnConsts = cnConstsOf(extraEntry, cnMaxIdx);
     const fromMaster = designerMap[String(s.title).trim()] || {};
     const enriched = Object.assign({}, s, {
       musicId: idMap[String(s.title).trim()] || '',
@@ -88,6 +118,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       maxLevel: levels.length ? Math.max.apply(null, levels) : 0,
       minLevel: levels.length ? Math.min.apply(null, levels) : 0,
       inCN: cnVersions.has(s.version),
+      cnConsts: cnConsts,
       cover: s.cover || ''
     };
   });
@@ -108,7 +139,9 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       max: e.maxLevel,
       cn: e.inCN ? 1 : 0,
       sh: e.raw.sheets.map(function (sh) {
-        return { d: sh.difficulty, lv: sh.level };
+        const letter = DIFF_LETTER[sh.difficulty];
+        const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
+        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal };
       })
     };
   });
