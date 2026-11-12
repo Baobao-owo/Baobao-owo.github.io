@@ -9,7 +9,7 @@
     <meta http-equiv="expires" content="0" />
     <title>内容管理 · 宝宝的小站</title>
     <link rel="icon" href="/assets/img/favicon-flower.ico" />
-    <link rel="stylesheet" href="/admin/admin.css?v=20261112b" />
+    <link rel="stylesheet" href="/admin/admin.css?v=20261112c" />
     <style>
       body {
         margin: 0;
@@ -69,15 +69,16 @@
             if (boot) boot.remove();
             try {
               if (window.CMS && CMS.registerPreviewStyle) {
-                CMS.registerPreviewStyle('/admin/preview.css?v=20261112b');
+                CMS.registerPreviewStyle('/admin/preview.css?v=20261112c');
               }
             } catch (e) {}
             // 编辑器要赶在 CMS 初始化之前注册好，否则打开文章时会找不到 word 部件
-            loadScript('/admin/vendor/tinymce/tinymce.min.js?v=20261112b', function () {
-              loadScript('/admin/word-editor.js?v=20261112b', function () {
+            loadScript('/admin/vendor/tinymce/tinymce.min.js?v=20261112c', function () {
+              loadScript('/admin/word-editor.js?v=20261112c', function () {
+              loadScript('/admin/preview-template.js?v=20261112c', function () {
                 var waitTries = 0;
                 (function waitReady() {
-                  if (window.__wordEditorReady || waitTries++ > 30) {
+                  if ((window.__wordEditorReady && window.__baobaoPreviewReady) || waitTries++ > 30) {
                     try {
                       CMS.init();
                     } catch (e) {
@@ -88,6 +89,7 @@
                   setTimeout(waitReady, 150);
                 })();
               });
+            });
             });
           };
           s.onerror = function () {
