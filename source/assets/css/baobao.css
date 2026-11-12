@@ -1901,3 +1901,7 @@ html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
 
 /* WORLD'S END 星级徽章 */
 .chuni-badge-we { background: #2b2b46; color: #ffd76a; min-width: 52px; justify-content: center; }
+
+/* 介绍正文保留换行，和日文逐行对齐 */
+.chuni-wiki-jp,
+.chuni-wiki-zh { white-space: pre-line; }
