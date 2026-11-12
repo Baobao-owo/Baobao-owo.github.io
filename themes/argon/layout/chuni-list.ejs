@@ -1,4 +1,4 @@
-﻿<%
+<%
 	const g = page.guide || {};
 	const cats = g.categories || [];
 	const versions = g.versions || [];
@@ -20,23 +20,24 @@
 					<button type="button" class="chuni-seg-btn active" data-version="all">日服 MATE</button>
 					<button type="button" class="chuni-seg-btn" data-version="cn">国服 2027</button>
 				</div>
-				<input type="search" id="chuni-search" class="chuni-search" placeholder="搜曲名 / 艺术家…" />
 				<select id="chuni-cat" class="chuni-select">
 					<option value="all">全部分类</option>
 					<% cats.forEach(function (c) { %>
 						<option value="<%= c.key %>"><%= c.label %></option>
 					<% }); %>
 				</select>
-				<select id="chuni-diff" class="chuni-select">
-					<option value="all">全部难度</option>
-					<option value="0-6">6 以下</option>
-					<option value="6-9">6 – 9</option>
-					<option value="9-12">9 – 12</option>
-					<option value="12-13.5">12 – 13.5</option>
-					<option value="13.5-15">13.5 – 15</option>
-					<option value="15-99">15 以上</option>
-				</select>
+				<div class="chuni-sort" id="chuni-sort">
+					<button type="button" class="chuni-sort-btn active" data-sort="title">标题顺</button>
+					<button type="button" class="chuni-sort-btn" data-sort="version">版本顺</button>
+				</div>
 				<span class="chuni-count" id="chuni-count"></span>
+			</div>
+
+			<div class="chuni-levels" id="chuni-levels"></div>
+
+			<div class="chuni-searches">
+				<input type="search" id="chuni-search-title" class="chuni-search" placeholder="搜曲名…" />
+				<input type="search" id="chuni-search-artist" class="chuni-search" placeholder="搜艺术家…" />
 			</div>
 
 			<div class="chuni-list" id="chuni-list"></div>
@@ -52,7 +53,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', q: '', cat: 'all', diff: 'all', page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sort: 'title', page: 1 };
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -61,24 +62,82 @@
 	var totalEl = document.getElementById('chuni-total');
 	var emptyEl = document.getElementById('chuni-empty');
 	var loadingEl = document.getElementById('chuni-loading');
+	var levelsEl = document.getElementById('chuni-levels');
 
-	function diffMatch(row) {
-		if (state.diff === 'all') return true;
-		var parts = state.diff.split('-');
-		var a = Number(parts[0]);
-		var b = Number(parts[1]);
-		return row.max >= a && row.min <= b;
+	// 难度等级：从数据里收集，形如 14 / 14+
+	function levelKey(lv) {
+		var s = String(lv || '').trim();
+		var m = s.match(/^(\d+(?:\.\d+)?)(\+?)$/);
+		return m ? m[1] + (m[2] ? '+' : '') : s;
+	}
+	function levelNum(key) {
+		var m = String(key).match(/^(\d+(?:\.\d+)?)/);
+		return m ? Number(m[1]) : 99;
+	}
+
+	function collectLevels() {
+		var set = {};
+		all.forEach(function (r) {
+			(r.sh || []).forEach(function (sh) {
+				var k = levelKey(sh.lv);
+				if (/^\d+(\.\d+)?\+?$/.test(k)) set[k] = true;
+			});
+		});
+		return Object.keys(set).sort(function (a, b) {
+			var d = levelNum(a) - levelNum(b);
+			if (d) return d;
+			return a.indexOf('+') - b.indexOf('+');
+		});
+	}
+
+	function tierOf(key) {
+		var n = levelNum(key);
+		if (n <= 4) return 'g';
+		if (n <= 7) return 'b';
+		if (n <= 10) return 'r';
+		if (n <= 14) return 'p';
+		return 'd';
+	}
+
+	function renderLevelChips() {
+		if (!levelsEl) return;
+		var levels = collectLevels();
+		levelsEl.innerHTML = levels.map(function (lv) {
+			return '<button type="button" class="chuni-lv-chip tier-' + tierOf(lv) + '" data-level="' + lv + '">' + lv + '</button>';
+		}).join('');
+	}
+
+	function songLevelKeys(r) {
+		return (r.sh || []).map(function (sh) { return levelKey(sh.lv); });
+	}
+
+	function levelMatch(r) {
+		if (!state.levels.length) return true;
+		var keys = songLevelKeys(r);
+		return state.levels.some(function (lv) { return keys.indexOf(lv) !== -1; });
 	}
 
 	function filtered() {
-		var q = state.q.trim().toLowerCase();
-		return all.filter(function (r) {
+		var qt = state.qt.trim().toLowerCase();
+		var qa = state.qa.trim().toLowerCase();
+		var rows = all.filter(function (r) {
 			if (state.version === 'cn' && !r.cn) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
-			if (!diffMatch(r)) return false;
-			if (q && (r.t + ' ' + r.a).toLowerCase().indexOf(q) === -1) return false;
+			if (!levelMatch(r)) return false;
+			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
+			if (qa && String(r.a).toLowerCase().indexOf(qa) === -1) return false;
 			return true;
 		});
+		var vIndex = {};
+		VERSION_KEYS.forEach(function (k, i) { vIndex[k] = i; });
+		rows.sort(function (x, y) {
+			if (state.sort === 'version') {
+				var d = (vIndex[x.v] == null ? 99 : vIndex[x.v]) - (vIndex[y.v] == null ? 99 : vIndex[y.v]);
+				if (d) return d;
+			}
+			return String(x.t).localeCompare(String(y.t), 'ja');
+		});
+		return rows;
 	}
 
 	function badge(letter, lv, diff) {
@@ -148,17 +207,43 @@
 			renderRows();
 		});
 	});
-	var search = document.getElementById('chuni-search');
-	if (search) search.addEventListener('input', function () { state.q = search.value; state.page = 1; renderRows(); });
+
+	document.querySelectorAll('#chuni-sort .chuni-sort-btn').forEach(function (b) {
+		b.addEventListener('click', function () {
+			document.querySelectorAll('#chuni-sort .chuni-sort-btn').forEach(function (x) { x.classList.toggle('active', x === b); });
+			state.sort = b.getAttribute('data-sort');
+			state.page = 1;
+			renderRows();
+		});
+	});
+
+	if (levelsEl) {
+		levelsEl.addEventListener('click', function (e) {
+			var b = e.target.closest('.chuni-lv-chip');
+			if (!b) return;
+			var lv = b.getAttribute('data-level');
+			var i = state.levels.indexOf(lv);
+			if (i === -1) state.levels.push(lv); else state.levels.splice(i, 1);
+			b.classList.toggle('active');
+			if (levelsEl) levelsEl.classList.toggle('filtering', state.levels.length > 0);
+			state.page = 1;
+			renderRows();
+		});
+	}
+
+	var st = document.getElementById('chuni-search-title');
+	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
+	var sa = document.getElementById('chuni-search-artist');
+	if (sa) sa.addEventListener('input', function () { state.qa = sa.value; state.page = 1; renderRows(); });
+
 	var cat = document.getElementById('chuni-cat');
 	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });
-	var diff = document.getElementById('chuni-diff');
-	if (diff) diff.addEventListener('change', function () { state.diff = diff.value; state.page = 1; renderRows(); });
 
 	fetch('/chuni-songs.json')
 		.then(function (r) { return r.json(); })
 		.then(function (rows) {
 			all = rows;
+			renderLevelChips();
 			if (loadingEl) loadingEl.remove();
 			renderRows();
 		})

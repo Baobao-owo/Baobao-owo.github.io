@@ -1820,3 +1820,43 @@ html.darkmode .chuni-confirm-btn { background: #333945; border-color: #444b57; c
 }
 .chuni-confirm-name:hover { background: #eef3f8; text-decoration: none; }
 html.darkmode .chuni-confirm-name { background: #2b3038; border-color: #3a404b; color: #dfe8ef !important; }
+
+/* 曲目导览：等级筛选 chips + 双搜索 + 排序 */
+.chuni-levels { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0; }
+.chuni-lv-chip {
+  min-width: 34px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  opacity: .92;
+}
+.chuni-lv-chip.tier-g { background: #2f7d32; }
+.chuni-lv-chip.tier-b { background: #8a6a17; }
+.chuni-lv-chip.tier-r { background: #a5282c; }
+.chuni-lv-chip.tier-p { background: #5b2a86; }
+.chuni-lv-chip.tier-d { background: #3a1d5c; }
+.chuni-lv-chip:not(.active) { filter: grayscale(.7) brightness(.8); opacity: .55; }
+.chuni-lv-chip.active { outline: 2px solid #4f7f9c; outline-offset: 1px; }
+.chuni-searches { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.chuni-searches .chuni-search { flex: 1 1 200px; }
+.chuni-sort { display: inline-flex; gap: 4px; }
+.chuni-sort-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-sort-btn.active { background: #4f7f9c; color: #fff; border-color: #4f7f9c; }
+html.darkmode .chuni-sort-btn { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-sort-btn.active { background: #4f7f9c; color: #fff; }
+
+.chuni-levels.filtering .chuni-lv-chip:not(.active) { opacity: .38; }
+.chuni-lv-chip { opacity: 1; }
+.chuni-lv-chip:not(.active) { filter: none; }
