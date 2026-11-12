@@ -40,6 +40,16 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
+  const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
+  const cnSongMap = cnData.songs || {};
+
+  function normTitle(t) {
+    return String(t)
+      .normalize('NFKC')
+      .toLowerCase()
+      .replace(/[\s\u3000]/g, '')
+      .replace(/[\[\]【】()（）「」『』!！?？'’”"・:：;；,，.。~～\-—_]/g, '');
+  }
   const DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 
   // 从 wiki 的定数履历里取「国服 2027 当时」的定数
@@ -72,7 +82,16 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const songs = d.songs.map(function (s, i) {
     const extraEntry = extra[String(s.id)] || extra[String(s.title).trim()] || {};
     const cnMaxIdx = Math.max.apply(null, Array.from(cnVersions).map(function (v) { return versionIndex.has(v) ? versionIndex.get(v) : -1; }).concat([-1]));
-    const cnConsts = cnConstsOf(extraEntry, cnMaxIdx);
+    const cnEntry = cnSongMap[normTitle(s.title)] || null;
+    let cnConsts = null;
+    if (cnEntry && cnEntry.d) {
+      cnConsts = {};
+      Object.keys(cnEntry.d).forEach(function (l) {
+        const v = cnEntry.d[l] && cnEntry.d[l].v;
+        if (v != null) cnConsts[l] = v;
+      });
+    }
+    if (!cnConsts) cnConsts = cnConstsOf(extraEntry, cnMaxIdx);
     const fromMaster = designerMap[String(s.title).trim()] || {};
     const enriched = Object.assign({}, s, {
       musicId: idMap[String(s.title).trim()] || '',
@@ -117,7 +136,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       versionLabel: versionLabel.get(s.version) || s.version,
       maxLevel: levels.length ? Math.max.apply(null, levels) : 0,
       minLevel: levels.length ? Math.min.apply(null, levels) : 0,
-      inCN: cnVersions.has(s.version),
+      inCN: cnEntry ? true : (Object.keys(cnSongMap).length ? false : cnVersions.has(s.version)),
       cnConsts: cnConsts,
       cover: s.cover || ''
     };
