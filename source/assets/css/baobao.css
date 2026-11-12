@@ -1643,3 +1643,24 @@ html.darkmode .chuni-history-notes { color: #8b98a5; }
 .chuni-history-table td.lv-up { color: #d0453b; font-weight: 600; }
 .chuni-history-table td.lv-down { color: #2f74c0; font-weight: 600; }
 .chuni-history-table td.lv-big { text-decoration: underline; }
+
+/* 折叠的中文翻译 */
+.chuni-zh { margin-top: 8px; }
+.chuni-zh > summary {
+  cursor: pointer;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  color: #4f7f9c;
+  font-size: 12px;
+  list-style: none;
+  user-select: none;
+}
+.chuni-zh > summary::-webkit-details-marker { display: none; }
+.chuni-zh > summary::before { content: '▸ '; }
+.chuni-zh[open] > summary::before { content: '▾ '; }
+.chuni-zh[open] > summary { background: rgba(79, 127, 156, 0.08); }
+.chuni-zh > summary:hover { background: rgba(79, 127, 156, 0.1); }
+.chuni-zh .chuni-wiki-zh { margin-top: 8px; }
+html.darkmode .chuni-zh > summary { border-color: #444b57; color: #a9c4d8; }

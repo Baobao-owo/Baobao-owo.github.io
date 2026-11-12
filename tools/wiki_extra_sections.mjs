@@ -1,4 +1,4 @@
-// 追加解析：定数变更履历 / 可取得称号 / ND名义·称号由来
+﻿// 追加解析：定数变更履历 / 可取得称号 / ND名义·称号由来
 // 用法：node tools/wiki_extra_sections.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -80,13 +80,41 @@ for (const song of guide.songs) {
       .filter(Boolean)
       .forEach((s) => historyNotes.push(s));
   }
-  const historyIntro = parseListItems(historyHtml).slice(0, 3);
+  // 从「譜面定数 EXP【12.0(AIR～AMAZON)、…】」里取出各版本区间的精确定数
+  const exact = {};
+  const DIFF_OF = { BASIC: 'B', ADVANCED: 'A', EXPERT: 'E', MASTER: 'M', ULTIMA: 'U' };
+  (historyNotes || []).forEach(function (note) {
+    const m = note.match(/^譜面定数\s*([A-Z]{3,})\s*【([\s\S]*?)】/);
+    if (!m) return;
+    const letter = DIFF_OF[m[1]] || m[1].charAt(0);
+    m[2].split('、').forEach(function (part) {
+      const pm = part.match(/([\d.]+)\s*\(([^)]+)\)/);
+      if (!pm) return;
+      const value = pm[1];
+      const range = pm[2].trim();
+      exact[range] = exact[range] || {};
+      exact[range][letter] = value;
+    });
+  });
+
+  // 表头里的难度字母顺序，用来把精确值填进单元格
+  const header = historyRows[0] || [];
+  for (let ri = 1; ri < historyRows.length; ri++) {
+    const range = historyRows[ri][0];
+    const vals = exact[range] || {};
+    for (let ci = 1; ci < historyRows[ri].length; ci++) {
+      const letter = header[ci];
+      if (vals[letter]) historyRows[ri][ci] = vals[letter];
+    }
+  }
+
+  const historyIntro = [];
 
   const titlesRows = parseTable(titlesHtml);
   const origins = parseListItems(originsHtml);
 
   const e = extra[song.id] || (extra[song.id] = {});
-  if (historyRows.length) e.history = { rows: historyRows, notes: historyNotes, intro: historyIntro };
+  if (historyRows.length) e.history = { rows: historyRows };
   if (titlesRows.length) e.titles = titlesRows;
   if (origins.length) e.origins = origins;
   done++;

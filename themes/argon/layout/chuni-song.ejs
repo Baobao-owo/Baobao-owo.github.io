@@ -1,4 +1,4 @@
-﻿<%
+<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -19,7 +19,14 @@
 	].filter(function (r) { return r.v; });
 
 	const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
-	const zhText = extra2.wiki_zh || '';
+	const zhText = extra2.wiki_comment_zh || extra2.wiki_zh || '';
+	const hist = extra2.history;
+	const hasHist = hist && hist.rows && hist.rows.length > 1;
+	const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
+	const titlesZh = (extra2.titles_zh || []).filter(function (r) { return r && r.length >= 2; });
+	const hasTitles = titlesRows.length > 1;
+	const origins = (extra2.origins || []).filter(Boolean);
+	const originsZh = (extra2.origins_zh || []).filter(Boolean);
 %>
 <article class="post post-full card bg-white shadow-sm border-0">
 	<div class="post-content" id="post_content">
@@ -57,12 +64,13 @@
 			<div class="chuni-section">
 				<div class="chuni-section-title">介绍</div>
 				<% if (jpText) { %>
-					<div class="chuni-wiki-label">日文原文</div>
 					<div class="chuni-wiki-jp"><%= jpText %></div>
 				<% } %>
 				<% if (zhText) { %>
-					<div class="chuni-wiki-label">中文翻译</div>
-					<div class="chuni-wiki-zh"><%= zhText %></div>
+					<details class="chuni-zh">
+						<summary>中文翻译</summary>
+						<div class="chuni-wiki-zh"><%= zhText %></div>
+					</details>
 				<% } %>
 				<% if (!jpText && !zhText) { %>
 					<div class="chuni-placeholder">wiki 的曲目介绍还没搬，之后再补。</div>
@@ -95,22 +103,14 @@
 					<% }); %>
 					</tbody>
 				</table>
-				</div>
-
-			<%
-				const hist = extra2.history;
-				const hasHist = hist && hist.rows && hist.rows.length > 1;
-				const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
-				const hasTitles = titlesRows.length > 1;
-				const origins = (extra2.origins || []).filter(Boolean);
-			%>
+			</div>
 
 			<% if (hasHist) { %>
 			<div class="chuni-section">
 				<div class="chuni-section-title">定数变更履历</div>
 				<%
 					function lvVal(t) {
-						const m = String(t).trim().match(/^(\d+)(\+)?$/);
+						const m = String(t).trim().match(/^(\d+(?:\.\d+)?)(\+)?$/);
 						if (!m) return null;
 						return Number(m[1]) + (m[2] ? 0.5 : 0);
 					}
@@ -143,11 +143,6 @@
 						<% }); %>
 					</tbody>
 				</table>
-				<% if (hist.notes && hist.notes.length) { %>
-					<div class="chuni-history-notes">
-						<% hist.notes.forEach(function (n) { %><div><%= n %></div><% }); %>
-					</div>
-				<% } %>
 			</div>
 			<% } %>
 
@@ -157,7 +152,7 @@
 				<table class="chuni-detail-table">
 					<thead>
 						<tr>
-							<% titlesRows[0].forEach(function (h) { %><th><%= h %></th><% }); %>
+							<% titlesRows[0].forEach(function (h) { %><th><%= h === '称号' ? '称号' : (h === '条件' ? '条件' : h) %></th><% }); %>
 						</tr>
 					</thead>
 					<tbody>
@@ -168,6 +163,23 @@
 						<% }); %>
 					</tbody>
 				</table>
+				<% if (titlesZh.length > 1) { %>
+					<details class="chuni-zh">
+						<summary>中文翻译</summary>
+						<table class="chuni-detail-table">
+							<thead>
+								<tr><th>称号</th><th>条件</th></tr>
+							</thead>
+							<tbody>
+								<% titlesZh.slice(1).forEach(function (r) { %>
+									<tr>
+										<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+									</tr>
+								<% }); %>
+							</tbody>
+						</table>
+					</details>
+				<% } %>
 			</div>
 			<% } %>
 
@@ -177,13 +189,14 @@
 				<ul class="chuni-origins">
 					<% origins.forEach(function (o) { %><li><%= o %></li><% }); %>
 				</ul>
-			</div>
-			<% } %>
-
-			<% if (extra2.wiki_extra_zh) { %>
-			<div class="chuni-section">
-				<div class="chuni-section-title">以上小节·中文翻译</div>
-				<div class="chuni-wiki-zh"><%= extra2.wiki_extra_zh %></div>
+				<% if (originsZh.length) { %>
+					<details class="chuni-zh">
+						<summary>中文翻译</summary>
+						<ul class="chuni-origins">
+							<% originsZh.forEach(function (o) { %><li><%= o %></li><% }); %>
+						</ul>
+					</details>
+				<% } %>
 			</div>
 			<% } %>
 
