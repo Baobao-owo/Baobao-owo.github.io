@@ -1628,3 +1628,14 @@ html.darkmode .chuni-detail-table th { background: #333945; color: #a9bccb; bord
 html.darkmode .chuni-info-table th { background: #2f353e; color: #a9bccb; border-bottom-color: #3a404b; }
 html.darkmode .chuni-info-table td,
 html.darkmode .chuni-detail-table td { color: #dfe8ef; border-bottom-color: #343a44; }
+
+/* 单曲页：定数历史 / 称号 / 由来 */
+.chuni-detail-table th,
+.chuni-detail-table td { text-align: center; }
+.chuni-detail-table td.chuni-designer { text-align: center; }
+.chuni-history-table td:first-child { text-align: left; color: #7a8895; }
+.chuni-history-notes { margin-top: 8px; font-size: 12px; color: #8b98a5; line-height: 1.8; }
+.chuni-origins { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #4a5866; }
+.chuni-origins li { margin: 4px 0; }
+html.darkmode .chuni-origins { color: #c6d4df; }
+html.darkmode .chuni-history-notes { color: #8b98a5; }

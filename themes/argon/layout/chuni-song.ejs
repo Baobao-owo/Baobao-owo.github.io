@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -95,10 +95,76 @@
 					<% }); %>
 					</tbody>
 				</table>
-				<div class="chuni-detail-foot">
-					<div><span class="chuni-detail-key">定数</span> <%= sheets.map(function (sh) { return diffLetter[sh.difficulty] + ' …' + (sh.internal || sh.level); }).join('、') %></div>
 				</div>
+
+			<%
+				const hist = extra2.history;
+				const hasHist = hist && hist.rows && hist.rows.length > 1;
+				const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
+				const hasTitles = titlesRows.length > 1;
+				const origins = (extra2.origins || []).filter(Boolean);
+			%>
+
+			<% if (hasHist) { %>
+			<div class="chuni-section">
+				<div class="chuni-section-title">定数变更履历</div>
+				<table class="chuni-detail-table chuni-history-table">
+					<thead>
+						<tr>
+							<% hist.rows[0].forEach(function (h) { %><th><%= h %></th><% }); %>
+						</tr>
+					</thead>
+					<tbody>
+						<% hist.rows.slice(1).forEach(function (r) { %>
+							<tr>
+								<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+							</tr>
+						<% }); %>
+					</tbody>
+				</table>
+				<% if (hist.notes && hist.notes.length) { %>
+					<div class="chuni-history-notes">
+						<% hist.notes.forEach(function (n) { %><div><%= n %></div><% }); %>
+					</div>
+				<% } %>
 			</div>
+			<% } %>
+
+			<% if (hasTitles) { %>
+			<div class="chuni-section">
+				<div class="chuni-section-title">可获得称号</div>
+				<table class="chuni-detail-table">
+					<thead>
+						<tr>
+							<% titlesRows[0].forEach(function (h) { %><th><%= h %></th><% }); %>
+						</tr>
+					</thead>
+					<tbody>
+						<% titlesRows.slice(1).forEach(function (r) { %>
+							<tr>
+								<% r.forEach(function (c) { %><td><%= c %></td><% }); %>
+							</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</div>
+			<% } %>
+
+			<% if (origins.length) { %>
+			<div class="chuni-section">
+				<div class="chuni-section-title">ND 名义与称号由来</div>
+				<ul class="chuni-origins">
+					<% origins.forEach(function (o) { %><li><%= o %></li><% }); %>
+				</ul>
+			</div>
+			<% } %>
+
+			<% if (extra2.wiki_extra_zh) { %>
+			<div class="chuni-section">
+				<div class="chuni-section-title">以上小节·中文翻译</div>
+				<div class="chuni-wiki-zh"><%= extra2.wiki_extra_zh %></div>
+			</div>
+			<% } %>
 
 			<div class="chuni-section">
 				<div class="chuni-section-title">谱面预览</div>
