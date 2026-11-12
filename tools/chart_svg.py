@@ -1,32 +1,32 @@
-"""把 CHUNITHM 的 .c2s 谱面渲染成竖向平面图 SVG。
+"""把 CHUNITHM 的 .c2s 谱面渲染成「多列分栏」平面图 SVG（类似 bot 那种）。
 
-用法: python tools/chart_svg.py <chart.c2s> <out.svg> [--px 60]
+用法: python tools/chart_svg.py <chart.c2s> <out.svg> [--measures 20]
 """
 import sys
 import os
 
 LANES = 12
-LANE_W = 24
-LEFT = 46
-TOP = 44
-PX_PER_MEASURE = 60
+LANE_W = 11
+COL_GAP = 14
+MEASURES_PER_COL = 20
+PX_PER_MEASURE = 58
+TOP = 18
+LEFT = 30
+MARGIN_BOTTOM = 18
 
-COLOR = {
-    'TAP': '#4f9de0',
+COLORS = {
+    'TAP': '#e8d44d',
     'CHR': '#f0a03c', 'HLD': '#f0a03c',
-    'SLD': '#e05a5a', 'SLC': '#e05a5a',
-    'AIR': '#63c86a', 'AHD': '#63c86a',
-    'AUR': '#63c86a', 'AUL': '#63c86a', 'ADR': '#63c86a', 'ADL': '#63c86a',
-    'FLK': '#b46ed8',
+    'SLD': '#4fd8e8', 'SLC': '#4fd8e8',
+    'AIR': '#7be08a', 'AHD': '#7be08a',
+    'AUR': '#7be08a', 'AUL': '#7be08a', 'ADR': '#7be08a', 'ADL': '#7be08a',
+    'FLK': '#d86fe0',
 }
-NOTE_TAGS = set(COLOR.keys())
+NOTE_TAGS = set(COLORS.keys())
 
 
 def parse(path):
-    header = {}
-    bpm_changes = []
-    met_changes = []
-    notes = []
+    header, bpm_changes, notes = {}, [], []
     with open(path, 'r', encoding='utf-8', errors='replace') as f:
         for raw in f:
             line = raw.rstrip('\n')
@@ -36,8 +36,6 @@ def parse(path):
             tag = p[0]
             if tag == 'BPM' and len(p) >= 4:
                 bpm_changes.append((int(p[1]), int(p[2]), float(p[3])))
-            elif tag == 'MET' and len(p) >= 5:
-                met_changes.append((int(p[1]), int(p[2]), int(p[3]), int(p[4])))
             elif tag in NOTE_TAGS:
                 try:
                     m, t, pos = int(p[1]), int(p[2]), int(p[3])
@@ -58,125 +56,143 @@ def parse(path):
             res = int(header['RESOLUTION'][0])
         except ValueError:
             res = 384
-    return header, bpm_changes, met_changes, notes, res
+    return header, bpm_changes, notes, res
 
 
-def render(path, out, px_per_measure=PX_PER_MEASURE):
-    header, bpm_changes, met_changes, notes, res = parse(path)
+def render(path, out, measures_per_col=MEASURES_PER_COL):
+    header, bpm_changes, notes, res = parse(path)
     if not notes:
         print('no notes:', path)
         return
 
-    def tick_of(n):
-        return n['m'] * res + n['t']
+    notes.sort(key=lambda n: (n['m'] * res + n['t'], n['pos']))
+    min_m = min(n['m'] for n in notes)
+    max_m = max(n['m'] for n in notes)
+    total = max_m - min_m + 1
 
-    min_measure = min(n['m'] for n in notes)
-    max_tick = max(tick_of(n) for n in notes)
-    measures = max(1, max_tick // res + 1)
-    height = TOP + int(((max_tick - min_measure * res) / res) * px_per_measure) + 24
-    width = LEFT + LANES * LANE_W + 76
+    cols = (total + measures_per_col - 1) // measures_per_col
+    col_w = LANES * LANE_W
+    col_h = measures_per_col * PX_PER_MEASURE
+    width = LEFT + cols * col_w + (cols - 1) * COL_GAP + 16
+    height = TOP + col_h + MARGIN_BOTTOM
 
-    base_tick = min_measure * res
-
-    def y(tick):
-        return TOP + ((tick - base_tick) / res) * px_per_measure
-
-    notes.sort(key=lambda n: (tick_of(n), n['pos']))
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">']
-    parts.append(f'<rect width="{width}" height="{height}" fill="#1b2027"/>')
+    parts.append(f'<rect width="{width}" height="{height}" fill="#2f3742"/>')
 
-    # 泳道
-    for i in range(LANES + 1):
-        x = LEFT + i * LANE_W
-        parts.append(f'<line x1="{x}" y1="{TOP}" x2="{x}" y2="{height - 20}" stroke="#262e37"/>')
+    def col_x(i):
+        return LEFT + i * (col_w + COL_GAP)
 
-    # 小节 + 拍线
-    for m in range(min_measure, min_measure + measures):
-        y0 = y(m * res)
-        parts.append(f'<line x1="{LEFT}" y1="{y0}" x2="{LEFT + LANES * LANE_W}" y2="{y0}" stroke="#3d4753" stroke-width="1"/>')
-        parts.append(f'<text x="{LEFT - 8}" y="{y0 + 4}" fill="#7c8894" font-size="10" text-anchor="end">{m + 1}</text>')
-        for beat in (1, 2, 3):
-            yb = y0 + beat * px_per_measure / 4
-            parts.append(f'<line x1="{LEFT}" y1="{yb}" x2="{LEFT + LANES * LANE_W}" y2="{yb}" stroke="#2b333d" stroke-dasharray="2 6"/>')
+    def note_pos(n, col_index):
+        local_m = n['m'] - min_m - col_index * measures_per_col
+        y = TOP + (local_m + n['t'] / res) * PX_PER_MEASURE
+        x = col_x(col_index) + n['pos'] * LANE_W
+        return x, y
+
+    # 分栏底 + 泳道 + 小节
+    for i in range(cols):
+        x0 = col_x(i)
+        parts.append(f'<rect x="{x0}" y="{TOP}" width="{col_w}" height="{col_h}" fill="#242b34"/>')
+        for lane in range(LANES + 1):
+            lx = x0 + lane * LANE_W
+            parts.append(f'<line x1="{lx}" y1="{TOP}" x2="{lx}" y2="{TOP + col_h}" stroke="#313a45"/>')
+        start_m = min_m + i * measures_per_col
+        for k in range(measures_per_col):
+            m = start_m + k
+            if m > max_m:
+                break
+            y = TOP + k * PX_PER_MEASURE
+            parts.append(f'<line x1="{x0}" y1="{y}" x2="{x0 + col_w}" y2="{y}" stroke="#3c4652"/>')
+            parts.append(f'<text x="{x0 + 2}" y="{y + 8}" fill="#6f7b87" font-size="7">{m + 1}</text>')
+            for beat in (1, 2, 3):
+                yb = y + beat * PX_PER_MEASURE / 4
+                parts.append(f'<line x1="{x0}" y1="{yb}" x2="{x0 + col_w}" y2="{yb}" stroke="#2b333d" stroke-dasharray="1 5"/>')
 
     # BPM 变化
     for m, t, b in bpm_changes:
-        yb = y(m * res + t)
-        parts.append(f'<line x1="{LEFT}" y1="{yb}" x2="{LEFT + LANES * LANE_W}" y2="{yb}" stroke="#e8c15a" stroke-width="1.5" stroke-dasharray="6 4"/>')
-        parts.append(f'<text x="{LEFT + LANES * LANE_W + 8}" y="{yb + 4}" fill="#e8c15a" font-size="11">BPM {b:g}</text>')
+        ci = (m - min_m) // measures_per_col
+        if ci < 0 or ci >= cols:
+            continue
+        x0 = col_x(ci)
+        local_m = m - min_m - ci * measures_per_col
+        y = TOP + (local_m + t / res) * PX_PER_MEASURE
+        parts.append(f'<line x1="{x0}" y1="{y}" x2="{x0 + col_w}" y2="{y}" stroke="#e8c15a" stroke-width="1.2" stroke-dasharray="4 3"/>')
+        parts.append(f'<text x="{x0 + col_w + 3}" y="{y + 3}" fill="#e8c15a" font-size="8">BPM {b:g}</text>')
 
-    def rect(x, yb, w, h, color, rx=2, opacity=1.0):
-        parts.append(f'<rect x="{x:.1f}" y="{yb - h / 2:.1f}" width="{w:.1f}" height="{h}" rx="{rx}" fill="{color}" opacity="{opacity}"/>')
-
-    # 长条：CHR 起点 → 后续 HLD 终点
+    # 长条
     holds = {}
     for n in notes:
         if n['type'] == 'CHR':
-            holds[('H', n['pos'])] = n
-    for n in notes:
-        if n['type'] == 'HLD':
-            start = holds.get(('H', n['pos']))
-            if not start:
+            holds[n['pos']] = n
+        elif n['type'] == 'HLD':
+            s = holds.get(n['pos'])
+            if not s:
                 continue
-            y1 = y(tick_of(start))
-            y2 = y(tick_of(n))
+            ci = (s['m'] - min_m) // measures_per_col
+            if ci != (n['m'] - min_m) // measures_per_col:
+                holds.pop(n['pos'], None)
+                continue
+            x, y1 = note_pos(s, ci)
+            _, y2 = note_pos(n, ci)
             if y2 > y1:
-                x = LEFT + start['pos'] * LANE_W + 3
-                w = max(1, start['w']) * LANE_W - 6
-                parts.append(f'<rect x="{x:.1f}" y="{y1:.1f}" width="{w:.1f}" height="{y2 - y1:.1f}" rx="4" fill="{COLOR["HLD"]}" opacity="0.55"/>')
-            holds.pop(('H', n['pos']), None)
+                w = max(1, s['w']) * LANE_W - 2
+                parts.append(f'<rect x="{x:.1f}" y="{y1:.1f}" width="{w:.1f}" height="{y2 - y1:.1f}" rx="2" fill="{COLORS["HLD"]}" opacity="0.75"/>')
+            holds.pop(n['pos'], None)
 
-    # 滑条：SLD 起点 + 后续 SLC 控制点/终点
-    slide = None
+    # 滑条
+    slide = []
     for n in notes:
         if n['type'] == 'SLD':
             if slide:
-                draw_slide(parts, slide, y, res)
+                draw_slide(parts, slide, note_pos, min_m, measures_per_col)
             slide = [n]
-        elif n['type'] == 'SLC' and slide is not None:
+        elif n['type'] == 'SLC' and slide:
             slide.append(n)
-            if len(slide) >= 2 and n.get('t') is not None:
-                pass
     if slide:
-        draw_slide(parts, slide, y, res)
+        draw_slide(parts, slide, note_pos, min_m, measures_per_col)
 
-    # 单点音符
+    # 单点
     for n in notes:
         if n['type'] in ('CHR', 'HLD', 'SLD', 'SLC'):
             continue
-        x = LEFT + n['pos'] * LANE_W
+        ci = (n['m'] - min_m) // measures_per_col
+        x, y = note_pos(n, ci)
         w = max(1, min(n['w'], LANES - n['pos'])) * LANE_W
-        yb = y(tick_of(n))
-        color = COLOR.get(n['type'], '#999')
+        color = COLORS.get(n['type'], '#999')
         if n['type'] in ('AIR', 'AHD', 'AUR', 'AUL', 'ADR', 'ADL'):
-            parts.append(f'<circle cx="{x + w / 2:.1f}" cy="{yb:.1f}" r="4" fill="{color}"/>')
+            parts.append(f'<rect x="{x:.1f}" y="{y - 1.5:.1f}" width="{w:.1f}" height="3" rx="1.5" fill="{color}"/>')
         elif n['type'] == 'FLK':
-            parts.append(f'<rect x="{x:.1f}" y="{yb - 3:.1f}" width="{w:.1f}" height="6" rx="3" fill="{color}"/>')
+            parts.append(f'<rect x="{x:.1f}" y="{y - 2:.1f}" width="{w:.1f}" height="4" rx="2" fill="{color}"/>')
         else:
-            parts.append(f'<rect x="{x:.1f}" y="{yb - 2.5:.1f}" width="{w:.1f}" height="5" rx="2.5" fill="{color}"/>')
+            parts.append(f'<rect x="{x:.1f}" y="{y - 1.5:.1f}" width="{w:.1f}" height="3" rx="1.5" fill="{color}"/>')
 
     parts.append('</svg>')
     with open(out, 'w', encoding='utf-8') as f:
         f.write('\n'.join(parts))
-    print('wrote', out, f'{width}x{height}', 'notes:', len(notes), 'measures:', measures)
+    print('wrote', out, f'{width}x{height}', 'notes:', len(notes), 'cols:', cols)
 
 
-def draw_slide(parts, points, y, res):
+def draw_slide(parts, points, note_pos, min_m, per_col):
     if len(points) < 2:
         return
-    coords = []
+    segs = {}
     for p in points:
-        x = LEFT + p['pos'] * LANE_W + LANE_W / 2
-        yb = y(p['m'] * res + p['t'])
-        coords.append((x, yb))
-    d = ' '.join(f'{x:.1f},{yb:.1f}' for x, yb in coords)
-    parts.append(f'<polyline points="{d}" fill="none" stroke="{COLOR["SLD"]}" stroke-width="4" stroke-linecap="round" opacity="0.9"/>')
+        ci = (p['m'] - min_m) // per_col
+        segs.setdefault(ci, []).append(p)
+    for ci, pts in segs.items():
+        if len(pts) < 2:
+            continue
+        coords = []
+        for p in pts:
+            x, y = note_pos(p, ci)
+            coords.append((x + LANE_W / 2, y))
+        d = ' '.join(f'{x:.1f},{y:.1f}' for x, y in coords)
+        parts.append(f'<polyline points="{d}" fill="none" stroke="{COLORS["SLD"]}" stroke-width="2.4" stroke-linecap="round" opacity="0.95"/>')
 
 
 if __name__ == '__main__':
     src = sys.argv[1]
     dst = sys.argv[2] if len(sys.argv) > 2 else 'out.svg'
-    px = 60
-    if '--px' in sys.argv:
-        px = int(sys.argv[sys.argv.index('--px') + 1])
-    render(src, dst, px)
+    per_col = MEASURES_PER_COL
+    if '--measures' in sys.argv:
+        per_col = int(sys.argv[sys.argv.index('--measures') + 1])
+    render(src, dst, per_col)
