@@ -265,17 +265,18 @@
 						.filter(function (sh) { return sh.difficulty === 'master' || sh.difficulty === 'ultima'; })
 						.map(function (sh) {
 							const letter = diffLetter[sh.difficulty];
-							return { sh: sh, letter: letter, bili: confirms[letter] || '', yt: ytMap[letter] || [] };
+							const yts = (ytMap[letter] || []).filter(Boolean);
+							// 两条时用后一条（9速）
+							const yt = yts.length ? yts[yts.length - 1] : '';
+							return { sh: sh, letter: letter, bili: confirms[letter] || '', yt: yt };
 						})
-						.filter(function (r) { return r.bili || r.yt.length; });
-					const biliSearch = 'https://search.bilibili.com/all?keyword=' + encodeURIComponent(s.title + ' CHUNITHM 谱面确认');
-					const ytSearch = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(s.title + ' CHUNITHM 譜面確認');
+						.filter(function (r) { return r.bili || r.yt; });
 				%>
 				<% if (confirmRows.length) { %>
 					<div class="chuni-confirm-list">
 						<% confirmRows.forEach(function (r) { %>
 							<div class="chuni-confirm-row">
-								<a class="chuni-confirm-name" href="<%= r.bili || ('https://www.youtube.com/watch?v=' + r.yt[0]) %>" target="_blank" rel="noopener">
+								<a class="chuni-confirm-name" href="<%= r.bili || ('https://www.youtube.com/watch?v=' + r.yt) %>" target="_blank" rel="noopener">
 									<span class="chuni-badge chuni-badge-<%= r.sh.difficulty %>"><%= r.letter %></span>
 									<span><%= diffName[r.sh.difficulty] %></span>
 									<span class="chuni-confirm-src"><%= r.sh.level %></span>
@@ -283,20 +284,12 @@
 								<% if (r.bili) { %>
 									<a class="chuni-video-link bili" href="<%= r.bili %>" target="_blank" rel="noopener">B 站</a>
 								<% } %>
-								<% r.yt.forEach(function (id, i) { %>
-									<a class="chuni-video-link yt" href="https://www.youtube.com/watch?v=<%= id %>" target="_blank" rel="noopener"><%= r.yt.length > 1 ? (i === 0 ? 'YouTube' : 'YouTube 备用') : 'YouTube' %></a>
-								<% }); %>
+								<% if (r.yt) { %>
+									<a class="chuni-video-link yt" href="https://www.youtube.com/watch?v=<%= r.yt %>" target="_blank" rel="noopener">YouTube</a>
+								<% } %>
 							</div>
 						<% }); %>
 					</div>
-					<div class="chuni-chart-hint">B 站来自「Mr__CirCle」的谱面确认合集；YouTube 来自 sdvx.in 谱面保管所。</div>
-				<% } %>
-				<div class="chuni-video-links">
-					<a class="chuni-video-link bili" href="<%= biliSearch %>" target="_blank" rel="noopener">B 站搜索</a>
-					<a class="chuni-video-link yt" href="<%= ytSearch %>" target="_blank" rel="noopener">YouTube 搜索</a>
-				</div>
-				<% if (!confirmRows.length) { %>
-					<div class="chuni-chart-hint">这首的紫/黑谱还没找到确认视频，用上面的搜索找找看。</div>
 				<% } %>
 			</div>
 		</div>
