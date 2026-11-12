@@ -71,6 +71,13 @@ tags: [Hexo, 建站]
 配置在 `source/_data/argon.yml` 的 `giscus` 段，`repo_id` 和 `category_id` 已经填好了，改仓库或类别才需要动。
 夜间模式靠 `custom_html_foot` 里那一小段脚本给评论框发主题。
 
+## 后台（Decap CMS）
+
+- 地址 `/admin/`，登录走 DecapBridge，提交落到 main，由 Actions 构建
+- 正文用自带的**所见即所得编辑器**（TinyMCE，`source/admin/word-editor.js` + `source/admin/vendor/`），工具栏有样式、字体、字号、颜色、对齐、列表、链接、图片、表格、引用，回车两次就能空一行
+- 正文存的是 HTML，Hexo 会原样渲染；老文章正文还是 Markdown，用新编辑器打开会显示成纯文本（不影响线上显示）
+- 后台外观在 `source/admin/admin.css`（顶栏用主站封面图），预览排版在 `source/admin/preview.css`
+
 ## 站点结构（三层）
 
 - **首页**：只放板块入口卡（`themes/argon/layout/home.ejs`），显示板块名、简介、篇数，有子分类的会列出子分类小标签

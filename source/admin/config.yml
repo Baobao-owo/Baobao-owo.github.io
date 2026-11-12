@@ -1,4 +1,4 @@
-# Decap CMS 配置
+﻿# Decap CMS 配置
 # 后台：https://baobao-owo.github.io/admin/
 # 登录走 DecapBridge（PKCE），提交通过它的 gateway 落到仓库 main
 
@@ -233,8 +233,7 @@ collections:
                 required: false
       - label: 正文
         name: body
-        widget: markdown
-        modes: [rich_text]
+        widget: word
         required: false
         hint: "谱面文章可以留空，卡片页的信息是自动生成的；想让首页显示摘要，在正文里单独加一行 <!--more-->"
 
@@ -265,8 +264,7 @@ collections:
         default: false
       - label: 正文
         name: body
-        widget: markdown
-        modes: [rich_text]
+        widget: word
 
   - name: settings
     label: 站点设置

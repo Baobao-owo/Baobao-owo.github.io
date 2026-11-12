@@ -45,6 +45,15 @@
           'https://unpkg.com/decap-cms@3/dist/decap-cms.js',
         ];
         var loaded = false;
+        function loadScript(src, cb) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.onload = cb || function () {};
+          s.onerror = function () {
+            console.warn('[admin] 脚本加载失败：' + src);
+          };
+          document.body.appendChild(s);
+        }
         function load(i) {
           if (loaded || i >= sources.length) return;
           var s = document.createElement('script');
@@ -58,6 +67,14 @@
                 CMS.registerPreviewStyle('/admin/preview.css');
               }
             } catch (e) {}
+            // 真正的所见即所得编辑器：React + TinyMCE（都放在站内，不依赖 CDN）
+            loadScript('/admin/vendor/react.production.min.js', function () {
+              loadScript('/admin/vendor/react-dom.production.min.js', function () {
+                loadScript('/admin/vendor/tinymce/tinymce.min.js', function () {
+                  loadScript('/admin/word-editor.js', function () {});
+                });
+              });
+            });
           };
           s.onerror = function () {
             load(i + 1);
