@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const g = page.guide || {};
 	const cats = g.categories || [];
 	const versions = g.versions || [];
@@ -32,7 +32,7 @@
 					<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
 					<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
 				</div>
-				<button type="button" class="chuni-removed-btn" id="chuni-removed">显示删除曲</button>
+				<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
 				<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
 				<span class="chuni-count" id="chuni-count"></span>
 			</div>
@@ -126,8 +126,15 @@
 		var qa = state.qa.trim().toLowerCase();
 		var rows = all.filter(function (r) {
 			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
-			if (!state.removed && r.rm) return false;
-			if (state.we ? !(r.we && r.we.length) : (r.we && r.we.length)) return false;
+			var isDel = !!(r.rm || r.cnrm);
+			var isWE = !!(r.we && r.we.length);
+			if (state.removed) {
+				if (!isDel) return false;
+			} else if (state.we) {
+				if (!isWE) return false;
+			} else {
+				if (isDel || isWE) return false;
+			}
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
@@ -308,6 +315,11 @@
 	var weBtn = document.getElementById('chuni-we');
 	if (weBtn) weBtn.addEventListener('click', function () {
 		state.we = !state.we;
+		if (state.we) {
+			state.removed = false;
+			var rb = document.getElementById('chuni-removed');
+			if (rb) rb.classList.remove('active');
+		}
 		weBtn.classList.toggle('active', state.we);
 		state.page = 1;
 		renderRows();
@@ -319,6 +331,11 @@
 	var rmBtn = document.getElementById('chuni-removed');
 	if (rmBtn) rmBtn.addEventListener('click', function () {
 		state.removed = !state.removed;
+		if (state.removed) {
+			state.we = false;
+			var wb = document.getElementById('chuni-we');
+			if (wb) wb.classList.remove('active');
+		}
 		rmBtn.classList.toggle('active', state.removed);
 		state.page = 1;
 		renderRows();
