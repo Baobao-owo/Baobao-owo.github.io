@@ -1,4 +1,4 @@
-// 生成 wiki 抓取任务清单：node tools/wiki_targets.mjs --limit 10 [--max-level 15] [--force]
+﻿// 生成 wiki 抓取任务清单：node tools/wiki_targets.mjs --limit 10 [--max-level 15] [--force]
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -11,6 +11,7 @@ const opt = (name, def) => {
 const LIMIT = Number(opt('limit', 0)) || 0;
 const MAX_LEVEL = Number(opt('max-level', 0)) || 0;
 const FORCE = !!opt('force', false);
+const ALL = !!opt('all', false);
 
 const ROOT = process.cwd();
 const guide = JSON.parse(fs.readFileSync(path.join(ROOT, 'source/_data/chuni.json'), 'utf8'));
@@ -25,6 +26,9 @@ function fileOf(id) {
 }
 
 let songs = guide.songs;
+if (!ALL && !ONLY) {
+  // 默认只挑还没有任何内容的歌
+}
 if (MAX_LEVEL) {
   songs = songs.filter((s) => {
     const max = Math.max.apply(null, s.sheets.map((sh) => Number(sh.internalValue) || 0).concat([0]));
