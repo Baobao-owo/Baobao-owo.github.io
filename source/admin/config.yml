@@ -29,7 +29,7 @@ auth:
 locale: zh_Hans
 site_url: https://baobao-owo.github.io
 display_url: https://baobao-owo.github.io
-logo_url: https://baobao-owo.github.io/assets/img/avatar-flower.jpg
+logo_url: https://baobao-owo.github.io/assets/img/avatar-bili.jpg
 
 media_folder: source/assets/img/uploads
 public_folder: /assets/img/uploads

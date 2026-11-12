@@ -1,4 +1,4 @@
-﻿# Argon 主题配置
+# Argon 主题配置
 # 说明：改完记得 hexo clean && hexo g 才会生效
 
 # 全局
@@ -38,8 +38,8 @@ leftbar_menu:
   首页: /
   归档: /archives
   关于: /about
-sidebar_auther_image: '/assets/img/avatar-flower.jpg'
-sidebar_auther_name: 'baobao'
+sidebar_auther_image: '/assets/img/avatar-bili.jpg'
+sidebar_auther_name: 'FDShijing'
 leftbar_author_links:
   Bilibili: https://space.bilibili.com/324184620
 leftbar_friend_links: false
