@@ -39,7 +39,6 @@
 				<div class="chuni-toolbar-filters">
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
-					<button type="button" class="chuni-collab-btn" id="chuni-collab-toggle" title="只显示有合作谱（谱师两人以上）的曲目">仅显示合作</button>
 				</div>
 			</div>
 
@@ -56,6 +55,7 @@
 					<button type="button" class="chuni-diff-chip" data-diff="e">EXPERT</button>
 					<button type="button" class="chuni-diff-chip" data-diff="m">MASTER</button>
 					<button type="button" class="chuni-diff-chip" data-diff="u">ULTIMA</button>
+					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
 				<div class="chuni-designer-grid" id="chuni-designer-grid"></div>
@@ -145,14 +145,36 @@
 		return (r.sh || []).map(function (sh) { return levelKey(sh.lv); });
 	}
 
+	// 合作谱覆盖到的难度（e/m/u）；选了谱师时只看他参与合作的
+	function collabKeysOf(r) {
+		var c = collabEntry(r);
+		if (!c) return [];
+		var out = [];
+		['e', 'm', 'u'].forEach(function (k) {
+			var ppl = c[k];
+			if (!ppl || ppl.length < 2) return;
+			if ((state.designer || state.designerRaw) && ppl.indexOf(state.designer) === -1) return;
+			out.push(k);
+		});
+		return out;
+	}
+
+	// 当前该亮哪几个难度（e/m/u）；null = 全亮
+	function visibleKeys(r) {
+		if (state.collab) return collabKeysOf(r);
+		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
+		return null;
+	}
+
 	function designerDiffKeys(r) {
 		var map = { e: 'expert', m: 'master', u: 'ultima' };
-		return matcher(r).map(function (x) { return map[x.d]; });
+		var k = visibleKeys(r);
+		return k ? k.map(function (x) { return map[x]; }) : null;
 	}
 
 	function levelMatch(r) {
 		if (!state.levels.length) return true;
-		var only = (state.designer || state.designerRaw) ? designerDiffKeys(r) : null;
+		var only = designerDiffKeys(r);
 		var keys = (r.sh || []).filter(function (sh) {
 			if (!only) return true;
 			return only.indexOf(sh.d) !== -1;
@@ -312,7 +334,9 @@
 					'</a>';
 			}
 			var dInfo = (state.designer || state.designerRaw) ? matcher(r) : null;
-			var dKeySet = dInfo ? dInfo.map(function (x) { return x.d; }) : null;
+			if (dInfo && state.collab) dInfo = dInfo.filter(function (x) { return x.kind === 'collab'; });
+			// 定数遮罩：仅显示合作时，非合作难度一律变灰
+			var dKeySet = visibleKeys(r);
 			var dsTag = '';
 			if (dInfo && dInfo.length) {
 				var parts = dInfo.map(function (x) {
