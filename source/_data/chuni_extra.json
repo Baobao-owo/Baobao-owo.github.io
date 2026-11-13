@@ -2955,9 +2955,9 @@
    "MAS": "14.7"
   },
   "wiki_jp": "2016/5/12追加、ORIGIN Fablesマップ42元課題曲。\nロシェガメの洞窟イベント B8Fの課題曲に指定されていた。\n曲名を訳すると「黄金律」となる。「他人にしてもらいたいと思う行いをせよ」という倫理学的言明を意味する。\n譜面作者：EXP …Jack、MAS …ぴちネコ、WE…GOLDEN NOTE …\n譜面定数：EXP …11.5、MAS …14.7",
-  "wiki_comment_zh": "2016年5月12日添加，ORIGIN Fables地图42原课题曲。\n罗氏龟洞活动 B8F被指定为课题曲。\n这首歌的标题可以翻译为“黄金法则”。它指的是道德声明：“做你希望别人对你做的事。”",
+  "wiki_comment_zh": "2016/5/12 追加，ORIGIN Fables 地图 42 的原课题曲。\n曾被指定为ロシェガメ洞窟活动 B8F 的课题曲。\n曲名译作「黄金律」，指「你希望别人怎样待你，你也要怎样待人」的伦理学命题。",
   "origins_zh": [
-   "ND 名称（WE Hikari）“GOLDEN Note”歌名的模仿。"
+   "ND 名义（WE 光）「GOLDEN NOTE」：曲名的恶搞。"
   ]
  },
  "名も無い鳥": {
@@ -21263,7 +21263,7 @@
     "14.4"
    ]
   ],
-  "wiki_comment_zh": "发布于2013年1月15日，歌曲由“EXIT TUNES PRESENTS Vocalosensation feat.初音未来”提供。\n它与同一作曲家的另一首歌曲“rakugaki.exe”无关。\n使用VOCALOID：GUMI",
+  "wiki_comment_zh": "2013 年 1 月 15 日投稿，收录于《EXIT TUNES PRESENTS Vocalosensation feat. 初音ミク》。\n与同作曲者另一曲《rakugaki.exe（ラクガキスト）》无关。\n使用 VOCALOID：GUMI",
   "titles_zh": [
    [
     "称号",
@@ -21275,7 +21275,7 @@
    ]
   ],
   "origins_zh": [
-   "标题：《中二病的预定和谐》歌词。"
+   "称号「予定調和の厨二病」：曲中歌词。"
   ]
  },
  "アカツキアライヴァル": {
@@ -31076,19 +31076,19 @@
     "14.4"
    ]
   ],
-  "wiki_comment_zh": "BMS活动《BOFU2016》中位组获奖歌曲。 分类 是死神。\n顺便说一句，这首歌在移植到的所有设备上都使用了不同的声源。特别是 Arcaea 和 Groove Coaster 的歌曲结构和长度不同，因此在使用多个模型时要小心。",
+  "wiki_comment_zh": "BMS 活动「BOFU2016」中央值部门优胜曲，曲风是 GrimReaper。\n另谈：本曲在所有移植机种都用了不同音源；尤其 Arcaea 与 Groove Coaster 连曲结构和时长都不同，多机种玩家要注意。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "动量和动量",
+    "气势与冲劲",
     "达到大师/等级 SSS"
    ]
   ],
   "origins_zh": [
-   "标题“Nori to Momentum” 作品在 BOFU2016 上展出的参赛团队的名称。"
+   "称号「ノリと勢い」：BOFU2016 本作品出展时的参加队名。"
   ]
  },
  "ＧＯ！ＧＯ！ラブリズム♥ ～あーりん書類審査通過記念Ver.～": {
@@ -53033,9 +53033,9 @@
     "13.4"
    ]
   ],
-  "wiki_comment_zh": "2019/7/4~8/7活动「Ryu ga Gotoku Collaboration 活动」先行发行歌曲。\n《龙德5：梦想制造者》出租车竞赛战斗的BGM。\n收录于专辑《人中之龙 5: Dream Come True Original Soundtrack Vol.1》中的歌曲。",
+  "wiki_comment_zh": "2019/7/4～8/7 活动「如龙联动活动」先行配信曲。\n《如龙５ 梦、实现者》出租车竞速战斗 BGM。\n收录于专辑《龍が如く５ 夢、叶えし者 Original Soundtrack Vol.1》。",
   "origins_zh": [
-   "ND名称（MAS）“国道100号”（音乐100号） ND名称被比作国道编号，因为它是赛车战斗中使用的BGM。除了这首歌之外，还有《四条之湖 VOCALO ver.》。亚布翁！繁荣！骑上！该名称用于与汽车相关的歌曲，例如。"
+   "ND 名义（MASTER）「国道-100号」（譜面-100号）：因是赛车战斗 BGM，把 ND 名义比作国道编号；本曲之外《シジョウノコエ VOCALO ver.》《ぶぉん！ぶぉん！らいど・おん！》等与车相关的乐曲也用这个名义。"
   ]
  },
  "光線チューニング ～なずな妄想海フェスイメージトレーニングVer.～": {
@@ -55247,9 +55247,9 @@
     "14.5"
    ]
   ],
-  "wiki_comment_zh": "歌曲于2007年在BMS活动“Re-Final”中展出。分类是GOA TRANCE。\n这也是Hakkyo BMS的难度列表中特别出名的歌曲，而ANOTHER Difference作为介绍歌曲很受欢迎，因为它是LR2IR上播放次数最多的歌曲，也被选为老Hakkyo Shodan。",
+  "wiki_comment_zh": "2007 年 BMS 活动「Re-Final」参展曲，曲风是 GOA TRANCE。\n在发狂 BMS 难度表里尤其有名，ANOTHER 差分在 LR2IR 玩家人数第一，也被选入旧发狂初段，作为入门曲很受欢迎。",
   "origins_zh": [
-   "ND 名称（WE）“Sound Only” 由于这首歌的 BMS 没有 BGA，所以 BMS 播放屏幕只有一张图片、歌曲标题以及中央屏幕上写着“Sound Only”字样。"
+   "ND 名义（WE）「Sound Only」：本曲 BMS 没有 BGA，所以 BMS 游玩画面中央只有一张图、曲名和「Sound Only」字样。"
   ]
  },
  "STARTLINER": {
@@ -64131,19 +64131,19 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2020/7/16~8/19活动「在地牢里搭讪有错吗？II合作活动」先行曲。\n动画《在地下城里寻找女孩子是不是搞错了什么？II》片头曲。\n作词/作曲：英雄主义\n编曲：前口涉",
+  "wiki_comment_zh": "2020/7/16～8/19 活动「ダンまちⅡ联动活动」先行配信曲。\n动画《ダンジョンに出会いを求めるのは間違っているだろうかⅡ》OP 曲。\n作词・作曲：ヒロイズム\n编曲：前口渉",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "示例字符串",
+    "那根绳子",
     "HELLO to DREAM/Kimiiro Everyday/MASTER/RANK S 达成"
    ]
   ],
   "origins_zh": [
-   "标题：“示例绳子” 那根蓝色的绳子从赫斯提亚衣服的上臂延伸，穿过她的胸部，并连接到另一侧的手臂。"
+   "称号「例の紐」：ヘスティア 衣服上从二头肌经胸下连到另一只手臂的那根蓝色绳。"
   ]
  },
  "君色Everyday": {
@@ -76378,9 +76378,9 @@
     "13.3"
    ]
   ],
-  "wiki_comment_zh": "2021/5/13 ~ 2021/11/3 提前为团队成员分发歌曲。\nHaNaMiNa 的单曲《Nankka Noise ni Kikoeru》是一首新创作的歌曲。\n作曲/编曲：春场\n作词：七条生菜",
+  "wiki_comment_zh": "2021/5/13～2021/11/3 队伍加入者先行配信曲。\nHaNaMiNa 单曲《なんかノイズにきこえる》专门创作曲。\n作曲/编曲：はるなば\n作词：七条レタス",
   "origins_zh": [
-   "ND 名称（MAS）“Inu Inu Mission”（快乐）歌词 模仿“Iraira Mission”。"
+   "ND 名义（MASTER）「イヌイヌミッション」（はっぴー）：对歌词「イライラミッション」的恶搞。"
   ]
  },
  "Over Heart": {
@@ -80845,9 +80845,9 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "这是Houkago Tea Time 的第四张单曲。发布于 2010 年 4 月 28 日。\n动画《K-ON!!》前半部分的片头曲。 （第二季）。\n作词：大森翔子\n作曲/编曲：Tom-H@ck",
+  "wiki_comment_zh": "放課後ティータイム 第 4 张单曲，2010 年 4 月 28 日发售。\n动画《けいおん!!》（第 2 期）前半片头主题曲。\n作词：大森祥子\n作曲・编曲：Tom-H@ck",
   "origins_zh": [
-   "ND名称（MAS）“Takanashi！！” （小鸟优先生）模仿动画标题“K-ON!!”。"
+   "ND 名义（MASTER）「たかなし!!」（小鳥遊さん）：对动画作品名「けいおん!!」的恶搞。"
   ]
  },
  "廻廻奇譚": {
@@ -89685,23 +89685,23 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "Ado 的第一张主要单曲。 2020 年 10 月发布。\n该歌曲以其朗朗上口的歌声和讽刺社会的激进歌词而受到年轻人的欢迎。\n作词、作曲：syudou",
+  "wiki_comment_zh": "Ado 主流第 1 张单曲，2020 年 10 月发售。\n以抓耳的开唱与讽刺社会的激烈歌词在年轻人中走红。\n作词・作曲：syudou",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "你比你想象的更健康",
+    "比你想象的更健康",
     "达到大师/等级 SSS"
    ],
    [
-    "他就是我通常所说的天才。",
+    "我就是俗称的天才",
     "大师 / 速度索尼克 / 实现正义"
    ]
   ],
   "origins_zh": [
-   "标题“我比你想象的更健康”和“我就是人们所说的天才”都是这首歌的歌词。"
+   "称号「あなたが思うより健康です」「私が俗に言う天才です」：都是曲中歌词。"
   ]
  },
  "天火明命": {
@@ -90650,19 +90650,19 @@
    "称号「境界を操る程度の能力」 対応キャラ「 八雲 紫 」の能力。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 4 | 5 | 10 | 14.0\n【取得できる称号】\n称号 | 条件\n境界を操る程度の能力 | MASTER以下全て/プレイ\n【ND名義・称号の由来】\n- 称号「境界を操る程度の能力」 対応キャラ「 八雲 紫 」の能力。",
-  "wiki_comment_zh": "Tatsh Music Circle 发行的第一张东方编曲 CD“FAR EAST OF EAST”中收录的歌曲。\n这件夹克是专门为这次录音而设计的。",
+  "wiki_comment_zh": "收录于 TatshMusicCircle 东方改编 CD 第 1 作《FAR EAST OF EAST》。\n曲绘是为本次收录新绘的。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "操纵边界的能力",
+    "操纵境界程度的能力",
     "全部位于主控/播放下方"
    ]
   ],
   "origins_zh": [
-   "角色“紫云崎八云”的能力，对应标题“操纵境界的能力”。"
+   "称号「境界を操る程度の能力」：对应角色「八雲紫」的能力。"
   ]
  },
  "Starting Over": {
@@ -91170,9 +91170,9 @@
     "14.5"
    ]
   ],
-  "wiki_comment_zh": "2000 年发行的 BMS 歌曲。分类 是 Rave。\n歌名中的“J”来自Cranky朋友的名字缩写，这首歌是在他生日时送给他的，所以被称为J219。",
+  "wiki_comment_zh": "2000 年公开的 BMS 乐曲，曲风是 Rave。\n曲名「J」取自 Cranky 朋友的姓名首字母，因为是生日赠曲所以叫 J219。",
   "origins_zh": [
-   "ND名（WE粉丝）“J1219”歌名的模仿。数字は総ノーツ数から。顺便说明一下，这个WE乐谱的添加日期是2026年2月19日。"
+   "ND 名义（WE 狂）「J1219」：曲名的恶搞，数字来自总物量；顺带一提这张 WE 谱面追加日是 2026 年 2 月 19 日。"
   ]
  },
  "CAT'S EYE": {
@@ -102940,7 +102940,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "说唱/歌词/电影：Calliope Mori\n歌曲・混音：kokorobeats a.k.a K’s/Coro",
+  "wiki_comment_zh": "Rap/Lyrics/Movie：Calliope Mori(森カリオペ)\nSong track・Mix by：kokorobeats a.k.a K’s/Coro",
   "titles_zh": [
    [
     "称号",
@@ -102952,7 +102952,7 @@
    ]
   ],
   "origins_zh": [
-   "标题：“我今天也想说唱。”来自歌曲的前奏。"
+   "称号「今日もrapしたいと思います。」：来自曲中开场台词。"
   ]
  },
  "Splash Dance!!": {
@@ -108653,9 +108653,9 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "2022/11/24～2023/1/11活动「WACCA协作活动」先行发行歌曲。\nWACCA 的移植歌曲。它从运营之初就可以在 WACCA 上播放。",
+  "wiki_comment_zh": "2022/11/24 ~ 2023/1/11 活动「WACCA 联动活动」先行配信曲。\nWACCA 移植曲；在 WACCA 稼动初期即可游玩。",
   "origins_zh": [
-   "ND 名称（MAS）“Jaco Lemon @ Stage XII”（Jaco Lemon）“Stage XII”代表 WACCA 的舞台升级模式水平（接近 CHUNITHM 的等级认证）。它存在于Stage I到XIII，这首歌是WACCA S版本，是Stage XII的目标歌曲。"
+   "ND 名义（MASTER）「じゃこレモン＠ステージXII」（じゃこレモン）：「ステージXII」表示 WACCA 的升级模式（接近 CHUNITHM 的 CLASS 认定）等级；分 Stage I～XIII，本曲在 WACCA S 版本是 Stage XII 的对象曲。"
   ]
  },
  "ADAM": {
@@ -121342,9 +121342,9 @@
     "14.6"
    ]
   ],
-  "wiki_comment_zh": "独立游戏《UNDERTALE》的分支路线中与中boss《Fujimi no Undyne》战斗时播放的BGM。\n英文版的原标题是“Battle Against a True Hero”。",
+  "wiki_comment_zh": "独立游戏《UNDERTALE》某分支路线中 Boss「ふじみのアンダイン」战的 BGM。\n英文原题是「Battle Against a True Hero」。",
   "origins_zh": [
-   "ND名称（MAS）``Blade of Justice''（Aminohabakiri）来自原版Undyne战斗BGM``Spear of Justice''的英文原版，以不同的路线。"
+   "ND 名义（MASTER）「Blade of Justice」（アミノハバキリ）：来自原作另一路线中アンダイン 战 BGM《正義の槍》的英文原题《Spear of Justice》。"
   ]
  },
  "華麗なる死闘": {
@@ -133001,9 +133001,9 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "对应角色 蛇猎赤穗\n解锁挑战第一首目标歌曲\n于2024年12月12日添加第1次UNLOCK CHALLENGE先行发行歌曲。",
+  "wiki_comment_zh": "对应角色：蛇狩あこ\nUNLOCK CHALLENGE 第 1 回对象乐曲\n2024/12/12 追加，第 1 回 UNLOCK CHALLENGE 先行配信曲。",
   "origins_zh": [
-   "ND名称（MAS）“地雷企鹅”（Roche@Penguin）因为Ako Hegari是地雷型女孩。"
+   "ND 名义（MASTER）「地雷系ペンギン」（ロシェ@ペンギン）：因为蛇狩あこ 是地雷系女子。"
   ]
  },
  "ドリームケッチャー": {
@@ -140129,19 +140129,19 @@
    "称号『「・・・ーーー・・・」』 曲中の歌詞より。欧文モールス符号でSOSを表す。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VERSE～ | 2 | 6 | 9 | 12.9\n【取得できる称号】\n称号 | 条件\n「・・・ーーー・・・」 | デンジャースキル発動\n【ND名義・称号の由来】\n- 称号『「・・・ーーー・・・」』 曲中の歌詞より。欧文モールス符号でSOSを表す。",
-  "wiki_comment_zh": "发布于 2024 年 5 月 27 日。\n它以现代上班族的“SOS”为主题，副歌“Giri giri dance，giri giri dance，dance”的朗朗上口的歌词在年轻人中引起了轰动。",
+  "wiki_comment_zh": "2024 年 5 月 27 日公开。\n以「现代社畜的 SOS」主题和副歌「ギリギリダンス」的抓耳歌词在年轻人中走红。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "“……”",
+    "「・・・ーーー・・・」",
     "触发危险技能"
    ]
   ],
   "origins_zh": [
-   "标题：“...”来自歌曲的歌词。用摩尔斯电码表达 SOS。"
+   "称号『「・・・ーーー・・・」』：来自曲中歌词，是欧文摩尔斯电码的 SOS。"
   ]
  },
  "ラヴィ": {
@@ -143714,19 +143714,19 @@
    "称号「はじまりの未知とー終わらない未知で－」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VERSE～ | 2 | 5 | 9 | 12.9\n【取得できる称号】\n称号 | 条件\nはじまりの未知とー終わらない未知で－ | EXPERT /RANK S達成\n【ND名義・称号の由来】\n- 称号「はじまりの未知とー終わらない未知で－」 歌詞より。",
-  "wiki_comment_zh": "电影《Project Sekai：破碎的世界与不会唱歌的未来》片头曲。\n作词/作曲/编曲：40mP × sasakure.UK\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "电影《劇場版プロジェクトセカイ 壊れたセカイと歌えないミク》片头主题曲。\n作词・作曲・编曲：40mP × sasakure.UK\n使用 VOCALOID：初音未来",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "一个未知的开始——一个永远不会结束的未知——",
+    "起始之未知与—无尽的未知—",
     "达到专家/等级 S"
    ]
   ],
   "origins_zh": [
-   "标题：“开始的未知 - 永无止境的未知 -”来自歌词。"
+   "称号「はじまりの未知とー終わらない未知で－」：出自歌词。"
   ]
  },
  "Worlders": {
@@ -152799,9 +152799,9 @@
    "ND名義(MAS)「ミニミライト@突撃！突撃ぃ～！」 メイ の必殺技「イルカさん・横」使用時のかけ声。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 7 | 9+ | 13.1\n【ND名義・称号の由来】\n- ND名義(MAS)「ミニミライト@突撃！突撃ぃ～！」 メイ の必殺技「イルカさん・横」使用時のかけ声。",
-  "wiki_comment_zh": "格斗游戏“GUILTY GEAR -STRIVE-”中出现的角色之一梅的主题曲。\n作词、作曲：石渡泰辅（Arc System Works）",
+  "wiki_comment_zh": "格斗游戏《GUILTY GEAR -STRIVE-》中角色メイ 的主题曲。\n作词・作曲：石渡太輔 (アークシステムワークス)",
   "origins_zh": [
-   "以 ND (MAS) 名义“Mini Milight@Assault!”攻击～！」梅在使用必杀技「伊鲁卡小姐侧身」时大喊。"
+   "ND 名义（MASTER）「ミニミライト@突撃！突撃ぃ～！」：メイ 必杀技「イルカさん・横」使用时的吆喝。"
   ]
  },
  "Prismatic Theory": {
@@ -153945,9 +153945,9 @@
    "ND名義(MAS)「ROCHER+++ Season 3」(ロシェ＠ペンギン) MUSIC DIVER Ver.3.0(Season3)にてレート22000以上になると獲得できる称号「MUSIC DIVER+++ Season 3」から。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 4 | 8 | 13.6 | 14.9\n【ND名義・称号の由来】\n- ND名義(MAS)「ROCHER+++ Season 3」(ロシェ＠ペンギン) MUSIC DIVER Ver.3.0(Season3)にてレート22000以上になると獲得できる称号「MUSIC DIVER+++ Season 3」から。",
-  "wiki_comment_zh": "通过播放这首歌4次（难度没关系），你可以获得角色“Layla？”。\nTAITO 的 AC 音乐游戏“MUSIC DIVER”的原创歌曲之一。",
+  "wiki_comment_zh": "游玩本曲 4 次（难度不限）可获得角色「レイラ？」。\nTAITO 街机音乐游戏《MUSIC DIVER》原创曲之一。",
   "origins_zh": [
-   "ND 名称 (MAS) “ROCHER+++ Season 3” (Roche@Penguin) 来自标题“MUSIC DIVER+++ Season 3”，可以通过在 MUSIC DIVER Ver.3.0（第 3 季）中达到 22000 或更高的评级来获得。"
+   "ND 名义（MASTER）「ROCHER+++ Season 3」（ロシェ＠ペンギン）：来自 MUSIC DIVER Ver.3.0（Season3）中 rate 22000 以上可获得的称号「MUSIC DIVER+++ Season 3」。"
   ]
  },
  "HYPER SAMPLER": {
@@ -162913,9 +162913,9 @@
    "ND名義(MAS)「 JACKY LEMON」(じゃこレモン) 曲名より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 2 | 7+ | 11.9 | 14.3\n【ND名義・称号の由来】\n- ND名義(MAS)「 JACKY LEMON」(じゃこレモン) 曲名より。",
-  "wiki_comment_zh": "这首歌是1993年街机游戏《Virtua Fighter》（初代）中的Jackie Stage BGM为第一代脉脉改编的。\n作曲：中村孝之\n编曲：武信光吉",
+  "wiki_comment_zh": "把 1993 年街机游戏《バーチャファイター》（初代）的 JACKY 关卡 BGM 为初代 maimai 改编的乐曲。\n作曲：中村隆之\n编曲：光吉猛修",
   "origins_zh": [
-   "ND名称（MAS）“JACKY LEMON”（Jako Lemon）来自歌曲标题。"
+   "ND 名义（MASTER）「JACKY LEMON」（じゃこレモン）：由曲名而来。"
   ]
  },
  "[IMPERIALDISORDER]": {
