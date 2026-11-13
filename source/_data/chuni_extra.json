@@ -894,7 +894,7 @@
    "ULT": "14.0"
   },
   "wiki_jp": "2026/7/30 ULTIMA追加\n2013年10月投稿。同年12月にはミリオン再生達成。\n2ndアルバム「 YANKEE 」には米津玄師氏自身でカバーしたバージョンが収録されており、太鼓の達人 Vバージョンではこちらの音源が収録されている。\n使用VOCALOID：GUMI\n譜面作者：EXP …Moon Strix、MAS …ぴちネコ、ULT …ロシェ@ペンギン\n譜面定数：MAS …13.4、ULT …14.0",
-  "wiki_comment_zh": "2026/7/30 新增 ULTIMA\n发布于2013年10月。同年12月浏览量突破100万次。\n第二张专辑《YANKEE》收录了米津玄师亲自翻唱的版本，该音源包含在太鼓之达人V版本中。\n使用VOCALOID：GUMI"
+  "wiki_comment_zh": "2026/7/30 追加 ULTIMA\n2013 年 10 月投稿，同年 12 月达成百万播放。\n第 2 张专辑《YANKEE》收录了米津玄師 本人翻唱版，太鼓の達人 V 版本收录的是那个音源。\n使用 VOCALOID：GUMI"
  },
  "タイガーランペイジ": {
   "history": {
@@ -3304,10 +3304,10 @@
    "MAS": "14.0"
   },
   "wiki_jp": "初期曲でORIGIN Fablesマップ10元課題曲。\n譜面作者：EXP …ロシェ@ペンギン、MAS …Revo@LC、WE光…崇め奉れ! …、WE狂…崇め♡奉れEDIT …\n譜面定数：MAS …14.0",
-  "wiki_comment_zh": "最初的歌曲是 ORIGIN Fables地图10原课题曲。",
+  "wiki_comment_zh": "初期曲，ORIGIN Fables 地图 10 元课题曲。",
   "origins_zh": [
-   "ND名字（WE Hikari）“崇拜崇拜！”歌曲中的歌词。",
-   "以ND（WE粉丝）名义“Worship♡Hore EDIT”模仿DDR X时代存在的著名EDIT*2乐谱“Suki☆Mero EDIT”。这是一段 16 分钟、180 BPM 的颤音，贯穿整首歌曲，经常被用来赢得游戏中的排名。"
+   "ND 名义（WE 光）「崇め奉れ!」：曲中歌词。",
+   "ND 名义（WE 狂）「崇め♡奉れEDIT」：对 DDR X 时代存在的有名 EDIT 谱面「スキ☆メロEDIT」的恶搞；那玩意儿是 BPM180、16 分 trill 全程不断的货色，常被用来刷游戏内排行榜。"
   ]
  },
  "Anemone": {
@@ -11618,7 +11618,7 @@
     "14.8"
    ]
   ],
-  "wiki_comment_zh": "BMS活动“BOF2011”个人得分类别第二名，中位得分类别第三名。 分类 是序曲/IDM。\n在原标题中，歌曲标题用大写字母写为“VALLISTA”，但在这次录音中，除了第一个字母之外的所有字母都已更改为小写字母。\nPLUS版本的音源已被更换。"
+  "wiki_comment_zh": "BMS 活动「BOF2011」个人战分数部门第 2、中央值部门第 3，曲风是 Overture / IDM。\n原题曲名表记是「VALLISTA」全大写，本次收录时除首字母外全改成小写。\nPLUS 版本起音源被替换。"
  },
  "Äventyr": {
   "wiki_title": "Äventyr",
@@ -26214,19 +26214,19 @@
     "12.3"
    ]
   ],
-  "wiki_comment_zh": "OP歌曲《BALDR FORCE》。\n作曲：C.G mix",
+  "wiki_comment_zh": "《BALDR FORCE》OP 曲。\n作曲：C.G mix",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "相信你的正义",
+    "Believe Your Justice",
     "专家/正义得到实现"
    ]
   ],
   "origins_zh": [
-   "标题“相信你的正义”BALDR系列每部作品的片头电影中出现的一句话。"
+   "称号「Believe Your Justice」：BALDR 系列各作片头动画显示的短语。"
   ]
  },
  "true my heart -Lovable mix-": {
@@ -32628,7 +32628,7 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "为“V.L.P”～Vocaloid Loud Project～创作的新曲，在2010年5月举行的THE VOC@LOID M@STER 12上发行。\n封面艺术来自 2013 年 8 月发行的主要发行专辑“Akumayamagi”（目前已绝版）。\n使用VOCALOID：初音未来"
+  "wiki_comment_zh": "2010 年 5 月 THE VOC@LOID M@STER 12 颁布的《「V.L.P」 ～Vocaloid Loud Project～》专门创作曲。\n曲绘用 2013 年 8 月发售的主流专辑《悪巫山戯》的（现已绝版）。\n使用 VOCALOID：初音未来"
  },
  "Vampire": {
   "wiki_title": "Vampire",
@@ -33936,7 +33936,7 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "2017年10月5日添加，STAR ep.II地图3原课题曲。\nTwice up是一种将威士忌与常温天然水以1：1的比例混合的饮用方式。据作曲家介绍，“这是一首表达咬下一口时眼前展开的风景的音乐。”（解释）\n改装前的夹克\n改装前的夹克"
+  "wiki_comment_zh": "2017/10/5 追加，STAR ep.II 地图 3 元课题曲。\nTwice up 是威士忌与常温天然水 1:1 兑的喝法；作曲者说「表现了一口尝到时眼前铺开的风景（scenery）的乐曲」。"
  },
  "奏者はただ背中と提琴で語るのみ": {
   "wiki_title": "奏者はただ背中と提琴で語るのみ",
@@ -57510,7 +57510,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "添加于 2019/10/24，CRYSTAL ep.I 地图4原课题曲。\n以下成员也参与了这首歌的喊话（标题省略）。他说他一边吃螃蟹一边录音。\n小月宫\n真木\n里诺。\n梨本尤里\nRiko（显然是唯一不吃螃蟹的成员）"
+  "wiki_comment_zh": "2019/10/24 追加，CRYSTAL ep.I 地图 4 元课题曲。\n乐曲的吆喝担当还有以下成员参加（省略敬称）；据说录音时一边吃螃蟹一边进行。\nコツキミヤ／MAKI／Reno.／梨本悠里／りこ（成员里唯一似乎没吃螃蟹的）"
  },
  "ハジマリノピアノ": {
   "wiki_title": "ハジマリノピアノ",
@@ -66309,7 +66309,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "作词/作曲：雷姆\n安排：ARISWORKS"
+  "wiki_comment_zh": "作词/作曲：Reom\n编曲：ARISWORKS"
  },
  "Energy Booster ～ 上海紅茶館": {
   "wiki_title": "Energy Booster ～ 上海紅茶館",
@@ -75480,7 +75480,7 @@
     "14.8"
    ]
   ],
-  "wiki_comment_zh": "2021/3/18~5/12活动「Groove Coaster Collaboration 活动」先行发行歌曲。\n在“第5届天下一园游戏祭”Groove Coaster Division区块决赛中以Score Attack 课题曲首次登场的歌曲。"
+  "wiki_comment_zh": "2021/3/18～5/12 活动「グルーヴコースター联动活动」先行配信曲。\n作为「第五回天下一音ゲ祭」グルーヴコースター 部门区块决胜大会分数挑战课题曲首次登场。"
  },
  "町かどタンジェント": {
   "wiki_title": "町かどタンジェント",
@@ -77080,7 +77080,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "发布于2019年5月3日。2020年6月达到百万。\n收录于DECO*27第6张同名专辑中。该夹克与同一张专辑的第一批限量版相同。\n使用VOCALOID：初音未来\n安排：罗克韦尔"
+  "wiki_comment_zh": "2019 年 5 月 3 日投稿，2020 年 6 月达成百万播放。\n收录于与曲名同名的 DECO*27 第 6 张专辑；曲绘与同专辑初回限定盘相同。\n使用 VOCALOID：初音未来\n编曲：Rockwell"
  },
  "こちら、幸福安心委員会です。": {
   "wiki_title": "こちら、幸福安心委員会です。",
@@ -102424,7 +102424,7 @@
     "14.7"
    ]
   ],
-  "wiki_comment_zh": "对应角色 Irodorimidori/色彩过多的日记音乐\n为纪念CHUNITHM＆Irodori Midori出道7周年而创作的周年纪念歌曲。\n作词：七条生菜（IOSYS）\n作曲家：cosMo@BousouP"
+  "wiki_comment_zh": "对应角色：彩绿／色彩過剰のダイアリーミュージック\n为纪念 CHUNITHM&彩绿 7 周年作曲的纪念曲。\n作词：七条レタス (IOSYS)\n作曲：cosMo@暴走P"
  },
  "Last Kingdom": {
   "wiki_title": "Last Kingdom",
@@ -103345,7 +103345,7 @@
     "15.5"
    ]
   ],
-  "wiki_comment_zh": "对应角色 凯南·梅尔维亚斯\n新 ep.VI Genmae 课题曲 / Genji 地图课题曲\n添加2022/8/4，新ep.VI 区域4原课题曲。\nAzure 是一个英文单词，意思是“深蓝色”，Vixen 是一个英文单词，意思是“雌性狐狸”。"
+  "wiki_comment_zh": "对应角色：カイナン・メルヴィアス\n2022/8/4 追加，NEW ep.VI 区域 4 元课题曲。\nAzure 意为「绀碧」、Vixen 意为「雌狐」的英语单词。"
  },
  "僕の戦争": {
   "wiki_title": "僕の戦争",
@@ -111096,7 +111096,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN～ | 3 | 6 | 11.0 | 14.2",
-  "wiki_comment_zh": "对应角色 大阪茜\n2023/2/9~3/8 全国解锁积分解锁歌曲\n《Ongeki SUMMER PLUS》中收录的歌曲。在射击节版（第3章）第5章“大阪茜的挑战”中以原课题曲的身份出现。"
+  "wiki_comment_zh": "对应角色：逢坂茜\n2023/2/9～3/8 全国解禁点解禁曲\n《音击 SUMMER PLUS》收录曲；作为射击祭篇（第 3 章）・第 5 话「逢坂茜の挑戦状」的元课题曲登场。"
  },
  "(WE) The Metaverse -First story of the SeelischTact-": {
   "wiki_title": "The Metaverse -First story of the SeelischTact-",
@@ -112990,7 +112990,7 @@
    "gray"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN～ | 3 | 5 | 9 | 12.3\n【取得できる称号】\n称号 | 条件\nそう君が悪いんだよ 僕だけを見ててよ─。 *1 | 2人以上 で店内マッチング/デンジャースキル発動",
-  "wiki_comment_zh": "根据1994年播出的电视剧《No Longer Human - What If I Die》创作的歌曲。\n除了初音未来演唱的版本外，还有 Mikito P 亲自翻唱的版本。\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "以 1994 年播出的电视剧《人間・失格～たとえばぼくが死んだら》为题材制作的乐曲。\n除初音未来演唱版外，还有みきとP 本人的翻唱版。\n使用 VOCALOID：初音未来",
   "titles_zh": [
    [
     "称号",
@@ -117060,7 +117060,7 @@
     "14.9"
    ]
   ],
-  "wiki_comment_zh": "对应角色 虚空\nSUN ep.V 玄前 课题曲 / 原次课题曲\n添加于 2023/8/3，SUN ep.V 区域2原课题曲。\n歌名《Superbia》是七大罪中“傲慢”的拉丁语翻译。"
+  "wiki_comment_zh": "对应角色：ヴォイド\n2023/8/3 追加，SUN ep.V 区域 2 元课题曲。\n曲名「Superbia」是七宗罪中「傲慢」的拉丁语译法。"
  },
  "空間創造理論": {
   "wiki_title": "空間創造理論",
@@ -117315,7 +117315,7 @@
     "15.0"
    ]
   ],
-  "wiki_comment_zh": "对应角色 早乙女彩香\n2023/8/3~9/13 全国解锁积分解锁歌曲\n《Ongeki R.E.D. PLUS》中收录的歌曲。在校长换届选举（第4章）第5章“重要的事情”中以原课题曲的身份出现。"
+  "wiki_comment_zh": "对应角色：早乙女彩華\n2023/8/3～9/13 全国解禁点解禁曲\n《音击 R.E.D. PLUS》收录曲；作为学园长总选举篇（第 4 章）・第 5 话「大切なもの」的元课题曲登场。"
  },
  "Night Spider": {
   "wiki_title": "Night Spider",
@@ -133045,7 +133045,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nVERSE～ | 3 | 6 | 9 | 12.3",
-  "wiki_comment_zh": "对应角色 芝村由香里\nVERSE ep.I 上一个 课题曲 / 下一个 课题曲\n添加了 2024/12/12，VERSE ep.I 区域2（进度级别 1/VERSE 的 55 个方块）课题曲。通关即可获得“柴村由香里”。"
+  "wiki_comment_zh": "对应角色：柴村ユカリ\n2024/12/12 追加，VERSE ep.I 区域 2（进度 1/VERSE 时点 55 格）课题曲，通关可获得「柴村ユカリ」。"
  },
  "ラブリージャッジメント": {
   "wiki_title": "ラブリージャッジメント",
@@ -133277,7 +133277,7 @@
     "15.3"
    ]
   ],
-  "wiki_comment_zh": "对应角色 莫莫与吉吉\nVERSE ep.I 上一页 课题曲 / 下一页 地图课题曲\n添加了 2024/12/12，VERSE ep.I 区域7（截至进度 2/VERSE 为 355 个空格）课题曲。清除它即可获得“Momo＆Jiji”。"
+  "wiki_comment_zh": "对应角色：モモ＆ジジ\n2024/12/12 追加，VERSE ep.I 区域 7（进度 2/VERSE 时点 355 格）课题曲，通关可获得「モモ＆ジジ」。"
  },
  "Theatore Creatore": {
   "wiki_title": "Theatore Creatore",
@@ -137074,7 +137074,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nVERSE～ | 4 | 7+ | 12.8 | 14.9",
-  "wiki_comment_zh": "对应角色 林内\nVERSE ep.III 上一页 地图课题曲 / 下一页 课题曲\n添加了2025/4/10，VERSE ep.III 区域1（进度级别1/VERSE 305个方块）课题曲。清除它并获得“Rinne”。"
+  "wiki_comment_zh": "对应角色：リンネ\n2025/4/10 追加，VERSE ep.III 区域 1（进度 1/VERSE 时点 305 格）课题曲，通关可获得「リンネ」。"
  },
  "ずんずんサファリ": {
   "wiki_title": "ずんずんサファリ",
@@ -137183,7 +137183,7 @@
     "14.4"
    ]
   ],
-  "wiki_comment_zh": "对应角色阿斯特\nVERSE ep.III 上一页 课题曲 / 下一页 课题曲\n添加了 2025/4/10，VERSE ep.III 区域3（进度级别 1/VERSE 105 个方块）课题曲。清除它即可获得“Astle”。"
+  "wiki_comment_zh": "对应角色：アストル\n2025/4/10 追加，VERSE ep.III 区域 3（进度 1/VERSE 时点 105 格）课题曲，通关可获得「アストル」。"
  },
  "HeinousЯeaper": {
   "wiki_title": "HeinousЯeaper",
@@ -146925,7 +146925,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 6 | 10 | 14.4",
-  "wiki_comment_zh": "2020 BMS活动《BOFXVI》展歌。 分类 是怀旧的 J-POP。\n同年在BMS活动“Mutual Faith3”上展出的《FIRST PROMIZE》的流程的歌曲。"
+  "wiki_comment_zh": "2020 年 BMS 活动「BOFXVI」参展曲，曲风是 Nostalgic J-POP。\n承接同年 BMS 活动「Mutual Faith3」参展的《FIRST PROMIZE》的乐曲。"
  },
  "Choose!!!": {
   "wiki_title": "Choose!!!",
@@ -150975,7 +150975,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 4 | 7 | 12.3 | 14.5",
-  "wiki_comment_zh": "对应角色 贝内黛塔\nMate ep.I 上一个 课题曲 / 下一个 课题曲\n添加了 2026/7/2，Mate ep.I 区域4（进度级别 1/Mate 245 个方块）课题曲。清除它即可获得“Benedetta”。"
+  "wiki_comment_zh": "对应角色：ベネデッタ\n2026/7/2 追加，Mate ep.I 区域 4（进度 1/Mate 时点 245 格）课题曲，通关可获得「ベネデッタ」。"
  },
  "SOMA TONE": {
   "wiki_title": "SOMA TONE",
@@ -151100,7 +151100,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 6 | 10 | 12.9",
-  "wiki_comment_zh": "对应角色 角仓日向\nMate ep.I Previous 地图课题曲 / Next 课题曲\nAdded 2026/7/2, Mate ep.I 区域1 (95 squares at progress level 1/Mate) 课题曲.清除它并获得“日向角仓”。"
+  "wiki_comment_zh": "对应角色：角倉ひなた\n2026/7/2 追加，Mate ep.I 区域 1（进度 1/Mate 时点 95 格）课题曲，通关可获得「角倉ひなた」。"
  },
  "白昼熱演": {
   "wiki_title": "白昼熱演",
@@ -151140,7 +151140,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 7 | 11.4 | 14.2",
-  "wiki_comment_zh": "对应角色 如月丽奈\nMate ep.I 上一个 课题曲 / 下一个 课题曲\n添加了 2026/7/2，Mate ep.I 区域2（进度级别 1/Mate 165 个方块）课题曲。清除它并获得“如月丽奈”。"
+  "wiki_comment_zh": "对应角色：如月レイナ\n2026/7/2 追加，Mate ep.I 区域 2（进度 1/Mate 时点 165 格）课题曲，通关可获得「如月レイナ」。"
  },
  "絶対一生これで生きていく！": {
   "wiki_title": "絶対一生これで生きていく！",
@@ -152562,7 +152562,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 6 | 10 | 13.2",
-  "wiki_comment_zh": "对应角色 天使佳苗\nMate ep.II 上一个 地图课题曲 / 下一个 课题曲\n于 2026 年 8 月 20 日添加，Mate ep.II 区域1（进度级别 1/Mate 处有 175 个方块）课题曲。通过关卡获得“天使佳苗”。"
+  "wiki_comment_zh": "对应角色：天使・かなえ\n2026/8/20 追加，Mate ep.II 区域 1（进度 1/Mate 时点 175 格）课题曲，通关可获得「天使・かなえ」。"
  },
  "Fox Hunt": {
   "wiki_title": "Fox Hunt",
@@ -152641,7 +152641,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 6 | 11.3 | 13.7",
-  "wiki_comment_zh": "对应角色 瞳酱\nMate ep.II 上一个 课题曲 / 下一个 课题曲\n于 2026 年 8 月 20 日添加，Mate ep.II 区域3（进度级别 1/Mate 处有 295 个方块）课题曲。清除它并获得“Hitomi-chan”。"
+  "wiki_comment_zh": "对应角色：人見ちゃん\n2026/8/20 追加，Mate ep.II 区域 3（进度 1/Mate 时点 295 格）课题曲，通关可获得「人見ちゃん」。"
  },
  "Smell of the Game": {
   "wiki_title": "Smell of the Game",
@@ -152923,7 +152923,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 8 | 10+ | 14.5",
-  "wiki_comment_zh": "对应角色库尼贡德\nMate ep.III 上一个 课题曲 / 下一个 课题曲\n于 2026 年 9 月 17 日添加，Mate ep.III 区域3（进度级别 1/Mate 425 个方块）课题曲。清除它并获得“Kunigunde”。"
+  "wiki_comment_zh": "对应角色：クーニグンデ\n2026/9/17 追加，Mate ep.III 区域 3（进度 1/Mate 时点 425 格）课题曲，通关可获得「クーニグンデ」。"
  },
  "Colossus": {
   "wiki_title": "Colossus",
@@ -153549,7 +153549,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 7 | 11.9 | 14.1",
-  "wiki_comment_zh": "对应角色 坂木尤里\nMate ep.IV 上一个 地图课题曲 / 下一个 课题曲\n添加了 2026/10/8，Mate ep.IV 区域1（进度级别 1/Mate 255 个方块）课题曲。清空舞台即可获得“Hari Sakaki”。"
+  "wiki_comment_zh": "对应角色：坂城羽莉\n2026/10/8 追加，Mate ep.IV 区域 1（进度 1/Mate 时点 255 格）课题曲，通关可获得「坂城羽莉」。"
  },
  "P-KATSU": {
   "wiki_title": "P-KATSU",
@@ -153628,7 +153628,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 2 | 6 | 10 | 13.9",
-  "wiki_comment_zh": "2025年例大祭发行的专辑《Double Clock》中的一首歌曲。\n2006年发行的《Sakkyun Light》的重新录制版本。\n作词/鼓：hellnian\n吉他：小林浩人\n贝斯手：内山浩人"
+  "wiki_comment_zh": "收录于 2025 年例大祭颁布的专辑《二重時計》。\n是 2006 年发售《さっきゅんライト》的再收录版。\n作词・鼓：hellnian\n吉他：小林ヒロト\n贝斯：内山博登"
  },
  "物凄い狂っとるフランちゃんが物凄いうた": {
   "wiki_title": "物凄い狂っとるフランちゃんが物凄いうた",
@@ -160495,14 +160495,14 @@
    "gray"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS+～ | 1 | 5 | 9 | 11.9\n【取得できる称号】\n称号 | 条件\n悲しみさえ通過点にして | デンジャースキル発動",
-  "wiki_comment_zh": "2013年博丽神社年祭发行的CD《Ano Hanasaki Kuya》中收录的歌曲。\n这首歌还被用作同日发行的万福神社的《幻想万花筒：红雾事件》的片尾曲。\n作词：镰濑虎\n演唱：森雅",
+  "wiki_comment_zh": "收录于 2013 年博丽神社例大祭颁布的 CD《アノ華咲クヤ》。\n也被用作同日颁布的满福神社《幻想万華鏡 紅霧異変の章》片尾主题歌。\n作词：かませ虎\n演唱：senya",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "连悲伤都成为过客",
+    "连悲伤也当作路过点",
     "触发危险技能"
    ]
   ]
