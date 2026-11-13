@@ -1,4 +1,4 @@
-﻿// 合并称号/由来翻译（支持 CRLF，按 \n 还原行，称号行再按 \t 拆列）
+// 合并称号/由来翻译：处理 Google 吃掉制表符的情况（按条件标志切分）
 import fs from 'node:fs';
 
 const ROOT = process.cwd();
@@ -18,6 +18,19 @@ function readJsonl(file) {
   return out;
 }
 
+// 条件部分常见的开头标志
+const COND_RE = /(ULTIMA|MASTER|EXPERT|ADVANCED|BASIC|SPEED|RANK|FULL\s*(CHAIN|COMBO)|ALL\s*JUSTICE|デンジャースキル|触发危险技能|店内マッチング|店内匹配|称号[「『]|キャラクター|角色[「『]|\d+\s*人|プレイ|游玩|※)/;
+
+function splitRow(line) {
+  const cells = line.split('\t').map((c) => c.trim()).filter(Boolean);
+  if (cells.length >= 2) return [cells[0], cells.slice(1).join(' ')];
+  const m = COND_RE.exec(line);
+  if (m && m.index > 0) {
+    return [line.slice(0, m.index).trim(), line.slice(m.index).trim()];
+  }
+  return [line.trim(), ''];
+}
+
 let tCount = 0;
 for (const { k, zh } of readJsonl(ROOT + '/tools/out/extra-titles-zh.jsonl')) {
   const e = extra[k];
@@ -25,10 +38,11 @@ for (const { k, zh } of readJsonl(ROOT + '/tools/out/extra-titles-zh.jsonl')) {
   const head = e.titles[0];
   const rows = zh
     .split('\n')
-    .map((line) => line.replace(/\r$/, '').split('\t').map((c) => c.trim()))
-    .filter((r) => r.length && r[0]);
+    .map((l) => l.replace(/\r$/, '').trim())
+    .filter(Boolean)
+    .map(splitRow)
+    .map((r) => r.map((c) => c.split('危险技能启动').join('触发危险技能')));
   if (!rows.length) continue;
-  rows.forEach(function (r) { for (var i = 0; i < r.length; i++) { r[i] = r[i].split('危险技能启动').join('触发危险技能'); } });
   e.titles_zh = [head].concat(rows);
   tCount++;
 }
@@ -48,3 +62,5 @@ for (const { k, zh } of readJsonl(ROOT + '/tools/out/extra-origins-zh.jsonl')) {
 
 fs.writeFileSync(EXTRA, JSON.stringify(extra, null, 1), 'utf8');
 console.log('称号已合并:', tCount, '| 由来已合并:', oCount);
+const sample = extra['千本桜'];
+console.log('sample:', JSON.stringify(sample && sample.titles_zh));
