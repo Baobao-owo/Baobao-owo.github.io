@@ -1,23 +1,26 @@
-// 渲染「补录删除曲」的谱面预览图，并上传到 GitHub Release（需要 GH_TOKEN）
+// 渲染「补录删除曲」的谱面预览图，并上传到 GitHub Release
 //
-// 前置：先另开一个窗口起渲染服务
-//   cd _tmp\marisa\repo\Marisa.Frontend
-//   npx vite serve --host 127.0.0.1 --port 5199
+// 用法：
+//   node tools/render_removed_previews.mjs --dry              # 只看要渲染多少张
+//   node tools/render_removed_previews.mjs --no-upload        # 只渲染到本地（不需要 token）
+//   $env:GH_TOKEN="github_pat_xxx"; node tools/render_removed_previews.mjs   # 渲染并上传
 //
-// 运行：
-//   $env:GH_TOKEN = "你的 token"
-//   node tools/render_removed_previews.mjs [--dry]
-//
+// 脚本会自己起 vite 渲染服务（127.0.0.1:5199），跑完自动关掉，不用手动开窗口。
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawn } from 'node:child_process';
 import puppeteer from 'puppeteer-core';
 
 const ROOT = process.cwd();
 const DRY = process.argv.includes('--dry');
+const NO_UPLOAD = process.argv.includes('--no-upload');
 
 const SRC = 'D:/XVX/HDD/bin/option/A300/music';
-const BOT_DIR = path.join(ROOT, '_tmp/marisa/repo/Marisa.Frontend/public/assets/chunithm/chart');
+const FE = path.join(ROOT, '_tmp/marisa/repo/Marisa.Frontend');
+const BOT_DIR = path.join(FE, 'public/assets/chunithm/chart');
 const MANIFEST = path.join(ROOT, 'source/_data/chuni_previews.json');
+const LOCAL_DIR = path.join(ROOT, '_tmp/charts-removed');
+const LOCAL_MAP = path.join(ROOT, '_tmp/charts-removed.json');
 const IDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'source/_data/chuni_ids.json'), 'utf8').replace(/^\uFEFF/, ''));
 const REMOVED = JSON.parse(fs.readFileSync(path.join(ROOT, 'source/_data/chuni_removed_songs.json'), 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
@@ -28,7 +31,7 @@ const PREFIX = 'chuni-previews-extra';
 const TOKEN = process.env.GH_TOKEN || '';
 const HEADERS = { Authorization: `Bearer ${TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'dsh-blog' };
 
-// 索引 A300 里的 c2s：0000_00.c2s
+// ---- 索引 A300 的 c2s ----
 const index = new Map();
 (function walk(dir, depth) {
   if (depth > 4) return;
@@ -47,7 +50,6 @@ const index = new Map();
     }
   }
 })(SRC, 0);
-console.log('A300 c2s 索引:', index.size);
 
 const DIFF_IDX = ['basic', 'advanced', 'expert', 'master', 'ultima'];
 const queue = [];
@@ -63,51 +65,76 @@ for (const s of REMOVED) {
     const src = index.get(chartName);
     if (!src) continue;
     const key = mid + '_' + i;
-    if (manifest[key]) continue;
+    if (!NO_UPLOAD && manifest[key]) continue;
     queue.push({ key, chartName, src });
   }
 }
 
-const byDiff = {};
-queue.forEach((q) => {
-  const i = q.key.split('_')[1];
-  byDiff[i] = (byDiff[i] || 0) + 1;
-});
-console.log('待渲染:', queue.length, '| 按难度:', JSON.stringify(byDiff));
-if (!queue.length) process.exit(0);
-if (DRY) process.exit(0);
-if (!TOKEN) {
-  console.error('缺少 GH_TOKEN：先 set/export 一个带 repo 权限的 token 再跑');
+console.log('A300 c2s 索引:', index.size, '| 待渲染:', queue.length);
+if (!queue.length || DRY) process.exit(0);
+if (!NO_UPLOAD && !TOKEN) {
+  console.error('缺少 GH_TOKEN。想先只渲染到本地可以加 --no-upload');
   process.exit(1);
 }
 
+// ---- 起渲染服务 ----
+const viteBin = path.join(FE, 'node_modules/vite/bin/vite.js');
+if (!fs.existsSync(viteBin)) {
+  console.error('找不到 vite：' + viteBin);
+  process.exit(1);
+}
+const server = spawn(process.execPath, [viteBin, 'serve', '--host', '127.0.0.1', '--port', '5199', '--strictPort'], {
+  cwd: FE,
+  stdio: 'ignore',
+});
+
+async function waitServer() {
+  for (let i = 0; i < 40; i++) {
+    try {
+      await fetch('http://127.0.0.1:5199/', { method: 'HEAD' });
+      return true;
+    } catch (e) {}
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  return false;
+}
+if (!(await waitServer())) {
+  console.error('渲染服务没起来（5199 端口）');
+  server.kill();
+  process.exit(1);
+}
+console.log('渲染服务已就绪');
+
+// ---- Release（仅上传模式）----
+let rel = null;
+let existing = new Map();
 async function api(url, init) {
   const res = await fetch(url, { ...init, headers: { ...HEADERS, ...(init && init.headers) } });
   if (!res.ok) throw new Error(res.status + ' ' + url + ' ' + (await res.text()).slice(0, 120));
   return res.json();
 }
-
-let rel;
-try {
-  rel = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases/tags/${PREFIX}`);
-} catch (e) {
-  rel = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ tag_name: PREFIX, name: '补充预览图（删除曲）', body: '自动上传' }),
-  });
+if (!NO_UPLOAD) {
+  try {
+    rel = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases/tags/${PREFIX}`);
+  } catch (e) {
+    rel = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tag_name: PREFIX, name: '补充预览图（删除曲）', body: '自动上传' }),
+    });
+  }
+  for (let p = 1; p <= 20; p++) {
+    const arr = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases/${rel.id}/assets?per_page=100&page=${p}`);
+    if (!arr.length) break;
+    arr.forEach((a) => existing.set(a.name, a.browser_download_url));
+    if (arr.length < 100) break;
+  }
+  console.log('release 里已有附件:', existing.size);
 }
-const existing = new Map();
-for (let p = 1; p <= 20; p++) {
-  const arr = await api(`https://api.github.com/repos/${OWNER}/${REPO}/releases/${rel.id}/assets?per_page=100&page=${p}`);
-  if (!arr.length) break;
-  arr.forEach((a) => existing.set(a.name, a.browser_download_url));
-  if (arr.length < 100) break;
-}
-console.log('release 里已有附件:', existing.size);
 
 fs.mkdirSync(BOT_DIR, { recursive: true });
-fs.mkdirSync(path.join(ROOT, '_tmp/charts'), { recursive: true });
+if (NO_UPLOAD) fs.mkdirSync(LOCAL_DIR, { recursive: true });
+const localMap = NO_UPLOAD && fs.existsSync(LOCAL_MAP) ? JSON.parse(fs.readFileSync(LOCAL_MAP, 'utf8')) : {};
 
 const browser = await puppeteer.launch({
   executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
@@ -122,34 +149,52 @@ let fail = 0;
 for (const item of queue) {
   const assetName = item.chartName + '.webp';
   try {
-    const dst = path.join(BOT_DIR, item.chartName + '.c2s');
-    if (!fs.existsSync(dst)) fs.copyFileSync(item.src, dst);
-    if (existing.has(assetName)) {
+    const c2s = path.join(BOT_DIR, item.chartName + '.c2s');
+    if (!fs.existsSync(c2s)) fs.copyFileSync(item.src, c2s);
+
+    if (NO_UPLOAD) {
+      const dst = path.join(LOCAL_DIR, assetName);
+      if (fs.existsSync(dst)) {
+        localMap[item.key] = dst;
+        ok++;
+        continue;
+      }
+    } else if (existing.has(assetName)) {
       manifest[item.key] = existing.get(assetName);
       ok++;
       continue;
     }
+
     await page.goto(`http://127.0.0.1:5199/chunithm/preview?name=${item.chartName}`, {
       waitUntil: 'domcontentloaded',
       timeout: 45000,
     });
     await page.waitForSelector('.stage', { timeout: 15000 });
-    const out = path.join(ROOT, '_tmp/charts', 'rm_' + assetName);
-    await page.screenshot({ path: out, fullPage: true, type: 'webp', quality: 82 });
-    const buf = fs.readFileSync(out);
-    const res = await fetch(
-      `https://uploads.github.com/repos/${OWNER}/${REPO}/releases/${rel.id}/assets?name=${encodeURIComponent(assetName)}`,
-      {
-        method: 'POST',
-        headers: { ...HEADERS, 'Content-Type': 'image/webp', 'Content-Length': String(buf.length) },
-        body: buf,
-      }
-    );
-    if (!res.ok) throw new Error('upload ' + res.status);
-    const j = await res.json();
-    manifest[item.key] = j.browser_download_url;
-    existing.set(assetName, j.browser_download_url);
-    fs.unlinkSync(out);
+    await new Promise((r) => setTimeout(r, 2500));
+
+    if (NO_UPLOAD) {
+      const dst = path.join(LOCAL_DIR, assetName);
+      await page.screenshot({ path: dst, fullPage: true, type: 'webp', quality: 82 });
+      localMap[item.key] = dst;
+    } else {
+      const tmp = path.join(ROOT, '_tmp/charts', 'rm_' + assetName);
+      fs.mkdirSync(path.dirname(tmp), { recursive: true });
+      await page.screenshot({ path: tmp, fullPage: true, type: 'webp', quality: 82 });
+      const buf = fs.readFileSync(tmp);
+      const res = await fetch(
+        `https://uploads.github.com/repos/${OWNER}/${REPO}/releases/${rel.id}/assets?name=${encodeURIComponent(assetName)}`,
+        {
+          method: 'POST',
+          headers: { ...HEADERS, 'Content-Type': 'image/webp', 'Content-Length': String(buf.length) },
+          body: buf,
+        }
+      );
+      if (!res.ok) throw new Error('upload ' + res.status);
+      const j = await res.json();
+      manifest[item.key] = j.browser_download_url;
+      existing.set(assetName, j.browser_download_url);
+      fs.unlinkSync(tmp);
+    }
     ok++;
     if (ok % 20 === 0) console.log('进度', ok + '/' + queue.length);
   } catch (e) {
@@ -158,5 +203,11 @@ for (const item of queue) {
   }
 }
 await browser.close();
-fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1), 'utf8');
-console.log('完成 ok=' + ok, 'fail=' + fail, '| 清单条目', Object.keys(manifest).length);
+server.kill();
+if (NO_UPLOAD) {
+  fs.writeFileSync(LOCAL_MAP, JSON.stringify(localMap, null, 1), 'utf8');
+  console.log('本地渲染完成 ok=' + ok, 'fail=' + fail, '| 文件在', LOCAL_DIR);
+} else {
+  fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1), 'utf8');
+  console.log('完成 ok=' + ok, 'fail=' + fail, '| 清单条目', Object.keys(manifest).length);
+}
