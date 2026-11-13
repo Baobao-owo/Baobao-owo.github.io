@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=44644d4f">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=0460b58e">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -553,13 +553,12 @@
 							<option value="ORIGINAL">ORIGINAL</option>
 						
 					</select>
-					<input type="search" id="chuni-designer" class="chuni-search chuni-designer-input" list="chuni-designer-list" placeholder="按谱师筛选…（可输入，如 ミストルティン）" />
-					<datalist id="chuni-designer-list"></datalist>
 					<div class="chuni-sort" id="chuni-sort">
 						<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
 						<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
 						<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
 						<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
+						<button type="button" class="chuni-sort-btn chuni-designer-toggle" id="chuni-designer-toggle" aria-expanded="false">按谱师筛选</button>
 					</div>
 					<span class="chuni-count" id="chuni-count"></span>
 				</div>
@@ -567,6 +566,28 @@
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
 				</div>
+			</div>
+
+			<div class="chuni-designer-panel" id="chuni-designer-panel" hidden>
+				<div class="chuni-designer-head">
+					<span class="chuni-designer-heading">按谱师筛选<em id="chuni-designer-hint"></em></span>
+					<span class="chuni-designer-actions">
+						<button type="button" class="chuni-designer-clear" id="chuni-designer-clear">清除</button>
+						<button type="button" class="chuni-designer-close" id="chuni-designer-close">收起</button>
+					</span>
+				</div>
+				<div class="chuni-designer-diff" id="chuni-designer-diff">
+					<button type="button" class="chuni-diff-chip active" data-diff="all">全部难度</button>
+					<button type="button" class="chuni-diff-chip" data-diff="e">EXPERT</button>
+					<button type="button" class="chuni-diff-chip" data-diff="m">MASTER</button>
+					<button type="button" class="chuni-diff-chip" data-diff="u">ULTIMA</button>
+				</div>
+				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
+				<div class="chuni-designer-grid" id="chuni-designer-grid"></div>
+				<details class="chuni-designer-loose" id="chuni-designer-loose-wrap">
+					<summary id="chuni-designer-loose-summary">其他名义</summary>
+					<div class="chuni-designer-grid" id="chuni-designer-loose"></div>
+				</details>
 			</div>
 
 			<div class="chuni-levels" id="chuni-levels"></div>
@@ -589,7 +610,8 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: 'all', levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	var DESIGNERS = null;
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -653,6 +675,28 @@
 		return state.levels.some(function (lv) { return keys.indexOf(lv) !== -1; });
 	}
 
+	function normTitle(s) {
+		return String(s || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+	}
+
+	function designerEntry(r) {
+		if (!DESIGNERS || !DESIGNERS.songs) return null;
+		return DESIGNERS.songs[normTitle(r.t)] || null;
+	}
+
+	function designerMatch(r) {
+		var e = designerEntry(r);
+		if (!e) return false;
+		var diffs = state.designerDiff === 'all' ? ['e', 'm', 'u'] : [state.designerDiff];
+		for (var i = 0; i < diffs.length; i++) {
+			var hit = e[diffs[i]];
+			if (!hit) continue;
+			if (state.designer && hit.who === state.designer) return true;
+			if (state.designerRaw && hit.raw === state.designerRaw) return true;
+		}
+		return false;
+	}
+
 	function filtered() {
 		var qt = state.qt.trim().toLowerCase();
 		var qa = state.qa.trim().toLowerCase();
@@ -664,7 +708,7 @@
 			if (state.we && !isWE) return false;
 			if (!state.removed && !state.we && (isDel || isWE)) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
-			if (state.designer && !(r.sh || []).some(function (sh) { return String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1; })) return false;
+			if ((state.designer || state.designerRaw) && !designerMatch(r)) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
 			if (qa && String(r.a).toLowerCase().indexOf(qa) === -1) return false;
@@ -688,11 +732,11 @@
 		}
 		rows.sort(function (x, y) {
 			var d = 0;
-			if (state.sortVersion) {
+			if (state.sort === 'version') {
 				d = (vIndex[x.v] == null ? 99 : vIndex[x.v]) - (vIndex[y.v] == null ? 99 : vIndex[y.v]);
 				if (d) return d * state.dir;
 			}
-			if (state.sortConst) {
+			if (state.sort === 'const') {
 				var starX = starOf(x);
 				var starY = starOf(y);
 				// 两边都是 WE：按星星数
@@ -711,7 +755,7 @@
 				d = mx - my;
 				if (d) return d * state.dir;
 			}
-			if (state.sortTitle || (!state.sortVersion && !state.sortConst)) {
+			if (state.sort === 'title') {
 				return String(x.t).localeCompare(String(y.t), 'ja') * state.dir;
 			}
 			return 0;
@@ -749,13 +793,21 @@
 					'<div class="chuni-row-badges">' + stars + '</div>' +
 					'</a>';
 			}
-			var dsHit = [];
-			if (state.designer) {
-				(r.sh || []).forEach(function (sh) {
-					if (String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1 && dsHit.indexOf(sh.ds) === -1) dsHit.push(sh.ds);
-				});
+			var dsTag = '';
+			if (state.designer || state.designerRaw) {
+				var dEntry = designerEntry(r);
+				if (dEntry) {
+					var parts = [];
+					['e', 'm', 'u'].forEach(function (k) {
+						var hit = dEntry[k];
+						if (!hit) return;
+						if (state.designer && hit.who !== state.designer) return;
+						if (state.designerRaw && hit.raw !== state.designerRaw) return;
+						parts.push(k.toUpperCase() + ' ' + (hit.who || hit.raw));
+					});
+					if (parts.length) dsTag = '<span class="chuni-row-tag-ds">' + parts.join(' / ') + '</span>';
+				}
 			}
-			var dsTag = dsHit.length ? '<span class="chuni-row-tag-ds">' + dsHit.slice(0, 2).join(' / ') + '</span>' : '';
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			var badges = DIFF_ORDER.map(function (d) {
@@ -835,10 +887,13 @@
 				renderRows();
 				return;
 			}
-			if (key === 'title') state.sortTitle = !state.sortTitle;
-			else if (key === 'version') state.sortVersion = !state.sortVersion;
-			else if (key === 'const') state.sortConst = !state.sortConst;
-			b.classList.toggle('active', key === 'title' ? state.sortTitle : (key === 'version' ? state.sortVersion : state.sortConst));
+			// 三个排序互斥：点哪个就只留哪个
+			if (key !== 'title' && key !== 'version' && key !== 'const') return;
+			state.sort = key;
+			document.querySelectorAll('#chuni-sort .chuni-sort-btn').forEach(function (x) {
+				var k = x.getAttribute('data-sort');
+				if (k === 'title' || k === 'version' || k === 'const') x.classList.toggle('active', k === key);
+			});
 			state.page = 1;
 			renderRows();
 		});
@@ -858,24 +913,116 @@
 		});
 	}
 
-	function collectDesigners() {
-		var set = {};
-		all.forEach(function (r) {
-			(r.sh || []).forEach(function (sh) {
-				if (sh.ds && sh.ds !== '-') set[sh.ds] = true;
-			});
-		});
-		return Object.keys(set).sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+	function panelEl(id) { return document.getElementById(id); }
+
+	function designerLabel(name, count) {
+		return '<button type="button" class="chuni-dz-chip" data-who="' + String(name).replace(/"/g, '&quot;') + '">' +
+			String(name) + '<span class="chuni-dz-n">' + count + '</span></button>';
 	}
 
-	function fillDesignerSelect() {
-		var dl = document.getElementById('chuni-designer-list');
-		if (!dl) return;
-		var names = collectDesigners();
-		dl.innerHTML = names.map(function (n) {
-			return '<option value="' + n.replace(/"/g, '&quot;') + '"></option>';
-		}).join('');
+	function renderDesignerPanel() {
+		var grid = panelEl('chuni-designer-grid');
+		var looseEl = panelEl('chuni-designer-loose');
+		if (!grid || !DESIGNERS) return;
+		var q = (panelEl('chuni-designer-q').value || '').trim().toLowerCase();
+		var list = DESIGNERS.designers.filter(function (d) {
+			if (!q) return true;
+			if (d.name.toLowerCase().indexOf(q) !== -1) return true;
+			return false;
+		});
+		grid.innerHTML = list.map(function (d) { return designerLabel(d.name, d.songs); }).join('') ||
+			'<div class="chuni-dz-none">没有匹配的谱师</div>';
+
+		var loose = DESIGNERS.loose.filter(function (d) {
+			if (!q) return true;
+			return d.name.toLowerCase().indexOf(q) !== -1;
+		});
+		if (looseEl) {
+			looseEl.innerHTML = loose.slice(0, 120).map(function (d) { return designerLabel(d.name, d.songs); }).join('');
+		}
+		var summary = panelEl('chuni-designer-loose-summary');
+		if (summary) summary.textContent = '其他名义（' + DESIGNERS.loose.length + ' 个，合作 / 恶搞名义）';
+		markDesignerChips();
 	}
+
+	function markDesignerChips() {
+		document.querySelectorAll('.chuni-dz-chip').forEach(function (b) {
+			var who = b.getAttribute('data-who');
+			var on = state.designer ? who === state.designer : (state.designerRaw && who === state.designerRaw);
+			b.classList.toggle('active', !!on);
+		});
+	}
+
+	function updateDesignerHint() {
+		var hint = panelEl('chuni-designer-hint');
+		var toggle = panelEl('chuni-designer-toggle');
+		var label = state.designer || state.designerRaw || '';
+		if (hint) hint.textContent = label ? '：' + label : '';
+		if (toggle) toggle.classList.toggle('active', !!label);
+	}
+
+	function pickDesigner(name) {
+		var same = (state.designer === name) || (state.designerRaw === name);
+		if (same) {
+			state.designer = '';
+			state.designerRaw = '';
+		} else {
+			var isReal = DESIGNERS && DESIGNERS.designers.some(function (d) { return d.name === name; });
+			state.designer = isReal ? name : '';
+			state.designerRaw = isReal ? '' : name;
+		}
+		state.page = 1;
+		updateDesignerHint();
+		markDesignerChips();
+		renderRows();
+	}
+
+	function openDesignerPanel(open) {
+		var panel = panelEl('chuni-designer-panel');
+		var toggle = panelEl('chuni-designer-toggle');
+		if (!panel || !toggle) return;
+		panel.hidden = !open;
+		toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		toggle.classList.toggle('opened', open);
+		if (open) {
+			renderDesignerPanel();
+			var q = panelEl('chuni-designer-q');
+			if (q) q.focus({ preventScroll: true });
+		}
+	}
+
+	var dToggle = panelEl('chuni-designer-toggle');
+	if (dToggle) dToggle.addEventListener('click', function () {
+		var panel = panelEl('chuni-designer-panel');
+		openDesignerPanel(!!panel && panel.hidden);
+	});
+	var dClose = panelEl('chuni-designer-close');
+	if (dClose) dClose.addEventListener('click', function () { openDesignerPanel(false); });
+	var dClear = panelEl('chuni-designer-clear');
+	if (dClear) dClear.addEventListener('click', function () {
+		state.designer = '';
+		state.designerRaw = '';
+		state.page = 1;
+		updateDesignerHint();
+		markDesignerChips();
+		renderRows();
+	});
+
+	var dPanel = panelEl('chuni-designer-panel');
+	if (dPanel) dPanel.addEventListener('click', function (e) {
+		var chip = e.target.closest('.chuni-dz-chip');
+		if (chip) { pickDesigner(chip.getAttribute('data-who')); return; }
+		var diff = e.target.closest('.chuni-diff-chip');
+		if (diff) {
+			state.designerDiff = diff.getAttribute('data-diff');
+			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) { x.classList.toggle('active', x === diff); });
+			state.page = 1;
+			renderRows();
+		}
+	});
+
+	var dq = panelEl('chuni-designer-q');
+	if (dq) dq.addEventListener('input', renderDesignerPanel);
 
 	var st = document.getElementById('chuni-search-title');
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
@@ -886,13 +1033,6 @@
 	if (weBtn) weBtn.addEventListener('click', function () {
 		state.we = !state.we;
 		weBtn.classList.toggle('active', state.we);
-		state.page = 1;
-		renderRows();
-	});
-
-	var des = document.getElementById('chuni-designer');
-	if (des) des.addEventListener('input', function () {
-		state.designer = des.value.trim().toLowerCase();
 		state.page = 1;
 		renderRows();
 	});
@@ -913,12 +1053,22 @@
 		.then(function (rows) {
 			all = rows;
 			renderLevelChips();
-			fillDesignerSelect();
 			if (loadingEl) loadingEl.remove();
 			renderRows();
 		})
 		.catch(function () {
 			if (loadingEl) loadingEl.textContent = '曲目数据加载失败';
+		});
+
+	fetch('/assets/data/designers.json')
+		.then(function (r) { return r.json(); })
+		.then(function (data) {
+			DESIGNERS = data;
+			renderDesignerPanel();
+		})
+		.catch(function () {
+			var toggle = panelEl('chuni-designer-toggle');
+			if (toggle) toggle.title = '谱师数据没加载上';
 		});
 })();
 </script>
