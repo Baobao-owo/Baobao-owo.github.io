@@ -32771,7 +32771,7 @@
     "15.2"
    ]
   ],
-  "wiki_comment_zh": "2024年8月1日添加ULTIMA（2024年12月12日正常发布）\nBlack Cyc 游戏《MinDeaD BlooD ～The Ruler's Mad Death Song～》的片头曲。\n收录于专辑《BLACK BOX》中。\n可能：吸血鬼\n可能：吸血鬼\n《Vampire》（DECO*27的歌曲，英文名“The Vampire”）\n“吸血鬼”（DECO*27合作活动中可以获得的角色。主题是上面的歌曲）\n《Vampire》（电气志木华伦音乐组合歌曲）",
+  "wiki_comment_zh": "2024/8/1 追加 ULTIMA（2024/12/12 通常开放）\nBlack Cyc 游戏《MinDeaD BlooD ～支配者の為の狂死曲～》OP 主题曲。\n收录于专辑《BLACK BOX》。",
   "titles_zh": [
    [
     "称号",
@@ -32782,16 +32782,16 @@
     "游戏期间 MASTER/MISS 一次"
    ],
    [
-    "统治者的盛宴",
+    "支配者的宴会",
     "主人/正义已实现"
    ],
    [
-    "统治者的疯狂死亡之歌",
+    "为支配者而作的狂死曲",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) ``Sukiyaki Bugyo'' (寿喜烧 Bugyo) 在歌曲名称之后，将 'vampire'' 与 ND 名称组合在一起。"
+   "ND 名义（MASTER）「吸きや鬼奉行」（すきやき奉行）：配合曲名把「吸血鬼」与 ND 名组合。"
   ]
  },
  "ケロ⑨destiny": {
@@ -34711,9 +34711,9 @@
     "12.7"
    ]
   ],
-  "wiki_comment_zh": "2017/11/22 - 2018/1/10 活动「虚拟歌手合作活动」先行发行歌曲。\nhalyosy先生的第二首VOCALOID原创歌曲。\n发布于2008年8月2日。2011年5月达到百万。\n专辑《EXIT TUNES PRESENTS Vocalonation》中收录了艺术家乐队的《Utattemita》和编曲版本。\nCHUNITHM 中录制的音源是与原始版本不同的编排版本。\n使用VOCALOID：镜音连",
+  "wiki_comment_zh": "2017/11/22～2018/1/10 活动「バーチャル・シンガーコラボイベント」先行配信曲。\nhalyosy 第 2 支 VOCALOID 原创曲。\n2008 年 8 月 2 日投稿，2011 年 5 月达成百万播放。\n有歌手所属乐队的翻唱版、合辑《EXIT TUNES PRESENTS Vocalonation》收录的改编版等。\nCHUNITHM 收录音源是与原版不同的改编版。\n使用 VOCALOID：鏡音レン",
   "origins_zh": [
-   "ND 名称 (MAS) ``Monokuroku@Ren-kun Oshi'' (Monokuroku) 'Oshi'' 是指您在特定团体中最喜欢的成员的表达方式。那么，是哪一个呢？"
+   "ND 名义（MASTER）「ものくろっく@レンくん推し」（ものくろっく）：「推し」指某团体中最喜欢的成员；所以到底是哪个。"
   ]
  },
  "卑怯戦隊うろたんだー": {
@@ -38807,9 +38807,9 @@
     "14.7"
    ]
   ],
-  "wiki_comment_zh": "2018年3月8日添加，STAR ep.IV地图3原课题曲。\n入选第5届天下游戏节CHUNITHM分区决赛决胜附加赛课题曲。\n作曲家xi此前在BMS上发布过一首名为《.357 Magnum》的歌曲，这首歌有两个共同点：“分类是爵士乐融合”和“一把手枪*1”。\n这首歌的BPM是357，音符的设计师名字（稍后描述）似乎是基于同一首歌，而MASTER谱面的最后部分是同一首歌的差异谱面“EXTREME”的再现。",
+  "wiki_comment_zh": "2018/3/8 追加，STAR ep.IV 地图 3 元课题曲。\n入选「第五回天下一音ゲ祭」CHUNITHM 部门区块决胜大会同分加赛课题曲。\n作曲者 xi 过去在 BMS 发表过《.357 Magnum》，与本曲共有「曲风是爵士融合」「手枪」等共通点。\n本曲 BPM 为 357、谱师名义（后述）大概是意识该曲；MASTER 谱面终盘还再现了该曲的差分谱面「EXTREME」。",
   "origins_zh": [
-   "ND 名称 (MAS) ``.357 Sukiyaki'' (Sukiyaki Bugyo) 模仿上述手枪子弹和习先生的 BMS 歌曲``.357 Magnum''。"
+   "ND 名义（MASTER）「.357 Sukiyaki」（すきやき奉行）：来自上述手枪子弹及 xi 的 BMS 曲《.357 Magnum》的恶搞。"
   ]
  },
  "Gate of Doom": {
@@ -49166,9 +49166,9 @@
     "15.0"
    ]
   ],
-  "wiki_comment_zh": "2019/2/21 添加，AMAZON ep.III 地图5原课题曲。\n在发行之前，它首先作为“第5届天下游戏节全国峰会对决”（CHUNITHM部门）课题曲的决赛进行展示。\n它已被移植到音乐游戏“Cytus II”、“Arcaea”和“Muse Dash”中。\n歌曲中有几句引用自他过去的作品，例如“Dynamite”。\n对了，USAO有一首与lapix合作制作的同名歌曲，其中“CLIMAX”全部大写，所以要小心不要混淆。 *1",
+  "wiki_comment_zh": "2019/2/21 追加，AMAZON ep.III 地图 5 元课题曲。\n在配信前于「第五回天下一音ゲ祭 全国顶上决战」（CHUNITHM 部门）决胜战课题曲首次公开。\n已移植到音乐游戏《Cytus Ⅱ》《Arcaea》《Muse Dash》。\n曲中有几处引用同氏旧作《Dynamite》等的乐句。\n另，USAO 有与 lapix 合作的同名曲，那个是全大写「CLIMAX」，注意别混淆。",
   "origins_zh": [
-   "ND名称（MAS）“pizziCAT -FINAL ROUND-”（Pichineko）如上所述，这首歌首次作为第5届Tenka Ichion Game Festival的最终主题曲出现。"
+   "ND 名义（MASTER）「pizziCAT -FINAL ROUND-」（ぴちネコ）：如上所述，本曲作为第五回天下一音ゲ祭 决胜课题曲首次登场。"
   ]
  },
  "larva": {
@@ -63035,9 +63035,9 @@
     "12.6"
    ]
   ],
-  "wiki_comment_zh": "18+恋爱冒险游戏《巫女巫师护士》的片头曲。\n来源来自综合CD《EXIT TUNES PRESENTS STARDOM》，该CD是网络流行歌曲的合集。\n这首歌在其巅峰时期作为广播歌曲在 2channel 上非常受欢迎，并且在 2005 年左右，当它被用作 dwango 移动服务“Iromero Mix”的商业歌曲时，它成为了一个热门话题。\n这首歌还致敬了世嘉射击游戏《Fantasy Zone》的片尾曲《VICTORY WAY》。\n作词、作曲：柏木鲁扎琳",
+  "wiki_comment_zh": "18 禁恋爱冒险游戏《巫女みこナース》OP 曲。\n出处是汇集网络流行曲的合辑 CD《EXIT TUNES PRESENTS STARDOM》。\n在电波歌鼎盛期以 2ch 为中心极受欢迎，2005 年左右还用作 dwango 手机服务「イロメロミックス」的广告歌引发话题。\n曲中也包含对世嘉射击游戏《ファンタジーゾーン》片尾曲《VICTORY WAY》的致敬。\n作词・曲：柏木るざりん",
   "origins_zh": [
-   "ND 名称 (MAS) “Miko Miko Bugyo”（寿喜烧 Bugyo） 来源自游戏名称“Miko Miko Nurse”。"
+   "ND 名义（MASTER）「巫女みこ奉行」（すきやき奉行）：来自出处游戏名「巫女みこナース」。"
   ]
  },
  "nowhere": {
@@ -70819,19 +70819,19 @@
     "15.7"
    ]
   ],
-  "wiki_comment_zh": "对应角色 旧驱逐舰贝尔格尔米尔\nCRYSTAL ep.ZERO 源氏 地图课题曲 / 源氏 地图课题曲\n添加于 2020/12/10，CRYSTAL ep.ZERO原课题曲。\n这是SEGA员工与其他公司的人员合作创作的第一首《激中舞》新歌。\n歌曲标题长度为41个字符，是所有正常录制歌曲中最长的，与《Not On The Sidelines - 街头霸王6主题曲》齐名。",
+  "wiki_comment_zh": "对应角色：古き破壊者 ベルゲルミル\n2020/12/10 追加，CRYSTAL ep.ZERO 元课题曲。\nゲキチュウマイ 专门创作曲中首次由 SEGA 直属员工与他社相关者合作。\n曲名长度与《Not On The Sidelines - Street Fighter 6 Main Theme》并列通常收录曲最长 41 字。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "克服了“旧破坏者贝尔格尔米尔”考验的人",
+    "越过『古き破壊者 ベルゲルミル』试炼之人（※需 2024/11/14 以后达成；入手条件栏显示台词「我会等着。等着继承你意志的人出现的那一刻。」）",
     "MASTER /RANK SSS+ 达成 *2024/11/14之后需要达成 *在获得条件栏中写着，“我会等待。继承你意志的人出现的时候。”"
    ]
   ],
   "origins_zh": [
-   "ND 名称（MAS）“CatastroPhe VS Damnation”（Pichineko vs Moon Strix）“Damnation”在英语中的意思是“神圣的惩罚，毁灭”。这个名字仅在这首歌曲的MASTER配乐中使用，其真实身份在2024年6月21日的官方帖子（达到最快理论值时的祝贺帖子）中揭晓。"
+   "ND 名义（MASTER）「CatastroPhe VS Damnation」（ぴちネコ vs Moon Strix）：「Damnation」英语意为「天罚、破灭」；这个名义只用于本曲 MASTER 谱面，2024/6/21 官方帖（最速理论值达成时的祝贺帖）揭示了真身。"
   ]
  },
  "命に嫌われている": {
@@ -75231,7 +75231,7 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "2021/3/18~5/12活动「Groove Coaster Collaboration 活动」先行发行歌曲。\nuno是RoughSketch先生的别称。该名称在 IOSYS 和 IOSYS TRAX（他所属的标签之一）中使用。\n顺便说一句，穿夹克的女孩名叫“全金属Zundoko-chan”。（点击这里查看无标志的插图）",
+  "wiki_comment_zh": "2021/3/18～5/12 活动「Groove Coaster 联动活动」先行配信曲。\nuno 是 RoughSketch 的别名，在其所属厂牌 IOSYS 及 IOSYS TRAX 内使用。\n另，曲绘女孩名叫「フルメタルずんど子ちゃん」。",
   "titles_zh": [
    [
     "称号",
@@ -75243,8 +75243,8 @@
    ]
   ],
   "origins_zh": [
-   "模仿 ND 名称（MAS）的歌曲标题“DX Super Performance Full Metal Kotoriyu”（Kotoriyu-san）。",
-   "标题：“Zundoko Zundoko Zundoko Zundoko”歌词中的一行（？）。"
+   "ND 名义（MASTER）「DX超性能フルメタル小鳥遊」（小鳥遊さん）：曲名的恶搞。",
+   "称号「ズンドコ ズンドコ ズンドコ ズンドコ」：歌词（？）一节。"
   ]
  },
  "SKYSCRAPER": {
@@ -76908,9 +76908,9 @@
     "13.9"
    ]
   ],
-  "wiki_comment_zh": "对应角色 李美美\n天堂 ep.III 玄前 课题曲 / 原次课题曲\n于 2021 年 5 月 13 日添加，《天堂》第 III地图4原课题曲。\n艺术家的名字只是简单地改为中文，“Li龟琍桠=りCamellia=Camellia”和“娜娜苤来=Nanahira”，换句话说，“Camellia feat.”七平”。据作曲家说，“我根据心情改变了它。”\n山茶花的实际中文拼写是“Sasanqua*1”。",
+  "wiki_comment_zh": "对应角色：リー・メイメイ\n2021/5/13 追加，PARADISE ep.III 地图 4 元课题曲。\n艺人名义只是把表记改成中国风，「李亀琍椏＝り かめりあ＝かめりあ」「娜娜苤來＝ななひら」，也就是「かめりあ feat.ななひら」；作曲者说「凭兴致改的」。\n另，かめりあ 实际的中文表记是「山茶花」。",
   "origins_zh": [
-   "ND 名字（MAS）“Habakiri”（Amino Habakiri） ND 名字用中文写成，就像两个艺术家的名字一样。"
+   "ND 名义（MASTER）「葉芭穐莉（ハバキリ）」（アミノハバキリ）：把 ND 名义也像艺人名义两人那样改成中国风表记。"
   ]
  },
  "つっぱれ！にゃんきー魂": {
@@ -76997,20 +76997,20 @@
     "13.8"
    ]
   ],
-  "wiki_comment_zh": "对应角色 虎吉\n天堂 ep.III 玄前 课题曲 / 原次课题曲\n于 2021 年 5 月 13 日添加，《天堂》第 III地图5原课题曲。\n主唱 Ugoku-chan 于 2020 年 12 月突然去世，因此这首歌被认为是他最后的作品。 （来源：Neko Hacker 的推文）\n工程师：NNZN",
+  "wiki_comment_zh": "对应角色：トラ吉\n2021/5/13 追加，PARADISE ep.III 地图 5 元课题曲。\n演唱うごくちゃん 于 2020 年 12 月骤逝，所以本曲事实上是她的遗作（来源：Neko Hacker 推文）。\n工程师：NNZN",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "这是一只狐狸！",
+    "是狐狸啦！",
     "说！大张旗鼓！ / 津巴雷！ Nyanky 精灵/猫节/所有低于大师/等级 SSS 的成就"
    ]
   ],
   "origins_zh": [
-   "标题“Kitsune Jai！”是与白神吹雪有关的标题，与这首歌没有直接关系。详情请参阅“说吧！大张旗鼓！”。",
-   "ND 名称 (MAS)“Lemon nayo”(Jako Lemon) 来自 20 世纪 80 年代流行的“Nameneko”的流行语“Namenayo”，其中的猫穿着骑自行车的帮派服装。"
+   "称号「狐じゃい！」：与白上フブキ 相关的称号，与本曲无直接关系，详见《Say!ファンファーレ!》。",
+   "ND 名义（MASTER）「れもんなよ」（じゃこレモン）：来自 80 年代流行的、给猫穿暴走族服装拍照的「なめ猫」的宣传语「なめんなよ」。"
   ]
  },
  "アンドロイドガール": {
@@ -79299,25 +79299,25 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2021/7/8~8/4活动「Made in Abyss Collaboration 活动」先行发行歌曲。\n《深渊制造》动画第一季片头曲。\n作词：萤\n作曲：KanadeYUK、Masahiro “Godspeed” Aoki\n编曲：奏YUK",
+  "wiki_comment_zh": "2021/7/8～8/4 活动「メイドインアビス联动活动」先行配信曲。\n《メイドインアビス》动画第 1 期片头主题曲。\n作词：hotaru\n作曲：KanadeYUK、Masahiro\"Godspeed\" Aoki\n编曲：KanadeYUK",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "唔...",
+    "唔啊啊～…",
     "全部位于主控/播放下方"
    ],
    [
-    "哦，我的天啊",
+    "哦呀哦呀",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“洞穴探险家皮奇内科（黑哨）”（Pichineko）“洞穴探险家”是探索深渊的冒险家的总称。 “黑笛”是用来表示洞穴探险者等级的术语，是仅次于最高等级“白笛”的第二等级。",
-   "标题：“嗯……”娜娜奇的叫声。",
-   "标题：“哦，天哪。”《深渊制造》中的角色邦德鲁德最喜欢的一句话。"
+   "ND 名义（MASTER）「探窟家ぴちネコ(黒笛)」（ぴちネコ）：「探窟家」是探索深渊的冒险家总称；「黒笛」是表示探窟家等级的用语，仅次于最高位「白笛」。",
+   "称号「んなぁ～…」：ナナチ 的叫声。",
+   "称号「おやおや」：该作角色ボンドルド 的口癖。"
   ]
  },
  "ベースラインやってる？笑": {
@@ -85268,7 +85268,7 @@
     "12.8"
    ]
   ],
-  "wiki_comment_zh": "永远的夏天！设置第一首歌曲/第二首歌曲/第三首歌曲\n《音痛SUMMER》主旋律。\n同时，射击节版（第3章）中的原课题曲之一，第1章“Ikinari射击节决赛！”\n这是通常配信的​​歌曲，不是Ongeki 地图课题曲，但背景不是“PARADISE LOST通用”而是“Ongeki”特定背景。",
+  "wiki_comment_zh": "ずっと、夏！ Set 第 1 曲 / 第 2 曲 / 第 3 曲\n《音击 SUMMER》主主题曲。\n同时是射击祭篇（第 3 章）・第 1 话「いきなりシューターフェス決勝！」的元课题曲之一。\n虽是音击地图课题曲之外的通常配信曲，但背景不是「PARADISE LOST 通用」而是「音击」专用背景。",
   "titles_zh": [
    [
     "称号",
@@ -85280,8 +85280,8 @@
    ]
   ],
   "origins_zh": [
-   "标题：《永远的夏天！》 “Ongeki SUMMER”的口号。",
-   "ND 名称 (MAS)“Redarrow@Summer Forever!” （红色箭头）同上。"
+   "称号「ずっと、夏！」：《音击 SUMMER》宣传语。",
+   "ND 名义（MASTER）「Redarrow@ずっと、夏！」（Redarrow）：同上。"
   ]
  },
  "I believe what you said": {
@@ -87575,9 +87575,9 @@
    "ND名義(MAS)「The ruler \"Mistilteinn\"」(ミストルティン) 歌詞「I'm the ruler」より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 3 | 6 | 10 | 14.0\n【ND名義・称号の由来】\n- ND名義(MAS)「The ruler \"Mistilteinn\"」(ミストルティン) 歌詞「I'm the ruler」より。",
-  "wiki_comment_zh": "对应角色 大阪茜\n音击第1章【宗坂学园音击射手】*1 玄前课题曲 / 原次课题曲\n电击第1章【宗坂学园电击射手】地图12（进度3级205格/SUN/MAP1的2460格）原课题曲。\n大阪茜的个人歌曲。收录于「音痛PLUS」。\n《打工（第2章）》第5章“闹剧保姆行动”中的解锁原创歌曲之一。\n作词：萤\n安排：eba",
+  "wiki_comment_zh": "对应角色：逢坂茜\n音击 Chapter1【奏坂学園オンゲキシューターズ】地图 12（进度 3/SUN 时点 205 格/MAP1 起 2460 格）元课题曲。\n逢坂茜 的独唱曲，收录于《音击 PLUS》。\n也是打工篇（第 2 章）・第 5 话「ドタバタ子守り大作戦」的元解禁曲之一。\n作词：hotaru\n编曲：eba",
   "origins_zh": [
-   "ND 名称 (MAS) “统治者“Mistilteinn””(Mistilteinn) 歌词来自“我是统治者。”"
+   "ND 名义（MASTER）「The ruler \"Mistilteinn\"」（ミストルティン）：歌词「I'm the ruler」。"
   ]
  },
  "どうぶつ☆パラダイス": {
@@ -87634,7 +87634,7 @@
    "称号「どうぶつパーティー」 タイトルの「動物」繋がり、および本曲の歌詞「アニマルパーティー」より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 2 | 5 | 9+ | 11.5\n【取得できる称号】\n称号 | 条件\nどうぶつパーティー | アニマル / どうぶつ☆パラダイス / MASTER /RANK S達成\n【ND名義・称号の由来】\n- ND名義(MAS)「じゃーんレモン」(じゃこレモン) 「じゃーん」と本名義を掛け合わせたもの。「じゃーん」の由来は Opferのページ を参照。\n- 称号「どうぶつパーティー」 タイトルの「動物」繋がり、および本曲の歌詞「アニマルパーティー」より。",
-  "wiki_comment_zh": "对应角色 珠洲岛有栖\n音击第1章【宗坂学园音击射手】*1 玄前课题曲 / 原次课题曲\n音击第1章【宗坂学园音击射手】区域13原课题曲。\n铃岛有栖的个人歌曲。收录于「音痛PLUS」。\n《打工（第2章）》第5章“闹剧保姆行动”中的解锁原创歌曲之一。",
+  "wiki_comment_zh": "对应角色：珠洲島有栖\n音击 Chapter1【奏坂学園オンゲキシューターズ】区域 13 元课题曲。\n珠洲島有栖 的独唱曲，收录于《音击 PLUS》。\n也是打工篇（第 2 章）・第 5 话「ドタバタ子守り大作戦」的元解禁曲之一。",
   "titles_zh": [
    [
     "称号",
@@ -87646,8 +87646,8 @@
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) “Jaan Lemon”(Jako Lemon) “Jaan”和真实姓名的组合。请参阅 Opfer 的页面了解“Jaan”的起源。",
-   "标题“动物派对”来自标题中的“动物”联系和歌曲歌词“动物派对”。"
+   "ND 名义（MASTER）「じゃーんレモン」（じゃこレモン）：把「じゃーん」与本名义组合；「じゃーん」的由来参见 Opfer 页面。",
+   "称号「どうぶつパーティー」：与标题「动物」相关，以及本曲歌词「アニマルパーティー」。"
   ]
  },
  "Radiance": {
@@ -101481,19 +101481,19 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "对应角色 那辆巴士酱\n苏宇的第五首歌。\n第一张专辑《Yappari Ame wa Yuru de Nene》中的一首歌曲。\n由于未知原因，CHUNITHM/maimai 的夹克与之前收录的 Ongeki 的夹克略有不同。\nOngeki 的夹克\nOngeki 的夹克\n演唱：雷伊\n钢琴：米罗",
+  "wiki_comment_zh": "对应角色：あのバスちゃん\nツユ 第 5 作。\n第 1 张专辑《やっぱり雨は降るんだね》收录曲。\n另，原因不明但 CHUNITHM・maimai 的曲绘与先收录的音击版略有不同。\nVocal：礼衣\n钢琴：miro",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "没有一个。",
+    "没有啊。",
     "触发危险技能"
    ]
   ],
   "origins_zh": [
-   "标题：“没有。”来自歌词。"
+   "称号「無いじゃん。」：出自歌词。"
   ]
  },
  "泥の分際で私だけの大切を奪おうだなんて": {
@@ -103620,9 +103620,9 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "对应角色 皇城刹那\n音击第1章【宗坂学园音击射手】*1 玄前课题曲 / 原次课题曲\n电击第1章【宗坂学园电击射手】地图17（进度5级205格/SUN/MAP1的3485格）原课题曲。\n小城刹那的独唱歌曲。收录在「Ongeki R.E.D. PLUS」中。\n和学校校长换届选举（第4章）第6章“加星标”的原课题曲。",
+  "wiki_comment_zh": "对应角色：皇城セツナ\n音击 Chapter1【奏坂学園オンゲキシューターズ】地图 17（进度 5/SUN 时点 205 格/MAP1 起 3485 格）元课题曲。\n皇城セツナ 的独唱曲，收录于《音击 R.E.D. PLUS》。\n也是学园长总选举篇（第 4 章）・第 6 话「STARRED」的元课题曲。",
   "origins_zh": [
-   "ND 名称（MAS）“GODLEMONESS”（Jako Lemon） 模仿歌曲标题。"
+   "ND 名义（MASTER）「GODLEMONESS」（じゃこレモン）：曲名的恶搞。"
   ]
  },
  "(WE) ダブルラリアット": {
@@ -111765,7 +111765,7 @@
     "11.9"
    ]
   ],
-  "wiki_comment_zh": "名取纱奈的第四首原创歌曲。\n于2021年3月29日在“Sana no Bakutan.-小心的生日派对-”首次公开。\n由于这是作为合作的一部分发行的歌曲，因此准备了特殊的播放背景，但在 2025 年 7 月 16 日之后，它被替换为 SUN 通用背景。\n作词：多田野努",
+  "wiki_comment_zh": "名取さな 第 4 首原创曲。\n2021 年 3 月 29 日在「さなのばくたん。-ていねいなお誕生日会-」首次公开。\n作为联动配信曲准备过专用背景，2025/7/16 起换成 SUN 通用背景。\n作词：只野菜摘",
   "titles_zh": [
    [
     "称号",
@@ -111776,14 +111776,14 @@
     "1 个学分内全部玩完"
    ],
    [
-    "细心的音乐游戏生活",
+    "有礼貌的音游生活",
     "达到大师/等级 SSS"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“Redarrow Sensei” “Sensei”是Sana频道听众的名字。请注意，这不是“老师”。",
-   "标题：《护士早上好！》名取纱奈在直播开始时的问候。",
-   "标题：“礼貌的音乐游戏生活” 对“礼貌的网络生活”的模仿，这句话被用作 Sana Natori 的活动座右铭。"
+   "ND 名义（MASTER）「レドアロせんせえ」（Redarrow）：「せんせえ」是さなちゃんねる 观众的称呼，注意不是「せんせい」。",
+   "称号「おはようございナース！」：名取さな 开播时的问候。",
+   "称号「丁寧な音ゲー生活」：对她活动标语「丁寧なインターネット生活」的恶搞。"
   ]
  },
  "だじゃれくりえぃしょん": {
@@ -116048,7 +116048,7 @@
    "称号「Can you hear me?」 CHAOS を参照。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN+～ | 3 | 8 | 11.5 | 14.4\n【取得できる称号】\n称号 | 条件\nCan you hear me? *1 | CHAOS / Hydra / Survive / Jakarta PROGRESSION / EXPERT /RANK SS達成\n【ND名義・称号の由来】\n- ND名義(MAS)「Moon Strix＃ΦωΦ」(Moon Strix) 『Cytus Ⅱ』側での担当キャラ「NEKO#ΦωΦ」より。\n- 称号「Can you hear me?」 CHAOS を参照。",
-  "wiki_comment_zh": "2019年6月在真正的活动“Rayark Wonderland@Tokyo”举行的官方锦标赛“Cytus II JP Battle CHAOS 2019”中的课题曲之一。\n后来它作为歌曲添加到了 2.7 版付费包“Battle CHAOS 2019”中。\n《Cytus II》的负责角色是“NEKO#ΦωΦ”。",
+  "wiki_comment_zh": "2019 年 6 月线下活动『Rayark Wonderland@Tokyo』中官方大赛『CytusⅡ JP Battle CHAOS 2019』的课题曲之一。\n后来在 ver.2.7 作为付费包『Battle CHAOS 2019』乐曲追加。\nCytus Ⅱ 侧担当角色是「NEKO#ΦωΦ」。",
   "titles_zh": [
    [
     "称号",
@@ -116060,8 +116060,8 @@
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“Moon Strix #ΦωΦ”（Moon Strix）来自负责“Cytus II”的角色“NEKO #ΦωΦ”。",
-   "标题“你能听到我说话吗？”见混乱。"
+   "ND 名义（MASTER）「Moon Strix＃ΦωΦ」（Moon Strix）：来自 Cytus Ⅱ 侧担当角色「NEKO#ΦωΦ」。",
+   "称号「Can you hear me?」：参见《CHAOS》。"
   ]
  },
  "Survive": {
@@ -117853,7 +117853,7 @@
    "称号「－－－・－ ・・ ・－・－・ －・ ・・ ・－－－ －・ ・ ・・ －・－－・ ・・－－ －・ ・・」 本楽曲のサビ前で流れるモールス信号。解読すると「ずんだをたべるのだ」になる。BASICの難易度指定があるのはずんだもんと同じ緑色繋がりからか。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN+～ | 2 | 5 | 7+ | 12.7\n【取得できる称号】\n称号 | 条件\n－－－・－ ・・ ・－・－・ －・ ・・ ・－－－ －・ ・ ・・ －・－－・ ・・－－ －・ ・・ | BASIC / 2人 で店内マッチング/FULL CHAIN達成\n【ND名義・称号の由来】\n- ND名義(MAS)「ずんだライト」(ミニミライト) 使用VOICEの「ずんだもん」より。\n- 称号「－－－・－ ・・ ・－・－・ －・ ・・ ・－－－ －・ ・ ・・ －・－－・ ・・－－ －・ ・・」 本楽曲のサビ前で流れるモールス信号。解読すると「ずんだをたべるのだ」になる。BASICの難易度指定があるのはずんだもんと同じ緑色繋がりからか。",
-  "wiki_comment_zh": "发布于 2022 年 5 月 20 日。\n这是分类所谓的“邻里”尊重歌曲之一，由曾活跃于Niconico Douga的发帖者Koronba创作。夹克和音乐视频也显示出与他过去的作品相同的方向。\n根据作曲家的说法，它还包括对其他各种歌曲的致敬，包括 Kuhnel Engayser。\nVOICEVOX 使用：Zundamon",
+  "wiki_comment_zh": "2022 年 5 月 20 日投稿。\n是曾活跃于 niconico 的投稿者ころんば 确立的流派、所谓「界隈」致敬曲之一；曲绘与 MV 也能看到与他旧作共通的演出。\n据作曲者说，此外还包含《クーネル・エンゲイザー》等各种乐曲的致敬。\n使用 VOICEVOX：ずんだもん",
   "titles_zh": [
    [
     "称号",
@@ -117865,8 +117865,8 @@
    ]
   ],
   "origins_zh": [
-   "来自“Zundamon”，ND 名称（MAS）“Zunda Light”（minimilight）和 VOICE。",
-   "标题：``－－－・－ ・・ ・－・－・ －・ ・・ ・－－－ －・ ・ ・・ －・－－・ ・・－－ －・ ・・ 在这首歌的副歌部分之前播放的摩尔斯电码。破译后就变成了“Zunda wo Taeru da”。之所以有BASIC的难度设定，大概是因为和游戏中的绿色有着同样的联系。"
+   "ND 名义（MASTER）「ずんだライト」（ミニミライト）：来自所用 VOICE「ずんだもん」。",
+   "称号「－－－・－ ・・ ・－・－・ －・ ・・ ・－－－ －・ ・ ・・ －・－－・ ・・－－ －・ ・・」：本曲副歌前播放的摩尔斯电码，解出来是「ずんだをたべるのだ」；指定 BASIC 难度，大概因为与ずんだもん 同是绿色。"
   ]
  },
  "ちょっとあざとい": {
@@ -122613,14 +122613,14 @@
    "称号「ラムネ瓶に ずんだ かき氷」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS～ | 3 | 5 | 9 | 12.7\n【取得できる称号】\n称号 | 条件\n言葉をつつしめよ！ | MASTER以下全て/プレイ\nラムネ瓶に ずんだ かき氷 *1 | 3人 で店内マッチング/FULL CHAIN達成\n【ND名義・称号の由来】\n- 称号「言葉をつつしめよ！」 歌詞より。本楽曲は 様々な 楽曲 やネットミームの要素を取り入れており、そこから推測すると元ネタは2022年にとあるMAD動画で話題になったゲーム『ファイナルファンタジーX』の登場人物『ワッカ』の台詞が元ネタであると思われる。\n- 称号「ラムネ瓶に ずんだ かき氷」 歌詞より。",
-  "wiki_comment_zh": "Nico Nico Douga主办的活动“The VOCALOID Collection 2023 Summer”新人排行榜第一名。\n它被列为与 Tunism 合作项目“Bokanism”第一名的补充奖。\n作词、作曲：Umicha\n联合制片人：晚期塔拉\n使用的语音库：Aoi Kotoha、Akane Kotoha (VOICEROID)、Zundamon (VOICEVOX)",
+  "wiki_comment_zh": "niconico 主办的『The VOCALOID Collection 2023 Summer』新人排行第 1。\n作为与 CHUNITHM 的联动企划『ボカニズム』第 1 名的副赏收录。\n作词・作曲：海茶\n共同制作：多良レイト\n使用音声库：琴葉葵,琴葉茜(VOICEROID)、ずんだもん(VOICEVOX)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "坚持你的话！",
+    "说话注意点！",
     "全部位于主控/播放下方"
    ],
    [
@@ -122629,8 +122629,8 @@
    ]
   ],
   "origins_zh": [
-   "来自标题的歌词“坚持你的话！”这首歌融合了各种歌曲和网络梗的元素，由此我们可以推断，原来的故事是2022年某MAD视频中热门话题的游戏《最终幻想X》中角色“Wacka”的台词。",
-   "标题：《弹珠汽水瓶里的刨冰》来自歌词。"
+   "称号「言葉をつつしめよ！」：出自歌词；本曲吸收了各种乐曲与网络梗的要素，推测梗源是 2022 年某 MAD 视频让《ファイナルファンタジーX》角色「ワッカ」的台词火起来的那句。",
+   "称号「ラムネ瓶に ずんだ かき氷」：出自歌词。"
   ]
  },
  "Blow My Mind": {
@@ -124355,9 +124355,9 @@
    "ND名義(MAS)「はたらくペンギン」(ロシェ@ペンギン) 曲名より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS～ | 2 | 5 | 9+ | 13.1\n【ND名義・称号の由来】\n- ND名義(MAS)「はたらくペンギン」(ロシェ@ペンギン) 曲名より。",
-  "wiki_comment_zh": "对应角色 药翁\nLUMINOUS ep.II 上一页 课题曲 / 下一页 课题曲\n添加了2024年2月22日，LUMINOUS ep.II 区域3（进度级别1/LUMINOUS 135个方块）课题曲。通过通关获得角色“Yakuon”。\nWorkaholic在日语中是“工作狂”的意思。指将工作置于个人生活之上的国家或个人，除非不断工作，否则就会感到满足。\n作曲：米迪\n作词：前田半",
+  "wiki_comment_zh": "对应角色：ヤクオン\n2024/2/22 追加，LUMINOUS ep.II 区域 3（进度 1/LUMINOUS 时点 135 格）课题曲，通关可获得「ヤクオン」。\nワーカーホリック（Workaholic）日语意为「工作中毒」，指把工作优先于生活、不工作就不安的状态或人。\n作曲：ミディ\n作词：前田蝉",
   "origins_zh": [
-   "ND 名称 (MAS) “工作中的企鹅” (Roche@Penguin) 来自歌曲标题。"
+   "ND 名义（MASTER）「はたらくペンギン」（ロシェ@ペンギン）：由曲名而来。"
   ]
  },
  "Overturn": {
@@ -126482,20 +126482,20 @@
    "称号「賃金は、通貨で、直接労働者に、その全額を支払わなければならない。」 労働基準法第 24 条の条文より。Muse Dash側の譜面制作者名「HXJはまだ給料もらってないよ～」に対する返答であると考えられる。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS～ | 5 | 8+ | 12.1 | 14.5\n【取得できる称号】\n称号 | 条件\n賃金は、通貨で、直接労働者に、その全額を支払わなければならない。 | 24回プレイ *2\n【ND名義・称号の由来】\n- ND名義(MAS)「夜逃げペンギン」(ロシェ@ペンギン) 歌詞・テーマより。\n- 称号「賃金は、通貨で、直接労働者に、その全額を支払わなければならない。」 労働基準法第 24 条の条文より。Muse Dash側の譜面制作者名「HXJはまだ給料もらってないよ～」に対する返答であると考えられる。",
-  "wiki_comment_zh": "*我还没做过\n音乐包“MUSIC Kairakuten SP”中收录的歌曲。\n一首为配合 2021 年愚人节项目主题而创作的歌曲：“PeroPeroGames（Muse Dash 的开发商）破产了。”\n顺便说一句，歌曲标题的字符数为 39 个字符，在 CHUNITHM *1 上通常记录的包含日语字符的标题中，这也是最长的。",
+  "wiki_comment_zh": "※并没有。\n收录于乐曲包「MUSIC快楽天 SP」。\n配合 2021 年愚人节企划「PeroPeroGames（Muse Dash 开发方）倒闭了」这个梗专门创作。\n另，曲名字数是 39 字，是 CHUNITHM 通常收录的含日文标题中历来最长（之一）。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "工资必须直接以货币全额支付给工人。",
+    "工资必须以货币形式、直接向劳动者全额支付。",
     "玩过24次*2"
    ]
   ],
   "origins_zh": [
-   "出自ND名字（MAS）《Night Run Penguin》（Roche@Penguin）的歌词和主题。",
-   "标题：“工资必须以货币形式直接全额支付给工人。”摘自《劳动基准法》第 24 条。这被认为是对Muse Dash询问音乐制作人姓名的回应，“HXJ还没有收到他的工资。”"
+   "ND 名义（MASTER）「夜逃げペンギン」（ロシェ@ペンギン）：由歌词・主题而来。",
+   "称号「賃金は、通貨で、直接労働者に、その全額を支払わなければならない。」：来自劳动基准法第 24 条条文；大概是对 Muse Dash 侧谱师名「HXJはまだ給料もらってないよ～」的回应。"
   ]
  },
  "Rush B": {
@@ -134701,29 +134701,29 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "格斗游戏《街头霸王6》的主题曲。\n歌曲标题长度为 41 个字符，与《The Metaverse -First Story of the SeelischTact-》一样，是所有正常录制歌曲中最长的。 *1\n这件夹克来自官方原声带*2。",
+  "wiki_comment_zh": "格斗游戏《ストリートファイター 6》主题歌。\n曲名长度与《The Metaverse -First story of the SeelischTact-》并列通常收录曲最长 41 字。\n曲绘是官方原声带的。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "那是因为你把目光移开！ ！",
+    "谁让你东张西望！！",
     "游戏过程中错过一次"
    ],
    [
-    "新的挑战者来了！",
+    "Here comes a new challenger!",
     "店内两人配对/游戏"
    ],
    [
-    "我会遇到一个比我更强的人。",
+    "去找比我更强的人",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "标题：“那是因为你把目光移开！！”《街头霸王》角色艾德在制作 SA3“精神病室”期间的一句台词。",
-   "标题：“新的挑战者来了！”在街头霸王系列中，系统中会显示一条消息，其中另一个玩家可以通过在与 CPU 的战斗中插入额外的积分来加入与 CPU 的战斗，通常称为“入侵”。",
-   "标题：“我要遇到比我更强的人了”老游戏《街头霸王2》中的一句口号。它也被称为 Ryu 的直接复制品，Ryu 是整个系列的主角之一。"
+   "称号「よそ見してるからだ！！」：ストリートファイター 角色エド 的 SA3「サイコチェンバー」演出台词。",
+   "称号「Here comes a new challenger!」：街上系列中与 CPU 对战时追加投币、别的玩家能作为对战中途加入的「乱入」系统所显示的消息。",
+   "称号「俺より強いやつに会いに行く」：旧作《ストリートファイターII》宣传语，也作为概括系列主角リュウ 的文案闻名。"
   ]
  },
  "ジョハリ": {
@@ -140873,10 +140873,10 @@
     "15"
    ]
   ],
-  "wiki_comment_zh": "对应角色 埃弗雷特·温斯莱德\nVERSE ep.ORIGIN 上一个 课题曲 / 下一个 课题曲\nHORIZON Set 第1首 / 第2首 / 第3首 [Ku☆5]\n添加了 2025/7/16，VERSE ep.ORIGIN 区域6（截至进度 1/X-VERSE 为 405 个方块）课题曲。清除它并获得“Everett Winthread”。",
+  "wiki_comment_zh": "对应角色：エヴェレット・ウィンスレッド\nHORIZON Set 第 1 曲 / 第 2 曲 / 第 3 曲[狂☆5]\n2025/7/16 追加，VERSE ep.ORIGIN 区域 6（进度 1/X-VERSE 时点 405 格）课题曲，通关可获得「エヴェレット・ウィンスレッド」。",
   "origins_zh": [
-   "ND名称（MAS）“地平线之外的阿塔拉西亚”（Ataraxia）",
-   "ND名称（WE粉丝）“Parallel Dimensions”来自这首歌的英文标题（发音）“Parallel Horizons”。"
+   "ND 名义（MASTER）「Ataraxia beyond the horizon」（Ataraxia）",
+   "ND 名义（WE 狂）「Parallel Dimensions」：由本曲英题（读法）「Parallel Horizons」而来。"
   ]
  },
  "luminoid love PART2": {
@@ -146507,21 +146507,21 @@
    "称号『「祟るんだ！るんだった」』 YouTubeのMVの概要欄および歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 4 | 7 | 11.8 | 14.3\n【取得できる称号】\n称号 | 条件\n「祟るんだ！るんだった」 | プレイ中に１回ミス\n【ND名義・称号の由来】\n- ND名義(MAS)「じゃこレモン(_ _).。o○」(じゃこレモン) 歌詞「ソンナ器カナカナ(_ _).。o○」より。\n- ND名義(WE狂)『「祟るんだった！るんだった」』\n- 称号『「祟るんだ！るんだった」』 YouTubeのMVの概要欄および歌詞より。",
-  "wiki_comment_zh": "发布于 2024 年 2 月 22 日。\n《VokaColle 2024 Winter》新秀排名歌曲第四名。\n作者本人对歌词的解释可以在 GoogleDrive 上找到。\n使用的VOCALOID/音频库：初音未来、Teto SV、Zundamon (NEUTRINO×VOICEVOX)",
+  "wiki_comment_zh": "2024 年 2 月 22 日投稿。\n『ボカコレ2024冬』新人第 4 名。\n作者本人的歌词解说公开在 GoogleDrive。\n使用 VOCALOID・音声库：初音未来・重音テトSV･ずんだもん(NEUTRINO×VOICEVOX)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "“这是一个诅咒！这是一个诅咒。”",
+    "『要作祟了！才作了祟』",
     "玩的时候犯了一个错误"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“Jako Lemon（_ _）..o○”（Jako Lemon）来自歌词“Sonnaki Kanakana（_ _）..o○”。",
-   "以ND（WE疯狂）的名义“”这是一个诅咒！这是一次跑步””",
-   "标题：《库伦达！ Rundatta”来自 YouTube MV 的摘要部分和歌词。"
+   "ND 名义（MASTER）「じゃこレモン(_ _).。o○」（じゃこレモン）：歌词「ソンナ器カナカナ(_ _).。o○」。",
+   "ND 名义（WE 狂）『「祟るんだった！るんだった」』",
+   "称号『「祟るんだ！るんだった」』：来自 YouTube MV 简介栏及歌词。"
   ]
  },
  "A-Yah-YAh-YaH-YAH!": {
@@ -148985,9 +148985,9 @@
    "ND名義(MAS)「NOteS Crashed. May we meet again in CHUNITHM. -M*st*lte*nn-」(ミストルティン) 本家での初プレイ時における最後の演出である「 PhigrOS Crashed May we meet again in the tower. (原文から抜粋)」のパロディ。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 5 | 11.6 | 14.1 | 15.4\n【ND名義・称号の由来】\n- ND名義(MAS)「NOteS Crashed. May we meet again in CHUNITHM. -M*st*lte*nn-」(ミストルティン) 本家での初プレイ時における最後の演出である「 PhigrOS Crashed May we meet again in the tower. (原文から抜粋)」のパロディ。",
-  "wiki_comment_zh": "链接音乐 Attack/Mai/Finger/Ring/DE/GC/Phi/Arc/DJ/PP/MD\n2026/4/23～7/1 Linked MUSIC 传导音乐\n2026/5/15~7/1 全国解锁积分解锁歌曲\n一首从 iOS/Android 音乐游戏“Phgros”移植的歌曲。\n作为双boss之一收录在主线第8章“作月的潮”中。",
+  "wiki_comment_zh": "Linked MUSIC 撃 / 舞 / 指 / 輪 / DE / GC / Phi / Arc / DJ / PP / MD\n2026/4/23～7/1 Linked MUSIC 传导乐曲\n2026/5/15～7/1 全国解禁点解禁曲\n移植自 iOS/Android 音乐游戏《Phigros》。\n作为主线 Chapter8「朔月の汐」双 Boss 之一收录。",
   "origins_zh": [
-   "以 ND (MAS) ``NOteS 崩溃的名义。愿我们在CHUNITHM再次相见。 -M*st*lte*nn-'' (Mistoltin) 戏仿“PhigrOS Crashed May we meet again in the tower.”（摘自原文），这是在原家第一场演出的最后一场表演。"
+   "ND 名义（MASTER）「NOteS Crashed. May we meet again in CHUNITHM. -M*st*lte*nn-」（ミストルティン）：对在本家首次游玩时最后的演出「PhigrOS Crashed May we meet again in the tower.（原文摘录）」的恶搞。"
   ]
  },
  "Ré：Ré": {
