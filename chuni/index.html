@@ -669,9 +669,29 @@
 		return (r.sh || []).map(function (sh) { return levelKey(sh.lv); });
 	}
 
+	function designerDiffKeys(r) {
+		// 该谱师在这首歌里负责的难度（expert / master / ultima）
+		var e = designerEntry(r);
+		if (!e) return [];
+		var map = { expert: 'e', master: 'm', ultima: 'u' };
+		var out = [];
+		['expert', 'master', 'ultima'].forEach(function (d) {
+			var hit = e[map[d]];
+			if (!hit) return;
+			if (state.designer && hit.who !== state.designer) return;
+			if (state.designerRaw && hit.raw !== state.designerRaw) return;
+			out.push(d);
+		});
+		return out;
+	}
+
 	function levelMatch(r) {
 		if (!state.levels.length) return true;
-		var keys = songLevelKeys(r);
+		var only = (state.designer || state.designerRaw) ? designerDiffKeys(r) : null;
+		var keys = (r.sh || []).filter(function (sh) {
+			if (!only) return true;
+			return only.indexOf(sh.d) !== -1;
+		}).map(function (sh) { return levelKey(sh.lv); });
 		return state.levels.some(function (lv) { return keys.indexOf(lv) !== -1; });
 	}
 
