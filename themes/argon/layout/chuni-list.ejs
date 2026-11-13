@@ -16,27 +16,31 @@
 			</div>
 
 			<div class="chuni-toolbar">
-				<div class="chuni-seg" id="chuni-version">
-					<button type="button" class="chuni-seg-btn active" data-version="all">日服 MATE</button>
-					<button type="button" class="chuni-seg-btn" data-version="cn">国服 2027</button>
+				<div class="chuni-toolbar-main">
+					<div class="chuni-seg" id="chuni-version">
+						<button type="button" class="chuni-seg-btn active" data-version="all">日服 MATE</button>
+						<button type="button" class="chuni-seg-btn" data-version="cn">国服 2027</button>
+					</div>
+					<select id="chuni-cat" class="chuni-select">
+						<option value="all">全部分类</option>
+						<% cats.forEach(function (c) { %>
+							<option value="<%= c.key %>"><%= c.label %></option>
+						<% }); %>
+					</select>
+					<input type="search" id="chuni-designer" class="chuni-search chuni-designer-input" list="chuni-designer-list" placeholder="按谱师筛选…（可输入，如 ミストルティン）" />
+					<datalist id="chuni-designer-list"></datalist>
+					<div class="chuni-sort" id="chuni-sort">
+						<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
+						<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
+						<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
+						<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
+					</div>
+					<span class="chuni-count" id="chuni-count"></span>
 				</div>
-				<select id="chuni-cat" class="chuni-select">
-					<option value="all">全部分类</option>
-					<% cats.forEach(function (c) { %>
-						<option value="<%= c.key %>"><%= c.label %></option>
-					<% }); %>
-				</select>
-				<input type="search" id="chuni-designer" class="chuni-search chuni-designer-input" list="chuni-designer-list" placeholder="按谱师筛选…（可输入，如 ミストルティン）" />
-				<datalist id="chuni-designer-list"></datalist>
-				<div class="chuni-sort" id="chuni-sort">
-					<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
-					<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
-					<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
-					<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
+				<div class="chuni-toolbar-filters">
+					<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
+					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
 				</div>
-				<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
-				<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
-				<span class="chuni-count" id="chuni-count"></span>
 			</div>
 
 			<div class="chuni-levels" id="chuni-levels"></div>

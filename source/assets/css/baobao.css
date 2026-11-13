@@ -2012,3 +2012,19 @@ html.darkmode .chuni-row-tag-ds { background: rgba(120, 170, 200, 0.18); color: 
 .chuni-detail-table th:nth-child(3), .chuni-detail-table td:nth-child(3),
 .chuni-detail-table th:nth-child(4), .chuni-detail-table td:nth-child(4) { width: 11%; }
 .chuni-detail-table th:nth-child(5), .chuni-detail-table td:nth-child(5) { width: 41%; }
+
+/* 工具栏两行布局 */
+.chuni-toolbar { display: block; }
+.chuni-toolbar-main { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.chuni-toolbar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #e6ecf2;
+}
+html.darkmode .chuni-toolbar-filters { border-top-color: #3a404b; }
+
+/* 等级 chip 等宽（含 + 号的一起） */
+.chuni-lv-chip { min-width: 44px; padding: 4px 0; text-align: center; }
