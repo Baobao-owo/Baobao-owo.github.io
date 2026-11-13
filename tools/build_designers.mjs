@@ -33,6 +33,17 @@ for (const d of designers) {
 
 const DIFF_KEY = { EXPERT: 'e', MASTER: 'm', ULTIMA: 'u' };
 
+// wiki「譜面製作者不明」清单（tools/designer-unknown.json）：这些谱的署名是
+// 玩笑名/化名，wiki 归为「制作者不明」。统一收进一个谱师条目，不再散成上百条杂名。
+const UNKNOWN_WHO = '制作者不明';
+const unknownPos = new Map();
+const unknownFile = path.join(process.cwd(), 'tools', 'designer-unknown.json');
+if (fs.existsSync(unknownFile)) {
+  for (const item of JSON.parse(fs.readFileSync(unknownFile, 'utf8'))) {
+    unknownPos.set(norm(item.title), new Set(item.diffs || []));
+  }
+}
+
 const byTitle = {};
 const whoSongs = new Map(); // who -> Set(norm title)
 const rawCount = new Map(); // 解析不了的 raw -> Set(norm title)
@@ -47,7 +58,11 @@ for (const s of songs) {
     if (!k) continue;
     const raw = String(c.charter || '').trim();
     if (!raw) continue;
-    const who = alias2who.get(norm(raw)) || '';
+    let who = alias2who.get(norm(raw)) || '';
+    if (!who) {
+      const pos = unknownPos.get(t);
+      if (pos && pos.has(k)) who = UNKNOWN_WHO;
+    }
     entry[k] = who ? { who, raw } : { who: '', raw };
     if (who) {
       if (!whoSongs.has(who)) whoSongs.set(who, new Set());
@@ -70,6 +85,18 @@ const designerList = designers
     aliases: (d.aliases || []).length,
   }))
   .sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
+
+// 「制作者不明」是伪谱师：上游 designers 里没有，按收到的谱现算
+if (whoCharts.has(UNKNOWN_WHO)) {
+  designerList.push({
+    name: UNKNOWN_WHO,
+    id: 'nd-unknown',
+    charts: whoCharts.get(UNKNOWN_WHO) || 0,
+    songs: (whoSongs.get(UNKNOWN_WHO) || new Set()).size,
+    aliases: 0,
+  });
+  designerList.sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
+}
 
 const loose = [...rawCount.entries()]
   .map(([name, set]) => ({ name, songs: set.size }))

@@ -509,6 +509,13 @@
 		});
 	}
 
+	// 谱师数从数据来，别写死（加了「制作者不明」这种伪谱师后会变）
+	function syncDesignerCount() {
+		var q = panelEl('chuni-designer-q');
+		if (!q || !DESIGNERS || !DESIGNERS.designers) return;
+		q.placeholder = '搜索谱师名（' + DESIGNERS.designers.length + ' 位）…';
+	}
+
 	function updateDesignerHint() {
 		var hint = panelEl('chuni-designer-hint');
 		var toggle = panelEl('chuni-designer-toggle');
@@ -628,7 +635,8 @@
 		.then(function (r) { return r.json(); })
 		.then(function (data) {
 			DESIGNERS = data;
-			renderDesignerPanel();
+				renderDesignerPanel();
+			syncDesignerCount();
 		})
 		.catch(function () {
 			var toggle = panelEl('chuni-designer-toggle');
