@@ -1788,7 +1788,7 @@ html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #f
 html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; color: #cfe0ec !important; }
 
 /* 谱面确认按钮 */
-.chuni-confirm-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.chuni-confirm-list { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
 .chuni-confirm-btn {
   display: inline-flex;
   align-items: center;
