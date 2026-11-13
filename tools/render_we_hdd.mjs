@@ -45,19 +45,9 @@ function findHddId(title) {
 console.log('HDD WE 条目:', weByTitle.size);
 
 // 找 HDD 里的 c2s 文件
+const CHART_INDEX = JSON.parse(fs.readFileSync(path.join(ROOT, '_tmp/hdd-we-charts.json'), 'utf8'));
 function findHddChart(id) {
-  const name = String(id) + '_05.c2s';
-  for (const root of HDD_ROOTS) {
-    const packs = fs.readdirSync(root, { withFileTypes: true }).filter((d) => d.isDirectory());
-    for (const p of packs) {
-      const musicDir = path.join(root, p.name, 'music');
-      if (!fs.existsSync(musicDir)) continue;
-      const dir = path.join(musicDir, 'music' + id);
-      const f = path.join(dir, name);
-      if (fs.existsSync(f)) return f;
-    }
-  }
-  return null;
+  return CHART_INDEX[String(id)] && fs.existsSync(CHART_INDEX[String(id)]) ? CHART_INDEX[String(id)] : null;
 }
 
 // 我们这边的 WE 曲目
