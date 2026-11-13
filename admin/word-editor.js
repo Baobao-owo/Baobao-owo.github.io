@@ -47,6 +47,11 @@
         toolbar_mode: 'wrap',
         skin_url: '/admin/vendor/tinymce/skins/ui/oxide',
         content_css: false,
+        /* 别改写图片/链接地址：站点用的是 /assets/... 这种站根绝对路径，
+           交给 TinyMCE 转成相对路径后，/about/ 之类的子页面就会找不到图 */
+        convert_urls: false,
+        relative_urls: false,
+        remove_script_host: false,
         plugins:
           'lists link image media table code fullscreen searchreplace wordcount autolink preview anchor charmap insertdatetime visualblocks',
         toolbar:
@@ -66,7 +71,10 @@
           'p{margin:0 0 10px;} h2{font-size:20px;} h3{font-size:17px;}' +
           'blockquote{margin:1em 0;padding:8px 14px;border-left:3px solid #4f7f9c;background:#f5f8fb;color:#5b6a77;}' +
           'pre{padding:12px 14px;border-radius:8px;background:#2f3b46;color:#e6edf3;}' +
-          'img{max-width:100%;border-radius:8px;}',
+          'img{max-width:100%;border-radius:8px;}' +
+          '.about-cap{text-align:center;font-size:13px;color:#7c8b98;margin:-2px 0 18px;}' +
+          'details{margin:16px 0;padding:10px 14px 4px;border:1px solid rgba(79,127,156,.24);border-radius:10px;background:rgba(79,127,156,.05);}' +
+          'summary{cursor:pointer;font-weight:600;color:#4f7f9c;}',
         setup: function (editor) {
           self.editor = editor;
           editor.on('init', function () {
