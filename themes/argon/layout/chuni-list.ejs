@@ -55,6 +55,7 @@
 					<button type="button" class="chuni-diff-chip" data-diff="e">EXPERT</button>
 					<button type="button" class="chuni-diff-chip" data-diff="m">MASTER</button>
 					<button type="button" class="chuni-diff-chip" data-diff="u">ULTIMA</button>
+					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle">显示合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
 				<div class="chuni-designer-grid" id="chuni-designer-grid"></div>
@@ -84,8 +85,9 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: 'all', levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: 'all', collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
 	var DESIGNERS = null;
+	var COLLAB = null;
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -144,19 +146,8 @@
 	}
 
 	function designerDiffKeys(r) {
-		// 该谱师在这首歌里负责的难度（expert / master / ultima）
-		var e = designerEntry(r);
-		if (!e) return [];
-		var map = { expert: 'e', master: 'm', ultima: 'u' };
-		var out = [];
-		['expert', 'master', 'ultima'].forEach(function (d) {
-			var hit = e[map[d]];
-			if (!hit) return;
-			if (state.designer && hit.who !== state.designer) return;
-			if (state.designerRaw && hit.raw !== state.designerRaw) return;
-			out.push(d);
-		});
-		return out;
+		var map = { e: 'expert', m: 'master', u: 'ultima' };
+		return matcher(r).map(function (x) { return map[x.d]; });
 	}
 
 	function levelMatch(r) {
@@ -178,17 +169,32 @@
 		return DESIGNERS.songs[normTitle(r.t)] || null;
 	}
 
-	function designerMatch(r) {
+	function collabEntry(r) {
+		if (!COLLAB || !COLLAB.songs) return null;
+		return COLLAB.songs[normTitle(r.t)] || null;
+	}
+
+	function matcher(r) {
+		// 当前选中的谱师在这首歌里对得上哪些难度（单人 / 合作）
 		var e = designerEntry(r);
-		if (!e) return false;
-		var diffs = state.designerDiff === 'all' ? ['e', 'm', 'u'] : [state.designerDiff];
-		for (var i = 0; i < diffs.length; i++) {
-			var hit = e[diffs[i]];
-			if (!hit) continue;
-			if (state.designer && hit.who === state.designer) return true;
-			if (state.designerRaw && hit.raw === state.designerRaw) return true;
-		}
-		return false;
+		var c = collabEntry(r);
+		var out = [];
+		['e', 'm', 'u'].forEach(function (k) {
+			var hit = e && e[k];
+			if (hit) {
+				if (state.designer && hit.who === state.designer) out.push({ d: k, kind: 'solo', who: hit.who });
+				else if (state.designerRaw && hit.raw === state.designerRaw) out.push({ d: k, kind: 'solo', who: hit.raw });
+			}
+			if (state.collab && state.designer && c && c[k] && c[k].indexOf(state.designer) !== -1) {
+				if (!out.some(function (x) { return x.d === k; })) out.push({ d: k, kind: 'collab', people: c[k] });
+			}
+		});
+		if (state.designerDiff !== 'all') out = out.filter(function (x) { return x.d === state.designerDiff; });
+		return out;
+	}
+
+	function designerMatch(r) {
+		return matcher(r).length > 0;
 	}
 
 	function filtered() {
@@ -300,34 +306,28 @@
 					'<div class="chuni-row-badges">' + stars + '</div>' +
 					'</a>';
 			}
+			var dInfo = (state.designer || state.designerRaw) ? matcher(r) : null;
+			var dKeySet = dInfo ? dInfo.map(function (x) { return x.d; }) : null;
 			var dsTag = '';
-			if (state.designer || state.designerRaw) {
-				var dEntry = designerEntry(r);
-				if (dEntry) {
-					var parts = [];
-					['e', 'm', 'u'].forEach(function (k) {
-						var hit = dEntry[k];
-						if (!hit) return;
-						if (state.designer && hit.who !== state.designer) return;
-						if (state.designerRaw && hit.raw !== state.designerRaw) return;
-						parts.push(k.toUpperCase() + ' ' + (hit.who || hit.raw));
-					});
-					if (parts.length) dsTag = '<span class="chuni-row-tag-ds">' + parts.join(' / ') + '</span>';
-				}
+			if (dInfo && dInfo.length) {
+				var parts = dInfo.map(function (x) {
+					var k = x.d.toUpperCase();
+					if (x.kind === 'collab') return k + ' 合作 ' + x.people.join(' × ');
+					return k + ' ' + x.who;
+				});
+				var isCollab = dInfo.some(function (x) { return x.kind === 'collab'; });
+				dsTag = '<span class="chuni-row-tag-ds' + (isCollab ? ' is-collab' : '') + '">' + parts.join(' / ') + '</span>';
 			}
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			// 选了谱师时，只给「他写的那张谱」显示定数，其它难度留空
 			var DESIGNER_KEY = { expert: 'e', master: 'm', ultima: 'u' };
-			var dMatch = (state.designer || state.designerRaw) ? designerEntry(r) : null;
 			var badges = DIFF_ORDER.map(function (d) {
 				var sh = byDiff[d];
 				if (!sh) return '<span class="chuni-badge chuni-badge-empty">—</span>';
-				if (dMatch) {
+				if (dKeySet) {
 					var dk = DESIGNER_KEY[d];
-					var hit = dk ? dMatch[dk] : null;
-					var ok = !!hit && (state.designer ? hit.who === state.designer : hit.raw === state.designerRaw);
-					if (!ok) return '<span class="chuni-badge chuni-badge-empty">—</span>';
+					if (!dk || dKeySet.indexOf(dk) === -1) return '<span class="chuni-badge chuni-badge-empty">—</span>';
 				}
 				// 选了等级时，只显示对应等级的那张谱，其它难度留空
 				if (state.levels.length && state.levels.indexOf(levelKey(sh.lv)) === -1) {
@@ -529,7 +529,7 @@
 		var chip = e.target.closest('.chuni-dz-chip');
 		if (chip) { pickDesigner(chip.getAttribute('data-who')); return; }
 		var diff = e.target.closest('.chuni-diff-chip');
-		if (diff) {
+		if (diff && diff.hasAttribute('data-diff')) {
 			state.designerDiff = diff.getAttribute('data-diff');
 			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) { x.classList.toggle('active', x === diff); });
 			state.page = 1;
@@ -539,6 +539,14 @@
 
 	var dq = panelEl('chuni-designer-q');
 	if (dq) dq.addEventListener('input', renderDesignerPanel);
+
+	var cToggle = panelEl('chuni-collab-toggle');
+	if (cToggle) cToggle.addEventListener('click', function () {
+		state.collab = !state.collab;
+		cToggle.classList.toggle('active', state.collab);
+		state.page = 1;
+		renderRows();
+	});
 
 	var st = document.getElementById('chuni-search-title');
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
@@ -585,6 +593,17 @@
 		.catch(function () {
 			var toggle = panelEl('chuni-designer-toggle');
 			if (toggle) toggle.title = '谱师数据没加载上';
+		});
+
+	fetch('/assets/data/collab.json')
+		.then(function (r) { return r.json(); })
+		.then(function (data) {
+			COLLAB = data;
+			if (state.designer || state.designerRaw) renderRows();
+		})
+		.catch(function () {
+			var toggle = panelEl('chuni-collab-toggle');
+			if (toggle) toggle.title = '合作数据没加载上';
 		});
 })();
 </script>

@@ -2139,3 +2139,7 @@ html.darkmode .post-content details.about-more {
 .chuni-dz-none { color: #8b98a5; font-size: 12px; }
 .chuni-designer-loose { margin-top: 10px; }
 .chuni-designer-loose summary { cursor: pointer; font-size: 12px; color: #4f7f9c; margin-bottom: 6px; }
+
+/* ---- 合作谱开关 ---- */
+.chuni-diff-chip.chuni-collab-chip.active { background: #6a8f5f; border-color: #6a8f5f; color: #fff; }
+.chuni-row-tag-ds.is-collab { background: #eef6ea; color: #4c6f42; }
