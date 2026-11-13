@@ -67,6 +67,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Grief &amp; Malice</title>
+    <url>/2026/09/04/chuni-55817710/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+        <tag>合作谱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>宿星審判 -眩耀、最果てにて-</title>
     <url>/2026/03/03/chuni-481882e2/</url>
     <content><![CDATA[]]></content>
@@ -83,20 +97,6 @@
   <entry>
     <title>耐冬花麗</title>
     <url>/2026/05/23/chuni-48e1a576/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>中二节奏谱面</category>
-      </categories>
-      <tags>
-        <tag>CHUNITHM</tag>
-        <tag>自制谱</tag>
-        <tag>合作谱</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Grief &amp; Malice</title>
-    <url>/2026/09/04/chuni-55817710/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -162,20 +162,6 @@
       </tags>
   </entry>
   <entry>
-    <title>lonly lonly</title>
-    <url>/2021/05/01/osu-1449124/</url>
-    <content><![CDATA[初次写切换练手，比较一般通过
-]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开站啦：从零把博客搭起来</title>
     <url>/2026/11/11/hello-blog/</url>
     <content><![CDATA[博客这事想了挺久的。
@@ -208,6 +194,20 @@ Argon 主题：卡片式版面，能换主题色，带侧栏和文章目录
         <tag>Hexo</tag>
         <tag>Argon</tag>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lonly lonly</title>
+    <url>/2021/05/01/osu-1449124/</url>
+    <content><![CDATA[初次写切换练手，比较一般通过
+]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
       </tags>
   </entry>
   <entry>
@@ -294,20 +294,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>SAtAN</title>
-    <url>/2021/06/24/osu-1501793/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-        <tag>SOUND VOLTEX IV HEAVENLY HAVEN</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>and I&#39;m home</title>
     <url>/2021/07/28/osu-1532673/</url>
     <content><![CDATA[]]></content>
@@ -319,6 +305,20 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
         <tag>osu!mania</tag>
         <tag>4k</tag>
         <tag>魔法少女まどか☆マギカ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SAtAN</title>
+    <url>/2021/06/24/osu-1501793/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>SOUND VOLTEX IV HEAVENLY HAVEN</tag>
       </tags>
   </entry>
   <entry>
@@ -454,19 +454,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Gold Town</title>
-    <url>/2021/11/12/osu-1625481/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PLAZMA</title>
     <url>/2021/10/05/osu-1594552/</url>
     <content><![CDATA[]]></content>
@@ -478,6 +465,19 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
         <tag>osu!mania</tag>
         <tag>4k</tag>
         <tag>東方Project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gold Town</title>
+    <url>/2021/11/12/osu-1625481/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
       </tags>
   </entry>
   <entry>
@@ -733,6 +733,20 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
+    <title>Lower one&#39;s eyes</title>
+    <url>/2024/01/14/osu-2119277/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>プロジェクトセカイ カラフルステージ！ feat. 初音ミク</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mystique as iris</title>
     <url>/2023/12/23/osu-2107973/</url>
     <content><![CDATA[]]></content>
@@ -761,33 +775,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Lower one&#39;s eyes</title>
-    <url>/2024/01/14/osu-2119277/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-        <tag>プロジェクトセカイ カラフルステージ！ feat. 初音ミク</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>-Looking for Edge of Ground-</title>
-    <url>/2024/05/18/osu-2183292/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cult future</title>
     <url>/2024/02/11/osu-2134033/</url>
     <content><![CDATA[]]></content>
@@ -802,8 +789,8 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Rei mei ni jun zu</title>
-    <url>/2024/07/18/osu-2217145/</url>
+    <title>-Looking for Edge of Ground-</title>
+    <url>/2024/05/18/osu-2183292/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -812,7 +799,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       <tags>
         <tag>osu!mania</tag>
         <tag>4k</tag>
-        <tag>CHUNITHM LUMINOUS PLUS</tag>
       </tags>
   </entry>
   <entry>
@@ -843,6 +829,33 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
+    <title>Rei mei ni jun zu</title>
+    <url>/2024/07/18/osu-2217145/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM LUMINOUS PLUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Igaku(Shiroi-Ice&amp;Koiflower Bootleg)</title>
+    <url>/2024/12/24/osu-2298029/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Crystallize</title>
     <url>/2024/11/16/osu-2281080/</url>
     <content><![CDATA[]]></content>
@@ -857,8 +870,8 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Igaku(Shiroi-Ice&amp;Koiflower Bootleg)</title>
-    <url>/2024/12/24/osu-2298029/</url>
+    <title>WE LUV LAMA</title>
+    <url>/2025/01/01/osu-2302085/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -885,19 +898,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
   <entry>
     <title>More One Night (Assertive Hardcore Bootleg)</title>
     <url>/2025/01/25/osu-2313512/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WE LUV LAMA</title>
-    <url>/2025/01/01/osu-2302085/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -937,20 +937,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Distinct ~ Flame of Determination</title>
-    <url>/2025/04/01/osu-2348172/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
-        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Blind Obedience ~Fantasia Sonata Flower</title>
     <url>/2025/04/01/osu-2348173/</url>
     <content><![CDATA[]]></content>
@@ -965,8 +951,36 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
+    <title>Distinct ~ Flame of Determination</title>
+    <url>/2025/04/01/osu-2348172/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dedication ~Paradox of Choice</title>
     <url>/2025/04/01/osu-2348174/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Emptiness ~Pyrophilia</title>
+    <url>/2025/04/01/osu-2348175/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -1007,8 +1021,8 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Emptiness ~Pyrophilia</title>
-    <url>/2025/04/01/osu-2348175/</url>
+    <title>Act Beloved (feat. Salita)</title>
+    <url>/2025/05/19/osu-2373858/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -1017,12 +1031,11 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       <tags>
         <tag>osu!mania</tag>
         <tag>4k</tag>
-        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
       </tags>
   </entry>
   <entry>
-    <title>Act Beloved (feat. Salita)</title>
-    <url>/2025/05/19/osu-2373858/</url>
+    <title>Der Wald(kors k Remix)</title>
+    <url>/2025/07/16/osu-2404638/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -1060,8 +1073,8 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Der Wald(kors k Remix)</title>
-    <url>/2025/07/16/osu-2404638/</url>
+    <title>Saikai</title>
+    <url>/2025/11/02/osu-2458394/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -1073,8 +1086,8 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
       </tags>
   </entry>
   <entry>
-    <title>Saikai</title>
-    <url>/2025/11/02/osu-2458394/</url>
+    <title>Kaiki ~Scherzo ~Forutuuna no Itazura~</title>
+    <url>/2026/03/12/osu-2521523/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>谱面记录</category>
@@ -1097,19 +1110,6 @@ wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直�
         <tag>osu!mania</tag>
         <tag>4k</tag>
         <tag>CHUNITHM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kaiki ~Scherzo ~Forutuuna no Itazura~</title>
-    <url>/2026/03/12/osu-2521523/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>谱面记录</category>
-        <category>4k下落式</category>
-      </categories>
-      <tags>
-        <tag>osu!mania</tag>
-        <tag>4k</tag>
       </tags>
   </entry>
   <entry>
