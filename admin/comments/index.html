@@ -113,6 +113,22 @@
         <div id="error" class="err" style="display: none; margin-top: 12px"></div>
       </div>
 
+      <div class="card" id="welcome">
+        <div style="font-weight: 600; margin-bottom: 6px">第一次进来怎么用</div>
+        <ol style="margin: 6px 0 8px 20px; padding: 0">
+          <li>在 GitHub 建一个 fine-grained token：只选 <code>Baobao-owo.github.io</code> 这个仓库，权限勾 <code>Discussions: Read-only</code> 和 <code>Metadata: Read</code></li>
+          <li>粘到上面那栏，点「载入统计」</li>
+          <li>下面就会出现全部讨论的汇总表；token 会记在本机，下次打开自动填上</li>
+        </ol>
+        <div class="hint" style="margin-top: 4px">
+          数据来源：本仓库 Discussions 的 <code>Announcements</code> 分类（giscus 把每条评论挂在这里）·
+          <a href="https://github.com/Baobao-owo/Baobao-owo.github.io/discussions" target="_blank" rel="noopener">直接去 GitHub 看讨论</a>
+        </div>
+        <div class="hint">
+          备注：曲目页的评论要靠访问者登录 GitHub 才能发，这是 giscus 的机制；没登录时评论区照样能看，只是输入框是灰的。
+        </div>
+      </div>
+
       <div class="kpis" id="kpis" style="display: none">
         <div class="kpi"><div class="n" id="k-disc">0</div><div class="k">讨论（帖子）数</div></div>
         <div class="kpi"><div class="n" id="k-comment">0</div><div class="k">评论条数</div></div>
@@ -365,6 +381,7 @@
             await loadSongs();
             var res = await fetchAll(token);
             state.rows = res.rows;
+            $('welcome').style.display = 'none';
             renderKpis(res.rows, res.total);
             render();
             if (!res.rows.length) {
