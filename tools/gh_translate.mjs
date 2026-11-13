@@ -1,7 +1,7 @@
-// 在 GitHub Actions 里跑：把队列文件翻译成 JSONL（key\t译文，换行转 ⏎）
+// 在 GitHub Actions 里跑：翻译队列，或抓取队列里的 URL（DDG 搜索代理）
 // 用法: node tools/gh_translate.mjs <queue.json> <out.jsonl> [sleepMs]
+// 队列项: { k, t } 翻译；或 { k, u, q } 抓取（u 为 URL，q 为 DDG 查询词）
 import fs from 'node:fs';
-import path from 'node:path';
 
 const [, , queuePath, outPath, sleepArg] = process.argv;
 const SLEEP = Number(sleepArg || '700');
@@ -32,10 +32,68 @@ async function translate(text) {
   return String(out || '');
 }
 
+function stripTags(s) {
+  return String(s)
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+async function fetchDDG(query) {
+  const res = await fetch('https://html.duckduckgo.com/html/', {
+    method: 'POST',
+    headers: {
+      'User-Agent': UA,
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'en-US,en;q=0.9'
+    },
+    body: 'q=' + encodeURIComponent(query)
+  });
+  const html = await res.text();
+  if (/complete the following challenge|bots use duckduckgo/i.test(html)) {
+    return { error: 'challenge', status: res.status };
+  }
+  const results = [];
+  const re = /<a[^>]*class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re.exec(html)) && results.length < 20) {
+    let url = m[1].replace(/&amp;/g, '&');
+    const u = url.match(/[?&]uddg=([^&]+)/);
+    if (u) url = decodeURIComponent(u[1]);
+    if (!/^https?:/i.test(url)) continue;
+    results.push({ title: stripTags(m[2]), url, snippet: '' });
+  }
+  const snips = [...html.matchAll(/class="result__snippet"[^>]*>([\s\S]*?)<\/a>/gi)].map((x) => stripTags(x[1]));
+  results.forEach((r, i) => {
+    if (snips[i]) r.snippet = snips[i];
+  });
+  return { status: res.status, results };
+}
+
 let ok = 0;
 let fail = 0;
 for (const item of queue) {
   if (done.has(item.k)) continue;
+
+  if (item.u) {
+    try {
+      const r = await fetchDDG(item.q || item.u);
+      fs.appendFileSync(outPath, item.k + '\t' + JSON.stringify(r) + '\n', 'utf8');
+      ok++;
+    } catch (e) {
+      fs.appendFileSync(outPath, item.k + '\t' + JSON.stringify({ error: String(e).slice(0, 120) }) + '\n', 'utf8');
+      fail++;
+    }
+    await sleep(Math.min(SLEEP, 200));
+    continue;
+  }
+
   let zh = '';
   for (let attempt = 0; attempt < 3 && !zh; attempt++) {
     try {
