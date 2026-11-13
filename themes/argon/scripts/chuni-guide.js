@@ -128,14 +128,15 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     const previews = [];
     if (musicId) {
       for (let si = 0; si < enriched.sheets.length; si++) {
-        const manifestKey = musicId + '_' + si;
+        const chartIdx = /^【.*】$/.test(String(enriched.sheets[si].difficulty)) ? 5 : si;
+        const manifestKey = musicId + '_' + chartIdx;
         if (previewMap[manifestKey]) {
           previews[si] = previewMap[manifestKey];
           continue;
         }
         const exts = ['.webp', '.png', '.svg'];
         for (let ei = 0; ei < exts.length; ei++) {
-          const rel = 'assets/chuni/preview/' + musicId + '_' + si + exts[ei];
+          const rel = 'assets/chuni/preview/' + musicId + '_' + chartIdx + exts[ei];
           if (fs.existsSync(path.join(hexo.base_dir, 'source', rel))) {
             previews[si] = '/' + rel;
             break;
