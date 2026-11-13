@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=697433dc">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=65c0b66c">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -781,7 +781,7 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 						<img id="chuni-chart-img" src="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-03/2247_00.webp" alt="谱面平面图" loading="lazy" />
 						<span class="chuni-chart-open">点击放大 ⤢</span>
 					</a>
-					<div class="chuni-chart-hint">点图片在页面内放大查看（可拖动/滚动），难度用上面的按钮切换。</div>
+					<div class="chuni-chart-hint">点图片在页面内放大查看：打开先是整图，拖动移动、双指捏合（或滚轮）缩放、双击在整图 / 原尺寸之间切换，难度用上面的按钮切换。</div>
 
 					<div class="chuni-lightbox" id="chuni-lightbox" hidden>
 						<div class="chuni-lightbox-bar">
@@ -806,38 +806,75 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 						var closeBtn = document.getElementById('chuni-lightbox-close');
 						if (!link || !box || !stage) return;
 
+						// 缩放/平移状态。变换以舞台左上角为原点（transform-origin: 0 0）
+						var minScale = 1;   // 「整图」比例＝最小缩放，由 computeFit() 算
+						var maxScale = 3;   // 最大放到原图 3 倍
 						var scale = 1;
 						var tx = 0;
 						var ty = 0;
-						var dragging = false;
-						var dragMoved = false;
-						var startX = 0;
-						var startY = 0;
-						var startTx = 0;
-						var startTy = 0;
+						var pts = new Map();  // pointerId -> {x, y}（相对 body）
+						var pan = null;       // 单指拖动起点
+						var pinch = null;     // 双指起点
+						var tapCandidate = false;  // 这一次按下是不是「轻点」（用来点背景关闭）
+						var pendingClose = null;    // 点空白的关闭要等一下，可能是双击的第一下
+						var downTarget = null;      // 按下时真正命中的元素（pointer capture 后 e.target 会变成容器）
 
-						function apply() {
+						function apply(settle) {
+							stage.classList.toggle('settling', !!settle);
 							stage.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
 						}
 
-						function center() {
+						// transform 不改布局尺寸，实际占位要自己乘 scale
+						function scaledSize() {
+							return { w: img.offsetWidth * scale, h: img.offsetHeight * scale };
+						}
+
+						function clamp() {
+							var bw = body.clientWidth;
+							var bh = body.clientHeight;
+							var s = scaledSize();
+							if (s.w <= bw) { tx = Math.round((bw - s.w) / 2); }
+							else { tx = Math.min(0, Math.max(bw - s.w, tx)); }
+							if (s.h <= bh) { ty = Math.round((bh - s.h) / 2); }
+							else { ty = Math.min(0, Math.max(bh - s.h, ty)); }
+						}
+
+						// 预览图动辄 6000px 宽：打开先把整张图等比放进可视区（不放大），细节靠双击/捏合
+						function computeFit() {
 							var bw = body.clientWidth;
 							var bh = body.clientHeight;
 							var iw = img.offsetWidth || img.naturalWidth || 0;
 							var ih = img.offsetHeight || img.naturalHeight || 0;
-							tx = iw < bw ? Math.round((bw - iw) / 2) : 0;
-							ty = ih < bh ? Math.round((bh - ih) / 2) : 0;
-							apply();
+							var fit = 1;
+							if (iw > 0 && bw > 0) fit = Math.min(fit, bw / iw);
+							if (ih > 0 && bh > 0) fit = Math.min(fit, bh / ih);
+							minScale = Math.max(0.02, fit);
+							maxScale = 3;
 						}
 
-						function reset() {
-							scale = 1;
-							center();
+						function reset(settle) {
+							computeFit();
+							scale = minScale;
+							clamp();
+							apply(settle);
+						}
+
+						// 以 (mx, my) 为锚点缩放到 next（鼠标滚轮用）
+						function zoomAt(next, mx, my) {
+							next = Math.min(maxScale, Math.max(minScale, next));
+							if (Math.abs(next - scale) < 1e-6) return;
+							var k = next / scale;
+							tx = mx - (mx - tx) * k;
+							ty = my - (my - ty) * k;
+							scale = next;
+							clamp();
+							apply();
 						}
 
 						function open() {
 							var src = (document.getElementById('chuni-chart-img') || {}).src || link.getAttribute('href');
 							img.src = src;
+							img.style.transform = '';
 							save.href = src;
 							box.hidden = false;
 							document.documentElement.style.overflow = 'hidden';
@@ -845,13 +882,20 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 							tx = 0;
 							ty = 0;
 							apply();
+							if (img.complete && img.naturalWidth > 0) reset();  // 缓存命中时不用等 load
 						}
 
-						img.addEventListener('load', reset);
+						img.addEventListener('load', function () { reset(); });
 
 						function close() {
+							if (pendingClose) { clearTimeout(pendingClose); pendingClose = null; }
 							box.hidden = true;
 							img.src = '';
+							stage.style.transform = '';
+							pts.clear();
+							pan = null;
+							pinch = null;
+							body.classList.remove('dragging');
 							document.documentElement.style.overflow = '';
 						}
 
@@ -860,10 +904,8 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 							open();
 						});
 						closeBtn.addEventListener('click', close);
-						box.addEventListener('click', function (e) {
-							if (dragMoved) { dragMoved = false; return; }
-							if (e.target === box || e.target === body) close();
-						});
+						// 点背景关闭交给下面的 pointer 判定：pointer capture 之后 click 的 target 会变成 body，
+						// 用它判断会把「点图片」也当成点背景（双击缩放在此之前就被关掉了）。
 						document.addEventListener('keydown', function (e) {
 							if (e.key === 'Escape' && !box.hidden) close();
 						});
@@ -873,48 +915,144 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 							if (box.hidden) return;
 							e.preventDefault();
 							var rect = body.getBoundingClientRect();
-							var mx = e.clientX - rect.left;
-							var my = e.clientY - rect.top;
-							var factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
-							var next = Math.min(8, Math.max(0.15, scale * factor));
-							var k = next / scale;
-							tx = mx - (mx - tx) * k;
-							ty = my - (my - ty) * k;
-							scale = next;
-							apply();
+							zoomAt(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), e.clientX - rect.left, e.clientY - rect.top);
 						}, { passive: false });
 
-						// 拖拽平移
+						// ---------- 触摸 / 鼠标统一手势 ----------
+						function pointOf(e) {
+							var rect = body.getBoundingClientRect();
+							return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+						}
+
+						function pinchInfo() {
+							var it = pts.values();
+							var a = it.next().value;
+							var b = it.next().value;
+							return {
+								dist: Math.hypot(b.x - a.x, b.y - a.y) || 1,
+								mx: (a.x + b.x) / 2,
+								my: (a.y + b.y) / 2
+							};
+						}
+
 						body.addEventListener('pointerdown', function (e) {
 							if (box.hidden) return;
-							dragging = true;
-							dragMoved = false;
-							startX = e.clientX;
-							startY = e.clientY;
-							startTx = tx;
-							startTy = ty;
-							body.classList.add('dragging');
+							if (e.pointerType === 'mouse' && e.button !== 0) return;
+							stage.classList.remove('settling');
+							if (pendingClose) { clearTimeout(pendingClose); pendingClose = null; }
+							var p = pointOf(e);
+							pts.set(e.pointerId, p);
 							if (body.setPointerCapture) {
 								try { body.setPointerCapture(e.pointerId); } catch (err) {}
 							}
+							if (pts.size === 1) {
+								pan = { x: p.x, y: p.y, tx: tx, ty: ty };
+								pinch = null;
+								tapCandidate = true;
+								downTarget = e.target;
+								body.classList.add('dragging');
+							} else if (pts.size === 2) {
+								tapCandidate = false;
+								var info = pinchInfo();
+								pinch = { dist: info.dist, scale: scale, mx: info.mx, my: info.my, tx: tx, ty: ty };
+								pan = null;
+								dragMoved = true;
+							}
 						});
+
 						body.addEventListener('pointermove', function (e) {
-							if (!dragging) return;
-							var dx = e.clientX - startX;
-							var dy = e.clientY - startY;
-							if (Math.abs(dx) + Math.abs(dy) > 4) dragMoved = true;
-							tx = startTx + dx;
-							ty = startTy + dy;
+							if (!pts.has(e.pointerId)) return;
+							var p = pointOf(e);
+							pts.set(e.pointerId, p);
+
+							if (pinch && pts.size >= 2) {
+								var info = pinchInfo();
+								var next = Math.min(maxScale, Math.max(minScale, pinch.scale * (info.dist / pinch.dist)));
+								var k = next / pinch.scale;
+								// 捏合中点跟着手指走：旧锚点按新比例换算，再挪到当前中点
+								tx = info.mx - (pinch.mx - pinch.tx) * k;
+								ty = info.my - (pinch.my - pinch.ty) * k;
+								scale = next;
+								apply();
+								return;
+							}
+
+							if (pan) {
+								var dx = p.x - pan.x;
+								var dy = p.y - pan.y;
+								if (Math.abs(dx) + Math.abs(dy) > 4) tapCandidate = false;
+								tx = pan.tx + dx;
+								ty = pan.ty + dy;
+								apply();
+							}
+						});
+
+						// 双击/双击放大：pointer capture 之后浏览器给的 dblclick 目标不靠谱，这里自己按时间判定
+						var lastTap = 0;
+						var lastTapX = 0;
+						var lastTapY = 0;
+
+						function toggleView() {
+							scale = Math.abs(scale - minScale) < 0.001 ? 1 : minScale;
+							clamp();
+							apply(true);
+						}
+
+						function endPointer(e) {
+							if (!pts.has(e.pointerId)) return;
+							var p = pointOf(e);
+							var tap = tapCandidate;
+							pts.delete(e.pointerId);
+
+							if (pts.size === 1) {
+								// 两指松掉一根：剩下的手指续接拖动
+								var rest = pts.values().next().value;
+								pan = { x: rest.x, y: rest.y, tx: tx, ty: ty };
+								pinch = null;
+								return;
+							}
+							if (pts.size > 0) return;
+
+							pan = null;
+							pinch = null;
+							body.classList.remove('dragging');
+
+							var now = Date.now();
+							var isDouble = now - lastTap < 320 &&
+								Math.abs(p.x - lastTapX) < 26 && Math.abs(p.y - lastTapY) < 26;
+
+							if (tap && isDouble) {
+								lastTap = 0;
+								toggleView();
+								return;
+							}
+							lastTap = tap ? now : 0;
+							lastTapX = p.x;
+							lastTapY = p.y;
+
+							if (tap && (downTarget === box || downTarget === body)) {
+								// 先等 300ms：双击的第一下也长这样，确认没有第二下再关
+								pendingClose = setTimeout(function () {
+									pendingClose = null;
+									if (!box.hidden) close();
+								}, 300);
+								return;
+							}
+
+							var was = tx + ',' + ty + ',' + scale;
+							clamp();
+							apply(was !== tx + ',' + ty + ',' + scale);
+						}
+						body.addEventListener('pointerup', endPointer);
+						body.addEventListener('pointercancel', endPointer);
+						body.addEventListener('dragstart', function (e) { e.preventDefault(); });
+						window.addEventListener('resize', function () {
+							if (box.hidden) return;
+							computeFit();
+							if (scale < minScale) scale = minScale;
+							clamp();
 							apply();
 						});
-						function endDrag() {
-							dragging = false;
-							body.classList.remove('dragging');
-						}
-						body.addEventListener('pointerup', endDrag);
-						body.addEventListener('pointercancel', endDrag);
-						body.addEventListener('dragstart', function (e) { e.preventDefault(); });
-						body.addEventListener('dblclick', reset);
 					})();
 					</script>
 				
@@ -934,6 +1072,15 @@ SOUND HOLICのアルバム「EUROBEAT HOLIC」収録曲。
 					});
 				});
 			})();
+
+			// 谱面预览有自己的灯箱，主题自带的 zoomify 会跟它抢点击，这里把它摘掉
+			window.addEventListener('load', function () {
+				var $ = window.jQuery;
+				if (!$) return;
+				$('#chuni-chart-img, #chuni-lightbox-img').each(function () {
+					$(this).off('click').removeClass('zoomify zoomed').removeData('zoomify').css('transform', '');
+				});
+			});
 			</script>
 
 			<div class="chuni-section">

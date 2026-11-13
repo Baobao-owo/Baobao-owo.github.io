@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=697433dc">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=65c0b66c">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -706,6 +706,15 @@ YouTubeに公式で投稿されているゲキチュウマイのボーカル楽�
 					});
 				});
 			})();
+
+			// 谱面预览有自己的灯箱，主题自带的 zoomify 会跟它抢点击，这里把它摘掉
+			window.addEventListener('load', function () {
+				var $ = window.jQuery;
+				if (!$) return;
+				$('#chuni-chart-img, #chuni-lightbox-img').each(function () {
+					$(this).off('click').removeClass('zoomify zoomed').removeData('zoomify').css('transform', '');
+				});
+			});
 			</script>
 
 			<div class="chuni-section">
