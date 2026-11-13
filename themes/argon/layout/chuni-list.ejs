@@ -26,6 +26,8 @@
 						<option value="<%= c.key %>"><%= c.label %></option>
 					<% }); %>
 				</select>
+				<input type="search" id="chuni-designer" class="chuni-search chuni-designer-input" list="chuni-designer-list" placeholder="按谱师筛选…（可输入，如 ミストルティン）" />
+				<datalist id="chuni-designer-list"></datalist>
 				<div class="chuni-sort" id="chuni-sort">
 					<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
 					<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
@@ -57,7 +59,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, we: false, page: 1 };
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -132,6 +134,7 @@
 			if (state.we && !isWE) return false;
 			if (!state.removed && !state.we && (isDel || isWE)) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
+			if (state.designer && !(r.sh || []).some(function (sh) { return String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1; })) return false;
 			if (!levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
 			if (qa && String(r.a).toLowerCase().indexOf(qa) === -1) return false;
@@ -216,6 +219,13 @@
 					'<div class="chuni-row-badges">' + stars + '</div>' +
 					'</a>';
 			}
+			var dsHit = [];
+			if (state.designer) {
+				(r.sh || []).forEach(function (sh) {
+					if (String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1 && dsHit.indexOf(sh.ds) === -1) dsHit.push(sh.ds);
+				});
+			}
+			var dsTag = dsHit.length ? '<span class="chuni-row-tag-ds">' + dsHit.slice(0, 2).join(' / ') + '</span>' : '';
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			var badges = DIFF_ORDER.map(function (d) {
@@ -236,7 +246,7 @@
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 				'<div class="chuni-row-main">' +
-				'<div class="chuni-row-title">' + r.t + (r.cnrm ? '<span class="chuni-row-tag-removed">国服已删除</span>' : (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '')) + '</div>' +
+				'<div class="chuni-row-title">' + r.t + (r.cnrm ? '<span class="chuni-row-tag-removed">国服已删除</span>' : (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '')) + dsTag + '</div>' +
 				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 				'</div>' +
 				'<div class="chuni-row-badges">' + badges + '</div>' +
@@ -318,6 +328,25 @@
 		});
 	}
 
+	function collectDesigners() {
+		var set = {};
+		all.forEach(function (r) {
+			(r.sh || []).forEach(function (sh) {
+				if (sh.ds && sh.ds !== '-') set[sh.ds] = true;
+			});
+		});
+		return Object.keys(set).sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+	}
+
+	function fillDesignerSelect() {
+		var dl = document.getElementById('chuni-designer-list');
+		if (!dl) return;
+		var names = collectDesigners();
+		dl.innerHTML = names.map(function (n) {
+			return '<option value="' + n.replace(/"/g, '&quot;') + '"></option>';
+		}).join('');
+	}
+
 	var st = document.getElementById('chuni-search-title');
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
 	var sa = document.getElementById('chuni-search-artist');
@@ -327,6 +356,13 @@
 	if (weBtn) weBtn.addEventListener('click', function () {
 		state.we = !state.we;
 		weBtn.classList.toggle('active', state.we);
+		state.page = 1;
+		renderRows();
+	});
+
+	var des = document.getElementById('chuni-designer');
+	if (des) des.addEventListener('input', function () {
+		state.designer = des.value.trim().toLowerCase();
 		state.page = 1;
 		renderRows();
 	});
@@ -347,6 +383,7 @@
 		.then(function (rows) {
 			all = rows;
 			renderLevelChips();
+			fillDesignerSelect();
 			if (loadingEl) loadingEl.remove();
 			renderRows();
 		})

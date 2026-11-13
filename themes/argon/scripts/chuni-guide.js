@@ -201,7 +201,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
-        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal };
+        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '' };
       })
     };
   });
