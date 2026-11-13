@@ -3788,11 +3788,11 @@
    "MAS": "14.4"
   },
   "wiki_jp": "初期曲でORIGIN Fablesマップ25元課題曲。\n音楽ゲーム「DJMAX RESPECT / RESPECT V」「 Muse Dash 」に移植されている。\n曲名を意訳すると「ハンドルを右に」。歌詞(?)の「インド人を右に」は、ゲーム雑誌「ゲーメスト」の代表的な誤植であり、この楽曲の通称として「インド人」がよく用いられている。\nグッズプレゼントキャンペーンで配布されたCD「 ＧＯ！ＧＯ！チュウニズム♥ 」にイロドリミドリの 明坂 芹菜 と 箱部 なる によるカバー版の『 The wheel to the Night ～インド人が夢に!?～ 』が収録されており、後にCHUNITHMにも収録された。\n譜面作者：EXP …ロシェ＠ペンギン、MAS …Techno Kitchen、WE半…インド人を右に …、WE避…DJ-BOMB …\n譜面定数：EXP …11.9、MAS …14.4",
-  "wiki_comment_zh": "最初的歌曲是 ORIGIN Fables地图25原课题曲。\n它已被移植到音乐游戏“DJMAX RESPECT / RESPECT V”和“Muse Dash”中。\n这首歌的标题字面意思是“向右手柄”。歌词（？）“Indian to the right”是游戏杂志“Gamest”中典型的印刷错误，“Indian”经常被用作歌曲的通用名称。\nCD《GO！去！在商品赠品活动中分发的“Chunism♥”包括Irodori Midori的Serina Akesaka和Naru Hakobe的翻唱版本“The Wheel to the Night ~Indian ga Yume ni!?~”，后来收录在CHUNITHM中。",
+  "wiki_comment_zh": "初期曲，ORIGIN Fables 地图 25 元课题曲。\n已移植到音游《DJMAX RESPECT / RESPECT V》《Muse Dash》。\n曲名意译是「方向盘向右」；歌词（？）的「インド人を右に」是游戏杂志《ゲーメスト》的代表性误植，本曲通称常用「インド人」。\n周边赠送活动发放 CD《ＧＯ！ＧＯ！チュウニズム♥》收录了彩绿 明坂芹菜 与箱部なる 的翻唱版《The wheel to the Night ～インド人が夢に!?～》，后来也收录到 CHUNITHM。",
   "origins_zh": [
-   "ND名字（WE半）「右边的印第安人」如上所述，这是游戏杂志《Gamest》中的一个典型错字，而这首歌的歌词（声音素材？）听起来是这样的。互锁所需的迈迈标题是“右侧手柄”*2。",
-   "截至AMAZON版本，您可以在maimai上获取标题“Handle to the Right”，并与CHUNITHM链接以获得同名标题。 （另请参阅与 maimai 链接的元素）",
-   "ND 名称（WE 回避）“DJ-BOMB” 模仿这首歌的对应角色“DJ-MEGA”。"
+   "ND 名义（WE 半）「インド人を右に」：如上所述是《ゲーメスト》代表性误植，本曲歌词（声音梗？）里有听起来像这个的；联动所需的 maimai 称号「ハンドルを右に」才是正确记述。",
+   "到 AMAZON 版本为止，在 maimai 获得称号「ハンドルを右に」并与 CHUNITHM 联动可获同名称号。",
+   "ND 名义（WE 避）「DJ-BOMB」：对本曲对应角色「DJ-MEGA」的恶搞。"
   ]
  },
  "STAR": {
@@ -9087,21 +9087,21 @@
    "ULT": "15.2"
   },
   "wiki_jp": "2023/2/22 ULTIMA追加\n2003年に公開されたBMS楽曲。ジャンルはTRANCE CORE。\n譜面作者：EXP …如月 ゆかり、MAS …Revo@LC、ULT …Air -INSANITY-、WE…Air -INFINITY- …\n譜面定数：MAS …14.5、ULT …15.2",
-  "wiki_comment_zh": "2023年2月22日添加了ULTIMA\n2003年发行的BMS歌曲。分类是TRANCE CORE。",
+  "wiki_comment_zh": "2023/2/22 追加 ULTIMA\n2003 年公开的 BMS 乐曲，曲风是 TRANCE CORE。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "克里斯的眼泪",
+    "CrisTears",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "ND名称（WE）“Air -INFINITY-”（Revo@LC）*1是因为Kyofuen出现在Class Certification ∞中吗？",
-   "ND名称（ULT）“Air -INSANITY-”（音乐制作人未知） INSANITY的意思是疯狂。这是WE Kyofusen名字下的“Air -INFINITY-”的模仿吗？",
-   "标题“CrisTears” SHIKI先生首次录制这首歌的专辑名称，以及该专辑中包含的同名歌曲。然而，CHUNITHM 中录制的音源与专辑《Cristierra》是不同的版本。"
+   "ND 名义（WE）「Air -INFINITY-」（Revo@LC）：大概因狂谱面从分级认定 ∞ 登场。",
+   "ND 名义（ULTIMA）「Air -INSANITY-」（谱师不明）：INSANITY 意为疯狂；大概是 WE 狂谱面名义「Air -INFINITY-」的恶搞。",
+   "称号「CrisTears」：本曲首次收录时 SHIKI 的专辑名，也是该专辑收录的同名乐曲；不过 CHUNITHM 收录音源是专辑《Cristierra》收录的另一版本。"
   ]
  },
  "DataErr0r": {
@@ -16184,14 +16184,14 @@
     "14.2"
    ]
   ],
-  "wiki_comment_zh": "2021/11/4 新增 ULTIMA\n从 KONAMI 的 BEMANI 系列移植的歌曲。 分类 是 TRANCE 核心。\n2011年活动“APPEND FESTIVAL”中出现的歌曲之一*3。\n在“天下一论游戏祭全国认证大会”上，作为BEMANI系列的代表曲收录在另一家公司的音乐游戏中。\nCHUNITHM在运营开始时就被作为默认歌曲，这是BEMANI歌曲首次被移植到Tenka Ichion Game Festival以外的其他公司。\n也许：花\n也许：花\nFLOWER（DJ YOSHITAKA 创作的 BEMANI 歌曲）\n花（ASTERISM演唱的ongeki歌曲）",
+  "wiki_comment_zh": "2021/11/4 追加 ULTIMA\n移植自 KONAMI BEMANI 系列，曲风是 TRANCE CORE。\n是 2011 年联动活动「APPEND FESTIVAL」登场的乐曲之一。\n在「天下一音ゲ祭 全国一斉認定大会」中作为 BEMANI 系列代表曲实现收录到他社音游。\nCHUNITHM 以稼动时默认曲收录，除天下一音ゲ祭 外 BEMANI 乐曲移植到他社这是首次。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "征服所有模型",
+    "全机种制霸",
     "玩"
    ],
    [
@@ -16199,7 +16199,7 @@
     "元素创造/花/埃文斯/专家/等级SSS达到*5"
    ],
    [
-    "你这个白痴……我和你在一起！",
+    "バッカお前……俺がついてるだろ！",
     "店内与 2 人或更多人配对/游戏过程中错过一次"
    ],
    [
@@ -16207,13 +16207,13 @@
     "实现全链条"
    ],
    [
-    "追加节日",
+    "APPEND FESTIVAL",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "“征服所有型号”这个称号来源于无印良品CHUNITHM运营时，它被收录在当时所有BEMANI型号中（如果也算上remix版的话）。",
-   "标题“朱雀”参见埃文斯。"
+   "称号「全機種制覇」：无印 CHUNITHM 稼动时点当时 BEMANI 机种全都收录了（若把混音版也算）。",
+   "称号「朱雀」：参见《Evans》。"
   ]
  },
  "ちくわパフェだよ☆CKP": {
@@ -23952,20 +23952,20 @@
     "14.7"
    ]
   ],
-  "wiki_comment_zh": "这首歌于2006年3月5日在活动现场“Flowering Night 2006 Yuga ni Noise ～Live in Hakurei Shrine”中发行。 分类 是欧洲狂欢。\n同年4月，作曲家亲自发布了BMS，此后志愿者们陆续创作了D+、A⇒Side等多种编曲音源。\n搭配：鲷鱼小骨\n一首具有两种分类倾向的歌曲：“东方编曲”和“BMS作品”。在AIR~AIR PLUS中，它被分类为有利于BMS音乐的“VARIETY”，但在STAR之后，它被更改为“东方Project”*2。\n因此，尽管这首歌来自东方Project 分类，但舞台背景却使用了录制时每个版本的原始背景。",
+  "wiki_comment_zh": "2006 年 3 月 5 日演出『FloweringNight2006 幽雅に騒げ ～ Live in 博麗神社』发表的乐曲，曲风是 Euro Rave。\n同年 4 月作曲者本人公开了 BMS，之后有志制作了 for D+、A⇒Side 等大量改编音源差分。\n编曲：鯛の小骨\n同时具「东方改编」与「BMS 作品」两种类别倾向的乐曲；AIR～AIR PLUS 优先按 BMS 乐曲处理分到「VARIETY」，STAR 以后改成「东方 Project」。\n因此虽是东方 Project 类别乐曲，舞台背景仍适用收录当时的版本别原创背景。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "对于 D+",
+    "for D+",
     "达到大师/等级 SSS"
    ]
   ],
   "origins_zh": [
-   "ND 名称（WE 粉丝）“for C+” 下面是对“for D+”的模仿。",
-   "标题：《for D+》 这首歌的不同乐谱由air制作。该编曲的特点是对副歌部分进行了延迟，也被选为《旧福京十段》之一。"
+   "ND 名义（WE 狂）「for C+」：对下列「for D+」的恶搞。",
+   "称号「for D+」：air 制作的本曲差分谱面；特征是改编版在副歌加了 delay，也曾入选旧旧发狂十段。"
   ]
  },
  "Dreadnought": {
@@ -24574,21 +24574,21 @@
     "15.2"
    ]
   ],
-  "wiki_comment_zh": "宋在2004年的BMS活动《服装BMS舞会~里面的人是谁!!~》中展出。 分类 是快乐爆米花。\n活动是“匿名创作并发布模仿其他BMS作者的旋律和风格的BMS作品”的活动，这首歌的灵感来自于sasakure.UK的BMS歌曲“★SweeT DiscoverY★”*1。\n而且，由于活动有“猜出作者就扣分”的规则，所以这首歌的结局是“歌曲本身评分最高，但最终排名垫底，因为太多人猜到了身份。”时隔6年似曾相识……\n顺便说一句，夹克上显示的圆形生物的名字是“Tama”。",
+  "wiki_comment_zh": "2004 年 BMS 活动「仮装BMS舞踏会 ～中の人は誰だ!!～」参展曲，曲风是 HappY PoPcorN。\n该活动是「模仿其他 BMS 作者的曲调・作风制作 BMS 作品、隐去名义公开」的活动，本曲是以 sasakure.UK 的 BMS 曲《★SweeT DiscoverY★》为印象。\n另，该活动规则是「被猜出作者就扣分」，所以本曲落得「乐曲本身评价最高，但正体被猜中太多次，最终排名最下位」的结果。6 年后既视感……\n另，曲绘上圆滚生物名叫「たま」。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "理东叶GOD",
+    "リトハGOD",
     "主人/正义已实现"
    ]
   ],
   "origins_zh": [
-   "以 ND (MAS) 名义“Chan @Tiny Doki Doki Kaiden”(Chan @DP Kaiden) 来自首次发布时包含在 BMS 包中的文本文件“_Tiny Doki Doki.txt”。",
-   "ND名称（WE粉丝）“Shinkyu”来自black train制作的这首歌曲“★LittleE HeartTs★（GOD）”的差异乐谱。",
-   "标题“Little Hearts★（GOD）”来自上面的昵称“Little Hearts★（GOD）”。"
+   "ND 名义（MASTER）「チャン@ちっちゃなドキドキ皆伝」（チャン@DP皆伝）：来自初出 BMS 包同捆文本文件「_ちっちゃなドキドキ.txt」。",
+   "ND 名义（WE 狂）「神域」：来自 black train 制作的本曲差分谱面「★LittlE HearTs★ (GOD)」。",
+   "称号「リトハGOD」：来自上述「★LittlE HearTs★ (GOD)」的通称「リトハゴッド」。"
   ]
  },
  "STAIRWAY TO GENERATION": {
@@ -28207,7 +28207,7 @@
     "14.7"
    ]
   ],
-  "wiki_comment_zh": "2022/2/3 新增 ULTIMA\n从KONAMI的音乐游戏“jubeat”移植的歌曲。这是第一次重大更新中添加的首领歌曲。\n另外，录制这首歌的CHUNITHM AIR PLUS开张日2月9日，也是作曲家DJ YOSHITAKA的生日。\n分类在beatmania IIDX中被命名为“HARD RENAISSANCE”，在pop'n music中被命名为“Hard Renaissance 2”。\n与从其他 BEMANI 系列移植的歌曲一样，它在 PARADISE 开始运营时被删除，但随着 NEW ULTIMA谱面 的发行而恢复。",
+  "wiki_comment_zh": "2022/2/3 追加 ULTIMA\n移植自 KONAMI 音游《jubeat》；是初代大型更新追加的 Boss 曲。\n另，收录本曲的 CHUNITHM AIR PLUS 稼动日 2 月 9 日也是作曲者 DJ YOSHITAKA 的生日。\nbeatmania IIDX 中标的「HARD RENAISSANCE」、pop'n music 中标「ハードルネッサンス2」。\n与其他 BEMANI 移植曲一样，PARADISE 稼动开始时曾被删除，NEW 随 ULTIMA 谱面配信复活。",
   "titles_zh": [
    [
     "称号",
@@ -28222,15 +28222,15 @@
     "元素创造/花/埃文斯/专家/等级SSS达到*5"
    ],
    [
-    "与 DJ 吉高",
+    "with DJ YOSHITAKA",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (ULT)“with Phoenix”（作者：Kotori Yu）下面是对“with DJ YOSHITAKA”的模仿。",
-   "标题“朱雀”是 DJ YOSHITAKA 使用的别名之一。它最初以*6的名称出现在“beatmania IIDX 13 DistorteD”的活动“CARDINAL GATE”中，其中五位艺术家使用传说中的野兽的名字提供了boss歌曲。",
-   "标题“-prototype-” 这首歌的另一个编曲的副标题。在 BEMANI 型号上，当您选择某些难度级别时，声源将替换为该原型版本。",
-   "标题“with DJ YOSHITAKA” 在jubeat上通关所有困难即可获得的标题。 Jubeat还有“与朱雀”，可以通过所有乐谱的完整组合来获得。顺便说一句，在《Alstroemeria》中，jubeat 中的两个标题都用作 CHUNITHM 中在几乎相同条件下可以获得的标题（详细信息请参见歌曲页面）。"
+   "ND 名义（ULTIMA）「with Phoenix」（小鳥遊さん）：对下列「with DJ YOSHITAKA」的恶搞。",
+   "称号「朱雀」：DJ YOSHITAKA 使用的别名之一；初出是 beatmania IIDX 13 DistorteD 中 5 名艺人以传说之兽名字为名义提供 Boss 曲的活动「CARDINAL GATE」所用的名义。",
+   "称号「-prototype-」：本曲另一改编版的副标题；BEMANI 机种中选择部分难度时音源会切到这个 prototype 版。",
+   "称号「with DJ YOSHITAKA」：jubeat 中全难度全清可获得的称号；jubeat 中还有全谱面 FULL COMBO 可获得的「with 朱雀」；另谈，《アルストロメリア》中 jubeat 的两种条件称号在 CHUNITHM 也以几乎相同条件作为可获得称号使用。"
   ]
  },
  "神威": {
@@ -33452,31 +33452,31 @@
     "13.5"
    ]
   ],
-  "wiki_comment_zh": "2018/5/10~6/6活动「东方 Extra2 合作 活动」先行发行歌曲。\n2022/7/14 新增 ULTIMA\nComic Market 77发行的CD“Starry Presto”中收录的歌曲。\n之后，它被收录在《Hosooi Best》、《Halozy Best vol.1》等作品中。\n在CHUNITHM，同一张专辑的《Hosooi Crazy Fran-chan ga Hoso Uta》中也使用了同样的夹克。\n编曲：Sumijun (Halozy)\n作词：Izumin（EastNewSound）\n声优：七平",
+  "wiki_comment_zh": "2018/5/10～6/6 活动「东方 Extra2 联动活动」先行配信曲。\n2022/7/14 追加 ULTIMA\n收录于 Comiket 77 颁布的 CD《Starry Presto》。\n之后也收录于《物凄いベスト》《Halozy Best vol.1》等。\n在 CHUNITHM 中，同曲绘也被同专辑收录的《物凄い狂っとるフランちゃんが物凄いうた》使用。\n编曲：すみじゅん(Halozy)\n作词：いずみん(EastNewSound)\n演唱：ななひら",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "知识和历史的半兽",
+    "知识与历史的半兽",
     "全部位于主控/播放下方"
    ],
    [
-    "拉米！邪恶之眼要出来了！ ！",
+    "らめええ！邪気眼出ちゃいまひゅううう！！",
     "大师 / 速度索尼克 / 实现正义"
    ],
    [
-    "海♂海",
+    "ホイ♂ホイ",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "以 ND (MAS) 名义模仿歌曲标题《Mr.》 S 凭借令人惊叹的滑梯取得了惊人的成绩”（S 先生）。",
-   "ND 名称 (ULT) “Redarrow 是一个令人惊叹的乐谱，具有令人惊叹的 ULTIMA”(Redarrow) 与上面相同。",
-   "标题是“知识与历史的半兽”，这是神白泽庆音的双名。原曲是她作为boss出场时的BGM。",
-   "标题：“Rameee！邪眼出现！”歌中的台词。除了歌曲数量有限外，条件与片名《Evil Eye》一模一样，也是笑点之一。",
-   "来自标题“Hoi♂Hoi”的歌词。最初的故事来自所谓的“摔跤系列”。"
+   "ND 名义（MASTER）「物凄いスライドでS氏が物凄い譜面」（某S氏）：曲名的恶搞。",
+   "ND 名义（ULTIMA）「物凄いULTIMAで赤矢が物凄い譜面」（Redarrow）：同上。",
+   "称号「知識と歴史の半獣」：上白沢慧音 的别名，原曲是她作为 Boss 登场关卡的道中 BGM。",
+   "称号「らめええ！邪気眼出ちゃいまひゅううう！！」：曲中台词；除限定曲外条件与称号「邪気眼」完全相同，这也是一个梗。",
+   "称号「ホイ♂ホイ」：出自歌词；梗源是所谓「レスリングシリーズ」的空耳。"
   ]
  },
  "Wake up Dreamer": {
@@ -36547,7 +36547,7 @@
     "12.0"
    ]
   ],
-  "wiki_comment_zh": "2008年在第5届博丽神社例祭祭上发行的《东方绫坂～Touch of Air～*1》中收录的歌曲。",
+  "wiki_comment_zh": "收录于 2008 年第五回博丽神社例大祭颁布的《東方絢彩歌 ～Touch of Air～》。",
   "titles_zh": [
    [
     "称号",
@@ -36563,9 +36563,9 @@
    ]
   ],
   "origins_zh": [
-   "以ND（MAS）名义“S.S. Prism River”（Mr. S）以原曲为BGM的《东方幽幽梦》中的角色“棱镜河三姐妹”的名字（〇〇·Prism River）为基础的戏剧。",
-   "标题：《当你不舒服的时候，我们一起做》",
-   "标题：“看，你做得很好，对吧？”这就是你的节奏。”两者都是歌曲的歌词。"
+   "ND 名义（MASTER）「エスシ・プリズムリバー」（某S氏）：对原曲被用作 BGM 的《東方妖妖夢》角色「プリズムリバー三姉妹」名字形式（〇〇・プリズムリバー）的恶搞。",
+   "称号「元気が出ないときは一緒にやろう」",
+   "称号「ほら うまくできたでしょ？ それが君のリズム」：都是曲中歌词。"
   ]
  },
  "G e n g a o z o": {
@@ -41602,7 +41602,7 @@
     "12.5"
    ]
   ],
-  "wiki_comment_zh": "发布于 2008 年 1 月/6 月（第一版/转发）。累计播放量已达100万次。\n2010年发行的专辑《EXIT TUNES PRESENTS Vocalolegend feat.初音未来（*音量警告）》中的一首歌曲。\n封面艺术来自初音未来 Project DIVA Arcade 的原创 PV。\nStargazer在英语中的意思是“星星观察者”。换句话说，它的意思是“天文学家”、“占星家”、“梦想家”等。\n使用VOCALOID：初音未来\n可能：观星者\n可能：观星者\nStargazeR（Pelvis P 的 VOCALOID 歌曲）\n傍晚的平安京观星者（英洁大仙之歌）",
+  "wiki_comment_zh": "2008 年 1 月/6 月投稿（初版/再投稿），两者合计达成百万。\n收录于 2010 年发售专辑《EXIT TUNES PRESENTS Vocalolegend feat. 初音ミク（※注意音量）》。\n曲绘来自初音ミク Project DIVA Arcade 首次出现的独自 PV。\nstargazer 英语意为「星之观测者」，转指「天文学家」「占星师」「梦想家」等。\n使用 VOCALOID：初音未来",
   "titles_zh": [
    [
     "称号",
@@ -41614,8 +41614,8 @@
    ]
   ],
   "origins_zh": [
-   "以ND（MAS）名义“向流星挥手的企鹅”（Roche@Penguin）出自歌曲中的歌词“向流星挥手”。",
-   "标题：“只要大葱就够了”这是这首歌的著名PV。曾经有一段时间，它太出名了，以至于原曲视频的标题都改成了这个。"
+   "ND 名义（MASTER）「流星に手を振るペンギン」（ロシェ@ペンギン）：来自曲中歌词「流星に手を振って」。",
+   "称号「ねぎだけでじゅうぶんですよ」：本曲有名的 PV；太有名了，原曲视频标题一度变成了这个。"
   ]
  },
  "ゴーストルール": {
@@ -42258,21 +42258,21 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "商品活动附赠CD“GO！GO！Tunism♥”中的预录歌曲。\n作词：七条生菜（IOSYS）\n作曲：t+pazolite\n排列：D.watt(IOSYS)\n也许：奥沙马\n也许：奥沙马\n奥沙马争夺！ （t+pazolite 的《激舞》歌曲）\n奥沙马争夺！ （胡思乱想混音）\n坐在这里吧！奥沙马争夺！ （Irodori Midori 封面的 Oshama Scramble！）\nOshamana Princess（由 Shu feat. Nanami Urara 创作的原创歌曲）",
+  "wiki_comment_zh": "周边活动特典 CD《ＧＯ！ＧＯ！チュウニズム♥》先行收录曲。\n作词：七条レタス(IOSYS)\n作曲：t+pazolite\n编曲：D.watt(IOSYS)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "荠菜不错",
+    "なずなちゃん很棒哦",
     "全部位于主控/播放下方"
    ]
   ],
   "origins_zh": [
-   "模仿 ND 名称 (MAS)“Jack, Kumicho & Nekogyotei Pichineko”(Jack, Pichineko) 和艺术家名称“Nazuna Master & Kobutotei Channagi”。",
-   "“荠酱太棒了”这个标题是千真万确的。",
-   "最初的故事是一个网络迷因。关于它的起源有多种说法，但当动画《少女与战车》的电影版上映时，粉丝们开始在社交媒体上发推文“加鲁潘很好”以传播信息，它开始流行。目前，无论是什么类型，对于个人认为好的事物，说“〇〇好”已经成为一种既定的语法。"
+   "ND 名义（MASTER）「じゃっく組長＆猫魚亭ぴちねこ」（Jack、ぴちネコ）：对艺人名义「なずな師匠＆小仏亭ちゃんなぎ」的恶搞。",
+   "称号「なずなちゃんはいいぞ」：完全就是这么回事。",
+   "梗源是网络梗；由来有多种说法，动画《ガールズ＆パンツァー》剧场版上映时粉丝为推广在 SNS 上开始说「ガルパンはいいぞ」而大为流行；现在不限领域，固定为对自己觉得好的各种事物说「〇〇はいいぞ」的句式。"
   ]
  },
  "ウサテイ": {
@@ -46133,10 +46133,10 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "作为“第4届天下一园游戏祭”太鼓之达人部门决赛的预发行歌曲而出现的歌曲。\n歌曲封面是首次发行时新绘制的*1。\n夹克上描绘的手臂和腿的 Don-chan 是 Tateru Don，他是在 Taiko Team 首次直播“Konna Wada Don Hai Iya~Da Don”的 Ogiri 环节中创建的角色。\n后来它正式出现在CS版太鼓达人的DLC中，并一直被当作笑话来喜爱，出现在《Famista》和《铁拳》等其他万代南梦宫游戏中。\n顺便说一句，《Taiko no Tatsujin》的英文版被称为“Taiko Drum Master”。\n作词/作曲/编曲：steμ\n吉他：井上卓\n基地：私人山\n主唱：西罗亚\n点赞：siroa・steμ・增渕雄二",
+  "wiki_comment_zh": "作为「第四回天下一音ゲ祭」太鼓の達人 部门区块决胜先行配信曲登场。\n乐曲曲绘是初出时新绘的。\n曲绘上长手脚的どんちゃん 是太鼓团队首次直播的「こんな和田どんはいや～んだど～ん」大喜利环节中诞生的角色「立つドン」。\n后来在 CS 版太鼓の達人 DLC 正式登场，还出现在万代南梦宫其他游戏ファミスタ 与鉄拳 里，作为梗角色受喜爱。\n另谈，太鼓の達人 英文版名是「Taiko Drum Master」。\n作词・作曲・编曲：steμ\n吉他：Taku Inoue\n贝斯：自営山\n演唱：siroa\n吆喝：siroa・steμ・増渕裕二",
   "origins_zh": [
-   "ND 名称（MAS）“Magistrate Bugyo”（寿喜烧 Bugyo） 对原始模型“Taiko no Tatsujin”的模仿。",
-   "ND名称（WE邀请）“Oni ★★★★★★★★★★” 基于太鼓达人中这首歌的Oni记谱的难度。顺便说一句，原曲是由作曲家 steμ 创作的。"
+   "ND 名义（MASTER）「奉行の達人」（すきやき奉行）：对移植源机种「太鼓の達人」的恶搞。",
+   "ND 名义（WE 招）「おに ★★★★★★★★★★」：来自太鼓の達人 中本曲鬼表谱面的难度；另，再现源谱面是作曲者 steμ 制作的。"
   ]
  },
  "Blooming Villain (ATLUS Konishi Remix)": {
@@ -49698,21 +49698,21 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "2024/8/1 新增 ULTIMA\n发布于2018年2月27日。同年4月浏览量达到100万次。\n演唱：镜音凛、干人P",
+  "wiki_comment_zh": "2024/8/1 追加 ULTIMA\n2018 年 2 月 27 日投稿，同年 4 月达成百万播放。\n演唱：鏡音リン・みきとP",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "别死，我们彼此吧",
+    "彼此可都别死啊",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "以ND（ULT）名义“生存并射击的企鹅”（Roche@Penguin）第2首歌的歌词：“这是为了生存，Kimero拍一张‘自拍’”和“让我们射击我们面前的那个女孩。”然而，这部分是按照CHUNITHM记录的尺寸切割的。",
-   "ND 名称（WE 折扣）“Wariwari no Rock'n'Roll”歌词来自“Loki Loki's Rock'n'Roll”。",
-   "标题：“不要死，让我们成为彼此”来自歌词和歌曲摘要部分。"
+   "ND 名义（ULTIMA）「生き抜き撃ち抜くペンギン」（ロシェ@ペンギン）：来自第 2 段歌词「生き抜くためだ キメろ Take a \"Selfy\"」与「さあ目の前のあの子を 撃ち抜いてみせろよ」；不过 CHUNITHM 收录尺寸剪掉了这段。",
+   "ND 名义（WE 割）「ワリワリのロックンロール」：歌词「ロキロキのロックンロール」。",
+   "称号「死ぬんじゃねえぞお互いにな」 歌詞及び楽曲の概要欄より。"
   ]
  },
  "Innocent Truth": {
@@ -71626,9 +71626,9 @@
     "14.7"
    ]
   ],
-  "wiki_comment_zh": "对应角色 耶洗贝尔·亚格鲁什\nPARADISE ep.I Genmae 课题曲 / Genji 地图课题曲\n于 2021 年 1 月 21 日添加，《天堂》ep.I 地图7原课题曲。\n这首歌是在Arcaea发行的同时在Arcaea上录制的，这是当时举行的Arcaea第2章合作活动*1上“立即相互录制每首新写的歌曲”的结果。\nAttraqtiA 已从 Arcaea 端移植。\n这首歌是作曲家前作《失落的文明》的续集。\n顺便说一句，在某个广播中曾有这样的轶事，由于歌曲的长度，BPM 比初稿增加了 28 点。",
+  "wiki_comment_zh": "对应角色：イゼヴェル・ヤグルーシュ\n2021/1/21 追加，PARADISE ep.I 地图 7 元课题曲。\n因当时举办的 Arcaea Chapter 2 联动活动中「各自专门创作曲即时相互收录」的尝试，配信同时收录到 Arcaea。\nArcaea 侧移植了《AttraqtiA》。\n是同作曲者旧作《Lost Civilization》的续篇性乐曲。\n另谈，因乐曲时长关系，听说 BPM 比初期方案提高了 28。",
   "origins_zh": [
-   "ND 名称 (MAS) ``Magistrate vs A Lucidness'' (Sukiyaki Bugyo) 模仿作曲家名字``Laur vs CK''。"
+   "ND 名义（MASTER）「Magistrate vs A Lucidness」（すきやき奉行）：对作曲者名义「Laur vs CK」的恶搞。"
   ]
  },
  "Cyaegha": {
@@ -72806,20 +72806,20 @@
     "14.8"
    ]
   ],
-  "wiki_comment_zh": "「第5届天下游戏祭」舞舞分区锦标赛决赛课题曲\n2021/2/21~11/4 麦麦Derax联动预发行歌曲\n作为“第5届天下一园游戏节全国顶级对战”的maimai分区决赛课题曲首次发布的歌曲，并在maimai FiNALE的活动“PANDORA BOXXX”（PHASE＃3）中正式实现。\n该版本对应“maimai PiNK”，定位为歌曲“AMAZING MIGHTYYYY！！！”的后继者。由同一作曲家创作。\n这首歌的标题是拉丁语，意思是“骰子已经铸成。”\n分类是“PDM”。",
+  "wiki_comment_zh": "「第五回天下一音ゲ祭」maimai 部门大会最终课题曲\n2021/2/21～11/4 maimai でらっくす联动先行配信曲\n作为「第五回天下一音ゲ祭 全国顶上决战」maimai 部门决胜战课题曲首次公开，在 maimai FiNALE 活动「PANDORA BOXXX」(PHASE#3) 正式实装。\n版本对应「maimai PiNK」，定位为同作曲者《AMAZING MIGHTYYYY!!!!》的后继曲。\n曲名拉丁语意为「骰子已掷出」。\n曲风是「PDM」。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "骰子被扔了",
+    "骰子已掷出",
     "达到大师/等级 SSS"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS)“SukiyakY fused with HABaKURO”（Sukiyaki Bugyo，Amino Habakiri）模仿歌曲艺术家名称“BlackY fused with WAiKURO”。 “fused with”的意思是“与……融合”。",
-   "标题《The Dice Was Thrown》源自上述歌曲标题的含义。顺便说一句，WAiKURO 的专辑《ULT!MATE END》包含 xi 这首歌的混音版。但 xi 不能被抛出"
+   "ND 名义（MASTER）「SukiyakY fused with HABaKURO」（すきやき奉行、アミノハバキリ）：对本曲艺人名「BlackY fused with WAiKURO」的恶搞；「fused with」意为「与～融合」。",
+   "称号「賽は投げられた」：如上所述来自曲名含义；另谈，WAiKURO 专辑《ULT!MATE END》收录了 xi 对本曲的混音。不过 xi 是掷不出去的。"
   ]
  },
  "Viyella's Tears": {
@@ -79757,19 +79757,19 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "对应角色 伊芙琳娜\n天堂 ep.IV 玄前 地图课题曲 / 原次课题曲\n于 2021 年 7 月 21 日添加，《天堂》第 IV地图1原课题曲。\n2025/9/13 新增 ULTIMA *1\n在Ongeki商品活动中分发的CD“ONGEKI Memorial Soundtrack Nexture 04 'Spica'”包括Bitter Flavor（樱井春菜、早乙女彩香）翻唱的“Harushi Night（Ongeki Shooters主演）”版本，该版本随后被收录在2026年9月17日举行的活动原始排名中。这首翻唱歌曲被录制为活动相关歌曲之一。",
+  "wiki_comment_zh": "对应角色：エヴェリーナ\n2021/7/21 追加，PARADISE ep.IV 地图 1 元课题曲。\n2025/9/13 追加 ULTIMA\n音击周边活动发放 CD《ONGEKI Memorial Soundtrack Nexture 04『Spica』》收录了 bitter flavor（桜井春菜・早乙女彩華）的翻唱版《ハルシナイト（starring オンゲキシューターズ）》，后来在 2026/9/17 举办的原创排行活动中该翻唱曲作为活动相关乐曲之一收录。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "如果我能用月亮的魔力在你眼中看到它，我不介意化为灰烬。",
+    "若能用月之魔法映在你眼里，即使化成灰也好",
     "达成 ULTIMA /RANK SSS"
    ]
   ],
   "origins_zh": [
-   "标题：“如果我能通过月亮的魔力在你眼中看到它，我不介意化为灰烬。”来自歌词。"
+   "称号「月の魔法でその目に映るのなら灰になってしまってもいい」：出自歌词。"
   ]
  },
  "Dark Diver": {
@@ -82191,21 +82191,21 @@
    "称号「出航ー！(ヨーソロー！)」 宝鐘マリンの配信における配信終了時の掛け声。 「出航ー！」とコールしたらリスナー側が「ヨーソロー！」と返すのがお約束となっている。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 3 | 6 | 10 | 13.9\n【取得できる称号】\n称号 | 条件\n出航ー！(ヨーソロー！) | MASTER以下全て/プレイ\n【ND名義・称号の由来】\n- ND名義(MAS)「ものくろっく@宝鐘の一味」(ものくろっく) 宝鐘の一味はホロライブのVtuberである宝鐘マリンのリスナーを指す名称。\n- なお、ものくろっくがMASTER譜面の制作を担当しているのは これまでの ホロライブ 関連楽曲 と同様である。\n- 称号「出航ー！(ヨーソロー！)」 宝鐘マリンの配信における配信終了時の掛け声。 「出航ー！」とコールしたらリスナー側が「ヨーソロー！」と返すのがお約束となっている。",
-  "wiki_comment_zh": "Hololive Productions 的东方电视剧 CD 项目“#Gensokyo Holoism”中的一首歌曲。\n由于也是安排，东方Project在分类的分类中优先。\nHololive Production的Vtuber、Pekora Usada、Rushia Junha、Flair Shiranui和Noel Shirogane以“Holism Fantasy”的身份参加（歌曲录制时）。\n此外，与其他游戏中包含的“#Gensokyo Holoism”歌曲一样，封面图像是专辑封面的修改版本。\n作词及编曲：击败马里奥和马龙\n赛道制作：Maron (IOSYS)",
+  "wiki_comment_zh": "是 hololive production 东方广播剧 CD 企划「#幻想郷ホロイズム」的乐曲。\n因也是改编，曲风分类优先归东方 Project。\n作为（收录当时的）「ホロイズムファンタジー」，hololive production 所属 VTuber 兎田ぺこら、潤羽るしあ、不知火フレア、白銀ノエル 参加。\n另，与其他收录到游戏里的「#幻想郷ホロイズム」乐曲一样，曲绘是改自专辑封面的。\n作词・编曲：ビートまりおとまろん\nTrack make：まろん (IOSYS)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "启航！ （哟索罗！）",
+    "出航——！（Yosoro——！）",
     "全部位于主控/播放下方"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) ``Monokrock@Hosho no Ichimi'' (Monocrock) Hoshou no Ichimi 是指 Hololive 的 Vtuber Hosho Marine 的听众的名字。",
-   "此外，Monokuroku 负责制作 MASTER 乐谱，就像他们之前制作 Hololive 相关歌曲一样。",
-   "标题：“Sail Out！（Yosoro！）” 凤生海军广播结束时的一声喊叫。听者通常会用“Yo soro！”来回应。当你喊“扬帆远航！”时。"
+   "ND 名义（MASTER）「ものくろっく@宝鐘の一味」（ものくろっく）：宝鐘の一味 指 hololive VTuber 宝鐘マリン 的观众。",
+   "另，ものくろっく 负责 MASTER 谱面制作，与以往 hololive 相关乐曲一样。",
+   "称号「出航ー！(ヨーソロー！)」：宝鐘マリン 直播结束时的吆喝；喊「出航ー！」时观众回「ヨーソロー！」是约定俗成。"
   ]
  },
  "A Site De La Rue": {
@@ -89583,7 +89583,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "智能手机应用游戏“Uma Musume Pretty Derby”的主题曲。\n在动画中，它被用作第一季第13集、第三季最后一集的特别ED，以及第二季最后一集的插入曲。\n《CHUNITHM》的音源是专辑《STARTING GATE 01》中收录的Special Week Silence Suzuka Toukaiteio演唱的版本。\n顺便说一下，有一些赛马名为“Uma Pyoi”和“Uma Dutch”，源自这首歌的歌词。\n作词、作曲、编曲：本田晃宏（Cygames）",
+  "wiki_comment_zh": "手游《ウマ娘 プリティーダービー》主题曲。\n动画中用作第 1 季第 13 话及第 3 季最终话的特殊 ED，也用作第 2 季最终话插入歌。\nCHUNITHM 收录音源是专辑《STARTING GATE 01》收录的スペシャルウィーク・サイレンススズカ・トウカイテイオー 演唱版。\n另，源自本曲歌词，现实中有名为「ウマピョイ」「ウマダッチ」的赛马。\n作词・作曲・编曲：本田晃弘(Cygames)",
   "titles_zh": [
    [
     "称号",
@@ -89594,14 +89594,14 @@
     "在 1 个积分内玩完所有 Umapoyi Legends。"
    ],
    [
-    "乌马约伊 乌马约伊",
+    "うまぴょい うまぴょい",
     "Umapoyi Legend/与设定了“Umadachi”称号的玩家进行店内匹配"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“[中二学园]凤凰红”（Kotoriyu，Redarrow，Mistletin）在“Uma Musume Pretty Derby”的应用程序版本中，稀有度R的支持卡的卡名统一为“[Toresen Academy]（角色名称）”。顺便说一下，根据JRA的规则，赛马的片假名名称必须在9个字符以内，而这个ND名称也遵循这些规则。",
-   "标题：《Umadachi》出自经常插入这首歌的手。虽然目前尚不清楚“Umadachi”的含义，但可以推测它是“马”和“朋友”的组合。",
-   "标题：“Umapyoi Umapyoi”来自歌曲 Ainote 的歌词。"
+   "ND 名义（MASTER）「[チュウニ学園] フェニックスレッド」（小鳥遊さん、Redarrow、ミストルティン）：因手游《ウマ娘》中支援卡 R 稀有度卡名统一为「[トレセン学園](角色名)」；另，赛马名字按 JRA 规则须在片假名 9 字以内，这个 ND 名义也遵循该规则。",
+   "称号「うまだっち」：来自本曲多次插入的吆喝；「うまだっち」是什么意思至今未明说，大概能推测是「馬」与「友達」组合的词。",
+   "称号「うまぴょい うまぴょい」：来自曲中歌词・吆喝。"
   ]
  },
  "うっせぇわ": {
@@ -90404,25 +90404,25 @@
    "称号「世界をかっ飛ばして三回転」 歌詞より。条件の楽曲は回転つながり。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 3 | 5 | 9+ | 12.2\n【取得できる称号】\n称号 | 条件\n妖術を扱う程度の能力 | MASTER以下全て/プレイ\n世界をかっ飛ばして三回転 | 回転 feat.あやぽんず＊/ からくりピエロ / CYCLES / MASTER / ALL JUSTICE 達成\n【ND名義・称号の由来】\n- ND名義(MAS)「廻り回ってじゃこレモン」(じゃこレモン) 歌詞「廻り回って 千回転」より。\n- 称号「妖術を扱う程度の能力」 対応キャラ「 橙 」の能力。\n- 称号「世界をかっ飛ばして三回転」 歌詞より。条件の楽曲は回転つながり。",
-  "wiki_comment_zh": "2015年5月10日在例大祭上发行的专辑《那天我看着天空》中的一首歌曲。\nMeramipop担任这首歌曲的主唱，歌词灵感来自《订单多的餐厅》（宫泽贤治作词），PV于次年6月制作。\n该录音中包含的 Ayapons* 演唱的版本包含在 2016 年 12 月在 Comic Market 91 上发行的 CD 中，作为在会场购买《Shiawase Egoist》的先到先得的奖励。\n夹克是根据PV或这张附赠CD的标签设计的。\n演唱：阿亚蓬斯＊\n编曲/作词：kaztora",
+  "wiki_comment_zh": "收录于 2015/05/10 例大祭颁布的专辑《その日私は空を見上げた》。\n这个是めらみぽっぷ 演唱、以《注文の多い料理店》（宮沢賢治 作）为灵感的歌词，翌年 6 月制作了 PV。\n本次收录的あやぽんず＊ 演唱版，收录于 2016 年 12 月 Comiket 91 颁布的《シアワセエゴイスト》会场购买先到特典 CD。\n曲绘基于 PV 及该特典 CD 的 label 设计。\n演唱：あやぽんず＊\n改编・作词：kaztora",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "使用魔法的能力",
+    "使用妖术程度的能力",
     "全部位于主控/播放下方"
    ],
    [
-    "击败世界并旋转三圈",
+    "把世界轰飞转三圈",
     "旋转壮举.Ayaponzu＊/ Karakuri Clown / CYCLES / MASTER / ALL JUSTICE 实现"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) “Mawarimawite Jako Lemon”(Jako Lemon) 歌词来自“Mawarimawite 1,000 times”。",
-   "标题：“操纵魔法的能力”对应角色“橙色”的能力。",
-   "来自标题“三次击败世界”的歌词。条件之歌是旋转连接。"
+   "ND 名义（MASTER）「廻り回ってじゃこレモン」（じゃこレモン）：歌词「廻り回って 千回転」。",
+   "称号「妖術を扱う程度の能力」：对应角色「橙」的能力。",
+   "称号「世界をかっ飛ばして三回転」：出自歌词；条件乐曲都与回转相关。"
   ]
  },
  "SOUL 2 DIVIDE": {
@@ -93005,20 +93005,20 @@
     "14.1"
    ]
   ],
-  "wiki_comment_zh": "麦麦豪华版 上一页 课题曲 / 下一页 课题曲\n2022年4月28日新增“麦麦豪华版”区域3课题曲。清除它并获得“Derakkuma”。\n《maimai Deluxe PLUS》收录的歌曲。 分类 是玩具休闲休息室核心。\n永久千穗“Hajimari no Chiho 2”的预发行歌曲之一。\n这个概念和标题可能是受到 Mope Mope 的启发。\nBGA中出现了类似EmpErroR的对象，但关系未知。\n似乎没有一个明确的决定如何读它，作曲家说，“请把它读成“Mormol”。”什么？",
+  "wiki_comment_zh": "2022/4/28 追加，「maimai でらっくす」区域 3 课题曲，通关可获得「でらっくま」。\n《maimaiでらっくす PLUS》收录曲，曲风是トイブレイクラウンジコア。\n常设地区「はじまりのちほー2」先行配信曲之一。\n概念与标题大概是有意识到《もぺもぺ》。\nBGA 出现与 the EmpErroR 相似的道具，但关系不明。\n读法似乎没明确决定，作曲者说「读法请读『モ°ルモ°ル』」。啥？",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "观看时要小心",
+    "谨慎观看",
     "触发危险技能"
    ]
   ],
   "origins_zh": [
-   "ND (MAS) ``Su°Iro°Uya°'' (Suiroya) 的名字来自歌曲标题``Mole Molle''。",
-   "标题：“观看时注意” 上传到 YouTube 的官方 MV 的标题中附加了警告。然而，这实际上是事后的想法。"
+   "ND 名义（MASTER）「ス°イロ°ウヤ°」（翠楼屋）：由曲名「モ°ルモ°ル」而来。",
+   "称号「閲覧注意」：YouTube 上传官方 MV 标题上附的警告文；但其实当时是后加的。"
   ]
  },
  "蒼穹舞楽": {
@@ -104161,25 +104161,25 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "电视动画《Kill Me Baby》片头曲。",
+  "wiki_comment_zh": "TV 动画《キルミーベイベー》OP 主题曲。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "如果你没有完成完整的连击，我不介意你把我埋在树下。",
+    "如果没全连的话埋在树下也没关系哦",
     "店内两人配对/游戏中错过一次"
    ],
    [
-    "巴巴安",
+    "ババーン",
     "店内匹配的玩家设定了标题“如果你没有完成完整的连击，我不介意你把我埋在树下。”*无论你玩什么歌曲。"
    ]
   ],
   "origins_zh": [
-   "ND名称“Ryokto Lemon”（绿化委员会主席，Jako Lemon）艺术家名字的“Yasunato Sonya”的模仿。",
-   "标题：“如果你没有完成完整的连击，我不介意你把我埋在树下。”这来自于本书第五卷中Yasuna的台词，“如果你不印象深刻（看着樱花树），我不介意你把我埋在树下。”",
-   "标题“Babaan” 在上面的台词之后实际填充 Yasuna 的框架中出现的拟声声音。在网络上，这两幅图被称为二幅即时妙语，但实际上是从两幅四幅漫画中剪切和粘贴的，而妙语是索尼娅不是被樱花树感动，而是她被樱花树感动，被安奈挑衅，所以她把它埋在了树下。换句话说，我不是因为没有留下深刻的印象而埋葬它，而是即使我留下了深刻的印象，我还是埋葬了它。"
+   "ND 名义「りょっかとレモン」（緑化委員長、じゃこレモン）：对艺人名义「やすなとソーニャ」的恶搞。",
+   "称号「もしフルコンボしなかったら木の下に埋めてもらっても構わないよ」：来自单行本第 5 卷やすな 的台词「（看着樱花树）如果没感动的话，埋在树下也没关系哦」。",
+   "称号「ババーン」：上述台词后やすな 实际被埋的那格出现的拟声；网上以那两格作为即落两格闻名，但实际是把两篇四格漫画剪贴而成，并不是ソーニャ 没被樱花树感动，而是她看樱花树感动时被やすな 调侃，于是被埋在树下；也就是说不是没感动才埋，而是感动了还埋。"
   ]
  },
  "Rumbling hearts": {
@@ -106075,20 +106075,20 @@
     "13.9"
    ]
   ],
-  "wiki_comment_zh": "尽管这首歌本身是在 2015 年发布的，但近年来使用这首歌的舞蹈视频在 TikTok 上很受欢迎。\n舞蹈部分的旋律短语被《Internet Survivor》和《Come Quest》引用，后来被录制在Tunism中（前者连接到IOSYS，后者连接到miko）。\n作词：七条生菜（IOSYS）\n排列：D.watt(IOSYS)\n声音出现（*在这首歌中）\n琪露诺:巫女(另类结局)\n蕾米莉亚（酋长）：可可（无辜钥匙）\n咲也（刀）：96（IOSYS）\n广藿香（豆芽）：岩杉夏",
+  "wiki_comment_zh": "乐曲本身是 2015 年的，但近年用本曲的舞蹈视频在 TikTok 上火了。\n后来收录到 CHUNITHM 的《インターネットサバイバー》与《コメクエスト》都能看到舞蹈段旋律乐句的引用（前者与 IOSYS 有关、后者与 miko 有关）。\n作词：七条レタス(IOSYS)\n编曲：D.watt(IOSYS)\n声音出演（※本曲中）：チルノ:miko(Alternative Ending)／レミリア（署长）:ココ(Innocent Key)／咲夜（小刀）:96(IOSYS)／パチュリー（豆芽）:岩杉夏",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "让我给你们展示一下我的脚法吧！",
+    "好好见识我的腿技吧！",
     "实现专家/完整组合"
    ]
   ],
   "origins_zh": [
-   "以 ND (MAS) 名义“Jakolet 警察，出动！！” （Jako Lemon）歌词来自“Scarlet Police，dispatch!!”。",
-   "标题：“Atai no Ashiwaza Misaraseya！”来自歌词“Atai no Ashiwaza，Misaraseya~！”以及由此衍生的 TikTok 标签。"
+   "ND 名义（MASTER）「じゃこーレット警察、出動!!」（じゃこレモン）：来自歌词「スカーレット警察、出動!!」。",
+   "称号「あたいの足技みさらせやー！」：来自歌词「あたいの足技、見さらせや～！」及由此衍生的 TikTok 标签。"
   ]
  },
  "I'm so Happy": {
@@ -121243,25 +121243,25 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "Nico Nico Douga赞助的活动在“VokaColle 2022 Autumn”作曲类别中获得第二名，同时获得补充奖“Project Sekai Colored Stage! feat. Hatsune Miku”*1。\n这首歌采用了《Unwelcome School》的编曲，这是应用游戏《Blue Archive》的背景音乐，而音乐视频则模仿了当时流行的网络表情包。\n或许正因为如此，MV在脉脉录制时就出现了马赛克的情况。\n使用的音频库：Hoshikai、Kafu、Tohoku Kiritan (CeVIO AI)",
+  "wiki_comment_zh": "在 niconico 主办的『ボカコレ2022秋』作曲部门获第 2，作为副赏同时收录到 Proseka 的乐曲。\n全曲使用了应用游戏《ブルーアーカイブ》BGM《Unwelcome School》的改编，MV 里有很多当时流行的网络梗恶搞。\n因此收录到 maimai 时 MV 变成了满是马赛克。\n使用音声库：星界、可不、東北きりたん(CeVIO AI)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "别着急...!!!",
+    "别催我啦…!!!",
     "主控/速度索尼克/播放"
    ],
    [
-    "我是对的",
+    "正确的是我",
     "店内与 2 人或以上的人配对/获胜"
    ]
   ],
   "origins_zh": [
-   "以ND（MAS）名义“Sekaseka Lemon”（Jako Lemon）模仿下面的歌词“Sekasekase Nentite...！！！”",
-   "来自标题“Sekase ka tontete...!!!”的歌词。",
-   "标题：歌词中的“我是对的人”。原始素材是使用Chatty Hiroyuki Maker制作的声音MAD“东方蒸Mont Blanc”的歌词（？），并且是其修改版本。"
+   "ND 名义（MASTER）「せかせかレモン」（じゃこレモン）：对下列歌词「せかせかせんといて…!!!」的恶搞。",
+   "称号「せかせかせんといて…!!!」：出自歌词。",
+   "称号「正しいのは私」：出自歌词；梗源是用「おしゃべりひろゆきメーカー」做的音 MAD《強虫モンブラン》的歌词（？），这里是改写。"
   ]
  },
  "本物のヒーローとの戦い": {
@@ -122994,20 +122994,20 @@
     "15.2"
    ]
   ],
-  "wiki_comment_zh": "秘密区域：音乐游戏原课题曲\n添加2023/12/14，MISSION进行中提前解锁歌曲\n为电脑游戏“osu!”新创作的歌曲由 ppy Pty Ltd 开发。分类 是全口味。\n它被宣布为标准赛区世界锦标赛“osu!世界杯2020（OWC2020）”的课题曲决赛。\n在移植过程中，对原曲进行了重大剪辑，并对过渡部分进行了一些安排。\nCamellia 的专辑《U.U.F.O.》包含未编辑的长版本。",
+  "wiki_comment_zh": "Secret AREA：MUSIC GAME 元课题曲\n2023/12/14 追加，MISSION in progress 先行解禁曲\nppy Pty Ltd. 开发的 PC 游戏《osu!》专门创作曲，曲风是 Full-Flavor。\n作为 Standard 部门世界大赛「osu! World Cup 2020(OWC2020)」决胜最终课题曲发表。\n移植时对原曲大幅剪切并改编了部分段落衔接。\nかめりあ 专辑《U.U.F.O.》收录编辑前长版。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "决胜局",
+    "Tiebreaker",
     "实现全链条"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“Violetta+ω”（Violetta）“ω”是歌曲名称中包含的“Ω”的小写字母。",
-   "标题：“Tiebreaker” 体育比赛中无法决出胜负时用来决定胜负的一种方法。在海外举行的比赛等比赛中，当两名玩家积分相同时，其含义类似于突然死亡。这是事实上的最后一战，这首歌被写为《osu!》的 Tiebreaker 主题曲！ 2020 年世界杯。"
+   "ND 名义（MASTER）「Violetta+ω」（Violetta）：「ω」是曲名所含「Ω」的小写。",
+   "称号「Tiebreaker」：体育等比赛中未分胜负时决定胜负的手法；海外游戏大会里两名选手同分时会以类似突然死亡的意思使用；这是事实上的最终决战，本曲就是作为 OWC2020 的 Tiebreaker 课题曲创作的。"
   ]
  },
  "New York Back Raise": {
@@ -124599,9 +124599,9 @@
     "15.5"
    ]
   ],
-  "wiki_comment_zh": "对应角色 阿莎蕊雅/审判之火\n柳溪集 第 1 首 / 第 2 首 / 第 3 首\n“第五届KING of Performai”锦标赛决赛课题曲\nKING of Performai 过去的最终歌曲链接\n在“KING of Performai The 5th”决赛/CHUNITHM部门决赛中作为课题曲首次发行的歌曲。\n同一作曲家 C​​HUNITHM 原创歌曲《End Mark with Hope and Tears》的续集。\n在CHUNITHM官方全国大会上首演的CHUNITHM原创歌曲（KoP和Tenka Ichion Gesai）中，这是第一首不属于Metaverse标签的歌曲。",
+  "wiki_comment_zh": "对应角色：アストライア／審判の炎\nみぞれヤナギ Set 第 1 曲 / 第 2 曲 / 第 3 曲\n作为「KING of Performai The 5th」决胜大会・CHUNITHM 部门决胜战课题曲首次公开。\n是同作曲者 CHUNITHM 原创曲《エンドマークに希望と涙を添えて》的续篇。\n另，CHUNITHM 官方全国大会（KoP 及天下一音ゲ祭）首次公开的 CHUNITHM 原创曲中，非 Metaverse 厂牌的乐曲本曲是首次。",
   "origins_zh": [
-   "ND名称（MAS）“Mistillteinn vs Mizore尊重决赛选手和“Endmark””（Mistleteinn，Mizore Yanagi）“尊重决赛选手和“Endmark”意味着“尊重决赛选手和Endmark”。这可能是因为这首歌是KoP决赛的必需歌曲，并且是“带着希望和眼泪附加到结束标记”的续集。作为旁注，cosMo此前，曾在第4届天下一园游戏节的SDVX组决赛中提供过歌曲《GERBERA -For Finalists-》*1，虽然没有明确说明，但也有可能考虑到了这个标题。"
+   "ND 名义（MASTER）「Mistillteinn vs Mizore respect for Finalists and \"Endmark\"」（ミストルティン、みぞれヤナギ）：「respect for Finalists and \"Endmark\"」意为「向决赛晋级者与 Endmark 致敬」；大概因本曲是 KoP 决胜课题曲、且是《エンドマークに希望と涙を添えて》的续篇。另谈，cosMo 过去曾为第四回天下一音ゲ祭・SDVX 部门决胜提供《GERBERA -For Finalists-》；虽未明言，但本曲标题也可能有意识到。"
   ]
  },
  "不可解": {
@@ -134304,20 +134304,20 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "对应角色 冲突/风暴\n2024/12/19 ~ 2025/2/5 Arcaea 第4章先行发行歌曲。\n一首作为“Anomaly Song”出现的歌曲，是Arcaea付费附加内容包“Black Fate”中的隐藏歌曲之一。\n歌曲标题是一个由“Tempest”（风暴）+ -issimo（后缀，意思是“非常”）组成的新词。\n在Arcaea中，Future下面的Beyond和难度的夹克略有不同，CHUNITHM和Ongeki使用的是在Beyond夹克的基础上添加了Arcaea标志的夹克。",
+  "wiki_comment_zh": "对应角色：対立／Tempest\n2024/12/19～2025/2/5 Arcaea Chapter 4 先行配信曲。\n作为 Arcaea 付费追加内容包「Black Fate」隐藏曲之一「Anomaly Song」登场。\n曲名是「Tempest」（暴风雨）＋-issimo（表示「非常」的后缀）的造词。\nArcaea 中 Beyond 与 Future 以下难度曲绘略有不同，CHUNITHM 与音击使用以 Beyond 用曲绘为基础加 Arcaea logo 的。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "特大暴雨",
+    "极其猛烈的暴风雨",
     "达到大师/速度索尼克/等级S"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) ``The Tempest Blade'' (Amino Habakiri) 来自 Arcaea ``Finale - The Tempest'' 中 Beyond 乐谱的创作者名称。",
-   "据这首歌的开发者 Nitro 介绍，“（起源）是根据俄罗斯作曲家柴可夫斯基 1873 年创作的奇幻序曲《暴风雨》改编的。”"
+   "ND 名义（MASTER）「The Tempest Blade」（アミノハバキリ）：来自 Arcaea 中 Beyond 谱面谱师名义「Finale - The Tempest」。",
+   "那边开发者 Nitro 说「（由来）基于俄罗斯作曲家柴可夫斯基 1873 年作曲的幻想序曲《The Tempest》」。"
   ]
  },
  "激烈!!!!ファミレスガールは帰しま1000!!!!": {
@@ -138308,30 +138308,30 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "SEGA的卡牌动作游戏《英杰大战》中战斗时可以播放的BGM之一。\n“Stargazer”是原本只给原声带版本的副标题。\n可能：观星者\n可能：观星者\nStargazeR（Pelvis P 的 VOCALOID 歌曲）\n傍晚的平安京观星者（英洁大仙之歌）",
+  "wiki_comment_zh": "世嘉卡片动作游戏《英傑大戦》战斗中可播放的 BGM 之一。\n「Stargazer」本来只在原声带版加的副标题。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "突尼斯主义大师",
+    "中二节奏之士",
     "实现完整组合"
    ],
    [
-    "英雄呼唤英雄！ ！",
+    "英杰呼唤英杰！！",
     "店内2人以上匹配/实现全链条"
    ],
    [
-    "奇怪的商品有售",
+    "奇货可居",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“罗氏军对米斯特兰军”（Roche@Penguin，米斯特兰）再现一战中的匹配画面。",
-   "标题：“突尼斯士兵”源自大战期间给予朝圣者的称号“〇〇士兵”。",
-   "标题：《英雄呼唤英雄！！》来自英雄战争中抽卡的 SR 确认制作声音。",
-   "标题：“Kikaku Kaiju” 来自 ER 确认的英雄战争中抽卡的表演声音。"
+   "ND 名义（MASTER）「ロシェ軍 対 ミストルティン軍」（ロシェ@ペンギン、ミストルティン）：再现《英傑大戦》的匹配画面。",
+   "称号「チュウニズムの士」：来自该作的行脚称号「〇〇の士」。",
+   "称号「英傑は英傑を呼ぶっ！！」：该作抽卡 SR 确定演出语音。",
+   "称号「奇貨可居」：该作抽卡 ER 确定演出语音。"
   ]
  },
  "超最終鬼畜妹フランドール・S": {
@@ -146049,9 +146049,9 @@
    "ND名義(MAS)「nelge-fondue」(みぞれヤナギ？) 「nelge-fondue」はフランス語で「みぞれ」を意味するため、みぞれヤナギであると思われる。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 4 | 8+ | 13.7 | 15.2\n【ND名義・称号の由来】\n- ND名義(MAS)「nelge-fondue」(みぞれヤナギ？) 「nelge-fondue」はフランス語で「みぞれ」を意味するため、みぞれヤナギであると思われる。",
-  "wiki_comment_zh": "对应角色 莱纳斯·奥尔斯库拉\nVERSE ep.NEW 上一个 课题曲 / 下一个 课题曲\n添加了 2025/12/11，VERSE ep.NEW 区域6（截至进度 2/X-VERSE-X 为 455 个方块）课题曲。清除它即可获得“Renus Orscula”。\n福尔图娜（Fortuna）是罗马神话中的命运女神。\n谐谑曲是一种音乐形式，意思是“笑话”或“戏剧”。一般特点是语气俏皮、轻快、活泼。\n按名称排序时，与其他 Sibyl Seiki 厂牌歌曲不同，它属于《Scherzo》的《QRST》，而不是《〚Regression〛》的《Ka line》。按名称搜索时要小心。",
+  "wiki_comment_zh": "对应角色：レナス・オルスキュラ\n2025/12/11 追加，VERSE ep.NEW 区域 6（进度 2/X-VERSE-X 时点 455 格）课题曲，通关可获得「レナス・オルスキュラ」。\nフォルトゥーナ 是罗马神话中的命运女神。\nScherzo 是音乐形式之一，意为「玩笑」「嬉戏」；一般特征是有玩心、轻妙活泼的曲调。\n按名字排序时与其他シビュラ精霊記 厂牌乐曲不同，不归「〚回帰〛」的「か行」而属于「Scherzo」的「QRST」，按名字找时注意。",
   "origins_zh": [
-   "ND名称（MAS）``nelge-fondue''（雨夹雪柳？）``nelge-fondue''在法语中的意思是“雨夹雪”，所以它被认为是雨夹雪柳。"
+   "ND 名义（MASTER）「nelge-fondue」（みぞれヤナギ？）：「nelge-fondue」法语意为「みぞれ」，所以大概是みぞれヤナギ。"
   ]
  },
  "tHE uNcontRollaBle ciNdeRella": {
@@ -149918,9 +149918,9 @@
    "ND名義(MAS)「ミニミライト-Resistance-」(ミニミライト) 上記にもある通り、この曲が公開されたライブイベント「Re:ステージ! PRISM☆FESTIVAL!! vol.1 -Resistance-」から。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 2 | 6 | 9 | 12.6\n【ND名義・称号の由来】\n- ND名義(MAS)「ミニミライト-Resistance-」(ミニミライト) 上記にもある通り、この曲が公開されたライブイベント「Re:ステージ! PRISM☆FESTIVAL!! vol.1 -Resistance-」から。",
-  "wiki_comment_zh": "对应角色 珠洲岛有栖＆西馆白 *1\n音痛第7章 [WakeUP MakeUP FEVER!] 上一页 课题曲 / 下一页 课题曲\n于 2026 年 6 月 18 日添加，Ongeki 第 7 章 [WakeUP MakeUP FEVER!] 区域4（进度级别 2/X-VERSE-X 125 个方块）课题曲。通关后获得“珠洲岛有栖/一击！”\n音痛与手机音乐游戏《Re: Stage! Prism Step》合作的第三首新作，在2024年现场活动《Re: Stage! PRISM☆FESTIVAL!! vol.1 -Resistance-》中首次发行。\n作词：岛田葵",
+  "wiki_comment_zh": "对应角色：珠洲島有栖 & 西館ハク\n2026/6/18 追加，音击 Chapter7【WakeUP MakeUP FEVER!】区域 4（进度 2/X-VERSE-X 时点 125 格）课题曲，通关可获得「珠洲島有栖／いちげき！」。\n2024 年演出活动「Re:ステージ! PRISM☆FESTIVAL!! vol.1 -Resistance-」首次公开，是音击与手游《Re:ステージ！プリズムステップ》相互联动的专门创作曲第 3 弹。\n作词：島田葵",
   "origins_zh": [
-   "ND名称（MAS）“Mini Mi Light -Resistance-”（Mini Mi Light）如上所述，这首歌是从现场活动“Re:Stage！PRISM☆FESTIVAL!! vol.1 -Resistance-”中发布的。"
+   "ND 名义（MASTER）「ミニミライト-Resistance-」（ミニミライト）：如上所述，来自本曲公开的演出活动「Re:ステージ! PRISM☆FESTIVAL!! vol.1 -Resistance-」。"
   ]
  },
  "Pastel Sprinkles": {
