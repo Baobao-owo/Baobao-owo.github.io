@@ -43,7 +43,7 @@ for it in items:
             "internal": ("%.1f" % iv) if isinstance(iv, (int, float)) else "",
             "internalValue": iv,
             "designer": sh.get("designer") or "",
-            "notes": {"tap": None, "hold": None, "slide": None, "air": None, "flick": None, "total": None},
+            "notes": sh.get("notes") or {"tap": None, "hold": None, "slide": None, "air": None, "flick": None, "total": None},
             "regions": {"jp": True, "intl": True},
             "special": False,
         })

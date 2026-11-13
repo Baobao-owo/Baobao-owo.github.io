@@ -99,6 +99,26 @@ for (const row of missing) {
     return C2S_DESIGNERS[String(Number(songId)) + '_' + diffIdx] || '';
   };
 
+  // 物量：wiki 单曲页的「Lv / 総数 / 内訳」表
+  const wikiNotes = (w && Array.isArray(w.notes)) ? w.notes : [];
+  const attachNotes = (sheet, i) => {
+    const byLevel = wikiNotes.find((n) => String(n.level || '').trim() === String(sheet.level || '').trim());
+    const pick = byLevel || wikiNotes[i];
+    if (!pick) return;
+    const toNum = (v) => {
+      const n = Number(String(v == null ? '' : v).replace(/[^\d]/g, ''));
+      return Number.isFinite(n) && n > 0 ? n : null;
+    };
+    sheet.notes = {
+      tap: toNum(pick.tap),
+      hold: toNum(pick.hold),
+      slide: toNum(pick.slide),
+      air: toNum(pick.air),
+      flick: toNum(pick.flick),
+      total: toNum(pick.total),
+    };
+  };
+
   // 等级：优先游戏数据（数字 + levelDecimal），否则 wiki 列表
   const sheets = [];
   if (g) {
@@ -108,7 +128,9 @@ for (const row of missing) {
       if (!sh.level) continue;
       const internal = sh.levelDecimal ? Number(sh.level) + sh.levelDecimal / 100 : Number(sh.level);
       const idx = DIFF_KEYS.findIndex(([k]) => k === d);
-      sheets.push({ difficulty: d, level: String(sh.level) + (sh.levelDecimal ? '' : ''), internalValue: internal, designer: designerOf(idx) });
+      const sheet = { difficulty: d, level: String(sh.level) + (sh.levelDecimal ? '' : ''), internalValue: internal, designer: designerOf(idx) };
+      attachNotes(sheet, idx);
+      sheets.push(sheet);
     }
   }
   if (!sheets.length) {
@@ -116,7 +138,9 @@ for (const row of missing) {
       const lv = lvFromList[i];
       if (!lv || lv === '-') return;
       const num = Number(String(lv).replace(/\+/g, ''));
-      sheets.push({ difficulty: d, level: lv, internalValue: isNaN(num) ? null : num, designer: designerOf(i) });
+      const sheet = { difficulty: d, level: lv, internalValue: isNaN(num) ? null : num, designer: designerOf(i) };
+      attachNotes(sheet, i);
+      sheets.push(sheet);
     });
   }
 
