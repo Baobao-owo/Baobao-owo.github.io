@@ -1,10 +1,15 @@
 
+/* 桌面端默认隐藏抽屉（仅手机端启用） */
+.mnav-drawer,
+.mnav-overlay { display: none; }
+
 /* 手机端：左侧抽屉导航（RINNET / 落雪风格） */
 @media (max-width: 991px) {
   /* 关掉主题自带的下拉式菜单，统一走抽屉 */
   .navbar-collapse { display: none !important; }
 
   .mnav-overlay {
+    display: block;
     position: fixed;
     inset: 0;
     background: rgba(10, 18, 26, 0.45);
@@ -14,6 +19,7 @@
     z-index: 1040;
   }
   .mnav-drawer {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
