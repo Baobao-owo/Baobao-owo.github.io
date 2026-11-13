@@ -1,4 +1,4 @@
-﻿// 曲目导览：用公开数据集生成静态页面
+// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -49,6 +49,11 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const weDeletedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_we_deleted) || {};
   const weDeletedSet = new Set((weDeletedData.songs || []).map(function (x) { return normTitle(x.title); }));
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
+  // 补录的删除曲（wiki 配信終了 + 本地游戏数据封面）
+  const removedSongs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed_songs) || [];
+  (Array.isArray(removedSongs) ? removedSongs : []).forEach(function (s) {
+    removedIds.add(String(s.id));
+  });
 
   function normTitle(t) {
     return String(t)
@@ -86,7 +91,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     return out;
   }
 
-  const songs = d.songs.map(function (s, i) {
+  const allSongs = d.songs.concat(Array.isArray(removedSongs) ? removedSongs : []);
+  const songs = allSongs.map(function (s, i) {
     const extraEntry = extra[String(s.id)] || extra[String(s.title).trim()] || {};
     const cnMaxIdx = Math.max.apply(null, Array.from(cnVersions).map(function (v) { return versionIndex.has(v) ? versionIndex.get(v) : -1; }).concat([-1]));
     const cnEntry = cnSongMap[normTitle(s.title)] || null;
