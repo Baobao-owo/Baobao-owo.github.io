@@ -1950,3 +1950,5 @@ html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
   max-width: none;
   background: #2f3742;
 }
+
+.chuni-badge-we { min-width: 64px; padding: 3px 8px; }

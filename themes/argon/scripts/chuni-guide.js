@@ -194,6 +194,10 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
         });
         return stars;
       })(),
+      weAttr: (function () {
+        var hit = (e.raw.sheets || []).find(function (sh) { return /^【.*】$/.test(String(sh.difficulty)); });
+        return hit ? String(hit.difficulty).replace(/[【】]/g, '') : '';
+      })(),
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;

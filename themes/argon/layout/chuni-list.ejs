@@ -208,7 +208,7 @@
 
 		var html = pageRows.map(function (r) {
 			if (r.we && r.we.length && state.we) {
-				var stars = r.we.map(function (n) { return '<span class="chuni-badge chuni-badge-we">☆' + n + '</span>'; }).join('');
+				var stars = r.we.map(function (n) { return '<span class="chuni-badge chuni-badge-we">☆' + n + (r.weAttr ? ' ' + r.weAttr : '') + '</span>'; }).join('');
 				return '<a class="chuni-row" href="' + r.u + '">' +
 					'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 					'<div class="chuni-row-main"><div class="chuni-row-title">' + r.t + '</div>' +
