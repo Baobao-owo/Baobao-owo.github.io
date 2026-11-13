@@ -729,12 +729,16 @@
 		var out = [];
 		['e', 'm', 'u'].forEach(function (k) {
 			var hit = e && e[k];
+			var isCollab = !!(state.collab && state.designer && c && c[k] && c[k].indexOf(state.designer) !== -1);
+			// 合作优先：一张谱既是「署名归了他」又在合作名单里，就当合作处理，
+			// 否则「仅显示合作」会把它筛掉
+			if (isCollab) {
+				out.push({ d: k, kind: 'collab', people: c[k] });
+				return;
+			}
 			if (hit) {
 				if (state.designer && hit.who === state.designer) out.push({ d: k, kind: 'solo', who: hit.who });
 				else if (state.designerRaw && hit.raw === state.designerRaw) out.push({ d: k, kind: 'solo', who: hit.raw });
-			}
-			if (state.collab && state.designer && c && c[k] && c[k].indexOf(state.designer) !== -1) {
-				if (!out.some(function (x) { return x.d === k; })) out.push({ d: k, kind: 'collab', people: c[k] });
 			}
 		});
 		if (state.designerDiff !== 'all') out = out.filter(function (x) { return x.d === state.designerDiff; });
