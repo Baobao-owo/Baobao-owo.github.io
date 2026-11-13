@@ -1977,3 +1977,38 @@ html.darkmode .chuni-row-tag-ds { background: rgba(120, 170, 200, 0.18); color: 
 /* 谱面确认：等级定数右对齐，多行时看起来成一列 */
 .chuni-confirm-name { min-width: 176px; }
 .chuni-confirm-src { margin-left: auto; }
+
+/* 详细表：难度字母徽章固定尺寸、等级/定数分列居中 */
+.chuni-detail-table .chuni-badge-letter {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.chuni-detail-table .chuni-diff-name {
+  display: inline-block;
+  min-width: 82px;
+  vertical-align: middle;
+}
+.chuni-col-center { text-align: center; }
+.chuni-detail-table .chuni-lv { font-weight: 700; font-variant-numeric: tabular-nums; }
+.chuni-detail-table .chuni-iv { color: #8b98a5; font-size: 12px; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .chuni-detail-table th, .chuni-detail-table td { padding: 6px 4px; font-size: 12px; }
+  .chuni-detail-table .chuni-diff-name { min-width: 60px; font-size: 11px; }
+}
+
+/* 详细表：列宽与对齐 */
+.chuni-detail-table th, .chuni-detail-table td { text-align: left; }
+.chuni-detail-table th.chuni-col-center, .chuni-detail-table td.chuni-col-center { text-align: center; }
+.chuni-detail-table th:nth-child(1), .chuni-detail-table td:nth-child(1) { width: 26%; }
+.chuni-detail-table th:nth-child(2), .chuni-detail-table td:nth-child(2),
+.chuni-detail-table th:nth-child(3), .chuni-detail-table td:nth-child(3),
+.chuni-detail-table th:nth-child(4), .chuni-detail-table td:nth-child(4) { width: 11%; }
+.chuni-detail-table th:nth-child(5), .chuni-detail-table td:nth-child(5) { width: 41%; }

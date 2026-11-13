@@ -83,8 +83,9 @@
 					<thead>
 						<tr>
 							<th>难度</th>
-							<th>等级</th>
-							<th>物量</th>
+							<th class="chuni-col-center">等级</th>
+							<th class="chuni-col-center">定数</th>
+							<th class="chuni-col-center">物量</th>
 							<th>谱面作者</th>
 						</tr>
 					</thead>
@@ -92,12 +93,14 @@
 					<% sheets.forEach(function (sh) { %>
 						<%
 							const n = sh.notes || {};
-							const lvText = sh.internal && sh.internal !== sh.level ? sh.level + '（' + sh.internal + '）' : sh.level;
+							const lvText = sh.level;
+							const ivText = sh.internal && sh.internal !== sh.level ? sh.internal : '—';
 						%>
 						<tr>
-							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %>"><%= diffLetter[sh.difficulty] %></span> <span class="chuni-diff-name"><%= diffName[sh.difficulty] %></span></td>
-							<td class="chuni-lv"><%= lvText %></td>
-							<td><%= n.total || '—' %></td>
+							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %> chuni-badge-letter"><%= diffLetter[sh.difficulty] %></span> <span class="chuni-diff-name"><%= diffName[sh.difficulty] %></span></td>
+							<td class="chuni-lv chuni-col-center"><%= lvText %></td>
+							<td class="chuni-iv chuni-col-center"><%= ivText %></td>
+							<td class="chuni-col-center"><%= n.total || '—' %></td>
 							<td class="chuni-designer"><%= sh.designer && sh.designer !== '-' ? sh.designer : '—' %></td>
 						</tr>
 					<% }); %>
