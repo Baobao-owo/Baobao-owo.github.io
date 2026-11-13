@@ -48,13 +48,38 @@ function stripExPrefix(raw) {
   const out = s.replace(EX_PREFIX, '').trim();
   return out === s.trim() ? '' : out;
 }
+
+// 去空格、去首尾符号、去星号脚注、统一引号
+const squash = (s) => String(s || '').replace(/[\s\u3000]+/g, '').toLowerCase();
+function stripDecoration(raw) {
+  return String(raw || '')
+    .replace(/\s*[*＊]\s*\d*\s*$/g, '')
+    .replace(/^[\s\-–—－_~〜・:：]+/, '')
+    .replace(/[\s\-–—－_~〜・:：]+$/, '')
+    .replace(/[「」『』“”"]/g, '')
+    .trim();
+}
+
+// 去空格后的别名索引，用来吃「如月ゆかり」vs「如月 ゆかり」这种写法差异
+const aliasSquashed = new Map();
+for (const [k, who] of alias2who) aliasSquashed.set(squash(k), who);
+
+function lookupWho(raw) {
+  if (!raw) return '';
+  const variants = [];
+  const s = String(raw).trim();
+  variants.push(s, stripDecoration(s), stripExPrefix(s), stripDecoration(stripExPrefix(s)));
+  for (const v of variants) {
+    if (!v) continue;
+    const hit = alias2who.get(norm(v)) || aliasSquashed.get(squash(v));
+    if (hit) return hit;
+  }
+  return '';
+}
+
 function resolveWho(raw) {
   if (!raw) return '';
-  const direct = alias2who.get(norm(raw));
-  if (direct) return direct;
-  const stripped = stripExPrefix(raw);
-  if (stripped) return alias2who.get(norm(stripped)) || '';
-  return '';
+  return lookupWho(raw);
 }
 
 // 团队 / 合作团体名义：不是某个人，统一收进「团队名义」
