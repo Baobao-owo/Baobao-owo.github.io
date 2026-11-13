@@ -2084,3 +2084,58 @@ html.darkmode .post-content details.about-more {
 }
 .chuni-comment-box #giscus { width: 100%; }
 .chuni-comment-tip { font-size: 13px; color: #8a9aa6; }
+
+/* ---- 谱师筛选面板 ---- */
+.chuni-designer-toggle.opened { background: #eef4f8; border-color: #cfe0ea; color: #4f7f9c; }
+.chuni-designer-panel {
+  margin: 10px 0 4px;
+  padding: 12px 14px;
+  border: 1px solid #e5ecf2;
+  border-radius: 12px;
+  background: #fbfcfd;
+}
+.chuni-designer-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+.chuni-designer-heading { font-size: 13px; font-weight: 700; color: #4f7f9c; }
+.chuni-designer-heading em { font-style: normal; color: #3f4b57; font-weight: 600; }
+.chuni-designer-actions { display: flex; gap: 6px; }
+.chuni-designer-clear, .chuni-designer-close {
+  border: 1px solid #e5ecf2;
+  background: #fff;
+  color: #4f7f9c;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chuni-designer-clear:hover, .chuni-designer-close:hover { border-color: #9dbdd1; }
+.chuni-diff-chip {
+  border: 1px solid #e5ecf2;
+  background: #fff;
+  color: #5b6a78;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 6px 6px 0;
+}
+.chuni-diff-chip.active { background: #4f7f9c; border-color: #4f7f9c; color: #fff; }
+.chuni-designer-q { width: 100%; margin: 10px 0 8px; }
+.chuni-designer-grid { display: flex; flex-wrap: wrap; gap: 6px; max-height: 260px; overflow: auto; }
+.chuni-dz-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e5ecf2;
+  background: #fff;
+  color: #3f4b57;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chuni-dz-chip:hover { border-color: #9dbdd1; }
+.chuni-dz-chip.active { background: #4f7f9c; border-color: #4f7f9c; color: #fff; }
+.chuni-dz-n { opacity: .65; font-size: 11px; }
+.chuni-dz-none { color: #8b98a5; font-size: 12px; }
+.chuni-designer-loose { margin-top: 10px; }
+.chuni-designer-loose summary { cursor: pointer; font-size: 12px; color: #4f7f9c; margin-bottom: 6px; }
