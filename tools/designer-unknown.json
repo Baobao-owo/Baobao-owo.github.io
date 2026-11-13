@@ -1,39 +1,247 @@
 [
-  { "title": "鳥の詩", "diffs": ["m", "u"] },
-  { "title": "きゅびびびびずむ", "diffs": ["m"] },
-  { "title": "オーバーライド", "diffs": ["u"] },
-  { "title": "ブリキノダンス", "diffs": ["m"] },
-  { "title": "Galaxy Collapse", "diffs": ["m"] },
-  { "title": "taboo tears you up", "diffs": ["u"] },
-  { "title": "患部で止まってすぐ溶ける～狂気の優曇華院", "diffs": ["u"] },
-  { "title": "Grievous Lady", "diffs": ["m"] },
-  { "title": "BlythE", "diffs": ["u"] },
-  { "title": "Blackmagik Blazing", "diffs": ["m"] },
-  { "title": "夢と希望", "diffs": ["m"] },
-  { "title": "RE Aoharu", "diffs": ["m"] },
-  { "title": "Air", "diffs": ["u"] },
-  { "title": "Aleph-0", "diffs": ["u"] },
-  { "title": "E.V.E", "diffs": ["m"] },
-  { "title": "私たちは、花になる", "diffs": ["m"] },
-  { "title": "Excalibur ～Revived resolution～", "diffs": ["m"] },
-  { "title": "PANDORA PARADOXXX", "diffs": ["m"] },
-  { "title": "Verse X", "diffs": ["m"] },
-  { "title": "Garakuta Doll Play (sasakure.UK clutter remix)", "diffs": ["m"] },
-  { "title": "幾四音-Ixion-", "diffs": ["u"] },
-  { "title": "砂漠のハンティングガール♡", "diffs": ["u"] },
-  { "title": "《真紅》 ～ Pavane Pour La Flamme", "diffs": ["m"] },
-  { "title": "Chaotic Ørder", "diffs": ["m"] },
-  { "title": "神鳴", "diffs": ["m"] },
-  { "title": "Tru'nembra", "diffs": ["m"] },
-  { "title": "Everything Will Be One", "diffs": ["m"] },
-  { "title": "OUTRAGE", "diffs": ["m"] },
-  { "title": "輪廻玲々", "diffs": ["m"] },
-  { "title": "創 -汝ら新世界へ歩む者なり-", "diffs": ["m"] },
-  { "title": "轆轤首", "diffs": ["m"] },
-  { "title": "Sweet & Sour", "diffs": ["m"] },
-  { "title": "Phantom Crisis", "diffs": ["m"] },
-  { "title": "月葬", "diffs": ["m"] },
-  { "title": "YOUNITHM", "diffs": ["m", "u"] },
-  { "title": "Melodiniq", "diffs": ["e", "m", "u"] },
-  { "title": "Linked Tune", "diffs": ["e", "m"] }
+ {
+  "title": "《真紅》 ～ Pavane Pour La Flamme",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Air",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "Aleph-0",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "Blackmagik Blazing",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "BlythE",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "Chaotic Ørder",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "E.V.E",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Everything Will Be One",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Excalibur ～Revived resolution～",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Excalibur～Revived resolution～",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Galaxy Collapse",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Garakuta Doll Play (sasakure.UK clutter remix)",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Garakuta Doll Play(sasakure.UK clutter remix)",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Grievous Lady",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Linked Tune",
+  "diffs": [
+   "e",
+   "m"
+  ]
+ },
+ {
+  "title": "Melodiniq",
+  "diffs": [
+   "e",
+   "m",
+   "u"
+  ]
+ },
+ {
+  "title": "OUTRAGE",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "PANDORA PARADOXXX",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Phantom Crisis",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "RE Aoharu",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Sweet & Sour",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "taboo tears you up",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "Tru'nembra",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "Verse X",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "YOUNITHM",
+  "diffs": [
+   "m",
+   "u"
+  ]
+ },
+ {
+  "title": "オーバーライド",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "きゅびびびびずむ",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "ゴー・トゥ・大都会",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "ブリキノダンス",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "患部で止まってすぐ溶ける～狂気の優曇華院",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "幾四音-Ixion-",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "月葬",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "砂漠のハンティングガール♡",
+  "diffs": [
+   "u"
+  ]
+ },
+ {
+  "title": "私たちは、花になる",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "神鳴",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "創 -汝ら新世界へ歩む者なり-",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "鳥の詩",
+  "diffs": [
+   "m",
+   "u"
+  ]
+ },
+ {
+  "title": "夢と希望",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "輪廻玲々",
+  "diffs": [
+   "m"
+  ]
+ },
+ {
+  "title": "轆轤首",
+  "diffs": [
+   "m"
+  ]
+ }
 ]

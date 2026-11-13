@@ -121,7 +121,20 @@ for (const s of allSongs) {
     if (!raw) raw = fd[diff] || '';
     if (!raw) continue;
 
-    const who = resolveWho(raw) || teamOf(raw);
+    const UNKNOWN_WHO = '制作者不明';
+const unknownPos = new Map();
+const unknownFile = 'tools/designer-unknown.json';
+if (fs.existsSync(unknownFile)) {
+  for (const item of JSON.parse(fs.readFileSync(unknownFile, 'utf8'))) {
+    unknownPos.set(norm(item.title), new Set(item.diffs || []));
+  }
+}
+function isUnknownChart(titleKey, diff) {
+  const pos = unknownPos.get(titleKey);
+  return !!(pos && pos.has(diff));
+}
+
+const who = resolveWho(raw) || teamOf(raw) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';
