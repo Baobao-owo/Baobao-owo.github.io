@@ -29,6 +29,23 @@ for (const d of friend.designers || []) {
   for (const a of d.aliases || []) alias2who.set(norm(a), d.name);
 }
 
+// 名义前面挂的「【Ex】」是活动/复刻标记，不是另一个人：
+// 先原样查，查不到就去掉前缀再查一次。
+const EX_PREFIX = /^\s*(?:【\s*ex\s*】|\[\s*ex\s*\]|（\s*ex\s*）|\(\s*ex\s*\))\s*/i;
+function stripExPrefix(raw) {
+  const s = String(raw || '');
+  const out = s.replace(EX_PREFIX, '').trim();
+  return out === s.trim() ? '' : out;
+}
+function resolveWho(raw) {
+  if (!raw) return '';
+  const direct = alias2who.get(norm(raw));
+  if (direct) return direct;
+  const stripped = stripExPrefix(raw);
+  if (stripped) return alias2who.get(norm(stripped)) || '';
+  return '';
+}
+
 // 朋友的逐谱 charter（按曲名 + 难度）
 const DIFF_KEY = { EXPERT: 'e', MASTER: 'm', ULTIMA: 'u' };
 const friendCharts = new Map();
@@ -78,7 +95,7 @@ for (const s of allSongs) {
     if (!raw) raw = fd[diff] || '';
     if (!raw) continue;
 
-    const who = alias2who.get(norm(raw)) || '';
+    const who = resolveWho(raw);
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';
@@ -113,7 +130,7 @@ const loose = [...looseSongs.entries()]
 const seenLoose = new Set(loose.map((x) => norm(x.name)));
 for (const [k, who] of Object.entries(c2s)) {
   if (!who) continue;
-  if (alias2who.has(norm(who))) continue;
+  if (resolveWho(who)) continue;
   if (seenLoose.has(norm(who))) continue;
   seenLoose.add(norm(who));
   loose.push({ name: who, songs: 0, c2sOnly: true });
