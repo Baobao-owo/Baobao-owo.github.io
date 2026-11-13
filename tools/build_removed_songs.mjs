@@ -8,7 +8,7 @@ const norm = (s) =>
     .normalize('NFKC')
     .toLowerCase()
     .replace(/[\s\u3000]/g, '')
-    .replace(/[\[\]【】()（）「」『』!！?？'’”"・:：;；,，.。~～\-—_♣♠♥♦♡♢]/g, '');
+    .replace(/[\[\]【】()（）「」『』!！?？'‘’“”"・:：;；,，.。~～\-—_♣♠♥♦♡♢]/g, '');
 
 const missing = JSON.parse(fs.readFileSync('_tmp/wiki/missing_songs.json', 'utf8'));
 const game = JSON.parse(fs.readFileSync('_tmp/game/music.json', 'utf8'));
