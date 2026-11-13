@@ -226,11 +226,58 @@
 							</button>
 						<% }); %>
 					</div>
-					<a class="chuni-chart-link" id="chuni-chart-link" href="<%= previewSheets[0].url %>" target="_blank" rel="noopener">
+					<a class="chuni-chart-link" id="chuni-chart-link" href="<%= previewSheets[0].url %>" rel="noopener">
 						<img id="chuni-chart-img" src="<%= previewSheets[0].url %>" alt="谱面平面图" loading="lazy" />
-						<span class="chuni-chart-open">点击看大图 ↗</span>
+						<span class="chuni-chart-open">点击放大 ⤢</span>
 					</a>
-					<div class="chuni-chart-hint">上面只显示开头一段，点图片在新标签打开整张原图（可右键另存）；难度用上面的按钮切换。</div>
+					<div class="chuni-chart-hint">点图片在页面内放大查看（可拖动/滚动），难度用上面的按钮切换。</div>
+
+					<div class="chuni-lightbox" id="chuni-lightbox" hidden>
+						<div class="chuni-lightbox-bar">
+							<a class="chuni-lightbox-btn" id="chuni-lightbox-save" href="#" target="_blank" rel="noopener" download>保存原图</a>
+							<button type="button" class="chuni-lightbox-btn" id="chuni-lightbox-close" aria-label="关闭">关闭 ✕</button>
+						</div>
+						<div class="chuni-lightbox-body" id="chuni-lightbox-body">
+							<img id="chuni-lightbox-img" alt="谱面平面图" />
+						</div>
+					</div>
+
+					<script>
+					(function () {
+						var link = document.getElementById('chuni-chart-link');
+						var box = document.getElementById('chuni-lightbox');
+						var body = document.getElementById('chuni-lightbox-body');
+						var img = document.getElementById('chuni-lightbox-img');
+						var save = document.getElementById('chuni-lightbox-save');
+						var closeBtn = document.getElementById('chuni-lightbox-close');
+						if (!link || !box) return;
+
+						function open() {
+							var src = (document.getElementById('chuni-chart-img') || {}).src || link.getAttribute('href');
+							img.src = src;
+							save.href = src;
+							box.hidden = false;
+							document.documentElement.style.overflow = 'hidden';
+						}
+						function close() {
+							box.hidden = true;
+							img.src = '';
+							document.documentElement.style.overflow = '';
+						}
+
+						link.addEventListener('click', function (e) {
+							e.preventDefault();
+							open();
+						});
+						closeBtn.addEventListener('click', close);
+						box.addEventListener('click', function (e) {
+							if (e.target === box || e.target === body) close();
+						});
+						document.addEventListener('keydown', function (e) {
+							if (e.key === 'Escape' && !box.hidden) close();
+						});
+					})();
+					</script>
 				<% } %>
 				<% if (extra2.bili) { %>
 					<div class="chuni-preview-row">

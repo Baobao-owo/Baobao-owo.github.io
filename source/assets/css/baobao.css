@@ -1905,3 +1905,48 @@ html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
 /* 介绍正文保留换行，和日文逐行对齐 */
 .chuni-wiki-jp,
 .chuni-wiki-zh { white-space: pre-line; }
+
+/* 谱面平面图灯箱（站内放大，不跳转） */
+.chuni-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8, 12, 18, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+.chuni-lightbox[hidden] { display: none; }
+.chuni-lightbox-bar {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(16, 22, 30, 0.85);
+}
+.chuni-lightbox-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+  color: #eaf3fa !important;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.chuni-lightbox-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.chuni-lightbox-body {
+  flex: 1 1 auto;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px 12px 18px;
+}
+.chuni-lightbox-body img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  background: #2f3742;
+}
