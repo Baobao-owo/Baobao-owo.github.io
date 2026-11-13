@@ -38,6 +38,13 @@ for (const s of sections) {
   for (const r of s.rows) unknownRows.push({ title: r.title, diff: r.diff });
 }
 const unknownOut = new Map();
+// 和已有的清单合并，别把之前手工补过的条目覆盖掉
+const unknownFile = 'tools/designer-unknown.json';
+if (fs.existsSync(unknownFile)) {
+  for (const item of JSON.parse(fs.readFileSync(unknownFile, 'utf8'))) {
+    unknownOut.set(item.title, new Set(item.diffs || []));
+  }
+}
 for (const r of unknownRows) {
   if (!unknownOut.has(r.title)) unknownOut.set(r.title, new Set());
   unknownOut.get(r.title).add(r.diff);
