@@ -21,6 +21,18 @@ PENDING = r"D:\Deepseek work\blog\_tmp\collab-pending.json"
 # 用户已经确认过的个案：Jack the GAME 是 ぴちネコ 单人，不算合作
 SOLO_OVERRIDE = {"jack the game"}
 
+# 用户手工确认的难度（docx 没写、charter 也对不上的）
+MANUAL_DIFF = {
+    "蜘蛛の糸": ["m"],
+    "good bye, merry-go-round.": ["m"],
+    "da'at -the first seeker of souls-": ["m"],
+}
+
+# 用户补充的合作（docx 里没列到、或列成别的写法）
+MANUAL_COLLAB = {
+    "irony": {"m": ["Techno Kitchen", "Revo@LC"]},
+}
+
 DASH_RE = re.compile(r"\s*[-\u2010\u2011\u2012\u2013\u2014\u2015\uFF0D]\s*")
 
 
@@ -80,7 +92,7 @@ for p in doc.paragraphs:
         rows.append((cur, t))
 
 suffix_re = re.compile(r"(红|黑|紫)\s*$")
-explicit_map = {"红": "e", "黑": "m", "紫": "m"}
+explicit_map = {"红": "e", "黑": "u", "紫": "m"}
 
 collab = {}
 pending = []
@@ -136,6 +148,9 @@ for heading, line in rows:
     if explicit:
         diffs = [explicit]
         stats["explicit"] += 1
+    elif key in MANUAL_DIFF:
+        diffs = list(MANUAL_DIFF[key])
+        stats["explicit"] += 1
     else:
         c = norm(credit)
         hits = []
@@ -175,6 +190,12 @@ for key in list(collab.keys()):
         collab[key] = entry
     else:
         del collab[key]
+
+# 手工补充的合作条目（覆盖式合并）
+for key, entry in MANUAL_COLLAB.items():
+    tgt = collab.setdefault(key, {})
+    for d, who in entry.items():
+        tgt[d] = list(who)
 
 payload = {
     "stats": dict(stats, songs=len(collab), pending=len(pending)),
