@@ -129,6 +129,8 @@ custom_html_foot: |
       });
     })();
   </script>
+  <link rel="stylesheet" href="/assets/css/mobile-drawer.css?v=1">
+  <script src="/assets/js/mobile-drawer.js?v=1"></script>
 
 # 评论（先全关，以后要开再配）
 gitalk:
