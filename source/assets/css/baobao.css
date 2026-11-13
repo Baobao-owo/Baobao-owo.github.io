@@ -2028,3 +2028,59 @@ html.darkmode .chuni-toolbar-filters { border-top-color: #3a404b; }
 
 /* 等级 chip 等宽（含 + 号的一起） */
 .chuni-lv-chip { min-width: 44px; padding: 4px 0; text-align: center; }
+
+/* ===== 关于我页面（source/about/index.md） ===== */
+.post-content img {
+  display: block;
+  margin: 4px auto 0;
+  border-radius: 8px;
+}
+.post-content .about-cap {
+  margin: 8px 0 26px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #7c8b98;
+}
+html.darkmode .post-content .about-cap { color: #97a3ae; }
+
+.post-content details.about-more {
+  margin: 24px 0 18px;
+  padding: 14px 20px 6px;
+  border: 1px solid rgba(79, 127, 156, .24);
+  border-radius: 10px;
+  background: rgba(79, 127, 156, .05);
+}
+html.darkmode .post-content details.about-more {
+  border-color: rgba(120, 170, 200, .28);
+  background: rgba(120, 170, 200, .07);
+}
+.post-content details.about-more > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #4f7f9c;
+  outline: none;
+  list-style: none;
+  margin-bottom: 4px;
+}
+.post-content details.about-more > summary::-webkit-details-marker { display: none; }
+.post-content details.about-more > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform .2s ease;
+}
+.post-content details.about-more[open] > summary { margin-bottom: 16px; }
+.post-content details.about-more[open] > summary::before { transform: rotate(90deg); }
+
+/* ---- 曲目页评论区 ---- */
+.chuni-comment-section { margin-top: 26px; }
+.chuni-comment-box {
+  background: #fff;
+  border: 1px solid #e6eef3;
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 120px;
+}
+.chuni-comment-box #giscus { width: 100%; }
+.chuni-comment-tip { font-size: 13px; color: #8a9aa6; }
