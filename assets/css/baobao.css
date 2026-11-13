@@ -2165,3 +2165,55 @@ html.darkmode .post-content details.about-more {
 /* ---- 合作谱开关 ---- */
 .chuni-diff-chip.chuni-collab-chip.active { background: #6a8f5f; border-color: #6a8f5f; color: #fff; }
 .chuni-row-tag-ds.is-collab { background: #eef6ea; color: #4c6f42; }
+
+/* 谱师留言（note-report 会报搬运） */
+.chuni-notes-src {
+  font-size: 12px;
+  color: #8a8a8a;
+  margin: -6px 0 10px;
+}
+.chuni-note {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: #fbfbfb;
+}
+.chuni-note summary {
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+  list-style: none;
+}
+.chuni-note summary::-webkit-details-marker {
+  display: none;
+}
+.chuni-note summary::before {
+  content: "▸ ";
+  color: #9a9a9a;
+}
+.chuni-note[open] summary::before {
+  content: "▾ ";
+}
+.chuni-note-meta {
+  font-weight: 600;
+}
+.chuni-note-body {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.85;
+}
+.chuni-note-jp {
+  color: #6b6b6b;
+  white-space: pre-wrap;
+  padding: 8px 10px;
+  border-left: 3px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+.chuni-note-zh {
+  white-space: pre-wrap;
+  padding: 8px 10px;
+  border-left: 3px solid #8fb9d8;
+  background: #f6fafd;
+  border-radius: 4px;
+}
