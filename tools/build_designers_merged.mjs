@@ -159,7 +159,24 @@ function isUnknownChart(titleKey, diff) {
   return !!(pos && pos.has(diff));
 }
 
-const who = resolveWho(raw) || teamOf(raw) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
+// wiki 由来里的「ND名義(MAS)「クレジット」(人物)」——已经翻过的数据里就有，
+// 用来补 c2s / 朋友数据都对不上的空白谱
+const commentWho = (() => {
+  const map = new Map();
+  const file = 'tools/designer-from-comments.json';
+  if (!fs.existsSync(file)) return () => '';
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const [title, entry] of Object.entries(raw)) {
+    map.set(title, entry);
+  }
+  return (titleKey, diff) => {
+    const e = map.get(titleKey);
+    if (!e || !e[diff]) return '';
+    return e[diff].person || '';
+  };
+})();
+
+const who = resolveWho(raw) || teamOf(raw) || commentWho(key, diff) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';
