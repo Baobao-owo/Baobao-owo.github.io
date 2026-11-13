@@ -284,9 +284,18 @@
 			}
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
+			// 选了谱师时，只给「他写的那张谱」显示定数，其它难度留空
+			var DESIGNER_KEY = { expert: 'e', master: 'm', ultima: 'u' };
+			var dMatch = (state.designer || state.designerRaw) ? designerEntry(r) : null;
 			var badges = DIFF_ORDER.map(function (d) {
 				var sh = byDiff[d];
 				if (!sh) return '<span class="chuni-badge chuni-badge-empty">—</span>';
+				if (dMatch) {
+					var dk = DESIGNER_KEY[d];
+					var hit = dk ? dMatch[dk] : null;
+					var ok = !!hit && (state.designer ? hit.who === state.designer : hit.raw === state.designerRaw);
+					if (!ok) return '<span class="chuni-badge chuni-badge-empty">—</span>';
+				}
 				// 选了等级时，只显示对应等级的那张谱，其它难度留空
 				if (state.levels.length && state.levels.indexOf(levelKey(sh.lv)) === -1) {
 					return '<span class="chuni-badge chuni-badge-empty">—</span>';
