@@ -1890,6 +1890,22 @@ html.darkmode .chuni-row-badges .chuni-badge-empty {
 .chuni-removed-btn.active { background: #a05a5a; border-style: solid; border-color: #a05a5a; color: #fff; }
 html.darkmode .chuni-removed-btn { background: #333945; border-color: #6b4b4b; color: #dda9a9; }
 html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
+
+/* 「仅显示合作」筛选按钮（跟删除曲/WE 同一排） */
+.chuni-collab-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px dashed rgba(106, 143, 95, 0.55);
+  background: #fff;
+  color: #5d7a52;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-collab-btn:hover { background: #f3f8f0; }
+.chuni-collab-btn.active { background: #6a8f5f; border-style: solid; border-color: #6a8f5f; color: #fff; }
+html.darkmode .chuni-collab-btn { background: #333945; border-color: #4d6b45; color: #b6d3a9; }
+html.darkmode .chuni-collab-btn:hover { background: #3a424d; }
+html.darkmode .chuni-collab-btn.active { background: #6a8f5f; color: #fff; }
 .chuni-row-tag-removed {
   font-size: 11px;
   padding: 1px 6px;
