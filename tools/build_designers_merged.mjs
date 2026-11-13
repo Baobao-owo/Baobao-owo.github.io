@@ -46,6 +46,21 @@ function resolveWho(raw) {
   return '';
 }
 
+// 团队 / 合作团体名义：不是某个人，统一收进「团队名义」
+const TEAM_WHO = '团队名义';
+const teamNames = new Set();
+const teamFile = 'tools/designer-teams.json';
+if (fs.existsSync(teamFile)) {
+  for (const name of JSON.parse(fs.readFileSync(teamFile, 'utf8'))) teamNames.add(norm(name));
+}
+function teamOf(raw) {
+  if (!raw) return '';
+  if (teamNames.has(norm(raw))) return TEAM_WHO;
+  const stripped = stripExPrefix(raw);
+  if (stripped && teamNames.has(norm(stripped))) return TEAM_WHO;
+  return '';
+}
+
 // 朋友的逐谱 charter（按曲名 + 难度）
 const DIFF_KEY = { EXPERT: 'e', MASTER: 'm', ULTIMA: 'u' };
 const friendCharts = new Map();
@@ -95,7 +110,7 @@ for (const s of allSongs) {
     if (!raw) raw = fd[diff] || '';
     if (!raw) continue;
 
-    const who = resolveWho(raw);
+    const who = resolveWho(raw) || teamOf(raw);
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';
@@ -122,6 +137,20 @@ const designers = (friend.designers || [])
   .filter((d) => d.songs > 0)
   .sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
 
+// 团队名义 / 制作者不明：数据里有就把它们排到队伍末尾
+for (const pseudo of [TEAM_WHO, '制作者不明']) {
+  const songsSet = whoSongs.get(pseudo);
+  if (!songsSet || !songsSet.size) continue;
+  designers.push({
+    name: pseudo,
+    id: pseudo === TEAM_WHO ? 'nd-team' : 'nd-unknown',
+    charts: whoCharts.get(pseudo) || 0,
+    songs: songsSet.size,
+    aliases: 0,
+    pseudo: true,
+  });
+}
+
 const loose = [...looseSongs.entries()]
   .map(([name, set]) => ({ name, songs: set.size }))
   .sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
@@ -131,6 +160,7 @@ const seenLoose = new Set(loose.map((x) => norm(x.name)));
 for (const [k, who] of Object.entries(c2s)) {
   if (!who) continue;
   if (resolveWho(who)) continue;
+  if (teamOf(who)) continue;
   if (seenLoose.has(norm(who))) continue;
   seenLoose.add(norm(who));
   loose.push({ name: who, songs: 0, c2sOnly: true });
