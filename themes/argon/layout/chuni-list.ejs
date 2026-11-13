@@ -249,9 +249,9 @@
 		}
 
 		// 参与排序的谱面 = 页面上真正显示定数的那几张
-		// （选了谱师 → 只算他写的谱；选了定数档 → 只算这些档的谱）
+		// （选了谱师 → 只算他写的谱；仅显示合作 → 只算合作那张；选了定数档 → 只算这些档）
 		function shownSheets(r) {
-			var onlyDiff = (state.designer || state.designerRaw) ? designerDiffKeys(r) : null;
+			var onlyDiff = designerDiffKeys(r);
 			return (r.sh || []).filter(function (sh) {
 				if (DIFF_ORDER.indexOf(sh.d) === -1) return false;
 				if (onlyDiff && onlyDiff.indexOf(sh.d) === -1) return false;
