@@ -41,6 +41,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
+  const notesMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_notes) || {};
   const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
   const cnSongMap = cnData.songs || {};
   const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
@@ -244,7 +245,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
         slug: entry.slug,
         versionLabel: entry.versionLabel,
         guide: { updated: d.updated, categories: d.categories, versions: d.versions },
-        extra: extra[entry.raw.id] || null
+        extra: extra[entry.raw.id] || null,
+        notes: notesMap[String(entry.raw.title).trim()] || null
       }
     });
   });
