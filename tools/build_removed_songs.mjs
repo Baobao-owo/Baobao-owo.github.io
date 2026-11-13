@@ -23,7 +23,12 @@ const C2S_DESIGNERS = JSON.parse(fs.readFileSync('_tmp/game/c2s-designers.json',
 const gameByTitle = new Map();
 for (const g of game) gameByTitle.set(norm(g.title), g);
 const wikiByTitle = new Map();
-for (const w of parsedWiki) wikiByTitle.set(norm(w.title), w);
+for (const w of parsedWiki) {
+  wikiByTitle.set(norm(w.title), w);
+  // wiki 有些标题带读音后缀，例如「]-[|/34<#!(ヒバチ)」
+  const bare = String(w.title || '').replace(/[（(][^（）()]*[)）]\s*$/, '').trim();
+  if (bare && !wikiByTitle.has(norm(bare))) wikiByTitle.set(norm(bare), w);
+}
 
 const SECTION_CAT = {
   'POPS&ANIME': 'POPS & ANIME',
@@ -75,6 +80,8 @@ const DIFF_KEYS = [
 ];
 
 const seen = new Set();
+// 站内已有的曲目不要重复导入
+const siteTitles = new Set((DATA.songs || []).map((s) => norm(s.title)));
 const out = [];
 
 for (const row of missing) {
@@ -83,6 +90,7 @@ for (const row of missing) {
   if (!title) continue;
   const key = norm(title);
   if (seen.has(key)) continue;
+  if (siteTitles.has(key)) continue;
   seen.add(key);
 
   const artist = (cells[1] || '').replace(/\s*\[cover.*?\]\s*$/i, '').trim() || cells[1] || '';
