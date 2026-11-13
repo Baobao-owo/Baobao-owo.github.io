@@ -46,6 +46,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const removedIds = new Set((removedData.matched || []).map(function (x) { return String(x.id); }));
   const cnRemovedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_removed) || {};
   const weData = ((hexo.locals.get('data') && hexo.locals.get('data').chuni_we) || {}).songs || {};
+  const weDeletedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_we_deleted) || {};
+  const weDeletedSet = new Set((weDeletedData.songs || []).map(function (x) { return normTitle(x.title); }));
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
 
   function normTitle(t) {
@@ -156,7 +158,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       maxLevel: levels.length ? Math.max.apply(null, levels) : 0,
       minLevel: levels.length ? Math.min.apply(null, levels) : 0,
       inCN: cnEntry ? true : (Object.keys(cnSongMap).length ? false : cnVersions.has(s.version)),
-      removed: removedIds.has(String(s.id)),
+      removed: removedIds.has(String(s.id)) || ((s.sheets || []).length > 0 && s.sheets.every(function (sh) { return /^【.*】$/.test(String(sh.difficulty)); }) && weDeletedSet.has(normTitle(s.title))),
       cnRemoved: cnRemovedIds.has(String(s.id)) && !cnEntry,
       cnConsts: cnConsts,
       cover: s.cover || ''
