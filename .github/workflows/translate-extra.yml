@@ -1,0 +1,38 @@
+name: translate-extra
+on:
+  workflow_dispatch:
+    inputs:
+      queue:
+        description: queue file (e.g. tools/queues/extra-titles.json)
+        required: true
+        default: tools/queues/extra-titles.json
+      out:
+        description: output jsonl (e.g. tools/out/extra-titles-zh.jsonl)
+        required: true
+        default: tools/out/extra-titles-zh.jsonl
+      sleep:
+        description: sleep ms between calls
+        required: false
+        default: '700'
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: run translate
+        run: node tools/gh_translate.mjs "${{ inputs.queue }}" "${{ inputs.out }}" "${{ inputs.sleep }}"
+      - name: commit result
+        run: |
+          git config user.name "translate-bot"
+          git config user.email "translate-bot@users.noreply.github.com"
+          git add "${{ inputs.out }}"
+          git commit -m "translate: ${{ inputs.out }}" || echo "no changes"
+          git push
