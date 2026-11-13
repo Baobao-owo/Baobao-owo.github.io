@@ -798,7 +798,7 @@
    "MAS": "13.0"
   },
   "wiki_jp": "2014/11/28 第1回ロケテスト先行収録\n2013年7月12日投稿。\n使用VOCALOID: 初音ミク・GUMI\n譜面作者：EXP …ロシェ＠ペンギン、MAS …ロシェ＠ペンギン、WE…一触即発☆ダメージノーツ …\n譜面定数：MAS …13.0",
-  "wiki_comment_zh": "2014/11/28 第一场测试提前录制\n发表于 2013 年 7 月 12 日。\n使用VOCALOID：初音未来・GUMI",
+  "wiki_comment_zh": "2014/11/28 第 1 回场测先行收录\n2013年7月12日投稿。\n使用 VOCALOID：初音ミク・GUMI",
   "origins_zh": [
    "模仿 ND 名（WE evasion）的歌名《Issho Sokka☆Damage Notes》。"
   ]
@@ -1653,7 +1653,7 @@
    "MAS": "11.7"
   },
   "wiki_jp": "歌唱：さゆり\n作詞・作曲：NYO\n譜面作者：EXP …rioN、MAS …ロシェ＠ペンギン、WE…スピード設定に注意してね！ …\n譜面定数：MAS …11.7",
-  "wiki_comment_zh": "演唱：小百合\n作词、作曲：NYO"
+  "wiki_comment_zh": "演唱：さゆり\n作词・作曲：NYO"
  },
  "L9": {
   "history": {
@@ -4711,7 +4711,7 @@
    "MAS": "13.8"
   },
   "wiki_jp": "2016/8/25追加、AIR ep.Iマップ3元課題曲。\n譜面作者：EXP …ロシェ@ペンギン、MAS …ぴちネコ\n譜面定数：MAS …13.8",
-  "wiki_comment_zh": "2016年8月25日添加，AIR ep.I地图3原课题曲。"
+  "wiki_comment_zh": "2016/8/25 追加，AIR ep.I地图 3 的原课题曲。"
  },
  "ＧＯ！ＧＯ！ラブリズム♥": {
   "history": {
@@ -10427,7 +10427,7 @@
     "12.3"
    ]
   ],
-  "wiki_comment_zh": "发表于 2013 年 8 月 28 日。\n作曲：FB777\n编曲：KIKKUN-MK-Ⅱ\n使用VOCALOID：初音未来・GUMI",
+  "wiki_comment_zh": "2013年8月28日投稿。\n作曲：FB777\n编曲：KIKKUN-MK-Ⅱ\n使用 VOCALOID：初音ミク・GUMI",
   "titles_zh": [
    [
     "称号",
@@ -11521,7 +11521,7 @@
     "12.2"
    ]
   ],
-  "wiki_comment_zh": "使用VOCALOID：GUMI"
+  "wiki_comment_zh": "使用 VOCALOID：GUMI"
  },
  "Vallista": {
   "wiki_title": "Vallista",
@@ -13453,7 +13453,7 @@
     "14.1"
    ]
   ],
-  "wiki_comment_zh": "发表于 2012 年 12 月 8 日。\n使用VOCALOID：镜音连\n作词：雷沃鲁",
+  "wiki_comment_zh": "2012年12月8日投稿。\n使用 VOCALOID：鏡音レン\n作词：れをる",
   "origins_zh": [
    "ND 名称 (MAS)“Fumentik H.P. Dog (♂)”（快乐）",
    "ND 名称（WE Jump）“Gigantic A.I.R” 模仿歌曲标题。"
@@ -13503,7 +13503,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\n無印～PARADISE× | 2 | 5 | 8+ | 11\nNEW～ | 2 | 5 | 8 | 11",
-  "wiki_comment_zh": "作词：泉有里\n作曲/编曲：藤田顺平（Elements Garden）"
+  "wiki_comment_zh": "作词：有里泉美\n作曲・编曲：藤田淳平(Elements Garden)"
  },
  "言ノ葉遊戯": {
   "wiki_title": "言ノ葉遊戯",
@@ -15896,7 +15896,7 @@
     "12.2"
    ]
   ],
-  "wiki_comment_zh": "作词：uRy\n作曲/编曲：广川敬一（MONACA）"
+  "wiki_comment_zh": "作词：uRy\n作曲・编曲：広川 恵一(MONACA)"
  },
  "無敵We are one!!": {
   "wiki_title": "無敵We are one!!",
@@ -15942,7 +15942,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nPLUS～PARADISE× | 3 | 6 | 9+ | 12.1\nNEW～ | 3 | 6 | 9+ | 12.5",
-  "wiki_comment_zh": "作词、作曲、编曲：y0c1e（Hifumi, Inc.）"
+  "wiki_comment_zh": "作词/作曲/编曲：y0c1e(Hifumi,inc.)"
  },
  "GEMINI -C-": {
   "wiki_title": "GEMINI -C-",
@@ -16718,7 +16718,7 @@
    ""
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nPLUS～ | 3 | 6 | 9+ | 12\n【取得できる称号】\n称号 | 条件\nドッカァズッシャアバリィーン | MASTER以下全て/プレイ",
-  "wiki_comment_zh": "使用VOCALOID：镜音凛",
+  "wiki_comment_zh": "使用 VOCALOID：鏡音リン",
   "titles_zh": [
    [
     "称号",
@@ -19257,7 +19257,7 @@
     "11.7"
    ]
   ],
-  "wiki_comment_zh": "2016年8月25日添加，AIR ep.I地图1原课题曲。",
+  "wiki_comment_zh": "2016/8/25 追加，AIR ep.I地图 1 的原课题曲。",
   "origins_zh": [
    "ND 名称（MAS）“狗似乎想要撼动 AIR”（快乐）",
    "ND名称（WE折扣）“那个部门似乎很受欢迎”两者都是歌名的模仿。"
@@ -19408,7 +19408,7 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "2016年12月15日添加，AIR ep.III地图4原课题曲。",
+  "wiki_comment_zh": "2016/12/15 追加，AIR ep.III地图 4 的原课题曲。",
   "origins_zh": [
    "ND名称（MAS）“Roche@Nakano”（Roche@Penguin）这首歌曲和相应角色的STORY以中野为背景。"
   ]
@@ -19685,7 +19685,7 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "2016年8月25日添加，AIR ep.I地图10原课题曲。",
+  "wiki_comment_zh": "2016/8/25 追加，AIR ep.I地图 10 的原课题曲。",
   "origins_zh": [
    "ND名下（WE时期）“THE WORLD”是《JoJo的奇妙冒险》第三部的boss DIO的看台。因为它拥有让时间停止的能力。"
   ]
@@ -19769,7 +19769,7 @@
     "14.4"
    ]
   ],
-  "wiki_comment_zh": "2016年10月20日添加，AIR ep.II地图5原课题曲。",
+  "wiki_comment_zh": "2016/10/20 追加，AIR ep.II地图 5 的原课题曲。",
   "origins_zh": [
    "ND名称（MAS）“冲浪企鹅和救生猫”（Roche@Penguin，Pichi Neko）由于歌曲标题，ND名称与大海和冲浪有关。",
    "以 ND (WE!) 名义“我们别无选择，只能乘风破浪” 原故事是一名男子在 iPhone 发布时接受排队等候的人们采访时回答的一句话：“这是世界一流的。”我们别无选择，只能乘风破浪。”"
@@ -19910,7 +19910,7 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "作词：七条生菜\n作曲/编曲：天门"
+  "wiki_comment_zh": "作词：七条レタス\n作曲・编曲：天門"
  },
  "猫祭り": {
   "wiki_title": "猫祭り",
@@ -20117,7 +20117,7 @@
     "11.4"
    ]
   ],
-  "wiki_comment_zh": "2016年8月25日添加，AIR ep.I地图2原课题曲。\n演唱：玛丽"
+  "wiki_comment_zh": "2016/8/25 追加，AIR ep.I地图 2 的原课题曲。\n演唱：めありー"
  },
  "Bang Babang Bang!!!": {
   "wiki_title": "Bang Babang Bang!!!",
@@ -20268,7 +20268,7 @@
     "13.2"
    ]
   ],
-  "wiki_comment_zh": "使用VOCALOID：初音未来"
+  "wiki_comment_zh": "使用 VOCALOID：初音ミク"
  },
  "鬼KYOKAN": {
   "wiki_title": "鬼KYOKAN",
@@ -20916,7 +20916,7 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "作词：玛丽\n作曲、编曲：MANYO"
+  "wiki_comment_zh": "作词：真理絵\n作编曲：MANYO"
  },
  "からくりピエロ": {
   "wiki_title": "からくりピエロ",
@@ -21425,7 +21425,7 @@
     "12.0"
    ]
   ],
-  "wiki_comment_zh": "发布于 2011 年 1 月 30 日。\n使用VOCALOID：初音未来\n编曲：匹诺曹P",
+  "wiki_comment_zh": "2011年1月30日投稿。\n使用 VOCALOID：初音ミク\n编曲：ピノキオピー",
   "titles_zh": [
    [
     "称号",
@@ -21781,7 +21781,7 @@
     "11.8"
    ]
   ],
-  "wiki_comment_zh": "发表于 2009 年 4 月 6 日。\n使用VOCALOID：初音未来"
+  "wiki_comment_zh": "2009年4月6日投稿。\n使用 VOCALOID：初音ミク"
  },
  "First Twinkle": {
   "wiki_title": "First Twinkle",
@@ -25493,7 +25493,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nAIR+～ | 3 | 5 | 8+ | 11.8",
-  "wiki_comment_zh": "作词：小野田裕之\n作曲、编曲：大久保宏 (BSI)"
+  "wiki_comment_zh": "作词：オノダヒロユキ\n作编曲：大久保 博(BNSI)"
  },
  "SPICY SWINGY STYLE": {
   "wiki_title": "SPICY SWINGY STYLE",
@@ -25562,7 +25562,7 @@
     "12.7"
    ]
   ],
-  "wiki_comment_zh": "作词：小野田裕之\n作曲及编曲：Jesahm (BNSI)"
+  "wiki_comment_zh": "作词：オノダヒロユキ\n作编曲：Jesahm(BNSI)"
  },
  "RevolutionGame": {
   "wiki_title": "RevolutionGame",
@@ -25795,7 +25795,7 @@
     "14.1"
    ]
   ],
-  "wiki_comment_zh": "2017/4/20 添加，AIR ep.V地图2原课题曲。",
+  "wiki_comment_zh": "2017/4/20 追加，AIR ep.V地图 2 的原课题曲。",
   "origins_zh": [
    "以ND（MAS）名义“即使我什么都没做，企鹅也碎了”（Roche@Penguin）出自Torebi歌曲中的台词“尽管我什么也没做，它还是碎了！”自古以来计算机初学者中流行的一个故事。"
   ]
@@ -31403,7 +31403,7 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "添加于 2017/8/24，ep.I地图6原课题曲。\n作曲：乌谷萨博 / 乌谷萨博\n演唱：新菜真子",
+  "wiki_comment_zh": "2017/8/24 追加，ep.I地图 6 的原课题曲。\n作曲：烏屋茶房 / カラスヤサボウ\n演唱：新菜まこ",
   "origins_zh": [
    "ND 名称（MAS）“一只剪断（截止日期）的狗”（快乐）来自歌曲“Cut，cut，cut，cut”中的歌词。"
   ]
@@ -31880,7 +31880,7 @@
     "12.5"
    ]
   ],
-  "wiki_comment_zh": "添加于 2017/8/24，STAR ep.I 地图2原课题曲。\n演唱：森雅\n作词：镰濑虎\n作曲：金森佑\n编曲：金森优、HiZuMi"
+  "wiki_comment_zh": "2017/8/24 追加，STAR ep.I 地图 2 的原课题曲。\n演唱：senya\n作词：かませ虎\n作曲：神奈森ユウ\n编曲：神奈森ユウ、HiZuMi"
  },
  "キラメケ→Shoot it Now!": {
   "wiki_title": "キラメケ→Shoot it Now!",
@@ -34946,7 +34946,7 @@
     "13.4"
    ]
   ],
-  "wiki_comment_zh": "2017/12/7~2018/1/10 活动 「Hi☆sCool! Seha Girl Collaboration 活动」先行发行歌曲。\n动画《Hi☆sCool! Seha Girl》的OP歌。\n演唱：Dreamcast (M·A·O)、Sega Saturn (高桥南)、Mega Drive (井泽诗织)\n作词：菅原苍太、杉本嘉德\n作曲：杉本义德\n编曲：藤田芳久",
+  "wiki_comment_zh": "2017/12/7～2018/1/10 活动「 Hi☆sCoool! セハガールコラボイベント 」先行配信曲。\n动画《Hi☆sCoool! セハガール》OP 曲。\n演唱：ドリームキャスト (M・A・O), セガサターン (高橋未奈美), メガドライブ (井澤詩織)\n作词：菅原そうた, 杉本善徳\n作曲：杉本善徳\n编曲：藤田よしひさ",
   "titles_zh": [
    [
     "称号",
@@ -35115,7 +35115,7 @@
    "称号「クーナの支え」 PSO2でクーナと100回同伴すると貰える称号。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSTAR～ | 3 | 6 | 9 | 11.8\n【取得できる称号】\n称号 | 条件\nクーナの支え | Our Fighting/ Cosmic twinkle star / 終わりなき物語 / MASTER /RANK S達成\n【ND名義・称号の由来】\n- ND名義(MAS)「すきやき奉行(Hr)」(すきやき奉行) 「Hr」はPSO2の上級クラス「ヒーロー」の省略表記。 ヒーローばっか じゃねぇか！\n- 称号「クーナの支え」 PSO2でクーナと100回同伴すると貰える称号。",
-  "wiki_comment_zh": "2017/12/7~2018/1/10活动「PHANTASY STAR ONLINE 2 合作 活动」先行发行歌曲。\n作词：大森翔子\n作曲：小林秀里",
+  "wiki_comment_zh": "2017/12/7～2018/1/10 活动「 PHANTASY STAR ONLINE 2コラボイベント 」先行配信曲。\n作词：大森祥子\n作曲：小林秀聡",
   "titles_zh": [
    [
     "称号",
@@ -35474,7 +35474,7 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "2017年12月21日添加，STAR ep.III地图3原课题曲。",
+  "wiki_comment_zh": "2017/12/21 追加，STAR ep.III地图 3 的原课题曲。",
   "origins_zh": [
    "以ND（MAS）名义“rioN变得更有趣”（rioN），以ND（WE逃避）名义“MASTER变得更困难”使用作曲家HALFBY的音乐模仿著名视频“变得更有趣的视频”。这个模仿也包含在相应角色“中曾根秀光”的技能和故事中。"
   ]
@@ -35770,7 +35770,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "2017年12月21日添加，STAR ep.III地图2原课题曲。",
+  "wiki_comment_zh": "2017/12/21 追加，STAR ep.III地图 2 的原课题曲。",
   "origins_zh": [
    "ND名（MAS）「圣剑米斯特汀」（Mistoltin）这是对STORY中出现的对应角色武器「宝剑阿达曼威」的模仿吗？此外，米斯托丁本身就是北欧神话中出现的一把剑的名称。"
   ]
@@ -36154,7 +36154,7 @@
     "11.6"
    ]
   ],
-  "wiki_comment_zh": "作词：山本芽衣子\n作曲、编曲：伊藤隆“三代”"
+  "wiki_comment_zh": "作词：山本メーコ\n作编曲：伊藤”三代”タカシ"
  },
  "Clover Heart's": {
   "wiki_title": "Clover Heart's",
@@ -37901,7 +37901,7 @@
     "12.9"
    ]
   ],
-  "wiki_comment_zh": "2017/12/7~2018/1/10活动「PHANTASY STAR ONLINE 2 合作 活动」先行发行歌曲。\n作词：山下慎一郎\n作曲：岩野道拓",
+  "wiki_comment_zh": "2017/12/7～2018/1/10 活动「 PHANTASY STAR ONLINE 2コラボイベント 」先行配信曲。\n作词：山下慎一狼\n作曲：岩野道拓",
   "titles_zh": [
    [
     "称号",
@@ -38007,7 +38007,7 @@
     "12.8"
    ]
   ],
-  "wiki_comment_zh": "2017/12/7~2018/1/10活动「PHANTASY STAR ONLINE 2 合作 活动」先行发行歌曲。\n作词：马维\n作曲：福山光晴",
+  "wiki_comment_zh": "2017/12/7～2018/1/10 活动「 PHANTASY STAR ONLINE 2コラボイベント 」先行配信曲。\n作词：mavie\n作曲：福山光晴",
   "titles_zh": [
    [
     "称号",
@@ -38720,7 +38720,7 @@
     "11.2"
    ]
   ],
-  "wiki_comment_zh": "作词：山本芽衣子\n构图与排列：mochilon"
+  "wiki_comment_zh": "作词：山本メーコ\n作编曲：mochilon"
  },
  "Sparking Revolver": {
   "wiki_title": "Sparking Revolver",
@@ -39971,7 +39971,7 @@
     "14.0"
    ]
   ],
-  "wiki_comment_zh": "添加于2018/4/19，STAR ep.V地图2原课题曲。",
+  "wiki_comment_zh": "2018/4/19 追加，STAR ep.V地图 2 的原课题曲。",
   "origins_zh": [
    "ND 名称（MAS）“Musaku-100 期”（音乐编号-100） 艺术家名称“Tomggg”Riri。",
    "ND 名称（WE 折扣）“Pastel Split Party” 模仿歌曲标题。"
@@ -41191,7 +41191,7 @@
     "12.9"
    ]
   ],
-  "wiki_comment_zh": "作词/作曲：分岛花音\n编曲：千叶“naotyu-”Naoki"
+  "wiki_comment_zh": "作词・作曲：分島花音\n编曲：千葉\"naotyu-\"直樹"
  },
  "Sentimental Snow": {
   "wiki_title": "Sentimental Snow",
@@ -42824,7 +42824,7 @@
     "13.9"
    ]
   ],
-  "wiki_comment_zh": "2018年9月6日添加，STAR第VII地图1原课题曲。",
+  "wiki_comment_zh": "2018/9/6 追加，STAR ep.VII地图 1 的原课题曲。",
   "origins_zh": [
    "ND 名称 (MAS) “MTO-XXX:Luna Nemesis”(Moon Strix) 模仿 Iudicium 对应角色 MTA-XXX [Pandora Nemesis] 的名字。过去，他在同一首歌中使用了ND这个名字。这首歌对应的角色谢丽尔（Sheryl）在她姐姐莉娜（Lena）的故事中与潘多拉涅墨西斯（Pandora Nemesis）战斗，所以这并不是完全无关的。顺便说一句，作曲家M2U过去曾发行过名为“Lune”和“Nemesis”的歌曲，所以他使用这个名字可能是考虑到这些。"
   ]
@@ -46237,7 +46237,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2018/12/6~2019/2/6活动「女神异闻录5 星舞之夜合作活动」先行发行歌曲。",
+  "wiki_comment_zh": "2018/12/6～2019/2/6 活动「 ペルソナ5 ダンシング・スターナイトコラボイベント 」先行配信曲。",
   "titles_zh": [
    [
     "称号",
@@ -46355,7 +46355,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2018/12/6~2019/2/6活动「女神异闻录5 星舞之夜合作活动」先行发行歌曲。\n演唱：林",
+  "wiki_comment_zh": "2018/12/6～2019/2/6 活动「 ペルソナ5 ダンシング・スターナイトコラボイベント 」先行配信曲。\n演唱：Lyn",
   "titles_zh": [
    [
     "称号",
@@ -47336,7 +47336,7 @@
     "12.3"
    ]
   ],
-  "wiki_comment_zh": "作词：七条生菜\n作曲：中泽智之\n编曲：中泽智之、尾崎武"
+  "wiki_comment_zh": "作词：七条レタス\n作曲：中沢伴行\n编曲：中沢伴行、尾崎武士"
  },
  "朝焼けプラットホーム": {
   "wiki_title": "朝焼けプラットホーム",
@@ -47561,7 +47561,7 @@
     "13.8"
    ]
   ],
-  "wiki_comment_zh": "添加于 2018/10/25，AMAZON ep.I地图3原课题曲。",
+  "wiki_comment_zh": "2018/10/25 追加，AMAZON ep.I地图 3 的原课题曲。",
   "origins_zh": [
    "ND名称（WE？）“Crossed Fingers” 指起源于海外的双手食指和中指交叉的手势，有“祈求好运”的意思。含义与标题“有福”类似。"
   ]
@@ -47636,7 +47636,7 @@
     "11.4"
    ]
   ],
-  "wiki_comment_zh": "添加于 2018/10/25，AMAZON ep.I地图4原课题曲。",
+  "wiki_comment_zh": "2018/10/25 追加，AMAZON ep.I地图 4 的原课题曲。",
   "origins_zh": [
    "ND 名称（MAS）“Premium Emerald”（翡翠） 模仿“Premium Friday”，让人想起歌曲标题。"
   ]
@@ -48710,7 +48710,7 @@
     "13.9"
    ]
   ],
-  "wiki_comment_zh": "2019/1/24 添加，AMAZON ep.II 地图3原课题曲。",
+  "wiki_comment_zh": "2019/1/24 追加，AMAZON ep.II 地图 3 的原课题曲。",
   "origins_zh": [
    "ND 名称（MAS）“涉嫌伪造一只不喜欢手指推动、痛苦和激情的狗的难度级别。” （高兴）歌名的模仿。事实上，如上图所示，手指按压的位置相当小。你不擅长按手指吗？"
   ]
@@ -48861,7 +48861,7 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "添加于 2019/1/24，AMAZON ep.II地图5原课题曲。",
+  "wiki_comment_zh": "2019/1/24 追加，AMAZON ep.II地图 5 的原课题曲。",
   "origins_zh": [
    "ND名称（MAS）``Monoponzu＊''（Monocrock）模仿这首歌的主唱``Ayaponzu＊''。"
   ]
@@ -54662,7 +54662,7 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "收录在专辑《东方翡翠秋水》中的歌曲。\n演唱：miko、由香、Mari",
+  "wiki_comment_zh": "收录于专辑《東方翡翠酒酔》。\n演唱：miko, ゆか, まり",
   "titles_zh": [
    [
     "称号",
@@ -59400,7 +59400,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "添加于2019/12/19，CRYSTAL ep.II地图1原课题曲。"
+  "wiki_comment_zh": "2019/12/19 追加，CRYSTAL ep.II地图 1 的原课题曲。"
  },
  "《理想》 ～ Cloudland": {
   "wiki_title": "《理想》 ～ Cloudland",
@@ -59556,7 +59556,7 @@
     "13.9"
    ]
   ],
-  "wiki_comment_zh": "添加于2019/12/19，CRYSTAL ep.II地图3原课题曲。",
+  "wiki_comment_zh": "2019/12/19 追加，CRYSTAL ep.II地图 3 的原课题曲。",
   "origins_zh": [
    "ND（MAS）名称“Hyphen Hecto Philharmonic Orchestra”（音乐编号100）Hyphen的意思是“-（连字符）”，Hecto的意思是“100”作为前缀。",
    "ND名称（WE回避）“《Avoidance》〜The Damage Notes”歌名的模仿。"
@@ -59632,7 +59632,7 @@
     "13.5"
    ]
   ],
-  "wiki_comment_zh": "添加于2019/12/19，CRYSTAL ep.II地图4原课题曲。\n作曲与编曲：詹姆斯·兰迪诺\n作词：尼",
+  "wiki_comment_zh": "2019/12/19 追加，CRYSTAL ep.II地图 4 的原课题曲。\n作编曲：James Landino\n作词：Nii",
   "origins_zh": [
    "ND 名称 (MAS) ``Moon Strix'' 由于歌曲标题，该名称有两个汉字字符。 （月亮…月亮，鸫…猫头鹰）"
   ]
@@ -59705,7 +59705,7 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "2019年12月19日添加，CRYSTAL ep.II地图5原课题曲。"
+  "wiki_comment_zh": "2019/12/19 追加，CRYSTAL ep.II地图 5 的原课题曲。"
  },
  "Deal with the devil": {
   "wiki_title": "Deal with the devil",
@@ -60020,7 +60020,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "动画《少女革命乌蒂娜》片头曲。\n作曲：矢吹敏郎",
+  "wiki_comment_zh": "动画《少女革命ウテナ》OP 曲。\n作曲：矢吹俊郎",
   "titles_zh": [
    [
     "称号",
@@ -61981,7 +61981,7 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "2020年3月4日添加，CRYSTAL ep.III地图3原课题曲。",
+  "wiki_comment_zh": "2020/3/4 追加，CRYSTAL ep.III地图 3 的原课题曲。",
   "origins_zh": [
    "ND 名称 (MAS)“éco3r”(écologie) 对艺术家“nora2r”的模仿。它似乎也是基于 3R（减少、再利用、回收），这是与生态相关的词。",
    "ND 名称（WE 返回）``recnaD tegdiF'' 歌曲标题``Fidget Dancer'' 倒写。"
@@ -62230,7 +62230,7 @@
     "12.8"
    ]
   ],
-  "wiki_comment_zh": "作词：山本芽衣子\n作曲/编曲：KYume、宫崎恭一"
+  "wiki_comment_zh": "作词：山本メーコ\n作曲・编曲：KYume、宮崎京一"
  },
  "徒花ネクロマンシー": {
   "wiki_title": "徒花ネクロマンシー",
@@ -64922,7 +64922,7 @@
     "13.4"
    ]
   ],
-  "wiki_comment_zh": "作词：镁\n作曲/编曲：宝野聪",
+  "wiki_comment_zh": "作词：magnerium\n作曲・编曲：宝野聡史",
   "origins_zh": [
    "以 ND (MAS) 的名义“Aminokyahabanai Kotobakiri”(Amino Habakiri) 模仿歌曲标题“Just Things That Must Be Done”。",
    "ND 名称（WE 爱好者）``这都是关于我必须玩的东西'' 同上。"
@@ -65219,7 +65219,7 @@
     "13+"
    ]
   ],
-  "wiki_comment_zh": "添加于2020/7/16，CRYSTAL ep.IV地图2原课题曲。",
+  "wiki_comment_zh": "2020/7/16 追加，CRYSTAL ep.IV地图 2 的原课题曲。",
   "origins_zh": [
    "ND 名称 (MAS) ``Seiken Mistletin'' (Mistoltin) 他用于与圣剑相关的歌曲的名称。塞拉菲娜·维斯·阿尼马托是与圣剑有关的人物。"
   ]
@@ -67115,7 +67115,7 @@
     "14.4"
    ]
   ],
-  "wiki_comment_zh": "2020年8月6日添加，CRYSTAL ep.V地图4原课题曲。",
+  "wiki_comment_zh": "2020/8/6 追加，CRYSTAL ep.V地图 4 的原课题曲。",
   "origins_zh": [
    "ND 名称 (MAS)“病人 Mistletin 与病人 Habakiri”(Mistoltin Aminohabakiri) 因为 Ishu Tokairin 是一名精神科医生。根据《中二企鹅/博库诺关系》的风味文本，这似乎是快乐先生开出的处方的结果。",
    "ND名字（WE合集）“我吃错药了”根据上面的风味文字，MASTER分数上的拉长HOLD是Happy先生开的。不过，这张乐谱中，两边画的是紫色的线条，而不是HOLD，所以肯定是他开错药了。"
@@ -67191,7 +67191,7 @@
     "13.3"
    ]
   ],
-  "wiki_comment_zh": "2020/12/24~2021/1/20活动「#Compass #2 Collaboration 活动」先行发行歌曲。\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "2020/12/24～2021/1/20 活动「 #コンパス #2コラボイベント 」先行配信曲。\n使用 VOCALOID：初音ミク",
   "origins_zh": [
    "ND名称（MAS）“危险的高压♥萨法塔”（Safa Ta）“危险的高压”是梅格梅古的能力。"
   ]
@@ -67263,7 +67263,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "2020/12/24~2021/1/20活动「#Compass #2 Collaboration 活动」先行发行歌曲。\n使用VOCALOID：巡音流歌、初音未来、GUMI、IA、镜音凛"
+  "wiki_comment_zh": "2020/12/24～2021/1/20 活动「 #コンパス #2コラボイベント 」先行配信曲。\n使用 VOCALOID：巡音ルカ・初音ミク・GUMI・IA・鏡音リン"
  },
  "アヤカシ": {
   "wiki_title": "アヤカシ",
@@ -67332,7 +67332,7 @@
     "12.3"
    ]
   ],
-  "wiki_comment_zh": "2020/12/24~2021/1/20活动「#Compass #2 Collaboration 活动」先行发行歌曲。\n使用VOCALOID：巡音流歌、初音未来、GUMI、IA、镜音凛"
+  "wiki_comment_zh": "2020/12/24～2021/1/20 活动「 #コンパス #2コラボイベント 」先行配信曲。\n使用 VOCALOID：巡音ルカ・初音ミク・GUMI・IA・鏡音リン"
  },
  "残響": {
   "wiki_title": "残響",
@@ -67404,7 +67404,7 @@
     "13.4"
    ]
   ],
-  "wiki_comment_zh": "2020/12/24~2021/1/20活动「#Compass #2 Collaboration 活动」先行发行歌曲。\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "2020/12/24～2021/1/20 活动「 #コンパス #2コラボイベント 」先行配信曲。\n使用 VOCALOID：初音ミク",
   "origins_zh": [
    "ND名称（MAS）``Moon Strix Commander''（月亮Strix）因为Tadaomi Ouka是妖怪军队的指挥官。"
   ]
@@ -67479,7 +67479,7 @@
     "12.7"
    ]
   ],
-  "wiki_comment_zh": "2020/12/24~2021/1/20活动「#Compass #2 Collaboration 活动」先行发行歌曲。\n使用VOCALOID：初音未来、镜音连",
+  "wiki_comment_zh": "2020/12/24～2021/1/20 活动「 #コンパス #2コラボイベント 」先行配信曲。\n使用 VOCALOID：初音ミク・鏡音レン",
   "origins_zh": [
    "以 ND (MAS) 名义模仿“寿喜烧 ga Tenkomori”（寿喜烧 Bugyo）艺术家“寿喜烧 ga Tenkomori”的作品。"
   ]
@@ -67622,7 +67622,7 @@
     "11.7"
    ]
   ],
-  "wiki_comment_zh": "作词/编曲：cosMo@SugyouP"
+  "wiki_comment_zh": "作词・作编曲：cosMo＠徐行P"
  },
  "Jörqer": {
   "wiki_title": "Jörqer",
@@ -67972,7 +67972,7 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "添加于2020/9/17，CRYSTAL ep.VI地图3原课题曲。\n作词：凯多",
+  "wiki_comment_zh": "2020/9/17 追加，CRYSTAL ep.VI地图 3 的原课题曲。\n作词：海兎",
   "origins_zh": [
    "ND名称（MAS）“Miko Lemon”（Jako Lemon）因为对应的角色Teninari Kotetsu穿着巫女服装。"
   ]
@@ -68918,7 +68918,7 @@
     "12.6"
    ]
   ],
-  "wiki_comment_zh": "作词、编曲：佐藤洋介"
+  "wiki_comment_zh": "作词・作编曲：佐藤陽介"
  },
  "SUPER RESULT BEAT vol.1": {
   "wiki_title": "SUPER RESULT BEAT vol.1",
@@ -69589,7 +69589,7 @@
     "12.6"
    ]
   ],
-  "wiki_comment_zh": "作词/编曲：fu_mou"
+  "wiki_comment_zh": "作词・作编曲：fu_mou"
  },
  "We Are Us": {
   "wiki_title": "We Are Us",
@@ -69658,7 +69658,7 @@
     "13.4"
    ]
   ],
-  "wiki_comment_zh": "作词/编曲：佐鹰良平"
+  "wiki_comment_zh": "作词・作编曲：佐高陵平"
  },
  "U ARE": {
   "wiki_title": "U ARE",
@@ -69745,7 +69745,7 @@
     "14.5"
    ]
   ],
-  "wiki_comment_zh": "已添加 2020/11/12，CRYSTAL ep.VII 地图1原课题曲。\n作词：克莱德",
+  "wiki_comment_zh": "2020/11/12 追加，CRYSTAL ep.VII 地图 1 的原课题曲。\n作词：CLYDE",
   "titles_zh": [
    [
     "称号",
@@ -77715,7 +77715,7 @@
     "13.3"
    ]
   ],
-  "wiki_comment_zh": "作词：PA-NON\n作曲/编曲：彦田元气 & 伊藤隆“第三代”"
+  "wiki_comment_zh": "作词：PA-NON\n作曲・编曲：彦田元気 & 伊藤“三代“タカシ"
  },
  "月詠に鳴る": {
   "wiki_title": "月詠に鳴る",
@@ -81168,7 +81168,7 @@
     "13.2"
    ]
   ],
-  "wiki_comment_zh": "发布于 2020 年 2 月 7 日。\n使用VOCALOID：花"
+  "wiki_comment_zh": "2020年2月7日投稿。\n使用 VOCALOID：flower"
  },
  "KING": {
   "wiki_title": "KING",
@@ -82519,7 +82519,7 @@
    "ND名義(MAS)「患者ミストルティン」(ミストルティン) この楽曲が「二次元ドリームフィーバー」という病気をテーマに据えていることより。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 4 | 6 | 10+ | 14.0\n【ND名義・称号の由来】\n- ND名義(MAS)「患者ミストルティン」(ミストルティン) この楽曲が「二次元ドリームフィーバー」という病気をテーマに据えていることより。",
-  "wiki_comment_zh": "发表于 2012 年 2 月 14 日。\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "2012年2月14日投稿。\n使用 VOCALOID：初音ミク",
   "origins_zh": [
    "ND 名称 (MAS) ``Patient Mistletin'' (Mistoltin) 这首歌是根据疾病“二维梦热病”改编的。"
   ]
@@ -85949,7 +85949,7 @@
     "13.3"
    ]
   ],
-  "wiki_comment_zh": "歌曲收录在专辑《Synchro 2》中。\n作词：卡罗尔",
+  "wiki_comment_zh": "收录于专辑《 シンクロ2 》。\n作词：Carol",
   "titles_zh": [
    [
     "称号",
@@ -87965,7 +87965,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 2 | 5 | 9 | 12.0",
-  "wiki_comment_zh": "作词：小田飞鸟（Elements Garden）\n作曲/编曲：岩桥星美（Elements Garden）"
+  "wiki_comment_zh": "作词：織田あすか(Elements Garden)\n作曲・编曲：岩橋星実(Elements Garden)"
  },
  "Qliphothgear": {
   "wiki_title": "Qliphothgear",
@@ -107568,7 +107568,7 @@
    "称号「えいやっさ えいやっさ」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN～ | 3 | 5 | 9 | 13.2\n【取得できる称号】\n称号 | 条件\n聖徳道士 | 4回プレイ\n佐渡の二ッ岩 | 8回プレイ\nえいやっさ えいやっさ | EXPERT / ALL JUSTICE 達成\n【ND名義・称号の由来】\n- 称号「聖徳道士」 豊聡耳 神子 の二つ名。\n- 称号「佐渡の二ッ岩」 二ッ岩 マミゾウ の二つ名。本楽曲の原曲名でもある。\n- 称号「えいやっさ えいやっさ」 歌詞より。",
-  "wiki_comment_zh": "收录于专辑《鬼域》中的歌曲。",
+  "wiki_comment_zh": "收录于专辑《Ghost Region》。",
   "titles_zh": [
    [
     "称号",
@@ -110145,7 +110145,7 @@
     "13.1"
    ]
   ],
-  "wiki_comment_zh": "发布于 2021 年 7 月 22 日。\n使用的音频库：可能",
+  "wiki_comment_zh": "2021年7月22日投稿。\n使用音声库：可不",
   "origins_zh": [
    "ND 名称 (MAS)“Rochesthésie”(Roche@Penguin) 源自法语单词“Synesthésie”，意思是联觉。"
   ]
@@ -112030,7 +112030,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN～ | 3 | 7+ | 9 | 12.6",
-  "wiki_comment_zh": "作词：七条生菜（IOSYS）\n作曲/编曲：那须野新平"
+  "wiki_comment_zh": "作词：七条レタス (IOSYS)\n作曲・编曲：Shinpei Nasuno"
  },
  "FLUFFY FLASH": {
   "wiki_title": "FLUFFY FLASH",
@@ -115313,7 +115313,7 @@
    "称号「踊り狂う地獄の妖精」 曲中の歌詞の「踊り狂う *2 」と、クラウンピースの二つ名である「地獄の妖精」を組み合わせたもの。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN+～ | 3 | 7 | 9+ | 13.5\n【取得できる称号】\n称号 | 条件\n踊り狂う地獄の妖精 | 10回プレイ\n【ND名義・称号の由来】\n- 称号「踊り狂う地獄の妖精」 曲中の歌詞の「踊り狂う *2 」と、クラウンピースの二つ名である「地獄の妖精」を組み合わせたもの。",
-  "wiki_comment_zh": "歌曲： 莉莉安\n作词：小豆\n编曲：卡兹托拉",
+  "wiki_comment_zh": "演唱：lily-an\n作词：azuki\n编曲：kaztora",
   "titles_zh": [
    [
     "称号",
@@ -115878,7 +115878,7 @@
    "称号「U149」 『 アイドルマスター シンデレラガールズ U149 』、あるいはユニット名から。 U149とは、Under149の意で、本作の主要なアイドルはみな身長149cm以下の小学生アイドルとなっている。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSUN+～ | 3 | 6 | 8+ | 12.2\n【取得できる称号】\n称号 | 条件\nThis story is about growth of little idols and their little producer. | MASTER以下全て/プレイ\nU149 | Shine In The Sky☆/ よりみちリトルスター /MASTER以下全て/ ALL JUSTICE 達成\n【ND名義・称号の由来】\n- ND名義(MAS)「じゃこレモン☆」 曲名「Shine In The Sky☆」より。\n- 称号「This story is about growth of little idols and their little producer.」 『アイドルマスター シンデレラガールズ U149』のキャッチコピー。\n- 称号「U149」 『 アイドルマスター シンデレラガールズ U149 』、あるいはユニット名から。 U149とは、Under149の意で、本作の主要なアイドルはみな身長149cm以下の小学生アイドルとなっている。",
-  "wiki_comment_zh": "作词：真弘\n作曲：俊龙\n编曲：西祖克",
+  "wiki_comment_zh": "作词：Mahiro\n作曲：俊龍\n编曲：Sizuk",
   "titles_zh": [
    [
     "称号",
@@ -127524,7 +127524,7 @@
    "称号「笑ったわ」、「どうすんの これ」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS+～ | 3 | 6 | 9 | 12.8\n【取得できる称号】\n称号 | 条件\n笑ったわ | プレイ中に1回MISS\nどうすんの これ | MASTER / SPEED 1 /RANK S達成\n【ND名義・称号の由来】\n- ND名義(MAS)「どうすんの こレモン」(じゃこレモン) 下記「どうすんの これ」より。\n- 称号「笑ったわ」、「どうすんの これ」 歌詞より。",
-  "wiki_comment_zh": "使用VOCALOID：由纪歌合",
+  "wiki_comment_zh": "使用 VOCALOID：歌愛ユキ",
   "titles_zh": [
    [
     "称号",
@@ -136596,7 +136596,7 @@
     "13.3"
    ]
   ],
-  "wiki_comment_zh": "发布于 2023 年 6 月 15 日。\n使用的音频库：Juon Teto SV",
+  "wiki_comment_zh": "2023年6月15日投稿。\n使用音声库：重音テトSV",
   "titles_zh": [
    [
     "称号",
@@ -140422,7 +140422,7 @@
    "ND名義(MAS)『「みぞれ』（みぞれヤナギ） 楽曲が「からあげに何をかけるか？」がテーマとなっていることから。 なお、マヨネーズ以外を答えたため消された模様。 ちなみに、この場合のみぞれとは大根おろしのこと。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VERSE～ | 2 | 6 | 10 | 13.0\n【取得できる称号】\n称号 | 条件\n世間は許してくｒｒぁせんよ!! | 2人以上で店内マッチング／プレイ中に1回MISS\n合格！！ | MASTER以下全て/ ALL JUSTICE 達成\n【ND名義・称号の由来】\n- ND名義(MAS)『「みぞれ』（みぞれヤナギ） 楽曲が「からあげに何をかけるか？」がテーマとなっていることから。 なお、マヨネーズ以外を答えたため消された模様。 ちなみに、この場合のみぞれとは大根おろしのこと。",
-  "wiki_comment_zh": "使用的语音库：Zundamon（NEUTRINO・VOICEPEAK・VOICEVOX・SeirenVoice）、Tohoku Kiritan（VOICEPEAK）、初音未来、Yuki Utaai、Maron Kurita、Kafu、WhiteCUL（VOICEVOX）、Risuku Matsuwari（COEIROINK）",
+  "wiki_comment_zh": "使用音声库：ずんだもん(NEUTRINO･VOICEPEAK･VOICEVOX･SeirenVoice),東北きりたん(VOICEPEAK),初音ミク・歌愛ユキ・栗田まろん・可不,WhiteCUL(VOICEVOX)・松嘩りすく(COEIROINK)",
   "titles_zh": [
    [
     "称号",
@@ -142782,7 +142782,7 @@
    "称号「一片食べたら、後はもう、適当に遊んでしまえ。」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VERSE～ | 3 | 6 | 9+ | 13.8\n【取得できる称号】\n称号 | 条件\n一片食べたら、後はもう、適当に遊んでしまえ。 | MASTER以下全て/プレイ\n【ND名義・称号の由来】\n- 称号「一片食べたら、後はもう、適当に遊んでしまえ。」 歌詞より。",
-  "wiki_comment_zh": "发布于 2024 年 11 月 8 日。\n使用的音频库：Hatsune Miku/Juune Teto SV",
+  "wiki_comment_zh": "2024年11月8日投稿。\n使用音声库：初音ミク・重音テトSV",
   "titles_zh": [
    [
     "称号",
@@ -147408,7 +147408,7 @@
    "称号「全部僕のもの」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 6 | 10 | 12.9\n【取得できる称号】\n称号 | 条件\n全部僕のもの | MASTER以下全て/プレイ\n【ND名義・称号の由来】\n- 称号「全部僕のもの」 歌詞より。",
-  "wiki_comment_zh": "发布于 2025 年 1 月 15 日。\n使用VOCALOID：初音未来",
+  "wiki_comment_zh": "2025年1月15日投稿。\n使用 VOCALOID：初音ミク",
   "titles_zh": [
    [
     "称号",
@@ -147911,7 +147911,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 2 | 5 | 10+ | 13.7",
-  "wiki_comment_zh": "作词、编曲：串宫英幸（Hifumi, Inc.）"
+  "wiki_comment_zh": "作词・作编曲：グシミヤギ ヒデユキ(Hifumi,inc.)"
  },
  "パステル・シタイ！": {
   "wiki_title": "パステル・シタイ！",
@@ -148117,7 +148117,7 @@
    "ND名義(MAS)「今世最大のペンギン」（ロシェ＠ペンギン） 楽曲MV内に出てくる文章「この夏 今世最大の 現実が やってくる！」より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 6 | 9+ | 13.7\n【ND名義・称号の由来】\n- ND名義(MAS)「今世最大のペンギン」（ロシェ＠ペンギン） 楽曲MV内に出てくる文章「この夏 今世最大の 現実が やってくる！」より。",
-  "wiki_comment_zh": "使用的音频库：Juon Teto SV",
+  "wiki_comment_zh": "使用音声库：重音テトSV",
   "origins_zh": [
    "ND名称（MAS）“世界上最大的企鹅”（Roche@Penguin）出自音乐录影带中出现的句子“今年夏天，世界上最大的现实即将到来！”"
   ]
@@ -148176,7 +148176,7 @@
    "称号「ここまでやったらもう終わり」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 7+ | 11.2 | 14.2\n【取得できる称号】\n称号 | 条件\nここまでやったらもう終わり | MASTER以下全て/ ALL JUSTICE 達成\n【ND名義・称号の由来】\n- 称号「ここまでやったらもう終わり」 歌詞より。",
-  "wiki_comment_zh": "使用的音频库：Juon Teto SV",
+  "wiki_comment_zh": "使用音声库：重音テトSV",
   "titles_zh": [
    [
     "称号",
@@ -149320,7 +149320,7 @@
    "称号「ずっと泡石の様に輝いてメモリーズ」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 6 | 10 | 13.3\n【取得できる称号】\n称号 | 条件\nずっと泡石の様に輝いてメモリーズ | MASTER /RANK SSS達成\n【ND名義・称号の由来】\n- 称号「ずっと泡石の様に輝いてメモリーズ」 歌詞より。",
-  "wiki_comment_zh": "作词：戈戈\n作曲：本清\n也许：在歌曲的世界里",
+  "wiki_comment_zh": "作词：Gohgo\n作曲：Motokiyo",
   "titles_zh": [
    [
     "称号",
@@ -150211,7 +150211,7 @@
    ]
   },
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 2 | 5 | 8+ | 11.9",
-  "wiki_comment_zh": "动画《塔科比的原罪》片头曲。\n编曲：井上卓"
+  "wiki_comment_zh": "动画《タコピーの原罪》OP 曲。\n编曲：TAKU INOUE"
  },
  "Bling-Bang-Bang-Born": {
   "wiki_title": "Bling-Bang-Bang-Born",
@@ -150344,7 +150344,7 @@
    "称号「赤信号にずっと従順です。」 歌詞より。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nMate～ | 3 | 5 | 10 | 13.5\n【取得できる称号】\n称号 | 条件\n赤信号にずっと従順です。 | デンジャースキル発動\n【ND名義・称号の由来】\n- 称号「赤信号にずっと従順です。」 歌詞より。",
-  "wiki_comment_zh": "使用的音频库：初音未来 VS Teto Juune",
+  "wiki_comment_zh": "使用音声库：初音ミク VS 重音テト",
   "titles_zh": [
    [
     "称号",
@@ -154819,7 +154819,7 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2018/12/20~2019/2/6活动「女神异闻录3 月夜舞动合作活动」先行发行歌曲。\n歌词：莲汁",
+  "wiki_comment_zh": "2018/12/20～2019/2/6 活动「 ペルソナ3 ダンシング・ムーンナイトコラボイベント 」先行配信曲。\n作词：Lotus Juice",
   "titles_zh": [
    [
     "称号",
