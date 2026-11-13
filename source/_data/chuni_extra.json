@@ -34556,7 +34556,7 @@
    "称号「声を枯らして叫んだ」 曲中の歌詞。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nSTAR～ | 3 | 5 | 9 | 11.7\n【取得できる称号】\n称号 | 条件\n声を枯らして叫んだ *1 | MASTER /プレイ中に1回MISS\n【ND名義・称号の由来】\n- 称号「声を枯らして叫んだ」 曲中の歌詞。",
-  "wiki_comment_zh": "2017/11/22 - 2018/1/10 活动「虚拟歌手合作活动」先行发行歌曲。\n发布于2009年7月4日。在大约4个月内达到了百万大关。\n收录于2010年9月发行的合辑《EXIT TUNES PRESENTS Vocaloanthems》中。\n使用VOCALOID：巡音卢卡",
+  "wiki_comment_zh": "2017/11/22～2018/1/10 活动「バーチャル・シンガーコラボイベント」先行配信曲。\n2009 年 7 月 4 日投稿，约 4 个月后达成百万播放。\n收录于 2010 年 9 月发售的合辑《EXIT TUNES PRESENTS Vocaloanthems》。\n使用 VOCALOID：巡音ルカ",
   "titles_zh": [
    [
     "称号",
@@ -34568,7 +34568,7 @@
    ]
   ],
   "origins_zh": [
-   "标题：“我用嘶哑的声音尖叫。”歌曲的歌词。"
+   "称号「声を枯らして叫んだ」：曲中歌词。"
   ]
  },
  "炉心融解": {
@@ -55852,20 +55852,20 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2019/10/24~12/4活动 \"Magic High School's Irregular Collaboration 活动\" advance distribution song.\nGARNiDELiA 的第二张单曲。\n动画《魔法科高中的劣等生》第一季后半段的OP歌曲。顺便说一句，上半场的开场曲是《Rising Hope》。\n作词：迈利亚\n作词/作曲：toku",
+  "wiki_comment_zh": "2019/10/24～12/4 活动「魔法科高校の劣等生联动活动」先行配信曲。\nGARNiDELiA 第 2 张单曲。\n动画《魔法科高校の劣等生》第 1 期后半 OP 曲；前半 OP 是《Rising Hope》。\n作词：メイリア\n作词/作曲：toku",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "不愧是大哥的料啊！",
+    "不愧是哥哥大人！",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND 名称（MAS）“不愧是 Bugyo-sama！”（寿喜烧 Bugyo）模仿以下“不愧是 Onii-sama！”。是不是缩写为“Sasubugyo”？",
-   "标题：“不愧是哥哥啊！”这是师兄司波深幸在称赞哥哥司波达也时说的一句话。俗称“萨索尼”。"
+   "ND 名义（MASTER）「さすがは奉行様です」（すきやき奉行）：对下列「さすがはお兄様です！」的恶搞；简称「さすぶぎょ」？",
+   "称号「さすがはお兄様です！」：兄控的司波深雪 称赞哥哥司波達也 时的台词，通称「さすおに」。"
   ]
  },
  "UNION": {
@@ -63975,9 +63975,9 @@
     "14.3"
    ]
   ],
-  "wiki_comment_zh": "1999年在BMS评论网站“Club Stubborn”上发布的BMS歌曲。分类是“。”\nCHUNITHM使用的音源与BMS版本略有不同，相当于过去存在的音乐共享网站“muzie”上上传的音源以及后来发行的专辑“Chou no Specimen”中包含的音源。",
+  "wiki_comment_zh": "1999 年在 BMS 评测站「Club Stubborn」发表的 BMS 乐曲，曲风是「.」。\nCHUNITHM 使用的音源与 BMS 版略有不同，与过去音乐分享站「muzie」上传版及后来专辑《チョウの標本》收录版相同。",
   "origins_zh": [
-   "ND名称（WE Kura）“Chou no Kuramoto”（音乐No.100 *1）对歌曲标题的模仿。"
+   "ND 名义（WE 藏）「チョウの蔵本」（譜面-100号）：曲名的恶搞。"
   ]
  },
  "Be A Shooter！～NORMAL BIG BONUS～": {
@@ -74018,9 +74018,9 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2021年3月4日~3月31日活动「Hololive协作活动」先行发行歌曲。\n第三首 Hololive 官方歌曲。\n作词：辻润介\n作曲、编曲：石滨翔 (MONACA)\n歌曲：时野空、Roboko-san、白神吹雪、Minato Akua、白银诺埃尔",
+  "wiki_comment_zh": "2021/3/4～3/31 活动「hololive 联动活动」先行配信曲。\nhololive 官方曲第 3 弹。\n作词：辻純更\n作编曲：石濱翔（MONACA）\n演唱：ときのそら、ロボ子さん、白上フブキ、湊あくあ、白銀ノエル",
   "origins_zh": [
-   "ND (MAS) 的名称“Monokurock@Hololive Zenryoku Hakooshi”(Monokuroku) Hakooshi 意味着喜欢和支持整个组合。在这种情况下，它的意思是“Monokurock，整个 Hololive 的忠实粉丝”。"
+   "ND 名义（MASTER）「ものくろっく@ホロライブ全力箱推し」（ものくろっく）：箱推し 指喜欢并支持整个团体；这里就是「超爱 hololive 全体的ものくろっく」。"
   ]
  },
  "疾走あんさんぶる": {
@@ -75958,9 +75958,9 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "UNISON SQUARE GARDEN 的第 16 张单曲。发布于 2019 年 10 月 11 日。\n动画《Fate/Grand Order -绝对恶魔战线 巴比伦尼亚-》的片头曲。\n作词、作曲：田渊智也\n安排：UNISON 广场花园",
+  "wiki_comment_zh": "UNISON SQUARE GARDEN 第 16 张单曲，2019 年 10 月 11 日发售。\n动画《Fate/Grand Order -絶対魔獣戦線バビロニア-》OP 曲。\n作词・作曲：田淵智也\n编曲：UNISON SQUARE GARDEN",
   "origins_zh": [
-   "模仿ND名字（MAS）《Phantom Jack》（杰克）的歌曲标题。"
+   "ND 名义（MASTER）「Phantom Jack」（Jack）：曲名的恶搞。"
   ]
  },
  "脳裏上のクラッカー": {
@@ -78397,20 +78397,20 @@
     "12.8"
    ]
   ],
-  "wiki_comment_zh": "“maimai Deluxe”前常任成员“龙千穗”的预发行歌曲之一。 分类 是超级SPA RAP。\n作词：ytr、match、AO\n作曲/编曲：TINY PLANETS (K's &AO)",
+  "wiki_comment_zh": "《maimaiでらっくす》原常设地区「ドラゴンちほー」先行配信曲之一，曲风是 SUPER SPA RAP。\n作词：ｙｔｒ、抹、AO\n作・编曲：TINY PLANETS (K's &AO)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "切腹天妇罗 富士山艺伎寿喜烧 武士寿司 多摩温泉",
+    "ハラキリ テンプラ フジヤマ ゲイシャ スキヤキ サムライ スシ タマオンセン",
     "达到专家/等级 SSS"
    ]
   ],
   "origins_zh": [
-   "ND 名称 (MAS) “Red+Lemon”（Redarrow、Jako Lemon） 每个名称的组合。",
-   "标题：《切腹天妇罗 富士山艺伎寿喜烧 武士寿司 多摩温泉》 歌词。"
+   "ND 名义（MASTER）「Red+Lemon」（Redarrow、じゃこレモン）：把各自名义组合起来。",
+   "称号「ハラキリ テンプラ フジヤマ ゲイシャ スキヤキ サムライ スシ タマオンセン」：曲中歌词。"
   ]
  },
  "BLACK ROSE": {
@@ -80228,20 +80228,20 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "2021/8/5~9/1 活动「我的英雄学院合作活动」先行发行歌曲。\n《我的英雄学院》动画第五季OP曲。\n作词：石渡润二\n作曲：远藤尚哉\n编排：阿金",
+  "wiki_comment_zh": "2021/8/5～9/1 活动「僕のヒーローアカデミア联动活动」先行配信曲。\n动画第 5 期 OP 曲。\n作词：いしわたり淳治\n作曲：遠藤直弥\n编曲：akkin",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "我在这儿！",
+    "我来了！",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“Redarrow”Plus Ultra”（红箭头）“Plus Ultra”是一句西班牙语座右铭，原意为拉丁语“进一步进步”。在《我的英雄学院》中，它是象征作品的词语之一，也是悦英高中的校训。据说有“克服困难”的意思。",
-   "标题：“我在这里！”这是欧尔麦特出现时经常说的一句话。它传达了英雄的骄傲，说“我一定会帮忙”，但有时也以幽默的方式使用。"
+   "ND 名义（MASTER）「Redarrow\"Plus Ultra\"」（Redarrow）：「Plus Ultra」原是拉丁语意为「更进一步」的西班牙标语；在该作中是象征作品的词之一，也是雄英高中的校训，据说含「跨越困难」之意。",
+   "称号「私が来た！」：オールマイト 登场时常说；含「我一定救你」的英雄矜持，不过有时也被当梗用。"
   ]
  },
  "ザ・ライブ革命でSHOW！": {
@@ -88672,20 +88672,20 @@
     "14.8"
    ]
   ],
-  "wiki_comment_zh": "BMS活动《BOF2010》展览歌曲。 分类 是 Suomisaundi。\n艺术家 Shaman Cure-All 是 PSYPHA 的别名，PSYPHA 在 2000 年代初作为 BMS 艺术家活跃。",
+  "wiki_comment_zh": "BMS 活动「BOF2010」参展曲，曲风是 Suomisaundi。\n艺人 Shaman Cure-All 是 2000 年代初以 BMS 作者身份活动的 PSYPHA 的另一名义。",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "-最后的BOSS-",
+    "-LAST BOSS-",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND名称（MAS）“habakiri-Psychedelic-”（Amino Habakiri）这首歌的流派名称“Suomisaundi”源自“Goa Psyechedelic”。",
-   "标题「-LAST BOSS-」来自 BAECON 制作的这首歌曲的 BMS 差异「Tuk Tuk Boshi -LAST BOSS-」。然而，这个差异名称最初是给另一个人制作的另一首歌曲和乐谱的，并且它仍然存在于多首歌曲*1中，因此乐谱创建者似乎很困惑。"
+   "ND 名义（MASTER）「habakiri-Psychedelic-」（アミノハバキリ）：因本曲曲风「Suomisaundi」派生自「Goa Psychedelic」。",
+   "称号「-LAST BOSS-」：来自 BAECON 制作的本曲 BMS 差分「Tuk Tuk Boshi -LAST BOSS-」；不过这个差分名原本是别人给别的曲子和谱面起的名字，现在还存在于多首曲子上，谱师似乎也很困惑。"
   ]
  },
  "プナイプナイたいそう": {
@@ -89478,24 +89478,24 @@
     "—"
    ]
   ],
-  "wiki_comment_zh": "十雨宫的第11张单曲。发布于 2021 年 5 月 12 日。\n动画《七大罪：愤怒的审判》的片头曲。\n作词：上坂理沙\n作曲/编曲：家原正树\n作曲和联合制作：Giz'Mo（来自 Jam9）",
+  "wiki_comment_zh": "雨宮天 第 11 张单曲，2021 年 5 月 12 日发售。\n动画《七つの大罪 憤怒の審判》片头主题曲。\n作词：上坂梨紗\n作曲・编曲：家原正樹\n作曲共作：Giz'Mo(from Jam9)",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "剩菜处理骑士团团长",
+    "剩饭处理骑士团团长",
     "全部位于主控/播放下方"
    ],
    [
-    "那是你的错。",
+    "那就是你的罪",
     "店内与 2 人或更多人配对/游戏过程中错过一次"
    ]
   ],
   "origins_zh": [
-   "头衔：“剩菜加工骑士团长”霍克自称这个头衔。顺便说一下，成员数为0。",
-   "标题：“这是你的罪过。”梅利奥达斯的台词。"
+   "称号「残飯処理騎士団団長」：ホーク 自称的头衔；顺带一提团员 0 人。",
+   "称号「それが お前の罪だぜ」：メリオダス 的台词。"
   ]
  },
  "うまぴょい伝説": {
@@ -90480,20 +90480,20 @@
    "称号「剣術を扱う程度の能力」 対応キャラ「 魂魄 妖夢 」の能力。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nNEW～ | 3 | 5 | 9 | 13.4\n【取得できる称号】\n称号 | 条件\n剣術を扱う程度の能力 | MASTER以下全て/プレイ\n【ND名義・称号の由来】\n- ND名義(MAS)「聖剣ミストルティン」 妖夢が剣の使い手であることからか。\n- 称号「剣術を扱う程度の能力」 対応キャラ「 魂魄 妖夢 」の能力。",
-  "wiki_comment_zh": "2019年8月在Comic Market 96发行的编曲CD《FIFTH BOSS-》中收录的歌曲，以仅第5阶段道路/Boss歌曲为概念创作的歌曲。\n作词及编曲：邻居\n安排：GUCCI",
+  "wiki_comment_zh": "收录于 2019/08 Comiket 96 颁布的、只做 Stage 5 道中・Boss 曲概念改编 CD《強敵 -FIFTH BOSS-》。\n作词编曲：隣人\n编曲：GUCCI",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "掌握剑术的能力",
+    "使用剑术程度的能力",
     "全部位于主控/播放下方"
    ]
   ],
   "origins_zh": [
-   "ND名（MAS）「圣剑Mistletin」是因为幽梦是剑使吗？",
-   "与标题“剑术能力”相对应的角色“妖梦空白”的能力。"
+   "ND 名义（MASTER）「聖剣ミストルティン」：大概因妖梦是用剑的。",
+   "称号「剣術を扱う程度の能力」：对应角色魂魄妖夢 的能力。"
   ]
  },
  "妖々跋扈　～ Who done it！！！": {
@@ -91391,9 +91391,9 @@
     "14.9"
    ]
   ],
-  "wiki_comment_zh": "对应角色 珠洲岛有栖\n2022/4/14 ~ 2022/10/12 Ongeki 链接预发行歌曲\n第一代“Ongeki”中收录的歌曲。 分类 是生命流。\n在遭遇版（第1章）第9章“幕后黑手是毛绒玩具吗？”中以课题曲的身份出现。",
+  "wiki_comment_zh": "对应角色：珠洲島有栖\n2022/4/14～2022/10/12 音击联动先行配信曲\n初代《音击》收录曲，曲风是 LIFE STREAM。\n作为相遇篇（第 1 章）・第 9 话「黒幕はぬいぐるみ？」的课题曲登场。",
   "origins_zh": [
-   "ND名称（MAS）“Redarrow -LIFE STREAM-”（Redarrow）来自这首歌曲“LIFE STREAM”的流派名称。这种流派的名称与他的歌曲《Aragami》相同，他说：“当你感觉有一道光束要从大自然中发出时，你会使用这种氛围。”"
+   "ND 名义（MASTER）「Redarrow -LIFE STREAM-」（Redarrow）：来自本曲曲风「LIFE STREAM」；该曲风名与同氏《Aragami》相同，本人说是「大自然要发射光束时用的氛围玩意儿」。"
   ]
  },
  "Cry Baby": {
@@ -119231,7 +119231,7 @@
     "14.5"
    ]
   ],
-  "wiki_comment_zh": "*这些歌词纯属虚构。与任何真实人物、组织、意识形态、游戏更新等无关（摘自官方音源汇总部分）\n2021 年发行的专辑《Screamin' Showcase》中的歌曲。",
+  "wiki_comment_zh": "※本歌词纯属虚构，与现实人物、团体、思想、游戏更新等一概无关。（官方音源简介栏）\n收录于 2021 年发售专辑《Screamin' Showcase》。",
   "titles_zh": [
    [
     "称号",
@@ -119243,8 +119243,8 @@
    ]
   ],
   "origins_zh": [
-   "ND（MAS）名义下的《零企鹅抗激动》（Roche@Penguin）歌曲标题是《我无法击败真正激怒我的音乐游戏老板歌曲类型？ ？ ？ ？ ？ “从。",
-   "标题“是的，对不起♡”是歌曲中的歌词，也是所谓“女小子语法”之一。"
+   "ND 名义（MASTER）「煽り耐性ゼロペンギン」（ロシェ＠ペンギン）：来自曲名「めっちゃ煽ってくるタイプの音ゲーボス曲ちゃんなんかに負けないが？？？？？」。",
+   "称号「はい残念でした♡」：曲中歌词，是所谓「メスガキ構文」之一。"
   ]
  },
  "Breaking Dawn (feat. 棗いつき)": {
@@ -122535,23 +122535,23 @@
     "13.7"
    ]
   ],
-  "wiki_comment_zh": "在Nico Nico Douga主办的活动“The VOCALOID Collection 2023 Summer”TOP100排名中排名第一。\n它被列为与 Tunism 合作项目“Bokanism”第一名的补充奖。\n使用VOCALOID：由纪歌合",
+  "wiki_comment_zh": "niconico 主办的『The VOCALOID Collection 2023 Summer』TOP100 排行第 1。\n作为与 CHUNITHM 的联动企划『ボカニズム』第 1 名的副赏收录。\n使用 VOCALOID：歌愛ユキ",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "《有爱的小学生》",
+    "『包含爱的小学生』",
     "全部位于主控/播放下方"
    ],
    [
-    "我会变成你并尖叫",
+    "我会变成你替你喊出来",
     "实现全链条"
    ]
   ],
   "origins_zh": [
-   "标题：“充满爱的小学生”和“我会变成你尖叫。”来自歌词。"
+   "称号「『愛を含んだ小学生』」「僕になって叫んであげるから」：出自歌词。"
   ]
  },
  "おどロボ": {
@@ -124310,9 +124310,9 @@
    "ND名義(WE)『指「そこに無ければ無いですね」』(アミノハバキリ) 「そこに無ければ無いですね」は某100円均一チェーンで店員に「これはどこにありますか？」と尋ねた際によく出てくる(とされる)台詞。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS～ | 3 | 5 | 10+ | 14.1\n【ND名義・称号の由来】\n- ND名義(WE)『指「そこに無ければ無いですね」』(アミノハバキリ) 「そこに無ければ無いですね」は某100円均一チェーンで店員に「これはどこにありますか？」と尋ねた際によく出てくる(とされる)台詞。",
-  "wiki_comment_zh": "对应角色 茂富麻吕\nLUMINOUS ep.II 上一页 课题曲 / 下一页 课题曲\n于 2024 年 2 月 22 日添加，LUMINOUS ep.II 区域2（截至 LUMINOUS 的进度级别 1/95 方块）课题曲。通过通关获得角色“Mofumaro”。",
+  "wiki_comment_zh": "对应角色：モフマロ\n2024/2/22 追加，LUMINOUS ep.II 区域 2（进度 1/LUMINOUS 时点 95 格）课题曲。通关可获得角色「モフマロ」。",
   "origins_zh": [
-   "在ND（WE）的名义下“手指：“如果它不在那里，它就不在那里。”（Amino Habakiri）“如果它不在那里，它不在那里。”这是当你在某个100日元制服商店询问店员时经常出现的一句话，“我在哪里可以找到这个？”"
+   "ND 名义（WE）『指「そこに無ければ無いですね」』（アミノハバキリ）：「そこに無ければ無いですね」是去某百元店问店员「这个在哪里」时（据说）常出现的台词。"
   ]
  },
  "ワーカーホリック": {
@@ -124440,9 +124440,9 @@
    "ND名義(MAS)「2step lemon」(じゃこレモン) 音楽ジャンル「2step」より。同氏の告知でも「 シンセポップなインスト2stepです！！ 」と語られている。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS～ | 2 | 5 | 10 | 13.7\n【ND名義・称号の由来】\n- ND名義(MAS)「2step lemon」(じゃこレモン) 音楽ジャンル「2step」より。同氏の告知でも「 シンセポップなインスト2stepです！！ 」と語られている。",
-  "wiki_comment_zh": "对应角色 泷泽\nLUMINOUS ep.II 上一页 课题曲 / 下一页 地图课题曲\n添加了 2024/2/22，LUMINOUS ep.II 区域5（截至 LUMINOUS 的进度级别 1/215 方块）课题曲。通过通关获得角色“泷泽”。",
+  "wiki_comment_zh": "对应角色：タキザワ\n2024/2/22 追加，LUMINOUS ep.II 区域 5（进度 1/LUMINOUS 时点 215 格）课题曲。通关可获得角色「タキザワ」。",
   "origins_zh": [
-   "ND名称（MAS）“2step柠檬”（Jako Lemon）来自音乐流派“2step”。他的公告还指出，“这是一款合成器流行乐器 2step！”"
+   "ND 名义（MASTER）「2step lemon」（じゃこレモン）：来自音乐曲风「2step」；同氏宣传里也说是「合成器流行的器乐 2step！！」。"
   ]
  },
  "Mutation": {
@@ -129736,19 +129736,19 @@
    "称号「CHUNITHMしましょう？」 歌詞の「おままごとしましょう？」のパロディ。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nLUMINOUS+～ | 2 | 6 | 8+ | 12.2\n【取得できる称号】\n称号 | 条件\nCHUNITHMしましょう？ | 1クレジット中、全てプレイ\n【ND名義・称号の由来】\n- 称号「CHUNITHMしましょう？」 歌詞の「おままごとしましょう？」のパロディ。",
-  "wiki_comment_zh": "第13届博丽神社灵大祭上发行的专辑《Border on Blossom》中的歌曲。\n这件夹克来自于第 20 届博丽神社灵大祭祭典上发行的精选专辑《Display III》。\n作词/音乐：Terra\n演唱：阿亚蓬祖*",
+  "wiki_comment_zh": "收录于第 13 回博丽神社例大祭颁布的专辑《Border on Blossom》。\n曲绘是第 20 回博丽神社例大祭颁布的精选专辑《showcase iii》的。\n作词/作曲：テラ\n演唱：あやぽんず＊",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "我们来做CHUNITHM 吧？",
+    "来玩中二节奏吧？",
     "1 个学分内全部玩完"
    ]
   ],
   "origins_zh": [
-   "标题：“CHUNITHM Let's do it？”模仿歌词“Let's play house?”"
+   "称号「CHUNITHMしましょう？」：歌词「おままごとしましょう？」的恶搞。"
   ]
  },
  "ハッピータイフーン": {
@@ -133085,9 +133085,9 @@
    "ND名義(MAS)「じゃこレモン裁判長」(じゃこレモン) 対応キャラクター・ 法月 ぴこ が裁判長であることより。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nVERSE～ | 2 | 5 | 10+ | 13.6\n【ND名義・称号の由来】\n- ND名義(MAS)「じゃこレモン裁判長」(じゃこレモン) 対応キャラクター・ 法月 ぴこ が裁判長であることより。",
-  "wiki_comment_zh": "对应角色 火月皮克\nVERSE ep.I 上一个 课题曲 / 下一个 课题曲\n添加了 2024/12/12，VERSE ep.I 区域3（截至进度 1/VERSE 105 个空格）课题曲。清除它并获得“Hozuki Piko”。\n安排合作：Tanchiky",
+  "wiki_comment_zh": "对应角色：法月ぴこ\n2024/12/12 追加，VERSE ep.I 区域 3（进度 1/VERSE 时点 105 格）课题曲。通关可获得「法月ぴこ」。\n编曲协力：Tanchiky",
   "origins_zh": [
-   "ND名（MAS）「会长雅科·莱蒙」（Jako Lemon）对应角色Piko Hozuki是审判长。"
+   "ND 名义（MASTER）「じゃこレモン裁判長」（じゃこレモン）：因对应角色法月ぴこ 是审判长。"
   ]
  },
  "房総★ミラクル☆てんたくる!?": {
@@ -139375,9 +139375,9 @@
     "15"
    ]
   ],
-  "wiki_comment_zh": "2002年，歌曲在BMS活动“B.J.Cup第三阶段”上亮相。分类是trance。\n它也被用作后来发布的第07次扩展同人视觉小说“Umineko no Naku Koro ni San”的BGM。",
+  "wiki_comment_zh": "2002 年 BMS 活动「B.J.Cup 3rd stage」参展曲，曲风是 t r a n c e。\n后来也用作 07th Expansion 同人视觉小说《うみねこのなく頃に散》的 BGM。",
   "origins_zh": [
-   "ND名称（MAS）《魔女之刃》（阿米诺·羽切里）是因为在游戏《Umineko no Naku Koro ni》中扮演重要角色的“魔女”，这首歌被用作BGM吗？"
+   "ND 名义（MASTER）「Blade of Witch」（アミノハバキリ）：大概来自该作中担任重要角色的「魔女」。"
   ]
  },
  "7thSense": {
@@ -141754,19 +141754,19 @@
     "14.5"
    ]
   ],
-  "wiki_comment_zh": "发布于 2013 年 10 月 27 日。\n于2024年2月8日达到100万次，同年7月14日在YouTube上的观看次数突破1亿次。\nCHUNITHM版本的音源是收录在作者专辑《Ikiru》中的翻拍版本。\n使用VOCALOID：镜音凛",
+  "wiki_comment_zh": "2013 年 10 月 27 日投稿。\n2024 年 2 月 8 日达成百万，同年 7 月 14 日 YouTube 突破 1 亿播放。\nCHUNITHM 收录音源是作者专辑《生きる》收录的重制版。\n使用 VOCALOID：鏡音リン",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold cold",
+    "冷冷冷冷冷冷冷冷冷冷冷冷冷冷",
     "扮演女孩 A 以获得所有积分。"
    ]
   ],
   "origins_zh": [
-   "标题：“冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷，冷。”来自歌词。"
+   "称号「寒い寒い寒い寒い寒い寒い寒い寒い寒い寒い寒い寒い寒い寒い」：出自歌词。"
   ]
  },
  "え？あぁ、そう。- 10th Anniversary Edition -": {
@@ -144638,20 +144638,20 @@
    "称号「S U P E R C O L O R F U L」 公式動画の概要欄と同梱のテキストファイル、および同名の発狂差分より。 差分名とその譜面傾向としての元ネタは別作曲者のBMS楽曲「Apollo」の発狂差分「SUPERVAKA」であると思われる。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VERSE～ | 3 | 7 | 13.5 | 15.2\n【取得できる称号】\n称号 | 条件\nS U P E R C O L O R F U L | MASTER以下全て/ ALL JUSTICE 達成\n【ND名義・称号の由来】\n- ND名義(WE狂)「SUPERCOLORFUL」\n- 称号「S U P E R C O L O R F U L」 公式動画の概要欄と同梱のテキストファイル、および同名の発狂差分より。 差分名とその譜面傾向としての元ネタは別作曲者のBMS楽曲「Apollo」の発狂差分「SUPERVAKA」であると思われる。",
-  "wiki_comment_zh": "2020 BMS活动《互信3》均值组获奖歌曲。 分类 是无数种色调。\n不是 KALEIDXSCOPE\n作曲家：qfeileadh vs. AYhaz",
+  "wiki_comment_zh": "2020 年 BMS 活动「Mutual Faith 3」平均值部门优胜曲，曲风是 ZILLION SHADES。\n不是 KALEIDXSCOPE。\n作曲：qfeileadh vs. AYhaz",
   "titles_zh": [
    [
     "称号",
     "条件"
    ],
    [
-    "超级多彩",
+    "S U P E R C O L O R F U L",
     "以下所有内容均已达到大师/正义"
    ]
   ],
   "origins_zh": [
-   "ND名称（我们粉丝）“SUPERCOLORFUL”",
-   "标题：《S U P E R C O L O R F U L》来自官方视频的摘要部分，附带的文本文件，以及同名的疯狂差异。差异名称的起源及其乐谱倾向被认为是“SUPERVAKA”，这是另一位作曲家的 BMS 歌曲“Apollo”的疯狂差异。"
+   "ND 名义（WE 狂）「SUPERCOLORFUL」",
+   "称号「S U P E R C O L O R F U L」：来自官方视频简介栏、随附文本文件及同名发狂差分；差分名与谱面倾向的源头大概是别作曲者 BMS 曲《Apollo》的发狂差分「SUPERVAKA」。"
   ]
  },
  "ビッグブリッヂの死闘 -シアトリズムFFAC Arrange- from FFV": {
@@ -145611,9 +145611,9 @@
    "ND名義(MAS)「Aloe Arborescens」(夕凪アロエ) キダチアロエの学名。なお、本曲と名義の関連性はないと思われる。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 6 | 13.3 | 15.2\n【ND名義・称号の由来】\n- ND名義(MAS)「Aloe Arborescens」(夕凪アロエ) キダチアロエの学名。なお、本曲と名義の関連性はないと思われる。",
-  "wiki_comment_zh": "收录在专辑《YUYOYU EP》中的歌曲。\n这首歌是在2012年3月4日举行的活动“MOtOLOiD外传～Pentab Fusion Road Exam Volume～”中，在DJ旁边的现场绘画项目中突然创作出来的。\n某些部分已从原始长度上剪掉。",
+  "wiki_comment_zh": "收录于专辑《YUYOYU EP》。\n2012 年 3 月 4 日演出「MOtOLOiD外伝~ペンタブ融合道 試の巻~」中，在 DJ 旁边现场作画的环节里突发制作的乐曲。\n原曲长度被剪掉了一部分。",
   "origins_zh": [
-   "ND 名称 (MAS)“木立芦荟”(Yunagi Aloe) 木达芦荟的学名。而且，这首歌和名字似乎没有什么关系。"
+   "ND 名义（MASTER）「Aloe Arborescens」（夕凪アロエ）：木立芦荟的学名；不过本曲与名义大概没关系。"
   ]
  },
  "WakeUP MakeUP FEVER!": {
@@ -147642,9 +147642,9 @@
    "ND名義(MAS)「世界を大いに盛り上げるためのじゃこレモン」（じゃこレモン） 涼宮 ハルヒ が設立した非公認団体「SOS団」の正式名称「世界を大いに盛り上げるための涼宮ハルヒの団」から。"
   ],
   "wiki_extra_ja": "【定数変更履歴】\nバージョン | B | A | E | M\nX-VRS-X～ | 3 | 7 | 10+ | 13.2\n【ND名義・称号の由来】\n- ND名義(MAS)「世界を大いに盛り上げるためのじゃこレモン」（じゃこレモン） 涼宮 ハルヒ が設立した非公認団体「SOS団」の正式名称「世界を大いに盛り上げるための涼宮ハルヒの団」から。",
-  "wiki_comment_zh": "为纪念2024年轻小说《凉宫春日的剧场》发售而举办的众筹项目“想再次看到凉宫春日唱歌跳舞！新歌&MV制作项目”制作的歌曲。\n作词：畑亚纪\n作曲：田代智和\n编曲：伊藤翼",
+  "wiki_comment_zh": "为纪念 2024 年轻小说《涼宮ハルヒの劇場》发售而举办的众筹企划「もう一度歌って、踊る涼宮ハルヒが見たい！新楽曲＆MV制作プロジェクト」制作的乐曲。\n作词：畑亜貴\n作曲：田代智一\n编曲：伊藤翼",
   "origins_zh": [
-   "ND名称（MAS）“Jaco Lemon，让世界变得更加精彩”（Jako Lemon）出自凉宫春日创立的非官方组织“SOS Brigade”的正式名称“凉宫春日的旅，让世界变得更加精彩”。"
+   "ND 名义（MASTER）「世界を大いに盛り上げるためのじゃこレモン」（じゃこレモン）：来自涼宮ハルヒ 设立的非公认团体「SOS団」的正式名称「世界を大いに盛り上げるための涼宮ハルヒの団」。"
   ]
  },
  "Chasing destiny": {
