@@ -36,6 +36,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const versionLabel = new Map(d.versions.map(function (v) { return [v.key, v.abbr]; }));
 
   const designerMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designers) || {};
+  const designerFill = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_fill) || {};
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
@@ -106,13 +107,16 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     }
     if (!cnConsts) cnConsts = cnConstsOf(extraEntry, cnMaxIdx);
     const fromMaster = designerMap[String(s.title).trim()] || {};
+    const fromFill = designerFill[String(s.title).trim()] || {};
     const enriched = Object.assign({}, s, {
       musicId: idMap[String(s.title).trim()] || '',
       sheets: s.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const masterDesigner = fromMaster[letter];
+        const cur = String(sh.designer || '').trim();
+        const filled = (cur && cur !== '-') ? '' : (fromFill[letter] || '');
         return Object.assign({}, sh, {
-          designer: masterDesigner || sh.designer || ''
+          designer: masterDesigner || filled || sh.designer || ''
         });
       })
     });

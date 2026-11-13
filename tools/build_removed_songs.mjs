@@ -17,6 +17,8 @@ const parsedWiki = fs.existsSync('_tmp/wiki/parsed_songs.json')
   : [];
 
 const DATA = JSON.parse(fs.readFileSync('source/_data/chuni.json', 'utf8'));
+const IDS = JSON.parse(fs.readFileSync('source/_data/chuni_ids.json', 'utf8').replace(/^\uFEFF/, ''));
+const C2S_DESIGNERS = JSON.parse(fs.readFileSync('_tmp/game/c2s-designers.json', 'utf8'));
 
 const gameByTitle = new Map();
 for (const g of game) gameByTitle.set(norm(g.title), g);
@@ -89,6 +91,13 @@ for (const row of missing) {
 
   const g = gameByTitle.get(key);
   const w = wikiByTitle.get(key);
+  const songId = IDS[title];
+
+  // 谱师：来自 .c2s 头里的 CREATOR（游戏数据里唯一带谱师的地方）
+  const designerOf = (diffIdx) => {
+    if (songId === undefined) return '';
+    return C2S_DESIGNERS[String(Number(songId)) + '_' + diffIdx] || '';
+  };
 
   // 等级：优先游戏数据（数字 + levelDecimal），否则 wiki 列表
   const sheets = [];
@@ -98,7 +107,8 @@ for (const row of missing) {
       if (!/basic|advanced|expert|master|ultima/.test(d)) continue;
       if (!sh.level) continue;
       const internal = sh.levelDecimal ? Number(sh.level) + sh.levelDecimal / 100 : Number(sh.level);
-      sheets.push({ difficulty: d, level: String(sh.level) + (sh.levelDecimal ? '' : ''), internalValue: internal, designer: '' });
+      const idx = DIFF_KEYS.findIndex(([k]) => k === d);
+      sheets.push({ difficulty: d, level: String(sh.level) + (sh.levelDecimal ? '' : ''), internalValue: internal, designer: designerOf(idx) });
     }
   }
   if (!sheets.length) {
@@ -106,7 +116,7 @@ for (const row of missing) {
       const lv = lvFromList[i];
       if (!lv || lv === '-') return;
       const num = Number(String(lv).replace(/\+/g, ''));
-      sheets.push({ difficulty: d, level: lv, internalValue: isNaN(num) ? null : num, designer: '' });
+      sheets.push({ difficulty: d, level: lv, internalValue: isNaN(num) ? null : num, designer: designerOf(i) });
     });
   }
 
