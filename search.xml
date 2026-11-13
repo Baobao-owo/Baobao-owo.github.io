@@ -1,2445 +1,1135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>开站啦：从零把博客搭起来</title>
-      <link href="/2026/11/11/hello-blog/"/>
-      <url>/2026/11/11/hello-blog/</url>
-      
-        <content type="html"><![CDATA[<p>博客这事想了挺久的。</p><p>之前笔记散得太开了：手机备忘录里一段、B 站动态里一条、跟人解释的时候又要重新打一遍……找的时候全是碎的。所以还是得有个自己的地方，按分类放好，想写什么写什么，不用管平台给不给流量。</p><span id="more"></span><h2 id="用了什么"><a href="#用了什么" class="headerlink" title="用了什么"></a>用了什么</h2><ul><li><strong>Hexo</strong>：静态博客框架。文章是 Markdown，生成出来是纯 HTML，快，也不用数据库</li><li><strong>Argon 主题</strong>：卡片式版面，能换主题色，带侧栏和文章目录</li><li><strong>进站封面</strong>：用了一张很喜欢的插画，整站的冷蓝灰色调就是跟着它定的</li><li><strong>站内搜索</strong>：本地全文搜索，不发请求也能用</li></ul><p>整套跑在本地，写完推一下 GitHub Pages 就上线了。</p><h2 id="写一篇文章"><a href="#写一篇文章" class="headerlink" title="写一篇文章"></a>写一篇文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一篇</span></span><br><span class="line">npx hexo new <span class="string">&quot;文章标题&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地预览，默认 http://127.0.0.1:4000</span></span><br><span class="line">npx hexo server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件到 public/</span></span><br><span class="line">npx hexo generate</span><br></pre></td></tr></table></figure><p>文章在 <code>source/_posts/</code> 下面。开头 <code>---</code> 包着的那段叫 front-matter，管标题、日期、分类和标签；正文用 Markdown 写，<code>&lt;!--more--&gt;</code> 前面那截会自动变成首页摘要。</p><h2 id="配色是改哪儿"><a href="#配色是改哪儿" class="headerlink" title="配色是改哪儿"></a>配色是改哪儿</h2><p>主题色在 <code>source/_data/argon.yml</code> 的 <code>theme_color</code>，现在是冷钢蓝 <code>#4f7f9c</code>，取自封面里那种灰蓝。</p><p>右下角那个设置按钮里也能换色、调圆角和阴影，但那是只对当前浏览器生效的临时设置，改文件才是全局的。</p><p>封面地址也在 <code>argon.yml</code>（<code>banner_background_url</code>）；显示时怎么裁切、底边怎么过渡到页面底色，在 <code>source/assets/css/baobao.css</code> 里。</p><h2 id="接下来想做的"><a href="#接下来想做的" class="headerlink" title="接下来想做的"></a>接下来想做的</h2><ul><li><input disabled="" type="checkbox"> 把以前的谱面笔记搬过来</li><li><input checked="" disabled="" type="checkbox"> 加个评论区（giscus，评论存在仓库的 GitHub Discussions 里）</li><li><input checked="" disabled="" type="checkbox"> 上线，让别人也能打开（<a href="https://baobao-owo.github.io/">https://baobao-owo.github.io/</a> ）</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Argon </tag>
-            
-            <tag> 建站 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>为什么还要写博客</title>
-      <link href="/2026/11/05/why-blog/"/>
-      <url>/2026/11/05/why-blog/</url>
-      
-        <content type="html"><![CDATA[<p>现在发东西的地方太多了，动态、视频、群聊，随手就能说一句。那我为什么还要折腾一个自己的站呢。</p><p>大概是因为「说完就没了」这件事让人有点不甘心。</p><span id="more"></span><p>动态是给时间线看的，翻过就沉底；群里说的话，第二天连自己都记不清说过。可是有些东西是想留下来的：一个折腾了一晚上才想通的道理，一段打了很久才过的谱，某天突然觉得挺好听的歌。</p><p>这些东西不成体系，也没必要成体系。但它们是我自己的，放在自己的地方，找得到，也改得动。</p><p>还有个小原因，写下来的过程本身就是整理。脑子里觉得懂了的东西，一旦要写给别人看，就会发现哪里其实没想清楚。</p><p>所以这个站不追流量，也不打算日更。想写的时候写，写完放着，就这样。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 建站 </tag>
-            
-            <tag> 随笔 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Grief &amp; Malice</title>
-      <link href="/2026/09/04/chuni-55817710/"/>
-      <url>/2026/09/04/chuni-55817710/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-            <tag> 合作谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Astral Quantization</title>
-      <link href="/2026/08/03/astral-quantization/"/>
-      <url>/2026/08/03/astral-quantization/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> Arcaea </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Just Hold on (To All Fighters)</title>
-      <link href="/2026/05/23/chuni-27554dd7/"/>
-      <url>/2026/05/23/chuni-27554dd7/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>耐冬花麗</title>
-      <link href="/2026/05/23/chuni-48e1a576/"/>
-      <url>/2026/05/23/chuni-48e1a576/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-            <tag> 合作谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Ö&lt;3rf10W</title>
-      <link href="/2026/05/23/chuni-7f3bd0ed/"/>
-      <url>/2026/05/23/chuni-7f3bd0ed/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>WAVE</title>
-      <link href="/2026/03/25/chuni-65cb1749/"/>
-      <url>/2026/03/25/chuni-65cb1749/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Kaiki ~Scherzo ~Forutuuna no Itazura~</title>
-      <link href="/2026/03/12/osu-2521523/"/>
-      <url>/2026/03/12/osu-2521523/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Break The Speakers</title>
-      <link href="/2026/03/04/chuni-18058ef1/"/>
-      <url>/2026/03/04/chuni-18058ef1/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>BLACK or WHITE?</title>
-      <link href="/2026/03/03/chuni-046f5167/"/>
-      <url>/2026/03/03/chuni-046f5167/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Bloom in Two</title>
-      <link href="/2026/03/03/chuni-1dffbc67/"/>
-      <url>/2026/03/03/chuni-1dffbc67/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>宿星審判 -眩耀、最果てにて-</title>
-      <link href="/2026/03/03/chuni-481882e2/"/>
-      <url>/2026/03/03/chuni-481882e2/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-            <tag> 合作谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Once Forgotten, Nothing Remains</title>
-      <link href="/2026/03/03/chuni-931c0780/"/>
-      <url>/2026/03/03/chuni-931c0780/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-            <tag> 合作谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sense of wonder</title>
-      <link href="/2026/03/03/chuni-b7b36a28/"/>
-      <url>/2026/03/03/chuni-b7b36a28/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 中二节奏谱面 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CHUNITHM </tag>
-            
-            <tag> 自制谱 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hallucinight(long ver.)</title>
-      <link href="/2025/12/21/osu-2481695/"/>
-      <url>/2025/12/21/osu-2481695/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Saikai</title>
-      <link href="/2025/11/02/osu-2458394/"/>
-      <url>/2025/11/02/osu-2458394/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Mizuiro Raindrop</title>
-      <link href="/2025/08/16/osu-2420494/"/>
-      <url>/2025/08/16/osu-2420494/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Star of Andromeda</title>
-      <link href="/2025/07/16/osu-2404641/"/>
-      <url>/2025/07/16/osu-2404641/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Der Wald(kors k Remix)</title>
-      <link href="/2025/07/16/osu-2404638/"/>
-      <url>/2025/07/16/osu-2404638/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SELF</title>
-      <link href="/2025/07/16/osu-2404286/"/>
-      <url>/2025/07/16/osu-2404286/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> vivid/stasis </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Act Beloved (feat. Salita)</title>
-      <link href="/2025/05/19/osu-2373858/"/>
-      <url>/2025/05/19/osu-2373858/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Lunaire Rvir (feat. Azxoduz_)</title>
-      <link href="/2025/04/16/osu-2356257/"/>
-      <url>/2025/04/16/osu-2356257/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> 宇宙电台2024 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Emptiness ~Pyrophilia</title>
-      <link href="/2025/04/01/osu-2348175/"/>
-      <url>/2025/04/01/osu-2348175/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Dedication ~Paradox of Choice</title>
-      <link href="/2025/04/01/osu-2348174/"/>
-      <url>/2025/04/01/osu-2348174/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blind Obedience ~Fantasia Sonata Flower</title>
-      <link href="/2025/04/01/osu-2348173/"/>
-      <url>/2025/04/01/osu-2348173/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Distinct ~ Flame of Determination</title>
-      <link href="/2025/04/01/osu-2348172/"/>
-      <url>/2025/04/01/osu-2348172/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Urosousetsu</title>
-      <link href="/2025/02/25/osu-2330231/"/>
-      <url>/2025/02/25/osu-2330231/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> maimai でらっくす </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>OVER THE SKY</title>
-      <link href="/2025/01/30/osu-2316400/"/>
-      <url>/2025/01/30/osu-2316400/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> グランブルーファンタジー </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>More One Night (Assertive Hardcore Bootleg)</title>
-      <link href="/2025/01/25/osu-2313512/"/>
-      <url>/2025/01/25/osu-2313512/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Feral</title>
-      <link href="/2025/01/25/osu-2313478/"/>
-      <url>/2025/01/25/osu-2313478/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>WE LUV LAMA</title>
-      <link href="/2025/01/01/osu-2302085/"/>
-      <url>/2025/01/01/osu-2302085/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Igaku(Shiroi-Ice&amp;Koiflower Bootleg)</title>
-      <link href="/2024/12/24/osu-2298029/"/>
-      <url>/2024/12/24/osu-2298029/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Crystallize</title>
-      <link href="/2024/11/16/osu-2281080/"/>
-      <url>/2024/11/16/osu-2281080/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ASH</title>
-      <link href="/2024/07/18/osu-2217151/"/>
-      <url>/2024/07/18/osu-2217151/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM SUN </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Rei mei ni jun zu</title>
-      <link href="/2024/07/18/osu-2217145/"/>
-      <url>/2024/07/18/osu-2217145/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM LUMINOUS PLUS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Heat abnormal</title>
-      <link href="/2024/07/17/osu-2216115/"/>
-      <url>/2024/07/17/osu-2216115/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>-Looking for Edge of Ground-</title>
-      <link href="/2024/05/18/osu-2183292/"/>
-      <url>/2024/05/18/osu-2183292/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Cult future</title>
-      <link href="/2024/02/11/osu-2134033/"/>
-      <url>/2024/02/11/osu-2134033/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> オンゲキ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Lower one&#39;s eyes</title>
-      <link href="/2024/01/14/osu-2119277/"/>
-      <url>/2024/01/14/osu-2119277/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> プロジェクトセカイ カラフルステージ！ feat. 初音ミク </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Silhouette Dance</title>
-      <link href="/2024/01/07/osu-2115886/"/>
-      <url>/2024/01/07/osu-2115886/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> BanG Dream! It&#39;s MyGO!!!!! </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>mystique as iris</title>
-      <link href="/2023/12/23/osu-2107973/"/>
-      <url>/2023/12/23/osu-2107973/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> maimai festival </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Kukan Sozo Riron</title>
-      <link href="/2023/12/22/osu-2107681/"/>
-      <url>/2023/12/22/osu-2107681/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM SUN PLUS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Ano Band</title>
-      <link href="/2023/12/22/osu-2107659/"/>
-      <url>/2023/12/22/osu-2107659/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> ぼっち・ざ・ろっく！ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>raputa</title>
-      <link href="/2023/12/22/osu-2107645/"/>
-      <url>/2023/12/22/osu-2107645/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> maimai でらっくす BUDDiES </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>To:Be Continued</title>
-      <link href="/2023/05/20/osu-1995869/"/>
-      <url>/2023/05/20/osu-1995869/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CHUNITHM SUN </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Testify</title>
-      <link href="/2022/07/10/osu-1803983/"/>
-      <url>/2022/07/10/osu-1803983/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>BREaK! BREaK! BREaK!</title>
-      <link href="/2022/05/15/osu-1764250/"/>
-      <url>/2022/05/15/osu-1764250/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Raikiri-RAIKIRI-</title>
-      <link href="/2022/04/23/osu-1749033/"/>
-      <url>/2022/04/23/osu-1749033/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>The EmpErroR (Full ver.)</title>
-      <link href="/2022/04/08/osu-1737453/"/>
-      <url>/2022/04/08/osu-1737453/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Shiawase ni Nareru Kakushi Amenbreak ga Arurashii</title>
-      <link href="/2022/03/13/osu-1718507/"/>
-      <url>/2022/03/13/osu-1718507/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Sky is the Limit</title>
-      <link href="/2022/02/10/osu-1695534/"/>
-      <url>/2022/02/10/osu-1695534/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>iRELLIiA</title>
-      <link href="/2022/02/10/osu-1695532/"/>
-      <url>/2022/02/10/osu-1695532/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>fairy stage</title>
-      <link href="/2022/02/10/osu-1695529/"/>
-      <url>/2022/02/10/osu-1695529/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Conflict</title>
-      <link href="/2022/02/10/osu-1695527/"/>
-      <url>/2022/02/10/osu-1695527/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>rEBoT</title>
-      <link href="/2022/02/10/osu-1695524/"/>
-      <url>/2022/02/10/osu-1695524/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>DupleX</title>
-      <link href="/2022/02/10/osu-1695515/"/>
-      <url>/2022/02/10/osu-1695515/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>INTERNET OVERDOSE</title>
-      <link href="/2022/02/07/osu-1693440/"/>
-      <url>/2022/02/07/osu-1693440/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Tori no Uta</title>
-      <link href="/2021/12/18/osu-1653483/"/>
-      <url>/2021/12/18/osu-1653483/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> Air </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>world.execute(me)</title>
-      <link href="/2021/11/27/osu-1637465/"/>
-      <url>/2021/11/27/osu-1637465/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ArkLight</title>
-      <link href="/2021/11/20/osu-1632607/"/>
-      <url>/2021/11/20/osu-1632607/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Gold Town</title>
-      <link href="/2021/11/12/osu-1625481/"/>
-      <url>/2021/11/12/osu-1625481/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>PLAZMA</title>
-      <link href="/2021/10/05/osu-1594552/"/>
-      <url>/2021/10/05/osu-1594552/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> 東方Project </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Darkas</title>
-      <link href="/2021/10/02/osu-1592055/"/>
-      <url>/2021/10/02/osu-1592055/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Toki wo Kizamu Uta</title>
-      <link href="/2021/09/21/osu-1582768/"/>
-      <url>/2021/09/21/osu-1582768/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> CLANNAD AFTER STORY </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Jersey Spirit</title>
-      <link href="/2021/09/21/osu-1582763/"/>
-      <url>/2021/09/21/osu-1582763/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Why We Lose</title>
-      <link href="/2021/09/20/osu-1582559/"/>
-      <url>/2021/09/20/osu-1582559/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Kimi no Gin no Niwa</title>
-      <link href="/2021/08/31/osu-1565258/"/>
-      <url>/2021/08/31/osu-1565258/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> 劇場版 魔法少女まどかマギカ[新編]叛逆の物語 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Kachoufuugetsu</title>
-      <link href="/2021/08/30/osu-1564281/"/>
-      <url>/2021/08/30/osu-1564281/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Glint In The Dark(Original Mix)(cut)</title>
-      <link href="/2021/08/28/osu-1562344/"/>
-      <url>/2021/08/28/osu-1562344/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Death and mercy</title>
-      <link href="/2021/08/16/osu-1551017/"/>
-      <url>/2021/08/16/osu-1551017/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>STRIP (Grimoire crossbreed rmx)</title>
-      <link href="/2021/08/15/osu-1551008/"/>
-      <url>/2021/08/15/osu-1551008/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Radiation 239</title>
-      <link href="/2021/08/03/osu-1538486/"/>
-      <url>/2021/08/03/osu-1538486/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>and I&#39;m home</title>
-      <link href="/2021/07/28/osu-1532673/"/>
-      <url>/2021/07/28/osu-1532673/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> 魔法少女まどか☆マギカ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SAtAN</title>
-      <link href="/2021/06/24/osu-1501793/"/>
-      <url>/2021/06/24/osu-1501793/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-            <tag> SOUND VOLTEX IV HEAVENLY HAVEN </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>LEVITATE</title>
-      <link href="/2021/06/01/osu-1479826/"/>
-      <url>/2021/06/01/osu-1479826/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Evil Bubble</title>
-      <link href="/2021/05/14/osu-1461670/"/>
-      <url>/2021/05/14/osu-1461670/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blackbird</title>
-      <link href="/2021/05/14/osu-1461666/"/>
-      <url>/2021/05/14/osu-1461666/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Eternal Ending</title>
-      <link href="/2021/05/01/osu-1449727/"/>
-      <url>/2021/05/01/osu-1449727/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Looking for Edge of Ground(cut)</title>
-      <link href="/2021/05/01/osu-1449680/"/>
-      <url>/2021/05/01/osu-1449680/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Eltina(Remastered)</title>
-      <link href="/2021/05/01/osu-1449157/"/>
-      <url>/2021/05/01/osu-1449157/</url>
-      
-        <content type="html"><![CDATA[<p>实际上现在在网易云搜这歌会发现没有那个（Remastered），以前是有的然后有一个不太一样的短版叫Eltina，现在给删了，现在的Eltina就是这个谱所用的版本</p><p>wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直接给写了，现在看可以说相当大胆了</p><p>实际上思路上整体比较简单，密度随着歌曲情感递进，然后在明显的钢琴音做一点强调</p><p> </p><p>背景图奈子给加了一圈白边，确实顺眼多了</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>lonly lonly</title>
-      <link href="/2021/05/01/osu-1449124/"/>
-      <url>/2021/05/01/osu-1449124/</url>
-      
-        <content type="html"><![CDATA[<p>初次写切换练手，比较一般通过</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 谱面记录 </category>
-          
-          <category> 4k下落式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> osu!mania </tag>
-            
-            <tag> 4k </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>Astral Quantization</title>
+    <url>/2026/08/03/astral-quantization/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>Arcaea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BLACK or WHITE?</title>
+    <url>/2026/03/03/chuni-046f5167/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Break The Speakers</title>
+    <url>/2026/03/04/chuni-18058ef1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bloom in Two</title>
+    <url>/2026/03/03/chuni-1dffbc67/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Just Hold on (To All Fighters)</title>
+    <url>/2026/05/23/chuni-27554dd7/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宿星審判 -眩耀、最果てにて-</title>
+    <url>/2026/03/03/chuni-481882e2/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+        <tag>合作谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>耐冬花麗</title>
+    <url>/2026/05/23/chuni-48e1a576/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+        <tag>合作谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Grief &amp; Malice</title>
+    <url>/2026/09/04/chuni-55817710/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+        <tag>合作谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WAVE</title>
+    <url>/2026/03/25/chuni-65cb1749/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ö&lt;3rf10W</title>
+    <url>/2026/05/23/chuni-7f3bd0ed/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Once Forgotten, Nothing Remains</title>
+    <url>/2026/03/03/chuni-931c0780/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+        <tag>合作谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sense of wonder</title>
+    <url>/2026/03/03/chuni-b7b36a28/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>中二节奏谱面</category>
+      </categories>
+      <tags>
+        <tag>CHUNITHM</tag>
+        <tag>自制谱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lonly lonly</title>
+    <url>/2021/05/01/osu-1449124/</url>
+    <content><![CDATA[初次写切换练手，比较一般通过
+]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开站啦：从零把博客搭起来</title>
+    <url>/2026/11/11/hello-blog/</url>
+    <content><![CDATA[博客这事想了挺久的。
+之前笔记散得太开了：手机备忘录里一段、B 站动态里一条、跟人解释的时候又要重新打一遍……找的时候全是碎的。所以还是得有个自己的地方，按分类放好，想写什么写什么，不用管平台给不给流量。
+
+
+用了什么
+Hexo：静态博客框架。文章是 Markdown，生成出来是纯 HTML，快，也不用数据库
+Argon 主题：卡片式版面，能换主题色，带侧栏和文章目录
+进站封面：用了一张很喜欢的插画，整站的冷蓝灰色调就是跟着它定的
+站内搜索：本地全文搜索，不发请求也能用
+
+整套跑在本地，写完推一下 GitHub Pages 就上线了。
+写一篇文章# 新建一篇npx hexo new &quot;文章标题&quot;# 本地预览，默认 http://127.0.0.1:4000npx hexo server# 生成静态文件到 public/npx hexo generate
+
+文章在 source/_posts/ 下面。开头 --- 包着的那段叫 front-matter，管标题、日期、分类和标签；正文用 Markdown 写，&lt;!--more--&gt; 前面那截会自动变成首页摘要。
+配色是改哪儿主题色在 source/_data/argon.yml 的 theme_color，现在是冷钢蓝 #4f7f9c，取自封面里那种灰蓝。
+右下角那个设置按钮里也能换色、调圆角和阴影，但那是只对当前浏览器生效的临时设置，改文件才是全局的。
+封面地址也在 argon.yml（banner_background_url）；显示时怎么裁切、底边怎么过渡到页面底色，在 source/assets/css/baobao.css 里。
+接下来想做的
+ 把以前的谱面笔记搬过来
+ 加个评论区（giscus，评论存在仓库的 GitHub Discussions 里）
+ 上线，让别人也能打开（https://baobao-owo.github.io/ ）
+
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Argon</tag>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Eltina(Remastered)</title>
+    <url>/2021/05/01/osu-1449157/</url>
+    <content><![CDATA[实际上现在在网易云搜这歌会发现没有那个（Remastered），以前是有的然后有一个不太一样的短版叫Eltina，现在给删了，现在的Eltina就是这个谱所用的版本
+wyy刷到听的时候感觉歌还挺对电波的，当时年纪小就想着直接给写了，现在看可以说相当大胆了
+实际上思路上整体比较简单，密度随着歌曲情感递进，然后在明显的钢琴音做一点强调
+ 
+背景图奈子给加了一圈白边，确实顺眼多了
+]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Looking for Edge of Ground(cut)</title>
+    <url>/2021/05/01/osu-1449680/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Eternal Ending</title>
+    <url>/2021/05/01/osu-1449727/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blackbird</title>
+    <url>/2021/05/14/osu-1461666/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Evil Bubble</title>
+    <url>/2021/05/14/osu-1461670/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LEVITATE</title>
+    <url>/2021/06/01/osu-1479826/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>and I&#39;m home</title>
+    <url>/2021/07/28/osu-1532673/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>魔法少女まどか☆マギカ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SAtAN</title>
+    <url>/2021/06/24/osu-1501793/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>SOUND VOLTEX IV HEAVENLY HAVEN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Radiation 239</title>
+    <url>/2021/08/03/osu-1538486/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Death and mercy</title>
+    <url>/2021/08/16/osu-1551017/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STRIP (Grimoire crossbreed rmx)</title>
+    <url>/2021/08/15/osu-1551008/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Glint In The Dark(Original Mix)(cut)</title>
+    <url>/2021/08/28/osu-1562344/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kachoufuugetsu</title>
+    <url>/2021/08/30/osu-1564281/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kimi no Gin no Niwa</title>
+    <url>/2021/08/31/osu-1565258/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>劇場版 魔法少女まどかマギカ[新編]叛逆の物語</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Why We Lose</title>
+    <url>/2021/09/20/osu-1582559/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jersey Spirit</title>
+    <url>/2021/09/21/osu-1582763/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Toki wo Kizamu Uta</title>
+    <url>/2021/09/21/osu-1582768/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CLANNAD AFTER STORY</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Darkas</title>
+    <url>/2021/10/02/osu-1592055/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PLAZMA</title>
+    <url>/2021/10/05/osu-1594552/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>東方Project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gold Town</title>
+    <url>/2021/11/12/osu-1625481/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArkLight</title>
+    <url>/2021/11/20/osu-1632607/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>world.execute(me)</title>
+    <url>/2021/11/27/osu-1637465/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>INTERNET OVERDOSE</title>
+    <url>/2022/02/07/osu-1693440/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tori no Uta</title>
+    <url>/2021/12/18/osu-1653483/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>Air</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DupleX</title>
+    <url>/2022/02/10/osu-1695515/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rEBoT</title>
+    <url>/2022/02/10/osu-1695524/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Conflict</title>
+    <url>/2022/02/10/osu-1695527/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iRELLIiA</title>
+    <url>/2022/02/10/osu-1695532/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fairy stage</title>
+    <url>/2022/02/10/osu-1695529/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sky is the Limit</title>
+    <url>/2022/02/10/osu-1695534/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The EmpErroR (Full ver.)</title>
+    <url>/2022/04/08/osu-1737453/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shiawase ni Nareru Kakushi Amenbreak ga Arurashii</title>
+    <url>/2022/03/13/osu-1718507/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Raikiri-RAIKIRI-</title>
+    <url>/2022/04/23/osu-1749033/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BREaK! BREaK! BREaK!</title>
+    <url>/2022/05/15/osu-1764250/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Testify</title>
+    <url>/2022/07/10/osu-1803983/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>To:Be Continued</title>
+    <url>/2023/05/20/osu-1995869/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM SUN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>raputa</title>
+    <url>/2023/12/22/osu-2107645/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>maimai でらっくす BUDDiES</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ano Band</title>
+    <url>/2023/12/22/osu-2107659/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>ぼっち・ざ・ろっく！</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kukan Sozo Riron</title>
+    <url>/2023/12/22/osu-2107681/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM SUN PLUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mystique as iris</title>
+    <url>/2023/12/23/osu-2107973/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>maimai festival</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Silhouette Dance</title>
+    <url>/2024/01/07/osu-2115886/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>BanG Dream! It&#39;s MyGO!!!!!</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lower one&#39;s eyes</title>
+    <url>/2024/01/14/osu-2119277/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>プロジェクトセカイ カラフルステージ！ feat. 初音ミク</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cult future</title>
+    <url>/2024/02/11/osu-2134033/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>オンゲキ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>-Looking for Edge of Ground-</title>
+    <url>/2024/05/18/osu-2183292/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Heat abnormal</title>
+    <url>/2024/07/17/osu-2216115/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ASH</title>
+    <url>/2024/07/18/osu-2217151/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM SUN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rei mei ni jun zu</title>
+    <url>/2024/07/18/osu-2217145/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM LUMINOUS PLUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Crystallize</title>
+    <url>/2024/11/16/osu-2281080/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WE LUV LAMA</title>
+    <url>/2025/01/01/osu-2302085/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Igaku(Shiroi-Ice&amp;Koiflower Bootleg)</title>
+    <url>/2024/12/24/osu-2298029/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Feral</title>
+    <url>/2025/01/25/osu-2313478/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>More One Night (Assertive Hardcore Bootleg)</title>
+    <url>/2025/01/25/osu-2313512/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OVER THE SKY</title>
+    <url>/2025/01/30/osu-2316400/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>グランブルーファンタジー</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Urosousetsu</title>
+    <url>/2025/02/25/osu-2330231/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>maimai でらっくす</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Distinct ~ Flame of Determination</title>
+    <url>/2025/04/01/osu-2348172/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blind Obedience ~Fantasia Sonata Flower</title>
+    <url>/2025/04/01/osu-2348173/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dedication ~Paradox of Choice</title>
+    <url>/2025/04/01/osu-2348174/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Emptiness ~Pyrophilia</title>
+    <url>/2025/04/01/osu-2348175/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lunaire Rvir (feat. Azxoduz_)</title>
+    <url>/2025/04/16/osu-2356257/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>宇宙电台2024</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Act Beloved (feat. Salita)</title>
+    <url>/2025/05/19/osu-2373858/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SELF</title>
+    <url>/2025/07/16/osu-2404286/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>vivid/stasis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Der Wald(kors k Remix)</title>
+    <url>/2025/07/16/osu-2404638/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Star of Andromeda</title>
+    <url>/2025/07/16/osu-2404641/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mizuiro Raindrop</title>
+    <url>/2025/08/16/osu-2420494/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Saikai</title>
+    <url>/2025/11/02/osu-2458394/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kaiki ~Scherzo ~Forutuuna no Itazura~</title>
+    <url>/2026/03/12/osu-2521523/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hallucinight(long ver.)</title>
+    <url>/2025/12/21/osu-2481695/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>谱面记录</category>
+        <category>4k下落式</category>
+      </categories>
+      <tags>
+        <tag>osu!mania</tag>
+        <tag>4k</tag>
+        <tag>CHUNITHM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么还要写博客</title>
+    <url>/2026/11/05/why-blog/</url>
+    <content><![CDATA[现在发东西的地方太多了，动态、视频、群聊，随手就能说一句。那我为什么还要折腾一个自己的站呢。
+大概是因为「说完就没了」这件事让人有点不甘心。
+
+
+动态是给时间线看的，翻过就沉底；群里说的话，第二天连自己都记不清说过。可是有些东西是想留下来的：一个折腾了一晚上才想通的道理，一段打了很久才过的谱，某天突然觉得挺好听的歌。
+这些东西不成体系，也没必要成体系。但它们是我自己的，放在自己的地方，找得到，也改得动。
+还有个小原因，写下来的过程本身就是整理。脑子里觉得懂了的东西，一旦要写给别人看，就会发现哪里其实没想清楚。
+所以这个站不追流量，也不打算日更。想写的时候写，写完放着，就这样。
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
 </search>
