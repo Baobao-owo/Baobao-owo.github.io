@@ -1,6 +1,9 @@
 // 从 wiki「譜面制作者一覧」的「譜面製作者不明」「合作」两个小节里取数据
 //   不明 → tools/designer-unknown.json（补全）
 //   合作 → 解析署名里的参与者，写进 source/assets/data/collab.json（和现有数据合并）
+//
+// 合作署名形态很杂：A vs B / A and B / A + B / A×B / A と B / A supported by B /
+// A fumbled by B / A feat.B / 怪盗団「A」 / A*3 …… 这里尽量都拆开。
 import fs from 'node:fs';
 
 const norm = (s) =>
@@ -18,7 +21,6 @@ for (const d of friend.designers || []) {
   alias2who.set(norm(d.name), d.name);
   for (const a of d.aliases || []) alias2who.set(norm(a), d.name);
 }
-// 上一轮从 1-6 页抽出来的额外别名也吃进来
 if (fs.existsSync('tools/designer-wiki-aliases.json')) {
   for (const [credit, person] of Object.entries(JSON.parse(fs.readFileSync('tools/designer-wiki-aliases.json', 'utf8')))) {
     const k = norm(credit);
@@ -29,7 +31,7 @@ if (fs.existsSync('tools/designer-wiki-aliases.json')) {
 const UNKNOWN_HEAD = /不明/;
 const COLLAB_HEAD = /合作/;
 
-// ---- 不明 ----
+// ---------- 不明 ----------
 const unknownRows = [];
 for (const s of sections) {
   if (!UNKNOWN_HEAD.test(s.heading)) continue;
@@ -37,9 +39,8 @@ for (const s of sections) {
 }
 const unknownOut = new Map();
 for (const r of unknownRows) {
-  const key = r.title;
-  if (!unknownOut.has(key)) unknownOut.set(key, new Set());
-  unknownOut.get(key).add(r.diff);
+  if (!unknownOut.has(r.title)) unknownOut.set(r.title, new Set());
+  unknownOut.get(r.title).add(r.diff);
 }
 const unknownJson = [...unknownOut.entries()]
   .map(([title, set]) => ({ title, diffs: [...set].sort() }))
@@ -47,23 +48,63 @@ const unknownJson = [...unknownOut.entries()]
 fs.writeFileSync('tools/designer-unknown.json', JSON.stringify(unknownJson, null, 1) + '\n', 'utf8');
 console.log('不明: 行', unknownRows.length, ' 曲', unknownJson.length);
 
-// ---- 合作 ----
-const SPLIT = /\s*(?:vs\.?|VS\.?|Vs\.?|＆|&|\+|＋|×|with|meets|supported by|fused with|and|／|\/|、|,|，)\s*/i;
+// ---------- 合作 ----------
+// 分隔符：包含日文「と」、英文 by/fumbled by/meets、星号脚注等
+const SPLIT = new RegExp(
+  [
+    '\\s*(?:vs\\.?|Vs\\.?|VS\\.?)\\s*',
+    '\\s*(?:＆|&)\\s*',
+    '\\s*[+＋]\\s*',
+    '\\s*[×✕✖]\\s*',
+    '\\s+と\\s+',
+    '\\s+and\\s+',
+    '\\s+meets\\s+',
+    '\\s+with\\s+',
+    '\\s+supported by\\s+',
+    '\\s+fumbled by\\s+',
+    '\\s+fused with\\s+',
+    '\\s+feat\\.?\\s*',
+    '\\s+by\\s+',
+    '\\s*／\\s*',
+    '\\s*\\/\\s*',
+    '\\s*、\\s*',
+    '\\s*,\\s*',
+    '\\s*，\\s*',
+  ].join('|'),
+  'i'
+);
+
+// 去掉署名里的星号脚注、残留括号引号
+function cleanToken(s) {
+  return String(s || '')
+    .replace(/[*＊]\s*\d+\s*$/g, '')
+    .replace(/^[\s:：・\-–—]+|[\s:：・\-–—]+$/g, '')
+    .replace(/[「」『』]/g, '')
+    .trim();
+}
+
 function peopleInCredit(credit) {
-  const parts = String(credit || '')
-    .normalize('NFKC')
-    .split(SPLIT)
-    .map((x) => x.trim())
-    .filter(Boolean);
+  const text = String(credit || '').normalize('NFKC');
+  const tokens = text.split(SPLIT).map(cleanToken).filter(Boolean);
   const out = [];
-  for (const p of parts) {
-    const who = alias2who.get(norm(p));
+  const add = (who) => {
     if (who && !out.includes(who)) out.push(who);
-  }
-  // 整串也试一次（有些署名不带分隔符）
-  if (!out.length) {
-    const who = alias2who.get(norm(credit));
-    if (who) out.push(who);
+  };
+
+  for (const tok of tokens) {
+    // 1) 整段就是某个别名
+    add(alias2who.get(norm(tok)));
+    // 2) 段里包含某个别名（长别名优先，避免子串误伤）
+    if (!alias2who.get(norm(tok))) {
+      const t = norm(tok);
+      const hits = [];
+      for (const [alias, who] of alias2who) {
+        if (alias.length < 3) continue;
+        if (t.includes(alias)) hits.push([alias.length, who]);
+      }
+      hits.sort((a, b) => b[0] - a[0]);
+      if (hits.length) add(hits[0][1]);
+    }
   }
   return out;
 }
@@ -81,7 +122,7 @@ const unresolved = [];
 for (const r of collabRows) {
   const people = peopleInCredit(r.credit);
   if (people.length < 2) {
-    if (unresolved.length < 15) unresolved.push(r.credit);
+    if (unresolved.length < 10) unresolved.push(r.credit);
     continue;
   }
   resolved2++;
@@ -92,9 +133,8 @@ for (const r of collabRows) {
   wikiCollab[key][r.diff] = bucket;
 }
 console.log('能解析出 ≥2 人的合作行:', resolved2, ' 涉及曲:', Object.keys(wikiCollab).length);
-console.log('解析不了的样本:', unresolved.slice(0, 6).join(' | '));
+console.log('解析不了的样本:', unresolved.slice(0, 5).join(' | '));
 
-// 和现有 collab.json 合并（现有优先，不覆盖）
 const COLLAB_FILE = 'source/assets/data/collab.json';
 const cur = JSON.parse(fs.readFileSync(COLLAB_FILE, 'utf8'));
 let added = 0;
