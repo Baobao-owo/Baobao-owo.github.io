@@ -1,6 +1,6 @@
 // 在 GitHub Actions 里跑：翻译队列，或抓取队列里的 URL（DDG 搜索代理）
 // 用法: node tools/gh_translate.mjs <queue.json> <out.jsonl> [sleepMs]
-// 队列项: { k, t } 翻译；或 { k, u, q } 抓取（u 为 URL，q 为 DDG 查询词）
+// 队列项: { k, t } 翻译；或 { k, u, q } 搜索（u 必须是 search: 前缀，q 为关键词）
 import fs from 'node:fs';
 
 const [, , queuePath, outPath, sleepArg] = process.argv;
@@ -45,35 +45,98 @@ function stripTags(s) {
     .trim();
 }
 
-async function fetchDDG(query) {
-  const res = await fetch('https://html.duckduckgo.com/html/', {
-    method: 'POST',
-    headers: {
-      'User-Agent': UA,
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept-Language': 'en-US,en;q=0.9'
-    },
-    body: 'q=' + encodeURIComponent(query)
-  });
-  const html = await res.text();
-  if (/complete the following challenge|bots use duckduckgo/i.test(html)) {
-    return { error: 'challenge', status: res.status };
-  }
+function parseDDG(html, limit) {
   const results = [];
   const re = /<a[^>]*class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
-  while ((m = re.exec(html)) && results.length < 20) {
+  while ((m = re.exec(html)) && results.length < limit) {
     let url = m[1].replace(/&amp;/g, '&');
     const u = url.match(/[?&]uddg=([^&]+)/);
     if (u) url = decodeURIComponent(u[1]);
     if (!/^https?:/i.test(url)) continue;
-    results.push({ title: stripTags(m[2]), url, snippet: '' });
+    results.push({ title: stripTags(m[2]), url, snippet: '', via: 'duckduckgo' });
   }
   const snips = [...html.matchAll(/class="result__snippet"[^>]*>([\s\S]*?)<\/a>/gi)].map((x) => stripTags(x[1]));
   results.forEach((r, i) => {
     if (snips[i]) r.snippet = snips[i];
   });
-  return { status: res.status, results };
+  return results;
+}
+
+function parseSearx(html, limit) {
+  const results = [];
+  const re = /<a[^>]*href="([^"]+)"[^>]*class="url_header"[^>]*>|<h3><a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a><\/h3>/gi;
+  const re2 = /<article[^>]*class="result[^"]*"[\s\S]*?<h3>\s*<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re2.exec(html)) && results.length < limit) {
+    const url = m[1].replace(/&amp;/g, '&');
+    if (!/^https?:/i.test(url)) continue;
+    results.push({ title: stripTags(m[2]), url, snippet: '', via: 'searxng' });
+  }
+  if (results.length) {
+    const snips = [...html.matchAll(/<p class="content">([\s\S]*?)<\/p>/gi)].map((x) => stripTags(x[1]));
+    results.forEach((r, i) => {
+      if (snips[i]) r.snippet = snips[i];
+    });
+  }
+  return results;
+}
+
+const SEARX = [
+  'https://searx.be',
+  'https://search.inetol.net',
+  'https://priv.au',
+  'https://searxng.site',
+  'https://opnxng.com',
+  'https://baresearch.org',
+  'https://search.bus-hit.me',
+  'https://searx.tiekoetter.com'
+];
+
+async function searchWeb(query, limit) {
+  const attempts = [];
+
+  // 1) DDG 直连（lite 先试）
+  for (const ep of ['https://lite.duckduckgo.com/lite/', 'https://html.duckduckgo.com/html/']) {
+    try {
+      const res = await fetch(ep, {
+        method: 'POST',
+        headers: {
+          'User-Agent': UA,
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept-Language': 'en-US,en;q=0.9'
+        },
+        body: 'q=' + encodeURIComponent(query)
+      });
+      const html = await res.text();
+      const challenge = /complete the following challenge|bots use duckduckgo/i.test(html);
+      attempts.push({ ep, status: res.status, challenge });
+      if (!challenge) {
+        const results = parseDDG(html, limit);
+        if (results.length) return { via: ep, attempts, results };
+      }
+    } catch (e) {
+      attempts.push({ ep, error: String(e.message || e).slice(0, 80) });
+    }
+  }
+
+  // 2) SearXNG 实例兜底（默认聚合 DDG 等引擎）
+  for (const base of SEARX) {
+    try {
+      const res = await fetch(base + '/search?q=' + encodeURIComponent(query) + '&language=en', {
+        headers: { 'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9' },
+        signal: AbortSignal.timeout(20000)
+      });
+      const html = await res.text();
+      attempts.push({ ep: base, status: res.status, len: html.length });
+      const results = parseSearx(html, limit);
+      if (results.length) return { via: base, attempts, results };
+    } catch (e) {
+      attempts.push({ ep: base, error: String(e.message || e).slice(0, 80) });
+    }
+  }
+
+  return { error: 'no engine reachable', attempts };
 }
 
 let ok = 0;
@@ -81,16 +144,15 @@ let fail = 0;
 for (const item of queue) {
   if (done.has(item.k)) continue;
 
-  if (item.u) {
+  if (item.u && String(item.u).startsWith('search:')) {
     try {
-      const r = await fetchDDG(item.q || item.u);
+      const r = await searchWeb(item.q || '', 10);
       fs.appendFileSync(outPath, item.k + '\t' + JSON.stringify(r) + '\n', 'utf8');
       ok++;
     } catch (e) {
       fs.appendFileSync(outPath, item.k + '\t' + JSON.stringify({ error: String(e).slice(0, 120) }) + '\n', 'utf8');
       fail++;
     }
-    await sleep(Math.min(SLEEP, 200));
     continue;
   }
 
