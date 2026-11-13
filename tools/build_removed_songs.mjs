@@ -144,7 +144,8 @@ for (const row of missing) {
   if (!sheets.length) {
     DIFF_KEYS.forEach(([d, idx], i) => {
       const lv = lvFromList[i];
-      if (!lv || lv === '-') return;
+      // 只接受正常等级（数字或数字+），跳过「時」「避」「☆2」这类错位内容
+      if (!lv || lv === '-' || !/^\d/.test(String(lv))) return;
       const num = Number(String(lv).replace(/\+/g, ''));
       const sheet = { difficulty: d, level: lv, internalValue: isNaN(num) ? null : num, designer: designerOf(i) };
       attachNotes(sheet, i);
