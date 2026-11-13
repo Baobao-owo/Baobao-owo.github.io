@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>评论总览 · 宝宝的小站</title>
+    <link rel="icon" href="/assets/img/favicon-flower.ico" />
+    <style>
+      :root {
+        --ink: #3f4b57;
+        --muted: #8b98a5;
+        --line: #e5ecf2;
+        --brand: #4f7f9c;
+        --brand-soft: #eef4f8;
+        --bg: #f4f5f7;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .ribbon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 18px;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+      .ribbon a { color: var(--brand); text-decoration: none; }
+      .ribbon .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+      .ribbon .brand img { width: 26px; height: 26px; border-radius: 50%; }
+      .wrap { max-width: 1080px; margin: 22px auto 60px; padding: 0 18px; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+      }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      input[type="password"], input[type="text"] {
+        flex: 1 1 320px;
+        min-width: 220px;
+        padding: 9px 11px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 13px;
+        font-family: inherit;
+        color: var(--ink);
+        background: #fbfcfd;
+      }
+      button {
+        padding: 9px 16px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        background: var(--brand);
+        color: #fff;
+        font-size: 13px;
+        font-family: inherit;
+        cursor: pointer;
+      }
+      button.ghost { background: #fff; color: var(--brand); border-color: var(--line); }
+      button:disabled { opacity: .55; cursor: not-allowed; }
+      .hint { color: var(--muted); font-size: 12px; margin-top: 10px; }
+      .hint code { background: var(--brand-soft); padding: 1px 5px; border-radius: 4px; }
+      .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+      .kpi { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+      .kpi .n { font-size: 24px; font-weight: 700; color: var(--brand); line-height: 1.2; }
+      .kpi .k { color: var(--muted); font-size: 12px; }
+      table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      th { color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap; }
+      td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      td a { color: var(--brand); text-decoration: none; }
+      .tag { display: inline-block; padding: 0 7px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-size: 11px; }
+      .empty { color: var(--muted); padding: 18px 0; text-align: center; }
+      .err { color: #b3372f; background: #fdf1f0; border: 1px solid #f5d6d3; border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+      .table-scroll { overflow-x: auto; }
+      .sortable { cursor: pointer; user-select: none; }
+      .sortable:hover { color: var(--brand); }
+    </style>
+  </head>
+  <body>
+    <div class="ribbon">
+      <a class="brand" href="/admin/"><img src="/assets/img/avatar-flower.jpg" alt="" /><span>后台 · 评论总览</span></a>
+      <span><a href="/admin/">← 回内容管理</a> &nbsp;·&nbsp; <a href="/">回站点 →</a></span>
+    </div>
+
+    <div class="wrap">
+      <h1>评论总览</h1>
+      <div class="sub">把站点所有通过 giscus 产生的讨论（曲目页 + 文章页）汇总成一张表。</div>
+
+      <div class="card">
+        <div class="row">
+          <input type="password" id="token" placeholder="粘贴 GitHub Token（fine-grained，勾 Discussions: Read-only + Metadata: Read）" autocomplete="off" />
+          <button id="load">载入统计</button>
+          <button id="forget" class="ghost">清除本地 Token</button>
+        </div>
+        <div class="hint">
+          Token 只存在这台电脑的 <code>localStorage</code> 里，不会写进仓库，也不会发到别的地方 ——
+          页面直接用你的浏览器请求 <code>api.github.com</code>。（这一步没有后端，静态站只能这样。）
+        </div>
+        <div id="error" class="err" style="display: none; margin-top: 12px"></div>
+      </div>
+
+      <div class="kpis" id="kpis" style="display: none">
+        <div class="kpi"><div class="n" id="k-disc">0</div><div class="k">讨论（帖子）数</div></div>
+        <div class="kpi"><div class="n" id="k-comment">0</div><div class="k">评论条数</div></div>
+        <div class="kpi"><div class="n" id="k-active">0</div><div class="k">有评论的讨论</div></div>
+        <div class="kpi"><div class="n" id="k-empty">0</div><div class="k">还没人说话的</div></div>
+        <div class="kpi"><div class="n" id="k-avg">0</div><div class="k">平均每条讨论</div></div>
+        <div class="kpi"><div class="n" id="k-week" style="font-size: 16px">—</div><div class="k">最近 7 天活动</div></div>
+      </div>
+
+      <div class="card" id="panel" style="display: none">
+        <div class="toolbar">
+          <div class="row" style="gap: 8px">
+            <input type="text" id="search" placeholder="按曲名 / 标题搜索" style="min-width: 240px; flex: 0 1 300px" />
+            <button id="reload" class="ghost">刷新</button>
+            <button id="csv" class="ghost">导出 CSV</button>
+          </div>
+          <div class="hint" style="margin: 0" id="meta"></div>
+        </div>
+        <div class="table-scroll" style="margin-top: 12px">
+          <table>
+            <thead>
+              <tr>
+                <th>页面</th>
+                <th>讨论标题</th>
+                <th class="num sortable" data-sort="comments">评论 ↓</th>
+                <th class="sortable" data-sort="updated">最后活跃</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="empty" style="display: none">还没有任何讨论。等有人在你站点点开评论区就出现了。</div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var REPO_OWNER = 'Baobao-owo';
+        var REPO_NAME = 'Baobao-owo.github.io';
+        var CATEGORY_ID = 'DIC_kwDOVqnN2M4DK41l';
+        var TOKEN_KEY = 'dsh_gh_token'; 
+        var SONGS_URL = '/chuni-songs.json';
+
+        var state = { rows: [], songs: [], sort: 'comments', desc: true };
+
+        var $ = function (id) { return document.getElementById(id); };
+
+        function fmtDate(iso) {
+          if (!iso) return '—';
+          var d = new Date(iso);
+          var p = function (n) { return n < 10 ? '0' + n : String(n); };
+          return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+        }
+
+        function showError(msg) {
+          var el = $('error');
+          el.textContent = msg;
+          el.style.display = 'block';
+        }
+        function clearError() { $('error').style.display = 'none'; }
+
+        async function graphql(token, query, variables) {
+          var res = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ' + token,
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({ query: query, variables: variables })
+          });
+          var data = await res.json().catch(function () { return null; });
+          if (!res.ok) {
+            var m = data && data.message ? data.message : ('HTTP ' + res.status);
+            throw new Error(m);
+          }
+          if (data && data.errors && data.errors.length) throw new Error(data.errors[0].message);
+          return data.data;
+        }
+
+        var QUERY = [
+          'query($owner: String!, $name: String!, $cat: ID!, $after: String) {',
+          '  repository(owner: $owner, name: $name) {',
+          '    discussions(first: 100, after: $after, categoryId: $cat, orderBy: {field: UPDATED_AT, direction: DESC}) {',
+          '      totalCount',
+          '      pageInfo { hasNextPage endCursor }',
+          '      nodes {',
+          '        number title url createdAt updatedAt',
+          '        author { login }',
+          '        comments { totalCount }',
+          '        reply: comments(last: 1) { nodes { createdAt author { login } } }',
+          '      }',
+          '    }',
+          '  }',
+          '}'
+        ].join('\n');
+
+        async function fetchAll(token) {
+          var out = [];
+          var after = null;
+          var guard = 0;
+          var total = 0;
+          do {
+            var data = await graphql(token, QUERY, { owner: REPO_OWNER, name: REPO_NAME, cat: CATEGORY_ID, after: after });
+            var disc = data.repository.discussions;
+            total = disc.totalCount;
+            disc.nodes.forEach(function (n) {
+              var last = n.reply && n.reply.nodes && n.reply.nodes[0];
+              out.push({
+                number: n.number,
+                title: n.title,
+                url: n.url,
+                createdAt: n.createdAt,
+                updatedAt: n.updatedAt,
+                author: (n.author && n.author.login) || '（已注销）',
+                comments: n.comments ? n.comments.totalCount : 0,
+                lastAt: last ? last.createdAt : n.createdAt,
+                lastBy: last && last.author ? last.author.login : ''
+              });
+            });
+            after = disc.pageInfo.hasNextPage ? disc.pageInfo.endCursor : null;
+            guard += 1;
+          } while (after && guard < 20);
+          return { rows: out, total: total };
+        }
+
+        async function loadSongs() {
+          if (state.songs.length) return state.songs;
+          try {
+            var r = await fetch(SONGS_URL, { cache: 'no-cache' });
+            var arr = await r.json();
+            state.songs = (arr || []).map(function (s) {
+              return { u: s.u, t: s.t || '', a: s.a || '' };
+            });
+          } catch (e) {
+            state.songs = [];
+          }
+          return state.songs;
+        }
+
+        function pageLabel(row) {
+          // 曲目页：标题里通常包含曲名；用最长的匹配来判定
+          var best = null;
+          for (var i = 0; i < state.songs.length; i++) {
+            var s = state.songs[i];
+            if (!s.t) continue;
+            if (row.title.indexOf(s.t) >= 0) {
+              if (!best || s.t.length > best.t.length) best = s;
+            }
+          }
+          if (best) return { kind: 'song', text: best.t, url: best.u, extra: best.a };
+          return { kind: 'page', text: '其他页面', url: '', extra: '' };
+        }
+
+        function render() {
+          var q = ($('search').value || '').trim().toLowerCase();
+          var rows = state.rows.map(function (r) {
+            var p = pageLabel(r);
+            return Object.assign({}, r, { page: p });
+          });
+          if (q) {
+            rows = rows.filter(function (r) {
+              return (r.title + ' ' + r.page.text + ' ' + r.author).toLowerCase().indexOf(q) >= 0;
+            });
+          }
+          rows.sort(function (a, b) {
+            var res;
+            if (state.sort === 'updated') res = new Date(a.lastAt) - new Date(b.lastAt);
+            else res = (a.comments - b.comments) || (new Date(a.lastAt) - new Date(b.lastAt));
+            return state.desc ? -res : res;
+          });
+
+          var tb = $('tbody');
+          tb.innerHTML = '';
+          rows.forEach(function (r) {
+            var tr = document.createElement('tr');
+
+            var tdPage = document.createElement('td');
+            var span = document.createElement('span');
+            span.className = 'tag';
+            span.textContent = r.page.kind === 'song' ? '曲目' : '页面';
+            tdPage.appendChild(span);
+            if (r.page.url) {
+              var a = document.createElement('a');
+              a.href = r.page.url;
+              a.target = '_blank';
+              a.rel = 'noopener';
+              a.textContent = ' ' + r.page.text;
+              tdPage.appendChild(a);
+            } else {
+              tdPage.appendChild(document.createTextNode(' ' + r.page.text));
+            }
+
+            var tdTitle = document.createElement('td');
+            var ta = document.createElement('a');
+            ta.href = r.url;
+            ta.target = '_blank';
+            ta.rel = 'noopener';
+            ta.textContent = r.title || ('#' + r.number);
+            tdTitle.appendChild(ta);
+
+            var tdNum = document.createElement('td');
+            tdNum.className = 'num';
+            tdNum.textContent = String(r.comments);
+
+            var tdTime = document.createElement('td');
+            tdTime.textContent = fmtDate(r.lastAt);
+
+            var tdState = document.createElement('td');
+            tdState.textContent = r.comments === 0 ? '还没人说话' : (r.lastBy ? '最后：' + r.lastBy : '有评论');
+
+            tr.appendChild(tdPage);
+            tr.appendChild(tdTitle);
+            tr.appendChild(tdNum);
+            tr.appendChild(tdTime);
+            tr.appendChild(tdState);
+            tb.appendChild(tr);
+          });
+
+          $('empty').style.display = rows.length ? 'none' : 'block';
+          $('meta').textContent = '显示 ' + rows.length + ' / ' + state.rows.length + ' 条讨论';
+        }
+
+        function renderKpis(rows, total) {
+          var comments = rows.reduce(function (s, r) { return s + r.comments; }, 0);
+          var active = rows.filter(function (r) { return r.comments > 0; }).length;
+          var empty = rows.length - active;
+          var weekAgo = Date.now() - 7 * 86400000;
+          var week = rows.filter(function (r) { return new Date(r.lastAt).getTime() >= weekAgo; }).length;
+
+          $('k-disc').textContent = String(total || rows.length);
+          $('k-comment').textContent = String(comments);
+          $('k-active').textContent = String(active);
+          $('k-empty').textContent = String(empty);
+          $('k-avg').textContent = rows.length ? (comments / rows.length).toFixed(1) : '0';
+          $('k-week').textContent = week + ' 条有动静';
+          $('kpis').style.display = 'grid';
+          $('panel').style.display = 'block';
+        }
+
+        async function run() {
+          clearError();
+          var token = ($('token').value || '').trim() || (localStorage.getItem(TOKEN_KEY) || '');
+          if (!token) { showError('先粘贴一个 GitHub Token 再点「载入统计」。'); return; }
+          localStorage.setItem(TOKEN_KEY, token);
+          $('load').disabled = true;
+          $('load').textContent = '读取中…';
+          try {
+            await loadSongs();
+            var res = await fetchAll(token);
+            state.rows = res.rows;
+            renderKpis(res.rows, res.total);
+            render();
+            if (!res.rows.length) {
+              $('panel').style.display = 'block';
+              $('empty').style.display = 'block';
+            }
+          } catch (e) {
+            var msg = String(e && e.message ? e.message : e);
+            if (/Bad credentials/i.test(msg)) msg = 'Token 无效或已过期。';
+            if (/Could not resolve to a Repository/i.test(msg)) msg = '这个 Token 没有该仓库的读取权限（Repository access 里要选上它）。';
+            showError('读取失败：' + msg);
+          } finally {
+            $('load').disabled = false;
+            $('load').textContent = '载入统计';
+          }
+        }
+
+        function toCsv() {
+          var lines = [['页面类型', '曲名', '讨论标题', '评论数', '最后活跃', '链接']];
+          state.rows.forEach(function (r) {
+            var p = pageLabel(r);
+            lines.push([p.kind === 'song' ? '曲目' : '页面', p.text, r.title, String(r.comments), fmtDate(r.lastAt), r.url]);
+          });
+          var csv = lines.map(function (row) {
+            return row.map(function (cell) {
+              var s = String(cell == null ? '' : cell);
+              return '"' + s.replace(/"/g, '""') + '"';
+            }).join(',');
+          }).join('\r\n');
+          var blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'comments-' + new Date().toISOString().slice(0, 10) + '.csv';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+
+        $('load').addEventListener('click', run);
+        $('reload').addEventListener('click', run);
+        $('csv').addEventListener('click', toCsv);
+        $('search').addEventListener('input', render);
+        $('forget').addEventListener('click', function () {
+          localStorage.removeItem(TOKEN_KEY);
+          $('token').value = '';
+          state.rows = [];
+          $('kpis').style.display = 'none';
+          $('panel').style.display = 'none';
+          clearError();
+          showError('本地 Token 已清除。');
+        });
+        $('token').addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+
+        document.querySelectorAll('.sortable').forEach(function (th) {
+          th.addEventListener('click', function () {
+            var key = th.getAttribute('data-sort');
+            if (state.sort === key) state.desc = !state.desc;
+            else { state.sort = key; state.desc = true; }
+            render();
+          });
+        });
+
+        var saved = localStorage.getItem(TOKEN_KEY);
+        if (saved) { $('token').value = saved; }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-﻿# Argon 主题配置
+# Argon 主题配置
 # 说明：改完记得 hexo clean && hexo g 才会生效
 
 # 全局
@@ -140,6 +140,7 @@ gitalk:
   clientSecret: ''
 giscus: # https://giscus.app/zh-CN
   enable: true
+  song_enable: true
   repo: 'Baobao-owo/Baobao-owo.github.io'
   repo_id: 'R_kgDOVqnN2A'
   category: 'Announcements'

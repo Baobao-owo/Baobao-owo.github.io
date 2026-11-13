@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -429,6 +429,17 @@
 							</div>
 						<% }); %>
 					</div>
+				<% } %>
+			</div>
+
+			<div class="chuni-section chuni-comment-section" id="chuni-comment">
+				<div class="chuni-section-title">评论</div>
+				<% if (theme.giscus && theme.giscus.song_enable && theme.giscus.repo && theme.giscus.repo_id && theme.giscus.category_id) { %>
+					<div class="chuni-comment-box">
+						<%- partial('_comment/giscus') %>
+					</div>
+				<% } else { %>
+					<div class="chuni-comment-tip">评论区还没接好，稍后再来（等我把 giscus 的仓库信息填上）。</div>
 				<% } %>
 			</div>
 		</div>
