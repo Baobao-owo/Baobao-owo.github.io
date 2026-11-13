@@ -29,6 +29,17 @@ for (const d of friend.designers || []) {
   for (const a of d.aliases || []) alias2who.set(norm(a), d.name);
 }
 
+// wiki「譜面製作者一覧」里逐曲标注的クレジット名，补进别名表
+// （只补朋友数据里没有的，避免覆盖）
+const WIKI_ALIASES = 'tools/designer-wiki-aliases.json';
+if (fs.existsSync(WIKI_ALIASES)) {
+  const extra = JSON.parse(fs.readFileSync(WIKI_ALIASES, 'utf8'));
+  for (const [credit, person] of Object.entries(extra)) {
+    const k = norm(credit);
+    if (!alias2who.has(k)) alias2who.set(k, person);
+  }
+}
+
 // 名义前面挂的「【Ex】」是活动/复刻标记，不是另一个人：
 // 先原样查，查不到就去掉前缀再查一次。
 const EX_PREFIX = /^\s*(?:【\s*ex\s*】|\[\s*ex\s*\]|（\s*ex\s*）|\(\s*ex\s*\))\s*/i;
