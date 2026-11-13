@@ -1805,7 +1805,7 @@ html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; co
 html.darkmode .chuni-confirm-btn { background: #333945; border-color: #444b57; color: #dfe8ef !important; }
 
 /* 谱面确认：每行一个难度 */
-.chuni-confirm-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+.chuni-confirm-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 0; }
 .chuni-confirm-name {
   display: inline-flex;
   align-items: center;
@@ -1973,3 +1973,7 @@ html.darkmode .chuni-row-tag-ds { background: rgba(120, 170, 200, 0.18); color: 
 .chuni-lightbox-body.dragging { cursor: grabbing; }
 .chuni-lightbox-stage { transform-origin: 0 0; will-change: transform; }
 .chuni-lightbox-stage img { display: block; width: auto; height: auto; max-width: none; user-select: none; -webkit-user-drag: none; }
+
+/* 谱面确认：等级定数右对齐，多行时看起来成一列 */
+.chuni-confirm-name { min-width: 176px; }
+.chuni-confirm-src { margin-left: auto; }
