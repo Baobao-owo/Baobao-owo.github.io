@@ -82,6 +82,30 @@ function parseSearx(html, limit) {
   return results;
 }
 
+
+function scoreResults(results, query) {
+  const tokens = String(query)
+    .toLowerCase()
+    .split(/[\s,\.\/]+/)
+    .filter((x) => x.length > 1);
+  const cjk = String(query).match(/[\u4e00-\u9fff]{2,}/g) || [];
+  return results
+    .map((r) => {
+      const hay = (r.title + ' ' + (r.snippet || '')).toLowerCase();
+      let score = 0;
+      tokens.forEach((tk) => {
+        if (hay.includes(tk)) score++;
+      });
+      cjk.forEach((tk) => {
+        if (hay.includes(tk)) score++;
+      });
+      return { r, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .filter((x) => x.score > 0)
+    .map((x) => x.r);
+}
+
 const SEARX = [
   'https://searx.be',
   'https://search.inetol.net',
@@ -129,7 +153,7 @@ async function searchWeb(query, limit) {
       });
       const html = await res.text();
       attempts.push({ ep: base, status: res.status, len: html.length });
-      const results = parseSearx(html, limit);
+      const results = scoreResults(parseSearx(html, limit), query);
       if (results.length) return { via: base, attempts, results };
     } catch (e) {
       attempts.push({ ep: base, error: String(e.message || e).slice(0, 80) });
