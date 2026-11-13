@@ -1968,3 +1968,8 @@ html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
   vertical-align: 2px;
 }
 html.darkmode .chuni-row-tag-ds { background: rgba(120, 170, 200, 0.18); color: #9fc6dd; }
+
+.chuni-lightbox-body { display: block; overflow: hidden; cursor: grab; }
+.chuni-lightbox-body.dragging { cursor: grabbing; }
+.chuni-lightbox-stage { transform-origin: 0 0; will-change: transform; }
+.chuni-lightbox-stage img { display: block; width: auto; height: auto; max-width: none; user-select: none; -webkit-user-drag: none; }
