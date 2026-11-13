@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+<html class="article-header-style-default">
+<head>
+	
+	<title>曲目导览 - FDShijing的小站</title>
+	<meta charset="utf-8">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<meta name="description" content="闲聊，杂谈，记录，部分工具">
+<meta property="og:type" content="website">
+<meta property="og:title" content="曲目导览">
+<meta property="og:url" content="https://baobao-owo.github.io/chuni/index.html">
+<meta property="og:site_name" content="FDShijing的小站">
+<meta property="og:description" content="闲聊，杂谈，记录，部分工具">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="FDShijing">
+<meta property="article:tag" content="博客, 学习笔记, CHUNITHM, 谱面, 日常">
+<meta name="twitter:card" content="summary">
+
+	<meta name="theme-color" content="#4f7f9c">
+	<meta name="theme-color-rgb" content="79,127,156">
+	<meta name="theme-color-origin" content="#4f7f9c">
+	<meta name="argon-enable-custom-theme-color" content="true">
+	<meta name="theme-card-radius" content="14">
+	<meta name="theme-version" content="1.0.2">
+	<link rel="icon" href="/assets/img/favicon-flower.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/img/favicon-flower.ico" type="image/x-icon">
+
+	
+<link rel="stylesheet" href="/assets/argon_css_merged.css">
+
+	
+<link rel="stylesheet" href="/style.css">
+
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=44644d4f">
+	
+<script src="/assets/argon_js_merged.js"></script>
+
+	
+<script src="/assets/js/argon.min.js"></script>
+
+
+	
+
+	<script>
+		var argonConfig = {
+			language: "zh_CN",
+			
+				zoomify: {
+					duration: 200,
+					easing: "cubic-bezier(0.4,0,0,1)",
+					scale: 0.9
+				},
+			
+			pangu: "true",
+			
+				lazyload: {
+					threshold: 800,
+					effect: "fadeIn"
+				},
+			
+			disable_pjax: false,
+			headroom: true
+		}
+	</script>
+	<script>
+		var darkmodeAutoSwitch = "false";
+		function setDarkmode(enable){
+			if (enable == true){
+				$("html").addClass("darkmode");
+			}else{
+				$("html").removeClass("darkmode");
+			}
+			$(window).trigger("scroll");
+		}
+		function toggleDarkmode(){
+			if ($("html").hasClass("darkmode")){
+				setDarkmode(false);
+				sessionStorage.setItem("Argon_Enable_Dark_Mode", "false");
+			}else{
+				setDarkmode(true);
+				sessionStorage.setItem("Argon_Enable_Dark_Mode", "true");
+			}
+		}
+		if (sessionStorage.getItem("Argon_Enable_Dark_Mode") == "true"){
+			setDarkmode(true);
+		}
+		function toggleDarkmodeByPrefersColorScheme(media){
+			if (sessionStorage.getItem('Argon_Enable_Dark_Mode') == "false" || sessionStorage.getItem('Argon_Enable_Dark_Mode') == "true"){
+				return;
+			}
+			if (media.matches){
+				setDarkmode(true);
+			}else{
+				setDarkmode(false);
+			}
+		}
+		function toggleDarkmodeByTime(){
+			if (sessionStorage.getItem('Argon_Enable_Dark_Mode') == "false" || sessionStorage.getItem('Argon_Enable_Dark_Mode') == "true"){
+				return;
+			}
+			let hour = new Date().getHours();
+			if (hour < 7 || hour >= 22){
+				setDarkmode(true);
+			}else{
+				setDarkmode(false);
+			}
+		}
+		if (darkmodeAutoSwitch == 'system'){
+			var darkmodeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+			darkmodeMediaQuery.addListener(toggleDarkmodeByPrefersColorScheme);
+			toggleDarkmodeByPrefersColorScheme(darkmodeMediaQuery);
+		}
+		if (darkmodeAutoSwitch == 'time'){
+			toggleDarkmodeByTime();
+		}
+		if (darkmodeAutoSwitch == 'alwayson'){
+			setDarkmode(true);
+		}
+
+		function toggleAmoledDarkMode(){
+			$("html").toggleClass("amoled-dark");
+			if ($("html").hasClass("amoled-dark")){
+				localStorage.setItem("Argon_Enable_Amoled_Dark_Mode", "true");
+			}else{
+				localStorage.setItem("Argon_Enable_Amoled_Dark_Mode", "false");
+			}
+		}
+		if (localStorage.getItem("Argon_Enable_Amoled_Dark_Mode") == "true"){
+			$("html").addClass("amoled-dark");
+		}else if (localStorage.getItem("Argon_Enable_Amoled_Dark_Mode") == "false"){
+			$("html").removeClass("amoled-dark");
+		}
+	</script>
+	<script>
+		if (navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1){
+			$("html").addClass("using-safari");
+		}
+	</script>
+
+	
+		
+<script src="/assets/vendor/smoothscroll/smoothscroll1.js"></script>
+
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+
+<style id="themecolor_css">
+	
+	:root{
+		--themecolor: #4f7f9c;
+		--themecolor-dark0: #4B7894;
+		--themecolor-dark: #46718B;
+		--themecolor-dark2: #3E637A;
+		--themecolor-dark3: #355669;
+		--themecolor-light: #6A98B4;
+		--themecolor-rgbstr: 79,127,156;
+		--themecolor-gradient: linear-gradient(150deg,var(--themecolor-light) 15%, var(--themecolor) 70%, var(--themecolor-dark0) 94%);
+
+	}
+</style>
+<style id="theme_cardradius_css">
+	:root{
+		--card-radius: 14px;
+	}
+</style>
+
+<body>
+<div id="toolbar">
+	<header class="header-global">
+		<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light bg-primary headroom--not-bottom headroom--not-top headroom--pinned">
+			<div class="container">
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="/">FDShijing的小站</a>
+				<div class="navbar-collapse collapse" id="navbar_global">
+					<div class="navbar-collapse-header">
+						<div class="row">
+							<div class="col-6 collapse-brand"></div>
+							<div class="col-6 collapse-close">
+								<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+									<span></span>
+									<span></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<ul id="navbar_search_btn_mobile" class="navbar-nav align-items-lg-center ml-lg-auto">
+						<li class="nav-item" data-toggle="modal" data-target="#argon_search_modal" style="padding-left: 5px;">
+							<a class="nav-link nav-link-icon">
+								<i class="fa fa-search"></i>
+								<span class="nav-link-inner--text d-lg-none">搜索</span>
+							</a>
+						</li>
+					</ul>
+					
+							<ul class='navbar-nav navbar-nav-hover align-items-lg-center'>
+								
+										<li class='nav-item'>
+											<a href='/' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>首页</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/chuni/' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>中二</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/about' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>关于</span>
+											</a>
+											
+										</li>
+									
+							</ul>
+						
+					<ul class="navbar-nav align-items-lg-center ml-lg-auto">
+						<li class="nav-item" data-toggle="modal" data-target="#argon_search_modal" id="navbar_search_btn_pc">
+							<a class="nav-link nav-link-icon">
+								<i class="fa fa-search"></i>
+								<span class="nav-link-inner--text d-lg-none">搜索</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="navbar_menu_mask" data-toggle="collapse" data-target="#navbar_global"></div>
+			</div>
+		</nav>
+	</header>
+</div>
+<div class="modal fade" id="argon_search_modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">搜索</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<!-- TODO -->
+<div class="form-group mb-3">
+	<div class="input-group input-group-alternative">
+		<div class="input-group-prepend">
+			<span class="input-group-text"><i class="fa fa-search"></i></span>
+		</div>
+		<input id="local-search-input" class="form-control" placeholder="搜索什么..." type="text"  autocomplete="off" data-search.path="search.xml" data-config.root="/">
+	</div>
+	<div id="local-search-result"></div>
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--Banner-->
+
+<style id="site_banner_image_css">
+	:root { --banner-image: url("/assets/img/banner-euthanasia.jpg"); }
+</style>
+<section id="banner" class="banner section section-lg section-shaped">
+	<div class="shape  shape-primary">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+
+	
+	<div id="banner_container" class="banner-container container text-center">
+		
+			<div class="banner-title text-white" data-text="FDShijing的小站" data-interval="110"><span class="banner-title-inner">&nbsp;</span>
+		
+		<span class="banner-subtitle d-block">个人随笔 · 谱面杂记 · 实用工具</span></div>
+	</div>
+	
+</section>
+
+
+
+
+	<style>
+		#banner:after {
+			content: '';
+			width: 100vw;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 120px;
+			background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0) 100%);
+			display: block;
+			z-index: -1;
+		}
+		.banner-title {
+			text-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+		}
+	</style>
+
+
+<div id="float_action_buttons" class="float-action-buttons fabtns-unloaded">
+	<button id="fabtn_toggle_sides" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-hidden="true" tooltip-move-to-left="移至左侧" tooltip-move-to-right="移至右侧">
+		<span class="btn-inner--icon fabtn-show-on-right"><i class="fa fa-caret-left"></i></span>
+		<span class="btn-inner--icon fabtn-show-on-left"><i class="fa fa-caret-right"></i></span>
+	</button>
+	<button id="fabtn_back_to_top" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-label="Back To Top" tooltip="回到顶部">
+		<span class="btn-inner--icon"><i class="fa fa-angle-up"></i></span>
+	</button>
+	<button id="fabtn_go_to_comment" class="btn btn-icon btn-neutral fabtn shadow-sm d-none" type="button" style='display: none;'  aria-label="Comment" tooltip="评论">
+		<span class="btn-inner--icon"><i class="fa fa-comment-o"></i></span>
+	</button>
+	<button id="fabtn_toggle_darkmode" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button"  aria-label="Toggle Darkmode" tooltip-darkmode="夜间模式" tooltip-blackmode="暗黑模式" tooltip-lightmode="日间模式">
+		<span class="btn-inner--icon"><i class="fa fa-moon-o"></i><i class='fa fa-lightbulb-o'></i></span>
+	</button>
+	<button id="fabtn_toggle_blog_settings_popup" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button"  aria-label="Open Blog Settings Menu" tooltip="设置">
+		<span class="btn-inner--icon"><i class="fa fa-cog"></i></span>
+	</button>
+	<div id="fabtn_blog_settings_popup" class="card shadow-sm" style="opacity: 0;" aria-hidden="true">
+		<div id="close_blog_settings"><i class="fa fa-close"></i></div>
+		<div class="blog-setting-item mt-3">
+			<div style="transform: translateY(-4px);"><div id="blog_setting_toggle_darkmode_and_amoledarkmode" tooltip-switch-to-darkmode="切换到夜间模式" tooltip-switch-to-blackmode="切换到暗黑模式"><span>夜间模式</span><span>暗黑模式</span></div></div>
+			<div style="flex: 1;"></div>
+			<label id="blog_setting_darkmode_switch" class="custom-toggle">
+				<span class="custom-toggle-slider rounded-circle"></span>
+			</label>
+		</div>
+		<div class="blog-setting-item mt-3">
+			<div style="flex: 1;">字体</div>
+			<div>
+				<button id="blog_setting_font_sans_serif" type="button" class="blog-setting-font btn btn-outline-primary blog-setting-selector-left">Sans Serif</button><button id="blog_setting_font_serif" type="button" class="blog-setting-font btn btn-outline-primary blog-setting-selector-right">Serif</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mt-3">
+			<div style="flex: 1;">阴影</div>
+			<div>
+				<button id="blog_setting_shadow_small" type="button" class="blog-setting-shadow btn btn-outline-primary blog-setting-selector-left">浅阴影</button><button id="blog_setting_shadow_big" type="button" class="blog-setting-shadow btn btn-outline-primary blog-setting-selector-right">深阴影</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mt-3 mb-3">
+			<div style="flex: 1;">滤镜</div>
+			<div id="blog_setting_filters" class="ml-3">
+				<button id="blog_setting_filter_off" type="button" class="blog-setting-filter-btn ml-0" filter-name="off">关闭</button>
+				<button id="blog_setting_filter_sunset" type="button" class="blog-setting-filter-btn" filter-name="sunset">日落</button>
+				<button id="blog_setting_filter_darkness" type="button" class="blog-setting-filter-btn" filter-name="darkness">暗化</button>
+				<button id="blog_setting_filter_grayscale" type="button" class="blog-setting-filter-btn" filter-name="grayscale">灰度</button>
+			</div>
+		</div>
+		<div class="blog-setting-item mb-3">
+			<div id="blog_setting_card_radius_to_default" style="cursor: pointer;" tooltip="恢复默认">圆角</div>
+			<div style="flex: 1;margin-left: 20px;margin-right: 8px;transform: translateY(2px);">
+				<div id="blog_setting_card_radius"></div>
+			</div>
+		</div>
+		
+			<div class="blog-setting-item mt-1 mb-3">
+				<div style="flex: 1;">主题色</div>
+				<div id="theme-color-picker" class="ml-3"></div>
+			</div>
+		
+	</div>
+	<button id="fabtn_open_sidebar" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-label="Open Sidebar Menu" tooltip="菜单">
+		<span class="btn-inner--icon"><i class="fa fa-bars"></i></span>
+	</button>
+	<button id="fabtn_reading_progress" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-hidden="true" tooltip="阅读进度">
+		<div id="fabtn_reading_progress_bar" style="width: 0%;"></div>
+		<span id="fabtn_reading_progress_details">0%</span>
+	</button>
+</div>
+
+<div id="content" class="site-content">
+
+
+
+
+
+
+
+
+
+<div class="page-information-card-container">
+	
+</div>
+
+<div id="sidebar_mask"></div>
+<aside id="leftbar" class="leftbar widget-area" role="complementary">
+		
+		<div id="leftbar_part1" class="widget widget_search card bg-white shadow-sm border-0">
+			<div class="leftbar-banner card-body">
+				<span class="leftbar-banner-title text-white">FDShijing的小站</span>
+				
+				
+					<span class="leftbar-banner-subtitle text-white">世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活</span>
+				
+			</div>
+			
+			
+				<ul id='leftbar_part1_menu' class='leftbar-menu'>
+					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item'><a href='/about'>关于</a></li>
+				</ul>
+			
+			<div class="card-body text-center leftbar-search-button">
+				<button id="leftbar_search" class="btn btn-secondary btn-lg active btn-sm btn-block border-0" role="button" data-toggle="modal" data-target="#argon_search_modal" >
+					<i class="menu-item-icon fa fa-search mr-0"></i> 搜索
+				</button>
+			</div>
+		</div>
+		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
+			<div id="leftbar_part2_inner" class="card-body">
+				
+				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+	                <ul class="nav nav-pills nav-fill" role="tablist">
+						
+						<li class="nav-item sidebar-tab-switcher">
+							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+						</li>
+	                </ul>
+				</div>
+				<div>
+					<div class="tab-content" style="padding: 10px 10px 0 10px;">
+						
+						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<img id="leftbar_overview_author_image" src="/assets/img/avatar-bili.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
+							<h6 id="leftbar_overview_author_name">FDShijing</h6>
+							<nav class="site-state">
+								<div class="site-state-item site-state-posts">
+									<a href="/categories/">
+										<span class="site-state-item-count">82</span>
+										<span class="site-state-item-name">文章</span>
+									</a>
+								</div>
+								<div class="site-state-item site-state-categories">
+									<a data-toggle="modal" data-target="#blog_categories">
+										<span class="site-state-item-count">4</span>
+										<span class="site-state-item-name">分类</span>
+									</a>
+								</div>      
+								<div class="site-state-item site-state-tags">
+									<a data-toggle="modal" data-target="#blog_tags">
+										<span class="site-state-item-count">30</span>
+										<span class="site-state-item-name">标签</span>
+									</a>
+								</div>
+							</nav>
+							
+									<div class="site-author-links">
+										
+											<div class='site-author-links-item'>
+												<a href="https://space.bilibili.com/324184620" rel='noopener' target='_blank'>Bilibili</a>
+											</div>
+										
+									</div>
+								
+							
+									<div style="height: 20px;"></div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</aside>
+<div class="modal fade" id="blog_categories" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">分类</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<a class="badge badge-secondary tag" href="/categories/%E8%B0%B1%E9%9D%A2%E8%AE%B0%E5%BD%95/4k%E4%B8%8B%E8%90%BD%E5%BC%8F/" rel="tag">4k下落式 <span class="tag-num">69</span></a><a class="badge badge-secondary tag" href="/categories/%E8%B0%B1%E9%9D%A2%E8%AE%B0%E5%BD%95/%E4%B8%AD%E4%BA%8C%E8%8A%82%E5%A5%8F%E8%B0%B1%E9%9D%A2/" rel="tag">中二节奏谱面 <span class="tag-num">11</span></a><a class="badge badge-secondary tag" href="/categories/%E6%9D%82%E8%B0%88/" rel="tag">杂谈 <span class="tag-num">2</span></a><a class="badge badge-secondary tag" href="/categories/%E8%B0%B1%E9%9D%A2%E8%AE%B0%E5%BD%95/" rel="tag">谱面记录 <span class="tag-num">80</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="blog_tags" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">标签</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<a class="badge badge-secondary tag" href="/tags/4k/" rel="tag">4k <span class="tag-num">69</span></a><a class="badge badge-secondary tag" href="/tags/Air/" rel="tag">Air <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/Arcaea/" rel="tag">Arcaea <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/Argon/" rel="tag">Argon <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/BanG-Dream-It-s-MyGO/" rel="tag">BanG Dream! It's MyGO!!!!! <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/CHUNITHM/" rel="tag">CHUNITHM <span class="tag-num">13</span></a><a class="badge badge-secondary tag" href="/tags/CHUNITHM-LUMINOUS-PLUS/" rel="tag">CHUNITHM LUMINOUS PLUS <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/CHUNITHM-SUN/" rel="tag">CHUNITHM SUN <span class="tag-num">2</span></a><a class="badge badge-secondary tag" href="/tags/CHUNITHM-SUN-PLUS/" rel="tag">CHUNITHM SUN PLUS <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/CLANNAD-AFTER-STORY/" rel="tag">CLANNAD AFTER STORY <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/Hexo/" rel="tag">Hexo <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/SOUND-VOLTEX-IV-HEAVENLY-HAVEN/" rel="tag">SOUND VOLTEX IV HEAVENLY HAVEN <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/maimai-festival/" rel="tag">maimai festival <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/maimai-%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99/" rel="tag">maimai でらっくす <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/maimai-%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99-BUDDiES/" rel="tag">maimai でらっくす BUDDiES <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/osu-mania/" rel="tag">osu!mania <span class="tag-num">69</span></a><a class="badge badge-secondary tag" href="/tags/vivid-stasis/" rel="tag">vivid/stasis <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E3%81%BC%E3%81%A3%E3%81%A1%E3%83%BB%E3%81%96%E3%83%BB%E3%82%8D%E3%81%A3%E3%81%8F%EF%BC%81/" rel="tag">ぼっち・ざ・ろっく！ <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E3%82%AA%E3%83%B3%E3%82%B2%E3%82%AD/" rel="tag">オンゲキ <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC/" rel="tag">グランブルーファンタジー <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E3%82%B7%E3%83%93%E3%83%A5%E3%83%A9%E7%B2%BE%E9%9C%8A%E8%A8%98-%EF%BD%9EStrive-Against-Fate%EF%BD%9E-CHUNITHM-Original-Sound-Track/" rel="tag">シビュラ精霊記 ～Strive Against Fate～ CHUNITHM Original Sound Track <span class="tag-num">4</span></a><a class="badge badge-secondary tag" href="/tags/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%BB%E3%82%AB%E3%82%A4-%E3%82%AB%E3%83%A9%E3%83%95%E3%83%AB%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B8%EF%BC%81-feat-%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF/" rel="tag">プロジェクトセカイ カラフルステージ！ feat. 初音ミク <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E5%8A%87%E5%A0%B4%E7%89%88-%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E3%81%BE%E3%81%A9%E3%81%8B%E3%83%9E%E3%82%AE%E3%82%AB-%E6%96%B0%E7%B7%A8-%E5%8F%9B%E9%80%86%E3%81%AE%E7%89%A9%E8%AA%9E/" rel="tag">劇場版 魔法少女まどかマギカ[新編]叛逆の物語 <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E5%90%88%E4%BD%9C%E8%B0%B1/" rel="tag">合作谱 <span class="tag-num">4</span></a><a class="badge badge-secondary tag" href="/tags/%E5%AE%87%E5%AE%99%E7%94%B5%E5%8F%B02024/" rel="tag">宇宙电台2024 <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站 <span class="tag-num">2</span></a><a class="badge badge-secondary tag" href="/tags/%E6%9D%B1%E6%96%B9Project/" rel="tag">東方Project <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E8%87%AA%E5%88%B6%E8%B0%B1/" rel="tag">自制谱 <span class="tag-num">11</span></a><a class="badge badge-secondary tag" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔 <span class="tag-num">1</span></a><a class="badge badge-secondary tag" href="/tags/%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E3%81%BE%E3%81%A9%E3%81%8B%E2%98%86%E3%83%9E%E3%82%AE%E3%82%AB/" rel="tag">魔法少女まどか☆マギカ <span class="tag-num">1</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+		
+		
+		
+		
+			
+<article class="post post-full card bg-white shadow-sm border-0">
+	<div class="post-content" id="post_content">
+		<div class="chuni-guide">
+			<div class="chuni-guide-head">
+				<a class="map-back" href="/categories/中二节奏/">← 返回 中二节奏</a>
+				<h2 class="chuni-guide-title">曲目导览</h2>
+				<div class="chuni-guide-meta">
+					<span id="chuni-total">—</span> 首 · 数据更新 2026-11-12 · 来源 arcade-songs (zetaraku/arcade-songs)
+				</div>
+			</div>
+
+			<div class="chuni-toolbar">
+				<div class="chuni-toolbar-main">
+					<div class="chuni-seg" id="chuni-version">
+						<button type="button" class="chuni-seg-btn active" data-version="all">日服 MATE</button>
+						<button type="button" class="chuni-seg-btn" data-version="cn">国服 2027</button>
+					</div>
+					<select id="chuni-cat" class="chuni-select">
+						<option value="all">全部分类</option>
+						
+							<option value="POPS &amp; ANIME">POPS &amp; ANIME</option>
+						
+							<option value="niconico">niconico</option>
+						
+							<option value="東方Project">東方Project</option>
+						
+							<option value="VARIETY">VARIETY</option>
+						
+							<option value="イロドリミドリ">イロドリミドリ</option>
+						
+							<option value="ゲキマイ">ゲキマイ</option>
+						
+							<option value="ORIGINAL">ORIGINAL</option>
+						
+					</select>
+					<input type="search" id="chuni-designer" class="chuni-search chuni-designer-input" list="chuni-designer-list" placeholder="按谱师筛选…（可输入，如 ミストルティン）" />
+					<datalist id="chuni-designer-list"></datalist>
+					<div class="chuni-sort" id="chuni-sort">
+						<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
+						<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
+						<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
+						<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
+					</div>
+					<span class="chuni-count" id="chuni-count"></span>
+				</div>
+				<div class="chuni-toolbar-filters">
+					<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
+					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
+				</div>
+			</div>
+
+			<div class="chuni-levels" id="chuni-levels"></div>
+
+			<div class="chuni-searches">
+				<input type="search" id="chuni-search-title" class="chuni-search" placeholder="搜曲名…" />
+				<input type="search" id="chuni-search-artist" class="chuni-search" placeholder="搜艺术家…" />
+			</div>
+
+			<div class="chuni-list" id="chuni-list"></div>
+			<div class="chuni-empty" id="chuni-empty" hidden>没有符合条件的曲目</div>
+			<div class="chuni-pager" id="chuni-pager"></div>
+			<div class="chuni-loading" id="chuni-loading">正在加载曲目…</div>
+		</div>
+	</div>
+</article>
+
+<script>
+(function () {
+	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
+	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
+	var PAGE_SIZE = 50;
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', levels: [], sortTitle: true, sortVersion: false, sortConst: false, dir: 1, removed: false, we: false, page: 1 };
+
+	var all = [];
+	var listEl = document.getElementById('chuni-list');
+	var pagerEl = document.getElementById('chuni-pager');
+	var countEl = document.getElementById('chuni-count');
+	var totalEl = document.getElementById('chuni-total');
+	var emptyEl = document.getElementById('chuni-empty');
+	var loadingEl = document.getElementById('chuni-loading');
+	var levelsEl = document.getElementById('chuni-levels');
+
+	// 难度等级：从数据里收集，形如 14 / 14+
+	function levelKey(lv) {
+		var s = String(lv || '').trim();
+		var m = s.match(/^(\d+(?:\.\d+)?)(\+?)$/);
+		return m ? m[1] + (m[2] ? '+' : '') : s;
+	}
+	function levelNum(key) {
+		var m = String(key).match(/^(\d+(?:\.\d+)?)/);
+		return m ? Number(m[1]) : 99;
+	}
+
+	function collectLevels() {
+		var set = {};
+		all.forEach(function (r) {
+			(r.sh || []).forEach(function (sh) {
+				var k = levelKey(sh.lv);
+				if (/^\d+(\.\d+)?\+?$/.test(k)) set[k] = true;
+			});
+		});
+		return Object.keys(set).sort(function (a, b) {
+			var d = levelNum(a) - levelNum(b);
+			if (d) return d;
+			return a.indexOf('+') - b.indexOf('+');
+		});
+	}
+
+	function tierOf(key) {
+		var n = levelNum(key);
+		if (n <= 4) return 'g';
+		if (n <= 7) return 'b';
+		if (n <= 10) return 'r';
+		if (n <= 14) return 'p';
+		return 'd';
+	}
+
+	function renderLevelChips() {
+		if (!levelsEl) return;
+		var levels = collectLevels();
+		levelsEl.innerHTML = levels.map(function (lv) {
+			return '<button type="button" class="chuni-lv-chip tier-' + tierOf(lv) + '" data-level="' + lv + '">' + lv + '</button>';
+		}).join('');
+	}
+
+	function songLevelKeys(r) {
+		return (r.sh || []).map(function (sh) { return levelKey(sh.lv); });
+	}
+
+	function levelMatch(r) {
+		if (!state.levels.length) return true;
+		var keys = songLevelKeys(r);
+		return state.levels.some(function (lv) { return keys.indexOf(lv) !== -1; });
+	}
+
+	function filtered() {
+		var qt = state.qt.trim().toLowerCase();
+		var qa = state.qa.trim().toLowerCase();
+		var rows = all.filter(function (r) {
+			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
+			var isDel = !!(r.rm || r.cnrm);
+			var isWE = !!(r.we && r.we.length);
+			if (state.removed && !isDel) return false;
+			if (state.we && !isWE) return false;
+			if (!state.removed && !state.we && (isDel || isWE)) return false;
+			if (state.cat !== 'all' && r.c !== state.cat) return false;
+			if (state.designer && !(r.sh || []).some(function (sh) { return String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1; })) return false;
+			if (!levelMatch(r)) return false;
+			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
+			if (qa && String(r.a).toLowerCase().indexOf(qa) === -1) return false;
+			return true;
+		});
+		var vIndex = {};
+		VERSION_KEYS.forEach(function (k, i) { vIndex[k] = i; });
+		function starOf(r) {
+			if (!r.we || !r.we.length) return 0;
+			return Math.max.apply(null, r.we);
+		}
+
+		function maxConst(r) {
+			var best = -1;
+			(r.sh || []).forEach(function (sh) {
+				if (DIFF_ORDER.indexOf(sh.d) === -1) return;
+				var v = (state.version === 'cn' && sh.cn != null) ? sh.cn : sh.iv;
+				if (v != null && !isNaN(v) && v > best) best = v;
+			});
+			return best;
+		}
+		rows.sort(function (x, y) {
+			var d = 0;
+			if (state.sortVersion) {
+				d = (vIndex[x.v] == null ? 99 : vIndex[x.v]) - (vIndex[y.v] == null ? 99 : vIndex[y.v]);
+				if (d) return d * state.dir;
+			}
+			if (state.sortConst) {
+				var starX = starOf(x);
+				var starY = starOf(y);
+				// 两边都是 WE：按星星数
+				if (starX && starY) {
+					d = starX - starY;
+					if (d) return d * state.dir;
+					return 0;
+				}
+				// 一边 WE 一边普通：普通在前
+				if (starX && !starY) return 1;
+				if (starY && !starX) return -1;
+				var mx = maxConst(x);
+				var my = maxConst(y);
+				if (mx < 0 && my >= 0) return 1;
+				if (my < 0 && mx >= 0) return -1;
+				d = mx - my;
+				if (d) return d * state.dir;
+			}
+			if (state.sortTitle || (!state.sortVersion && !state.sortConst)) {
+				return String(x.t).localeCompare(String(y.t), 'ja') * state.dir;
+			}
+			return 0;
+		});
+		return rows;
+	}
+
+	var DIFF_ORDER = ['basic', 'advanced', 'expert', 'master', 'ultima'];
+	var DIFF_LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
+
+	function fmtConst(n) {
+		if (n == null || isNaN(n)) return '';
+		var v = Math.round(Number(n) * 10) / 10;
+		return (Math.abs(v % 1) < 0.05) ? String(Math.round(v)) : v.toFixed(1);
+	}
+
+	function badge(value, diff) {
+		return '<span class="chuni-badge chuni-badge-' + diff + '">' + fmtConst(value) + '</span>';
+	}
+
+	function renderRows() {
+		var rows = filtered();
+		var pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+		if (state.page > pages) state.page = pages;
+		var start = (state.page - 1) * PAGE_SIZE;
+		var pageRows = rows.slice(start, start + PAGE_SIZE);
+
+		var html = pageRows.map(function (r) {
+			if (r.we && r.we.length && state.we) {
+				var stars = r.we.map(function (n) { return '<span class="chuni-badge chuni-badge-we">☆' + n + (r.weAttr ? ' ' + r.weAttr : '') + '</span>'; }).join('');
+				return '<a class="chuni-row" href="' + r.u + '">' +
+					'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
+					'<div class="chuni-row-main"><div class="chuni-row-title">' + r.t + '</div>' +
+					'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div></div>' +
+					'<div class="chuni-row-badges">' + stars + '</div>' +
+					'</a>';
+			}
+			var dsHit = [];
+			if (state.designer) {
+				(r.sh || []).forEach(function (sh) {
+					if (String(sh.ds || '').toLowerCase().indexOf(state.designer) !== -1 && dsHit.indexOf(sh.ds) === -1) dsHit.push(sh.ds);
+				});
+			}
+			var dsTag = dsHit.length ? '<span class="chuni-row-tag-ds">' + dsHit.slice(0, 2).join(' / ') + '</span>' : '';
+			var byDiff = {};
+			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
+			var badges = DIFF_ORDER.map(function (d) {
+				var sh = byDiff[d];
+				if (!sh) return '<span class="chuni-badge chuni-badge-empty">—</span>';
+				// 选了等级时，只显示对应等级的那张谱，其它难度留空
+				if (state.levels.length && state.levels.indexOf(levelKey(sh.lv)) === -1) {
+					return '<span class="chuni-badge chuni-badge-empty">—</span>';
+				}
+				var useCn = state.version === 'cn' && sh.cn != null;
+				var val = useCn ? sh.cn : sh.iv;
+				var html = badge(val, d);
+				if (state.version === 'cn' && sh.cn == null) {
+					html = html.replace('<span ', '<span title="暂无国服数据，显示的是 MATE 定数" ');
+				}
+				return html;
+			}).join('');
+			return '<a class="chuni-row" href="' + r.u + '">' +
+				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
+				'<div class="chuni-row-main">' +
+				'<div class="chuni-row-title">' + r.t + (r.cnrm ? '<span class="chuni-row-tag-removed">国服已删除</span>' : (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '')) + dsTag + '</div>' +
+				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
+				'</div>' +
+				'<div class="chuni-row-badges">' + badges + '</div>' +
+				'</a>';
+		}).join('');
+
+		listEl.innerHTML = html;
+		emptyEl.hidden = rows.length !== 0;
+		countEl.textContent = '显示 ' + (rows.length ? start + 1 : 0) + '–' + (start + pageRows.length) + ' / ' + rows.length;
+		totalEl.textContent = String(all.length);
+		renderPager(pages);
+	}
+
+	function renderPager(pages) {
+		if (pages <= 1) { pagerEl.innerHTML = ''; return; }
+		var html = '';
+		html += '<button type="button" class="chuni-pg" data-page="' + (state.page - 1) + '"' + (state.page <= 1 ? ' disabled' : '') + '>上一页</button>';
+		var windowStart = Math.max(1, state.page - 2);
+		var windowEnd = Math.min(pages, windowStart + 4);
+		if (windowStart > 1) html += '<button type="button" class="chuni-pg" data-page="1">1</button>' + (windowStart > 2 ? '<span class="chuni-pg-gap">…</span>' : '');
+		for (var p = windowStart; p <= windowEnd; p++) {
+			html += '<button type="button" class="chuni-pg' + (p === state.page ? ' active' : '') + '" data-page="' + p + '">' + p + '</button>';
+		}
+		if (windowEnd < pages) html += (windowEnd < pages - 1 ? '<span class="chuni-pg-gap">…</span>' : '') + '<button type="button" class="chuni-pg" data-page="' + pages + '">' + pages + '</button>';
+		html += '<button type="button" class="chuni-pg" data-page="' + (state.page + 1) + '"' + (state.page >= pages ? ' disabled' : '') + '>下一页</button>';
+		html += '<span class="chuni-pg-info">第 ' + state.page + ' / ' + pages + ' 页</span>';
+		pagerEl.innerHTML = html;
+	}
+
+	pagerEl.addEventListener('click', function (e) {
+		var b = e.target.closest('.chuni-pg');
+		if (!b || b.disabled) return;
+		var p = Number(b.getAttribute('data-page'));
+		if (!p || p === state.page) return;
+		state.page = p;
+		renderRows();
+		window.scrollTo({ top: listEl.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+	});
+
+	document.querySelectorAll('#chuni-version .chuni-seg-btn').forEach(function (b) {
+		b.addEventListener('click', function () {
+			document.querySelectorAll('#chuni-version .chuni-seg-btn').forEach(function (x) { x.classList.toggle('active', x === b); });
+			state.version = b.getAttribute('data-version');
+			state.page = 1;
+			renderRows();
+		});
+	});
+
+	document.querySelectorAll('#chuni-sort .chuni-sort-btn').forEach(function (b) {
+		b.addEventListener('click', function () {
+			var key = b.getAttribute('data-sort');
+			if (key === 'dir') {
+				state.dir = -state.dir;
+				b.textContent = state.dir === 1 ? '正序 ↑' : '倒序 ↓';
+				state.page = 1;
+				renderRows();
+				return;
+			}
+			if (key === 'title') state.sortTitle = !state.sortTitle;
+			else if (key === 'version') state.sortVersion = !state.sortVersion;
+			else if (key === 'const') state.sortConst = !state.sortConst;
+			b.classList.toggle('active', key === 'title' ? state.sortTitle : (key === 'version' ? state.sortVersion : state.sortConst));
+			state.page = 1;
+			renderRows();
+		});
+	});
+
+	if (levelsEl) {
+		levelsEl.addEventListener('click', function (e) {
+			var b = e.target.closest('.chuni-lv-chip');
+			if (!b) return;
+			var lv = b.getAttribute('data-level');
+			var i = state.levels.indexOf(lv);
+			if (i === -1) state.levels.push(lv); else state.levels.splice(i, 1);
+			b.classList.toggle('active');
+			if (levelsEl) levelsEl.classList.toggle('filtering', state.levels.length > 0);
+			state.page = 1;
+			renderRows();
+		});
+	}
+
+	function collectDesigners() {
+		var set = {};
+		all.forEach(function (r) {
+			(r.sh || []).forEach(function (sh) {
+				if (sh.ds && sh.ds !== '-') set[sh.ds] = true;
+			});
+		});
+		return Object.keys(set).sort(function (a, b) { return a.localeCompare(b, 'ja'); });
+	}
+
+	function fillDesignerSelect() {
+		var dl = document.getElementById('chuni-designer-list');
+		if (!dl) return;
+		var names = collectDesigners();
+		dl.innerHTML = names.map(function (n) {
+			return '<option value="' + n.replace(/"/g, '&quot;') + '"></option>';
+		}).join('');
+	}
+
+	var st = document.getElementById('chuni-search-title');
+	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
+	var sa = document.getElementById('chuni-search-artist');
+	if (sa) sa.addEventListener('input', function () { state.qa = sa.value; state.page = 1; renderRows(); });
+
+	var weBtn = document.getElementById('chuni-we');
+	if (weBtn) weBtn.addEventListener('click', function () {
+		state.we = !state.we;
+		weBtn.classList.toggle('active', state.we);
+		state.page = 1;
+		renderRows();
+	});
+
+	var des = document.getElementById('chuni-designer');
+	if (des) des.addEventListener('input', function () {
+		state.designer = des.value.trim().toLowerCase();
+		state.page = 1;
+		renderRows();
+	});
+
+	var cat = document.getElementById('chuni-cat');
+	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });
+
+	var rmBtn = document.getElementById('chuni-removed');
+	if (rmBtn) rmBtn.addEventListener('click', function () {
+		state.removed = !state.removed;
+		rmBtn.classList.toggle('active', state.removed);
+		state.page = 1;
+		renderRows();
+	});
+
+	fetch('/chuni-songs.json')
+		.then(function (r) { return r.json(); })
+		.then(function (rows) {
+			all = rows;
+			renderLevelChips();
+			fillDesignerSelect();
+			if (loadingEl) loadingEl.remove();
+			renderRows();
+		})
+		.catch(function () {
+			if (loadingEl) loadingEl.textContent = '曲目数据加载失败';
+		});
+})();
+</script>
+
+		
+		
+		
+		
+
+					<footer id="footer" class="site-footer card shadow-sm border-0">
+						<div>用 <i class="fa fa-heart"></i> 记一点东西</div>
+						<div>Theme <a target="_blank" rel="noopener" href="https://github.com/solstice23/hexo-theme-argon"><strong>Argon</strong></a> | Powered by Hexo</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+		
+<script src="/argontheme.js"></script>
+
+		
+		
+		
+
+		
+
+	</div>
+</div>
+<noscript>
+	<style>
+		article img.lazyload[src^="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPg"]{display: none;}
+		.comment-item-text .comment-sticker.lazyload{display: none;}
+	</style>
+</noscript>
+</body>
+
+<script>
+  (function () {
+    var last = null;
+    function want() {
+      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
+    }
+    function sync() {
+      var f = document.querySelector('iframe.giscus-frame');
+      if (!f || !f.contentWindow) return;
+      var t = want();
+      if (t === last) return;
+      last = t;
+      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.setDarkmode) {
+        var orig = window.setDarkmode;
+        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
+      }
+      window.addEventListener('message', function (e) {
+        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
+      });
+      setTimeout(sync, 1500);
+    });
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/mobile-drawer.css?v=1">
+<script src="/assets/js/mobile-drawer.js?v=1"></script>
+
+
+</html>
+

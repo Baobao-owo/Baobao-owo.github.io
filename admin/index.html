@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title>内容管理 · 宝宝的小站</title>
+    <link rel="icon" href="/assets/img/favicon-flower.ico" />
+    <link rel="stylesheet" href="/admin/admin.css?v=20261112c" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f5f7;
+        color: #3f4b57;
+        font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+        font-size: 14px;
+      }
+      .loading { text-align: center; line-height: 1.9; }
+      .loading .dot { color: #4f7f9c; }
+    </style>
+  </head>
+  <body>
+    <div class="admin-ribbon">
+      <a class="admin-ribbon-brand" href="/">
+        <img src="/assets/img/avatar-flower.jpg" alt="" />
+        <span>后台 · 宝宝的小站</span>
+      </a>
+      <a class="admin-ribbon-back" href="/">回站点 →</a>
+    </div>
+    <div class="loading" id="boot">
+      <div>正在加载后台<span class="dot">…</span></div>
+      <div style="font-size: 12px; color: #94a1ad">第一次打开会慢一点</div>
+    </div>
+
+    <script>
+      (function () {
+        // 手动初始化：等自定义编辑器注册完再启动 CMS
+        window.CMS_MANUAL_INIT = true;
+        // 优先用站内打包的版本（不依赖 CDN）；万一丢了再退回 jsdelivr / unpkg
+        var sources = [
+          '/admin/static/decap-cms.js',
+          'https://fastly.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js',
+          'https://unpkg.com/decap-cms@3/dist/decap-cms.js',
+        ];
+        var loaded = false;
+        function loadScript(src, cb) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.onload = cb || function () {};
+          s.onerror = function () {
+            console.warn('[admin] 脚本加载失败：' + src);
+          };
+          document.body.appendChild(s);
+        }
+        function load(i) {
+          if (loaded || i >= sources.length) return;
+          var s = document.createElement('script');
+          s.src = sources[i];
+          s.onload = function () {
+            loaded = true;
+            var boot = document.getElementById('boot');
+            if (boot) boot.remove();
+            try {
+              if (window.CMS && CMS.registerPreviewStyle) {
+                CMS.registerPreviewStyle('/admin/preview.css?v=20261112c');
+              }
+            } catch (e) {}
+            // 编辑器要赶在 CMS 初始化之前注册好，否则打开文章时会找不到 word 部件
+            loadScript('/admin/vendor/tinymce/tinymce.min.js?v=20261112c', function () {
+              loadScript('/admin/word-editor.js?v=20261112c', function () {
+              loadScript('/admin/preview-template.js?v=20261112c', function () {
+                var waitTries = 0;
+                (function waitReady() {
+                  if ((window.__wordEditorReady && window.__baobaoPreviewReady) || waitTries++ > 30) {
+                    try {
+                      CMS.init();
+                    } catch (e) {
+                      console.warn('[admin] CMS 初始化失败', e);
+                    }
+                    return;
+                  }
+                  setTimeout(waitReady, 150);
+                })();
+              });
+            });
+            });
+          };
+          s.onerror = function () {
+            load(i + 1);
+          };
+          document.body.appendChild(s);
+        }
+        load(0);
+
+        // 登录代理还没填的时候，给个明确提示，别让人对着报错发愣
+        fetch('/admin/config.yml')
+          .then(function (r) { return r.text(); })
+          .then(function (t) {
+            if (t.indexOf('REPLACE_ME_OAUTH_PROXY') === -1) return;
+            var d = document.createElement('div');
+            d.textContent = '登录还没接好：OAuth 代理地址待填写';
+            d.style.cssText =
+              'position:fixed;top:12px;left:50%;transform:translateX(-50%);background:#fff3cd;color:#7a5b00;' +
+              'padding:8px 14px;border-radius:8px;font-size:13px;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,.08)';
+            document.body.appendChild(d);
+          })
+          .catch(function () {});
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,348 @@
+﻿# Decap CMS 配置
+# 后台：https://baobao-owo.github.io/admin/
+# 登录走 DecapBridge（PKCE），提交通过它的 gateway 落到仓库 main
+
+backend:
+  name: git-gateway
+  repo: Baobao-owo/Baobao-owo.github.io
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/8f0f951c-346f-401d-ad2b-c39dc10f739e/pkce
+  auth_token_endpoint: /sites/8f0f951c-346f-401d-ad2b-c39dc10f739e/token
+  gateway_url: https://gateway.decapbridge.com
+
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+locale: zh_Hans
+site_url: https://baobao-owo.github.io
+display_url: https://baobao-owo.github.io
+logo_url: https://baobao-owo.github.io/assets/img/avatar-bili.jpg
+
+media_folder: source/assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 一篇文章
+    folder: source/_posts
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}  ·  {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: [date, title]
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 发布日期
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: 分类
+        name: categories
+        widget: select
+        multiple: true
+        options:
+          - 杂谈
+          - 谱面记录
+          - 4k下落式
+          - 中二节奏谱面
+          - 其它
+          - 中二节奏
+        default: [杂谈]
+        hint: 谱面的先选「谱面记录」，再选一个子分类（4k下落式 / 中二节奏谱面 / 其它）
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        default: []
+        allow_add: true
+      - label: 谱面信息（谱面记录用，其它文章留空）
+        name: map
+        widget: object
+        required: false
+        collapsed: true
+        summary: "{{fields.artist}} · 谱师 {{fields.mapper}}"
+        fields:
+          - label: 艺术家
+            name: artist
+            widget: string
+            required: false
+          - label: 谱师
+            name: mapper
+            widget: string
+            required: false
+          - label: 键数
+            name: keys
+            widget: number
+            value_type: int
+            required: false
+            hint: 4 就是 4K
+          - label: BPM
+            name: bpm
+            widget: number
+            value_type: float
+            required: false
+          - label: 状态
+            name: status
+            widget: select
+            options: [Ranked, Loved, Graveyard, WIP]
+            required: false
+          - label: osu 谱面集 ID
+            name: set_id
+            widget: number
+            value_type: int
+            required: false
+            hint: "链接里 beatmapsets/2285703 就是 2285703；填了自动用 osu 封面"
+          - label: 默认难度 ID
+            name: beatmap_id
+            widget: number
+            value_type: int
+            required: false
+            hint: "链接里 #mania/4875709 的那个数字；「谱面链接」默认跳这个难度"
+          - label: 难度列表
+            name: diffs
+            widget: list
+            required: false
+            label_singular: 一个难度
+            summary: "{{fields.name}}  ★{{fields.sr}}"
+            fields:
+              - label: 难度名
+                name: name
+                widget: string
+                hint: 例如 x1.0
+              - label: 星级
+                name: sr
+                widget: number
+                value_type: float
+                required: false
+              - label: 键数
+                name: keys
+                widget: number
+                value_type: int
+                required: false
+              - label: 掉血 HP
+                name: hp
+                widget: number
+                value_type: float
+                required: false
+              - label: 准确度 OD
+                name: od
+                widget: number
+                value_type: float
+                required: false
+              - label: 物件数
+                name: circles
+                widget: number
+                value_type: int
+                required: false
+              - label: 最大连击
+                name: combo
+                widget: number
+                value_type: int
+                required: false
+              - label: 难度 ID
+                name: id
+                widget: number
+                value_type: int
+                required: false
+                hint: "在 osu 链接的 #mania/数字 里"
+              - label: 时长
+                name: length
+                widget: string
+                required: false
+                hint: "例如 2:31"
+          - label: 自定义封面
+            name: cover
+            widget: image
+            required: false
+            hint: 不填就用 osu 封面
+      - label: 中二谱面信息（中二节奏谱面用，其它文章留空）
+        name: chuni
+        widget: object
+        required: false
+        collapsed: true
+        summary: "{{fields.artist}} · {{fields.authors}}"
+        fields:
+          - label: 艺术家
+            name: artist
+            widget: string
+            required: false
+          - label: 谱师
+            name: authors
+            widget: string
+            required: false
+            hint: 合作谱写成 a & b，tag 里再加个「合作谱」
+          - label: 歌包链接
+            name: bundle
+            widget: string
+            required: false
+          - label: B 站视频
+            name: video
+            widget: string
+            required: false
+          - label: B 站简介原文
+            name: video_desc
+            widget: text
+            required: false
+            hint: 从视频简介搬来的文字，显示在「B 站简介」里
+          - label: 补充说明
+            name: note
+            widget: text
+            required: false
+            hint: 你自己写的话，显示在「补充说明」里
+          - label: 曲绘
+            name: cover
+            widget: image
+            required: false
+          - label: 难度列表
+            name: diffs
+            widget: list
+            required: false
+            label_singular: 一个难度
+            summary: "{{fields.cls}} {{fields.value}}"
+            fields:
+              - label: 难度分类
+                name: cls
+                widget: string
+                hint: 例如 14+ / 15 / 速
+              - label: 数值
+                name: value
+                widget: string
+                required: false
+                hint: 例如 15.6 / 2★
+              - label: 谱师
+                name: mapper
+                widget: string
+                required: false
+      - label: 正文
+        name: body
+        widget: word
+        required: false
+        hint: "谱面文章可以留空，卡片页的信息是自动生成的；想让首页显示摘要，在正文里单独加一行 <!--more-->"
+
+  - name: pages
+    label: 页面
+    label_singular: 一个页面
+    folder: source/about
+    create: false
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 日期
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+        format: "YYYY-MM-DD HH:mm:ss"
+      - label: 布局
+        name: layout
+        widget: hidden
+        default: page
+      - label: 评论
+        name: comments
+        widget: hidden
+        default: false
+      - label: 正文
+        name: body
+        widget: word
+
+  - name: settings
+    label: 站点设置
+    label_singular: 站点设置
+    files:
+      - name: site
+        label: 站点信息
+        file: source/_data/site.yml
+        format: yaml
+        fields:
+          - label: 站点名
+            name: title
+            widget: string
+            hint: 顶栏、侧栏、浏览器标题都用它
+          - label: 副标题
+            name: subtitle
+            widget: string
+            hint: 首页封面下面那一行
+          - label: 描述
+            name: description
+            widget: text
+            required: false
+            hint: 给搜索引擎看的摘要
+          - label: 关键词
+            name: keywords
+            widget: string
+            required: false
+          - label: 作者
+            name: author
+            widget: string
+          - label: 封面标语
+            name: banner_subtitle
+            widget: string
+            required: false
+            hint: 封面大标题下面那行小字
+          - label: 侧栏公告
+            name: announcement
+            widget: text
+            required: false
+            hint: 留空就不显示
+          - label: 进站封面
+            name: banner_image
+            widget: image
+            required: false
+            hint: 建议用横向图（1920 宽左右）
+
+  - name: categories
+    label: 分类管理
+    label_singular: 分类
+    files:
+      - name: categories
+        label: 板块
+        file: source/_data/categories.yml
+        format: yaml
+        fields:
+          - label: 分类列表
+            name: categories
+            widget: list
+            label_singular: 分类
+            summary: "{{fields.name}}（排序 {{fields.order}}）"
+            fields:
+              - label: 显示名
+                name: name
+                widget: string
+                hint: 也是文章里该填的分类名
+              - label: 排序
+                name: order
+                widget: number
+                value_type: int
+                default: 99
+                hint: 数字小的排前面
+              - label: 简介
+                name: description
+                widget: string
+                required: false
+                hint: 显示在板块标题下面，可留空
+              - label: 曾用名
+                name: aliases
+                widget: string
+                required: false
+                hint: 多个用逗号分隔；保存后构建时会自动把文章里的旧分类名改过来

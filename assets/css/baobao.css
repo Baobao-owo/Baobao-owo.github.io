@@ -1,0 +1,2086 @@
+/* baobao 小站的自定义样式 —— 只做小幅修饰，不跟 Argon 打架 */
+
+/* 字体：优先系统里的圆体/现代黑体，回落到 YaHei */
+body,
+.banner-title,
+.leftbar-banner-title,
+.navbar-brand,
+#leftbar_overview_author_name {
+  font-family: "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Microsoft YaHei UI",
+    "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 顶栏文字要压得住浅色封面 */
+.navbar-transparent .navbar-brand,
+.navbar-transparent .nav-link {
+  text-shadow: 0 1px 10px rgba(20, 34, 48, 0.45);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Banner 标题
+ * 封面是张明暗混杂的插画，单靠字色摆不平，
+ * 所以在图上压一层很淡的冷色雾，标题用白字。
+ */
+.banner-title {
+  color: #ffffff !important;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-shadow: 0 2px 16px rgba(10, 22, 34, 0.6);
+}
+
+.banner-subtitle {
+  color: #eaf3fa !important;
+  text-shadow: 0 1px 12px rgba(10, 22, 34, 0.6);
+}
+
+html.darkmode .banner-title {
+  color: #f2f7fc !important;
+  text-shadow: 0 2px 18px rgba(6, 12, 20, 0.8);
+}
+
+html.darkmode .banner-subtitle {
+  color: #d8e6f1 !important;
+  text-shadow: 0 1px 12px rgba(6, 12, 20, 0.8);
+}
+
+/* 卡片圆角和悬浮手感 */
+.card {
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+article.post-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(79, 127, 156, 0.2);
+}
+
+/*
+ * 进站封面：底边柔和过渡到页面背景。
+ * 用多层 background 把渐隐叠在图片之上（但仍在内容之下），
+ * 比伪元素安全：伪元素会盖住标题和卡片。
+ * 注意：主题的 banner 内联样式在文档里更靠后，
+ * 所以这里必须用 #id 提权才盖得住。
+ */
+section#banner.banner {
+  background-image: linear-gradient(
+      180deg,
+      rgba(24, 40, 56, 0.44) 0%,
+      rgba(24, 40, 56, 0.35) 26%,
+      rgba(24, 40, 56, 0.18) 46%,
+      rgba(24, 40, 56, 0.06) 58%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(244, 245, 247, 0) 56%,
+      rgba(244, 245, 247, 0.6) 79%,
+      #f4f5f7 100%
+    ),
+    var(--banner-image, url("/assets/img/banner-euthanasia.jpg")) !important;
+  background-size: cover !important;
+  background-position: center 62% !important;
+  background-repeat: no-repeat !important;
+}
+
+html.darkmode section#banner.banner {
+  background-image: linear-gradient(
+      180deg,
+      rgba(8, 14, 22, 0.55) 0%,
+      rgba(8, 14, 22, 0.45) 30%,
+      rgba(8, 14, 22, 0.2) 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(48, 48, 48, 0) 56%,
+      rgba(48, 48, 48, 0.6) 79%,
+      #303030 100%
+    ),
+    linear-gradient(rgba(16, 22, 30, 0.45), rgba(16, 22, 30, 0.45)),
+    var(--banner-image, url("/assets/img/banner-euthanasia.jpg")) !important;
+}
+
+/* 正文小标题前面点一颗小圆点（跟随主题色） */
+#post_content h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--themecolor);
+  margin-right: 0.5em;
+  vertical-align: 0.08em;
+}
+
+html.darkmode #post_content h2::before {
+  background: var(--themecolor-dark);
+}
+
+/* 代码块圆润一点；只动外层容器，别碰里面的行号表格 */
+pre,
+figure.highlight,
+.highlight {
+  border-radius: 10px !important;
+}
+
+figure.highlight table {
+  margin: 0;
+}
+
+/* 正文里真正的表格居中留白 */
+#post_content > table {
+  margin: 1.2em auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/*
+ * 代码高亮配色。
+ * Hexo 的高亮用的是自己的类名（.comment/.string/.keyword...），
+ * 跟 Argon 前端那套 .hljs-* 对不上，所以这里补一份浅色主题。
+ */
+figure.highlight {
+  background: #f5f7f9;
+  border: 1px solid #e3e8ed;
+  margin: 1.2em 0;
+}
+
+figure.highlight pre {
+  background: transparent;
+  margin: 0;
+  color: #26313c;
+}
+
+/* 内层行号表格要撑满，否则代码块会缩成窄条 */
+figure.highlight table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+figure.highlight td.code {
+  width: 100%;
+}
+
+figure.highlight td.gutter {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+figure.highlight .gutter {
+  color: #aeb8c2;
+  border-right: 1px solid #e3e8ed;
+  user-select: none;
+}
+
+figure.highlight .gutter pre {
+  padding: 12px 10px 12px 14px;
+}
+
+figure.highlight .code pre {
+  padding: 12px 14px;
+}
+
+figure.highlight .comment,
+figure.highlight .quote {
+  color: #8b98a5;
+  font-style: italic;
+}
+
+figure.highlight .string,
+figure.highlight .regexp {
+  color: #2a7d6b;
+}
+
+figure.highlight .keyword,
+figure.highlight .selector-tag,
+figure.highlight .addition {
+  color: #b5485d;
+}
+
+figure.highlight .number,
+figure.highlight .literal,
+figure.highlight .variable {
+  color: #3b6ea5;
+}
+
+figure.highlight .built_in,
+figure.highlight .title,
+figure.highlight .section {
+  color: #6b5aa6;
+}
+
+figure.highlight .attr,
+figure.highlight .attribute {
+  color: #b0662a;
+}
+
+figure.highlight .meta {
+  color: #96631a;
+}
+
+figure.highlight .deletion {
+  color: #a8283a;
+}
+
+/* 夜间模式下的代码配色 */
+html.darkmode figure.highlight {
+  background: #282c34;
+  border-color: #3a3f4b;
+}
+
+html.darkmode figure.highlight pre {
+  color: #abb2bf;
+}
+
+html.darkmode figure.highlight .gutter {
+  color: #5c6370;
+  border-right-color: #3a3f4b;
+}
+
+html.darkmode figure.highlight .comment,
+html.darkmode figure.highlight .quote {
+  color: #7f848e;
+}
+
+html.darkmode figure.highlight .string,
+html.darkmode figure.highlight .regexp {
+  color: #98c379;
+}
+
+html.darkmode figure.highlight .keyword,
+html.darkmode figure.highlight .selector-tag {
+  color: #c678dd;
+}
+
+html.darkmode figure.highlight .number,
+html.darkmode figure.highlight .literal,
+html.darkmode figure.highlight .variable {
+  color: #d19a66;
+}
+
+html.darkmode figure.highlight .built_in,
+html.darkmode figure.highlight .title,
+html.darkmode figure.highlight .section {
+  color: #61afef;
+}
+
+html.darkmode figure.highlight .attr,
+html.darkmode figure.highlight .attribute,
+html.darkmode figure.highlight .meta {
+  color: #e5c07b;
+}
+
+/* 滚动条低调一点 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 127, 156, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== 首页板块布局（按分类分块） ===== */
+.home-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .home-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-section {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 16px;
+}
+
+.home-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.home-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.home-section-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--themecolor);
+}
+
+.home-section-count {
+  font-size: 0.78rem;
+  color: #97a4b0;
+}
+
+.home-section-desc {
+  margin: -2px 0 4px;
+  font-size: 0.8rem;
+  color: #94a1ad;
+}
+
+.home-section-empty {
+  margin: 8px 0 4px;
+  font-size: 0.85rem;
+  color: #a7b2bd;
+}
+
+html.darkmode .home-section-empty {
+  color: #7d8996;
+}
+
+/* ===== 谱面记录：卡片 ===== */
+.map-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.map-chip {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.3);
+  font-size: 0.82rem;
+  color: #4f7f9c;
+  background: transparent;
+}
+
+.map-chip:hover {
+  background: rgba(79, 127, 156, 0.08);
+  text-decoration: none;
+}
+
+.map-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-chip.disabled {
+  color: #b3bec8;
+  border-color: #e3e8ed;
+  cursor: default;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 16px;
+}
+
+.map-card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  box-shadow: 0 2px 10px rgba(79, 127, 156, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(79, 127, 156, 0.18);
+  text-decoration: none;
+}
+
+.map-cover {
+  height: 112px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.map-cover-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, #dbe7f0, #c3d6e4);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.map-body {
+  padding: 10px 12px 12px;
+}
+
+.map-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #26313c;
+  line-height: 1.4;
+}
+
+.map-artist {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #8b98a5;
+}
+
+.map-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+  font-size: 0.72rem;
+  color: #6b7884;
+}
+
+.map-meta span {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #f2f5f8;
+}
+
+.map-meta .map-sub {
+  background: rgba(79, 127, 156, 0.12);
+  color: #43708d;
+}
+
+.map-empty {
+  padding: 26px 4px;
+  font-size: 0.88rem;
+  color: #a7b2bd;
+}
+
+/* 夜间 */
+html.darkmode .map-card {
+  background: #2b3038;
+  border-color: #3a404b;
+  box-shadow: none;
+}
+
+html.darkmode .map-title {
+  color: #e7eef4;
+}
+
+html.darkmode .map-artist {
+  color: #8b98a5;
+}
+
+html.darkmode .map-meta {
+  color: #a6b2bd;
+}
+
+html.darkmode .map-meta span {
+  background: #343a44;
+}
+
+html.darkmode .map-meta .map-sub {
+  background: rgba(79, 127, 156, 0.28);
+  color: #b7d0e0;
+}
+
+/* ===== 首页：板块入口 ===== */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* .home-all 也要提上来，否则会被封面图盖住 */
+.home-all {
+  position: relative;
+  z-index: 1;
+}
+
+.board-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 18px;
+  background: #fff;
+  border-radius: var(--card-radius, 12px);
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  box-shadow: 0 2px 12px rgba(79, 127, 156, 0.07);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+a.board-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(79, 127, 156, 0.18);
+  text-decoration: none;
+}
+
+.board-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.board-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.board-card-count {
+  font-size: 0.78rem;
+  color: #97a4b0;
+  white-space: nowrap;
+}
+
+.board-card-desc {
+  margin: 8px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #6b7884;
+}
+
+.board-card-kids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.board-card-kids span {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(79, 127, 156, 0.1);
+  color: #43708d;
+  font-size: 0.74rem;
+}
+
+.board-card-more {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--themecolor);
+}
+
+.board-card-empty {
+  opacity: 0.62;
+}
+
+.board-card-empty .board-card-more {
+  color: #a7b2bd;
+}
+
+/* ===== 板块页：子分类 ===== */
+.child-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(222px, 1fr));
+  gap: 16px;
+}
+
+.child-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.child-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(79, 127, 156, 0.16);
+  text-decoration: none;
+}
+
+.child-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.child-card-top h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.child-card-top span {
+  font-size: 0.76rem;
+  color: #97a4b0;
+  white-space: nowrap;
+}
+
+.child-card p {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #6b7884;
+}
+
+.child-card-more {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--themecolor);
+}
+
+.child-card-empty {
+  opacity: 0.62;
+}
+
+.board-hint {
+  margin: 16px 0 0;
+  font-size: 0.82rem;
+  color: #94a1ad;
+}
+
+.map-back {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  color: var(--themecolor);
+}
+
+/* 夜间 */
+html.darkmode .board-card,
+html.darkmode .child-card {
+  background: #2b3038;
+  border-color: #3a404b;
+  box-shadow: none;
+}
+
+html.darkmode .board-card-title,
+html.darkmode .child-card-top h3 {
+  color: #e7eef4;
+}
+
+html.darkmode .board-card-desc,
+html.darkmode .child-card p {
+  color: #a6b2bd;
+}
+
+html.darkmode .board-card-kids span {
+  background: rgba(79, 127, 156, 0.24);
+  color: #b7d0e0;
+}
+
+/* ===== 谱面卡片上的状态徽章、星级 ===== */
+.map-cover {
+  position: relative;
+}
+
+.map-status {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #8b98a5;
+}
+
+.map-status-ranked {
+  background: #3fa66e;
+}
+
+.map-status-loved {
+  background: #e06ea8;
+}
+
+.map-status-graveyard {
+  background: #7c8a99;
+}
+
+.map-status-wip {
+  background: #c9922f;
+}
+
+.map-cover-letter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.map-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.map-diff {
+  color: #4f7f9c;
+  font-weight: 600;
+}
+
+.map-sr {
+  color: #b06a2a;
+  font-weight: 600;
+}
+
+/* ===== 文章页：谱面信息条 ===== */
+.map-info {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.14);
+}
+
+/* v2：封面上方整条大图 + 难度切换（覆盖上面那套旧的横排小图） */
+.map-info {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  background: #f5f8fb;
+}
+
+.map-info-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 250;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.map-info-body {
+  padding: 14px 16px 16px;
+}
+
+.map-diffs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.map-diff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  font-size: 0.8rem;
+  color: #3f4b57;
+  background: #fff;
+}
+
+.map-diff-btn:hover {
+  border-color: var(--themecolor);
+  color: var(--themecolor);
+  text-decoration: none;
+}
+
+.map-diff-btn.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-diff-name {
+  font-weight: 600;
+}
+
+.map-diff-sr {
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+
+.map-link-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.map-link-label {
+  flex: 0 0 auto;
+  color: #a3aebb;
+}
+
+.map-link-row code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(79, 127, 156, 0.12);
+  color: #43708d;
+  font-size: 0.78rem;
+}
+
+html.darkmode .map-diff-btn {
+  background: #333945;
+  border-color: #444b57;
+  color: #dfe8ef;
+}
+
+.map-info-cover-empty {
+  background: linear-gradient(150deg, #dbe7f0, #c3d6e4);
+}
+
+.map-info-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-info-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #26313c;
+}
+
+.map-info-artist {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #8b98a5;
+}
+
+.map-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: 6px 10px;
+  margin-top: 10px;
+}
+
+.map-info-grid div {
+  font-size: 0.78rem;
+}
+
+.map-info-grid div span {
+  display: block;
+  font-size: 0.68rem;
+  color: #a3aebb;
+}
+
+.map-info-grid div b {
+  color: #3f4b57;
+  font-weight: 600;
+}
+
+.map-info-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.map-info-links a {
+  color: var(--themecolor);
+}
+
+@media (max-width: 640px) {
+  .map-info {
+    flex-direction: column;
+  }
+}
+
+html.darkmode .map-info {
+  background: #2b3038;
+  border-color: #3a404b;
+}
+
+html.darkmode .map-info-title {
+  color: #e7eef4;
+}
+
+html.darkmode .map-info-grid div b {
+  color: #dfe8ef;
+}
+
+html.darkmode .map-info-grid div span,
+html.darkmode .map-info-artist {
+  color: #8b98a5;
+}
+
+html.darkmode .home-section-desc {
+  color: #8b97a3;
+}
+
+.home-post-list {
+  flex: none;
+}
+
+.home-post-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #e8eef3;
+}
+
+.home-post-item:last-child {
+  border-bottom: none;
+}
+
+.home-post-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #2b3a47;
+}
+
+.home-post-title:hover {
+  color: var(--themecolor);
+  text-decoration: none;
+}
+
+.home-post-meta {
+  margin-top: 3px;
+  font-size: 0.76rem;
+  color: #9aa7b3;
+}
+
+.home-post-excerpt {
+  margin: 6px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #6b7884;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-section-more {
+  align-self: flex-start;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--themecolor);
+}
+
+.home-all {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.home-all-link {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--themecolor);
+  color: var(--themecolor);
+  font-size: 0.86rem;
+}
+
+.home-all-link:hover {
+  background: var(--themecolor);
+  color: #fff;
+  text-decoration: none;
+}
+
+html.darkmode .home-section-title {
+  color: #e7eef4;
+}
+
+html.darkmode .home-post-item {
+  border-bottom-color: #3a404b;
+}
+
+html.darkmode .home-post-title {
+  color: #dfe8ef;
+}
+
+html.darkmode .home-post-excerpt {
+  color: #a6b2bd;
+}
+
+html.darkmode .home-section-count {
+  color: #7f8b96;
+}
+
+/* ===== 属性面板（抄官网那套） ===== */.map-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 16px;
+}
+
+.map-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 62px;
+  font-size: 0.72rem;
+  color: #8b98a5;
+}
+
+.map-stat i {
+  font-size: 1rem;
+  color: var(--themecolor);
+}
+
+.map-stat-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #26313c;
+}
+
+.map-bars {
+  max-width: 540px;
+  margin-top: 16px;
+}
+
+.map-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 0.78rem;
+  color: #6b7884;
+}
+
+.map-bar-label {
+  flex: 0 0 76px;
+}
+
+.map-bar-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: #e4ebf2;
+  overflow: hidden;
+}
+
+.map-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: #4f7f9c;
+  transition: width 0.25s ease;
+}
+
+.map-bar-fill.sr {
+  background: #e0a43a;
+}
+
+.map-bar-value {
+  flex: 0 0 42px;
+  text-align: right;
+  font-weight: 600;
+  color: #3f4b57;
+}
+
+html.darkmode .map-stat-value,
+html.darkmode .map-bar-value {
+  color: #e7eef4;
+}
+
+html.darkmode .map-bar-track {
+  background: #3a404b;
+}
+
+/* ===== 谱面卡片：日期 + 筛选栏 ===== */
+.map-date {
+  margin-top: 8px;
+  font-size: 0.74rem;
+  color: #9aa7b3;
+}
+
+.map-date i {
+  margin-right: 4px;
+}
+
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin: 4px 0 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.12);
+}
+
+.map-filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.map-filter-label {
+  font-size: 0.76rem;
+  color: #97a4b0;
+  margin-right: 2px;
+}
+
+.map-filter-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 0.76rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.map-filter-chip:hover {
+  background: rgba(79, 127, 156, 0.08);
+}
+
+.map-filter-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+.map-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #97a4b0;
+}
+
+.map-sort select {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #3f4b57;
+  font-size: 0.76rem;
+}
+
+.map-count {
+  margin-left: auto;
+  font-size: 0.74rem;
+  color: #9aa7b3;
+}
+
+html.darkmode .map-filters {
+  background: #2b3038;
+  border-color: #3a404b;
+}
+
+html.darkmode .map-filter-chip,
+html.darkmode .map-sort select {
+  background: #333945;
+  border-color: #444b57;
+  color: #cfe0ec;
+}
+
+html.darkmode .map-filter-chip.active {
+  background: var(--themecolor);
+  border-color: var(--themecolor);
+  color: #fff;
+}
+
+html.darkmode .map-date {
+  color: #8b98a5;
+}
+
+/* ===== 中二节奏：自制谱卡片 ===== */
+.chuni-cover {
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.chuni-diffs {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chuni-diff {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #4a6b86;
+  background: rgba(79, 127, 156, 0.12);
+}
+
+/* 文章页的中二谱面信息 */
+.chuni-info-cover {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8eef3;
+}
+
+.chuni-diff-btn {
+  cursor: default;
+  background: #fff;
+}
+
+.chuni-diff-btn:hover {
+  border-color: rgba(79, 127, 156, 0.25);
+  color: #3f4b57;
+}
+
+html.darkmode .chuni-diff {
+  background: rgba(79, 127, 156, 0.24);
+  color: #b7d0e0;
+}
+
+html.darkmode .chuni-diff-btn {
+  background: #333945;
+  border-color: #444b57;
+  color: #dfe8ef;
+}
+
+/* 中二节奏：笔记 / 其它文章列表 */
+.chuni-others {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed #e3e8ed;
+}
+
+.chuni-others-title {
+  font-size: 0.8rem;
+  color: #97a4b0;
+  margin-bottom: 8px;
+}
+
+.chuni-others-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  font-size: 0.88rem;
+  color: #2b3a47;
+}
+
+.chuni-others-item:hover {
+  color: var(--themecolor);
+  text-decoration: none;
+}
+
+.chuni-others-item time {
+  flex: 0 0 auto;
+  color: #9aa7b3;
+  font-size: 0.78rem;
+}
+
+html.darkmode .chuni-others {
+  border-top-color: #3a404b;
+}
+
+html.darkmode .chuni-others-item {
+  color: #dfe8ef;
+}
+
+/* 谱面信息：谱师单独一行 */
+.map-info-mapper {
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: #8b98a5;
+}
+
+/* 中二谱面：视频简介搬过来的文字 */
+.chuni-desc {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(79, 127, 156, 0.07);
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: #5b6a77;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+html.darkmode .chuni-desc {
+  background: rgba(79, 127, 156, 0.14);
+  color: #b9c8d4;
+}
+
+/* 中二：合作谱标记、简介标签、补充说明 */
+.chuni-collab {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #fff;
+  background: #c96f9a;
+}
+
+.chuni-collab-inline {
+  position: static;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.chuni-block-label {
+  margin-top: 14px;
+  font-size: 0.74rem;
+  color: #97a4b0;
+}
+
+.chuni-note {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--themecolor);
+  border-radius: 6px;
+  background: rgba(79, 127, 156, 0.06);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: #4a5866;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+html.darkmode .chuni-note {
+  background: rgba(79, 127, 156, 0.12);
+  color: #c6d4df;
+}
+
+/* ===== 中二节奏：曲目导览 ===== */
+.chuni-guide-head { margin-bottom: 14px; }
+.chuni-guide-title { margin: 8px 0 4px; font-size: 22px; color: #26313c; }
+.chuni-guide-meta { font-size: 12px; color: #97a4b0; }
+
+.chuni-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.12);
+}
+
+.chuni-seg { display: inline-flex; border-radius: 999px; overflow: hidden; border: 1px solid rgba(79, 127, 156, 0.25); }
+.chuni-seg-btn {
+  padding: 5px 14px;
+  border: 0;
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-seg-btn.active { background: var(--themecolor); color: #fff; }
+
+.chuni-search,
+.chuni-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  font-size: 13px;
+  background: #fff;
+  color: #3f4b57;
+}
+.chuni-search { min-width: 200px; }
+.chuni-count { margin-left: auto; font-size: 12px; color: #9aa7b3; }
+
+.chuni-list { display: flex; flex-direction: column; }
+.chuni-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 8px;
+  border-radius: 8px;
+  border-bottom: 1px solid #eef2f6;
+  color: inherit;
+}
+.chuni-row:hover { background: #f6f9fc; text-decoration: none; color: inherit; }
+.chuni-thumb { width: 46px; height: 46px; border-radius: 6px; object-fit: cover; flex: 0 0 auto; background: #e8eef3; }
+.chuni-row-main { flex: 1; min-width: 0; }
+.chuni-row-title { font-size: 14px; font-weight: 600; color: #26313c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chuni-row-sub { font-size: 12px; color: #8b98a5; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chuni-row-badges { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+
+.chuni-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.chuni-badge-basic { background: #a8c93a; }
+.chuni-badge-advanced { background: #f0a03c; }
+.chuni-badge-expert { background: #dd5555; }
+.chuni-badge-master { background: #9a5db3; }
+.chuni-badge-ultima { background: #333; }
+
+.chuni-empty { padding: 18px; text-align: center; color: #97a4b0; }
+
+/* 单曲页 */
+.chuni-song-head { display: flex; gap: 16px; margin: 10px 0 18px; }
+.chuni-song-cover { width: 128px; height: 128px; border-radius: 10px; object-fit: cover; background: #e8eef3; flex: 0 0 auto; }
+.chuni-song-title { margin: 0 0 4px; font-size: 22px; color: #26313c; }
+.chuni-song-artist { font-size: 14px; color: #6b7884; }
+.chuni-song-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; font-size: 12px; color: #97a4b0; }
+
+.chuni-section { margin: 18px 0; }
+.chuni-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4f7f9c;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  border-left: 3px solid var(--themecolor);
+}
+
+.chuni-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-table th { text-align: left; color: #97a4b0; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #e6ecf2; font-size: 12px; }
+.chuni-table td { padding: 8px; border-bottom: 1px solid #eef2f6; color: #3f4b57; vertical-align: middle; }
+.chuni-lv { font-weight: 700; }
+.chuni-designer { color: #5b6a77; }
+.chuni-notes { color: #8b98a5; font-size: 12px; }
+
+.chuni-wiki-jp, .chuni-wiki-zh {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f7f9fb;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #4a5866;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+.chuni-wiki-zh { border-left: 3px solid var(--themecolor); }
+
+.chuni-placeholder { font-size: 13px; color: #a3aebb; padding: 10px 0; }
+.chuni-preview-row { display: flex; gap: 10px; font-size: 13px; margin: 6px 0; word-break: break-all; }
+.chuni-preview-label { flex: 0 0 56px; color: #97a4b0; }
+
+html.darkmode .chuni-toolbar { background: #2b3038; border-color: #3a404b; }
+html.darkmode .chuni-search,
+html.darkmode .chuni-select { background: #333945; border-color: #444b57; color: #dfe8ef; }
+html.darkmode .chuni-seg-btn { background: #333945; color: #cfe0ec; }
+html.darkmode .chuni-seg-btn.active { background: var(--themecolor); color: #fff; }
+html.darkmode .chuni-row { border-bottom-color: #343a44; }
+html.darkmode .chuni-row:hover { background: #2e343d; }
+html.darkmode .chuni-row-title,
+html.darkmode .chuni-song-title { color: #e7eef4; }
+html.darkmode .chuni-table td { color: #cfdae4; border-bottom-color: #343a44; }
+html.darkmode .chuni-wiki-jp,
+html.darkmode .chuni-wiki-zh { background: #2b3038; color: #c6d4df; }
+
+/* ===== 中二节奏：工具落地页 ===== */
+.chuni-landing { padding: 6px 2px; }
+.chuni-landing-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(79, 127, 156, 0.1), rgba(79, 127, 156, 0.02));
+  border: 1px solid rgba(79, 127, 156, 0.14);
+}
+.chuni-landing-title { margin: 0 0 8px; font-size: 24px; color: #26313c; }
+.chuni-landing-desc { margin: 0 0 14px; font-size: 14px; line-height: 1.9; color: #5b6a77; max-width: 560px; }
+.chuni-landing-stats { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: #8b98a5; margin-bottom: 16px; }
+.chuni-landing-stats b { color: #26313c; font-size: 16px; }
+.chuni-landing-cta {
+  display: inline-block;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: var(--themecolor);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.chuni-landing-cta:hover { opacity: .9; text-decoration: none; }
+.chuni-landing-version { margin-top: 10px; font-size: 12px; color: #97a4b0; }
+.chuni-landing-mark {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(79, 127, 156, 0.35);
+  white-space: nowrap;
+}
+html.darkmode .chuni-landing-top { background: linear-gradient(135deg, rgba(79, 127, 156, 0.18), rgba(79, 127, 156, 0.04)); border-color: #3a404b; }
+html.darkmode .chuni-landing-title,
+html.darkmode .chuni-landing-stats b { color: #e7eef4; }
+html.darkmode .chuni-landing-desc { color: #b9c8d4; }
+
+.chuni-wiki-label {
+  font-size: 12px;
+  color: #97a4b0;
+  margin: 10px 0 4px;
+}
+.chuni-wiki-label:first-child { margin-top: 0; }
+
+/* 曲目导览：分页 */
+.chuni-pager { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; }
+.chuni-pg {
+  min-width: 34px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-pg:hover:not(:disabled) { background: rgba(79, 127, 156, 0.08); }
+.chuni-pg.active { background: var(--themecolor); border-color: var(--themecolor); color: #fff; }
+.chuni-pg:disabled { opacity: .45; cursor: default; }
+.chuni-pg-gap { color: #97a4b0; padding: 0 2px; }
+.chuni-pg-info { margin-left: auto; font-size: 12px; color: #9aa7b3; }
+.chuni-loading { padding: 24px; text-align: center; color: #97a4b0; font-size: 13px; }
+html.darkmode .chuni-pg { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-pg.active { background: var(--themecolor); color: #fff; }
+
+.chuni-wiki-info { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.chuni-wiki-info-row { display: flex; gap: 10px; font-size: 13px; }
+.chuni-wiki-info-key { flex: 0 0 72px; color: #97a4b0; }
+.chuni-wiki-info-val { color: #3f4b57; }
+html.darkmode .chuni-wiki-info-val { color: #cfdae4; }
+
+/* 首页：工具站通栏入口 */
+.tool-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+  padding: 22px 26px;
+  border-radius: 14px;
+  background: linear-gradient(120deg, rgba(79, 127, 156, 0.92), rgba(88, 122, 148, 0.78));
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(50, 80, 100, 0.18);
+  position: relative;
+  z-index: 1;
+}
+.tool-banner:hover { text-decoration: none; transform: translateY(-1px); transition: transform .15s ease; }
+.tool-banner-kicker { font-size: 11px; letter-spacing: .18em; opacity: .8; margin-bottom: 6px; }
+.tool-banner-title { margin: 0 0 6px; font-size: 21px; color: #fff; }
+.tool-banner-desc { margin: 0; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.88); max-width: 720px; }
+.tool-banner-cta {
+  flex: 0 0 auto;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.35);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* 单曲页：wiki 式布局 */
+.chuni-wiki-head { display: flex; gap: 16px; margin: 12px 0 18px; align-items: flex-start; }
+.chuni-jacket-box { flex: 0 0 220px; border: 1px solid #e6ecf2; border-radius: 8px; overflow: hidden; background: #fff; }
+.chuni-jacket { width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+.chuni-jacket-caption { padding: 8px 10px; text-align: center; border-top: 1px solid #eef2f6; }
+.chuni-jacket-caption-title { font-size: 12px; color: #97a4b0; }
+.chuni-jacket-caption-sub { font-size: 12px; color: #5b6a77; margin-top: 2px; }
+.chuni-info-box { flex: 1; min-width: 0; border: 1px solid #e6ecf2; border-radius: 8px; overflow: hidden; }
+.chuni-info-box-title { padding: 6px 10px; font-size: 12px; color: #4f7f9c; background: #f3f7fa; border-bottom: 1px solid #e6ecf2; }
+.chuni-info-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-info-table th { width: 106px; white-space: nowrap; text-align: left; padding: 6px 10px; background: #f7f9fb; color: #7a8895; font-weight: 600; border-bottom: 1px solid #eef2f6; }
+.chuni-info-table td { padding: 6px 10px; border-bottom: 1px solid #eef2f6; color: #3f4b57; }
+.chuni-info-version { padding: 6px 10px; font-size: 12px; color: #97a4b0; }
+.chuni-detail-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-detail-table th { background: #f3f7fa; color: #7a8895; font-weight: 600; font-size: 12px; padding: 6px 8px; border-bottom: 1px solid #e6ecf2; text-align: left; }
+.chuni-detail-table td { padding: 7px 8px; border-bottom: 1px solid #eef2f6; color: #3f4b57; }
+.chuni-detail-foot { margin-top: 10px; font-size: 13px; color: #5b6a77; line-height: 1.9; }
+.chuni-detail-key { color: #97a4b0; margin-right: 6px; }
+.chuni-diff-name { font-size: 12px; color: #7a8895; }
+
+@media (max-width: 640px) {
+	.chuni-wiki-head { flex-direction: column; }
+	.chuni-jacket-box { flex: none; width: 100%; }
+}
+
+html.darkmode .chuni-jacket-box,
+html.darkmode .chuni-info-box { border-color: #3a404b; background: #2b3038; }
+html.darkmode .chuni-info-box-title,
+html.darkmode .chuni-detail-table th { background: #333945; color: #a9bccb; border-bottom-color: #3a404b; }
+html.darkmode .chuni-info-table th { background: #2f353e; color: #a9bccb; border-bottom-color: #3a404b; }
+html.darkmode .chuni-info-table td,
+html.darkmode .chuni-detail-table td { color: #dfe8ef; border-bottom-color: #343a44; }
+
+/* 单曲页：定数历史 / 称号 / 由来 */
+.chuni-detail-table th,
+.chuni-detail-table td { text-align: center; }
+.chuni-detail-table td.chuni-designer { text-align: center; }
+.chuni-history-table td:first-child { text-align: left; color: #7a8895; }
+.chuni-history-notes { margin-top: 8px; font-size: 12px; color: #8b98a5; line-height: 1.8; }
+.chuni-origins { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: #4a5866; }
+.chuni-origins li { margin: 4px 0; }
+html.darkmode .chuni-origins { color: #c6d4df; }
+html.darkmode .chuni-history-notes { color: #8b98a5; }
+
+.chuni-history-table td.lv-up { color: #d0453b; font-weight: 600; }
+.chuni-history-table td.lv-down { color: #2f74c0; font-weight: 600; }
+.chuni-history-table td.lv-big { text-decoration: underline; }
+
+/* 折叠的中文翻译 */
+.chuni-zh { margin-top: 8px; }
+.chuni-zh > summary {
+  cursor: pointer;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  color: #4f7f9c;
+  font-size: 12px;
+  list-style: none;
+  user-select: none;
+}
+.chuni-zh > summary::-webkit-details-marker { display: none; }
+.chuni-zh > summary::before { content: '▸ '; }
+.chuni-zh[open] > summary::before { content: '▾ '; }
+.chuni-zh[open] > summary { background: rgba(79, 127, 156, 0.08); }
+.chuni-zh > summary:hover { background: rgba(79, 127, 156, 0.1); }
+.chuni-zh .chuni-wiki-zh { margin-top: 8px; }
+html.darkmode .chuni-zh > summary { border-color: #444b57; color: #a9c4d8; }
+
+.chuni-music-id { margin-left: 12px; color: #a3aebb; }
+.chuni-jacket-box { background: #fff; }
+.chuni-detail-table th:first-child,
+.chuni-detail-table td:first-child { text-align: left; width: 150px; }
+.chuni-history-table th:first-child,
+.chuni-history-table td:first-child { width: auto; }
+
+/* 单曲页：平面图预览 */
+.chuni-chart-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.chuni-chart-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.25);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chuni-chart-tab.active { background: var(--themecolor); border-color: var(--themecolor); color: #fff; }
+.chuni-chart-tab .chuni-badge { font-size: 10px; padding: 1px 5px; }
+.chuni-chart-tab-lv { opacity: .8; }
+.chuni-chart-box {
+  max-height: 620px;
+  overflow: auto;
+  background: #1b2027;
+  border-radius: 10px;
+  padding: 6px;
+}
+.chuni-chart-box img { display: block; width: 100%; border-radius: 6px; }
+.chuni-chart-hint { margin-top: 8px; font-size: 12px; color: #97a4b0; }
+html.darkmode .chuni-chart-tab { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-chart-tab.active { background: var(--themecolor); color: #fff; }
+
+/* 单曲页：平面图（点开看原图） */
+.chuni-chart-link {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1b2027;
+  border: 1px solid rgba(79, 127, 156, 0.18);
+}
+.chuni-chart-link img { display: block; width: 100%; height: auto; }
+.chuni-chart-link:hover { opacity: .96; }
+
+/* 平面图缩略：只露开头一段，点开原图 */
+.chuni-chart-link {
+  position: relative;
+  display: block;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1b2027;
+  border: 1px solid rgba(79, 127, 156, 0.18);
+}
+.chuni-chart-link img { display: block; height: 100%; width: auto; max-width: none; }
+.chuni-chart-open {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12px;
+  pointer-events: none;
+}
+.chuni-chart-link:hover .chuni-chart-open { background: rgba(0, 0, 0, 0.75); }
+
+/* 称号等级配色（对应 wiki 的格子底色） */
+.chuni-title { font-weight: 600; }
+.chuni-title-gray { color: #7a8895; background: rgba(122, 136, 149, 0.08); }
+.chuni-title-silver { color: #6f8ba0; background: rgba(160, 180, 196, 0.16); }
+.chuni-title-gold { color: #b8860b; background: rgba(201, 146, 47, 0.14); }
+.chuni-title-platinum { color: #3f9fbf; background: rgba(127, 212, 232, 0.16); }
+
+/* 折叠翻译和上下内容留点空隙 */
+.chuni-zh { margin: 14px 0 10px; }
+.chuni-zh[open] > summary { margin-bottom: 10px; }
+.chuni-zh .chuni-wiki-zh,
+.chuni-zh .chuni-origins { margin-top: 0; }
+
+/* 定数履历：四列等宽，版本列居中 */
+.chuni-history-table { table-layout: fixed; }
+.chuni-history-table th,
+.chuni-history-table td { width: 19.5%; text-align: center; }
+.chuni-history-table th:first-child,
+.chuni-history-table td:first-child { width: 22%; text-align: center; }
+
+/* 称号表：铺开 + 居中 */
+.chuni-titles-table th,
+.chuni-titles-table td { text-align: center; }
+.chuni-titles-table th:first-child,
+.chuni-titles-table td:first-child { width: 42%; text-align: center; }
+.chuni-titles-table td { padding: 12px 14px; }
+
+/* 曲绘放大并垂直居中 */
+.chuni-wiki-head { align-items: center; }
+.chuni-jacket-box { flex: 0 0 280px; }
+
+/* 单曲页：谱面确认链接 */
+.chuni-video-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.chuni-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  background: #fff;
+  color: #4f7f9c !important;
+}
+.chuni-video-link:hover { background: rgba(79, 127, 156, 0.08); text-decoration: none; }
+.chuni-video-link.bili { border-color: rgba(251, 114, 153, 0.4); color: #d94f7a !important; }
+.chuni-video-link.bili:hover { background: rgba(251, 114, 153, 0.1); }
+.chuni-video-link.yt { border-color: rgba(220, 60, 60, 0.4); color: #c93b3b !important; }
+.chuni-video-link.yt:hover { background: rgba(220, 60, 60, 0.1); }
+html.darkmode .chuni-video-link { background: #333945; border-color: #444b57; color: #cfe0ec !important; }
+
+/* 谱面确认按钮 */
+.chuni-confirm-list { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+.chuni-confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 114, 153, 0.35);
+  background: #fff;
+  color: #3f4b57 !important;
+  font-size: 13px;
+}
+.chuni-confirm-btn:hover { background: rgba(251, 114, 153, 0.1); text-decoration: none; }
+.chuni-confirm-src { font-size: 11px; color: #d94f7a; }
+html.darkmode .chuni-confirm-btn { background: #333945; border-color: #444b57; color: #dfe8ef !important; }
+
+/* 谱面确认：每行一个难度 */
+.chuni-confirm-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 0; }
+.chuni-confirm-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: #f5f8fb;
+  border: 1px solid rgba(79, 127, 156, 0.16);
+  color: #3f4b57 !important;
+  font-size: 13px;
+  min-width: 150px;
+}
+.chuni-confirm-name:hover { background: #eef3f8; text-decoration: none; }
+html.darkmode .chuni-confirm-name { background: #2b3038; border-color: #3a404b; color: #dfe8ef !important; }
+
+/* 曲目导览：等级筛选 chips + 双搜索 + 排序 */
+.chuni-levels { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0; }
+.chuni-lv-chip {
+  min-width: 34px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  opacity: .92;
+}
+.chuni-lv-chip.tier-g { background: #2f7d32; }
+.chuni-lv-chip.tier-b { background: #8a6a17; }
+.chuni-lv-chip.tier-r { background: #a5282c; }
+.chuni-lv-chip.tier-p { background: #5b2a86; }
+.chuni-lv-chip.tier-d { background: #3a1d5c; }
+.chuni-lv-chip:not(.active) { filter: grayscale(.7) brightness(.8); opacity: .55; }
+.chuni-lv-chip.active { outline: 2px solid #4f7f9c; outline-offset: 1px; }
+.chuni-searches { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.chuni-searches .chuni-search { flex: 1 1 200px; }
+.chuni-sort { display: inline-flex; gap: 4px; }
+.chuni-sort-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 127, 156, 0.28);
+  background: #fff;
+  color: #4f7f9c;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-sort-btn.active { background: #4f7f9c; color: #fff; border-color: #4f7f9c; }
+html.darkmode .chuni-sort-btn { background: #333945; border-color: #444b57; color: #cfe0ec; }
+html.darkmode .chuni-sort-btn.active { background: #4f7f9c; color: #fff; }
+
+.chuni-levels.filtering .chuni-lv-chip:not(.active) { opacity: .38; }
+.chuni-lv-chip { opacity: 1; }
+.chuni-lv-chip:not(.active) { filter: none; }
+
+/* 列表难度徽章：显示定数并五列对齐 */
+.chuni-row-badges { display: flex; gap: 6px; flex: 0 0 auto; }
+.chuni-row-badges .chuni-badge { min-width: 52px; justify-content: center; text-align: center; }
+.chuni-badge-slot { width: 52px; flex: 0 0 52px; }
+
+/* 空/未选中的难度位：淡灰占位 */
+.chuni-row-badges .chuni-badge-empty {
+  background: rgba(90, 105, 120, 0.12);
+  color: rgba(90, 105, 120, 0.45);
+  box-shadow: none;
+}
+html.darkmode .chuni-row-badges .chuni-badge-empty {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* 显示删除曲开关 */
+.chuni-removed-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px dashed rgba(160, 80, 80, 0.5);
+  background: #fff;
+  color: #a05a5a;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chuni-removed-btn.active { background: #a05a5a; border-style: solid; border-color: #a05a5a; color: #fff; }
+html.darkmode .chuni-removed-btn { background: #333945; border-color: #6b4b4b; color: #dda9a9; }
+html.darkmode .chuni-removed-btn.active { background: #a05a5a; color: #fff; }
+.chuni-row-tag-removed {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(160, 80, 80, 0.12);
+  color: #a05a5a;
+  margin-left: 6px;
+}
+
+/* WORLD'S END 星级徽章 */
+.chuni-badge-we { background: #2b2b46; color: #ffd76a; min-width: 52px; justify-content: center; }
+
+/* 介绍正文保留换行，和日文逐行对齐 */
+.chuni-wiki-jp,
+.chuni-wiki-zh { white-space: pre-line; }
+
+/* 谱面平面图灯箱（站内放大，不跳转） */
+.chuni-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8, 12, 18, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+.chuni-lightbox[hidden] { display: none; }
+.chuni-lightbox-bar {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(16, 22, 30, 0.85);
+}
+.chuni-lightbox-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+  color: #eaf3fa !important;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.chuni-lightbox-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.chuni-lightbox-body {
+  flex: 1 1 auto;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px 12px 18px;
+}
+.chuni-lightbox-body img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  background: #2f3742;
+}
+
+.chuni-badge-we { min-width: 64px; padding: 3px 8px; }
+
+.chuni-designer-select { max-width: 190px; }
+
+.chuni-designer-input { max-width: 360px; flex: 1 1 260px; }
+
+.chuni-row-tag-ds {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(79, 127, 156, 0.14);
+  color: #4f7f9c;
+  font-size: 12px;
+  vertical-align: 2px;
+}
+html.darkmode .chuni-row-tag-ds { background: rgba(120, 170, 200, 0.18); color: #9fc6dd; }
+
+.chuni-lightbox-body { display: block; overflow: hidden; cursor: grab; }
+.chuni-lightbox-body.dragging { cursor: grabbing; }
+.chuni-lightbox-stage { transform-origin: 0 0; will-change: transform; }
+.chuni-lightbox-stage img { display: block; width: auto; height: auto; max-width: none; user-select: none; -webkit-user-drag: none; }
+
+/* 谱面确认：等级定数右对齐，多行时看起来成一列 */
+.chuni-confirm-name { min-width: 176px; }
+.chuni-confirm-src { margin-left: auto; }
+
+/* 详细表：难度字母徽章固定尺寸、等级/定数分列居中 */
+.chuni-detail-table .chuni-badge-letter {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.chuni-detail-table .chuni-diff-name {
+  display: inline-block;
+  min-width: 82px;
+  vertical-align: middle;
+}
+.chuni-col-center { text-align: center; }
+.chuni-detail-table .chuni-lv { font-weight: 700; font-variant-numeric: tabular-nums; }
+.chuni-detail-table .chuni-iv { color: #8b98a5; font-size: 12px; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .chuni-detail-table th, .chuni-detail-table td { padding: 6px 4px; font-size: 12px; }
+  .chuni-detail-table .chuni-diff-name { min-width: 60px; font-size: 11px; }
+}
+
+/* 详细表：列宽与对齐 */
+.chuni-detail-table th, .chuni-detail-table td { text-align: left; }
+.chuni-detail-table th.chuni-col-center, .chuni-detail-table td.chuni-col-center { text-align: center; }
+.chuni-detail-table th:nth-child(1), .chuni-detail-table td:nth-child(1) { width: 26%; }
+.chuni-detail-table th:nth-child(2), .chuni-detail-table td:nth-child(2),
+.chuni-detail-table th:nth-child(3), .chuni-detail-table td:nth-child(3),
+.chuni-detail-table th:nth-child(4), .chuni-detail-table td:nth-child(4) { width: 11%; }
+.chuni-detail-table th:nth-child(5), .chuni-detail-table td:nth-child(5) { width: 41%; }
+
+/* 工具栏两行布局 */
+.chuni-toolbar { display: block; }
+.chuni-toolbar-main { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.chuni-toolbar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #e6ecf2;
+}
+html.darkmode .chuni-toolbar-filters { border-top-color: #3a404b; }
+
+/* 等级 chip 等宽（含 + 号的一起） */
+.chuni-lv-chip { min-width: 44px; padding: 4px 0; text-align: center; }
+
+/* ===== 关于我页面（source/about/index.md） ===== */
+.post-content img {
+  display: block;
+  margin: 4px auto 0;
+  border-radius: 8px;
+}
+.post-content .about-cap {
+  margin: 8px 0 26px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #7c8b98;
+}
+html.darkmode .post-content .about-cap { color: #97a3ae; }
+
+.post-content details.about-more {
+  margin: 24px 0 18px;
+  padding: 14px 20px 6px;
+  border: 1px solid rgba(79, 127, 156, .24);
+  border-radius: 10px;
+  background: rgba(79, 127, 156, .05);
+}
+html.darkmode .post-content details.about-more {
+  border-color: rgba(120, 170, 200, .28);
+  background: rgba(120, 170, 200, .07);
+}
+.post-content details.about-more > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #4f7f9c;
+  outline: none;
+  list-style: none;
+  margin-bottom: 4px;
+}
+.post-content details.about-more > summary::-webkit-details-marker { display: none; }
+.post-content details.about-more > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform .2s ease;
+}
+.post-content details.about-more[open] > summary { margin-bottom: 16px; }
+.post-content details.about-more[open] > summary::before { transform: rotate(90deg); }
+
+/* ---- 曲目页评论区 ---- */
+.chuni-comment-section { margin-top: 26px; }
+.chuni-comment-box {
+  background: #fff;
+  border: 1px solid #e6eef3;
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 120px;
+}
+.chuni-comment-box #giscus { width: 100%; }
+.chuni-comment-tip { font-size: 13px; color: #8a9aa6; }
