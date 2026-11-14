@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=c700ddf3">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=72ee55a0">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -884,9 +884,9 @@
 			if (state.removed && !state.we && isWE) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if ((state.designer || state.designerRaw) && !designerMatch(r)) return false;
-			if (state.collab && COLLAB) {
-				// 仅显示合作：这首歌要有合作谱（同一难度两人以上联名）
-				if (!collabEntry(r)) return false;
+			if (state.collab) {
+				// 仅显示合作：数据里有 / 署名双人 / 团队名义 都算（生成器算好的 cl 标记）
+				if (!r.cl) return false;
 				if ((state.designer || state.designerRaw) && !matcher(r).some(function (x) { return x.kind === 'collab'; })) return false;
 			}
 			if (state.we ? !starMatch(r) : !levelMatch(r)) return false;
