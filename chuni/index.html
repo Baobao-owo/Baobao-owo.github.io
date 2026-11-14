@@ -692,6 +692,7 @@
 		if (a) saveListState();
 	});
 	window.addEventListener('pagehide', saveListState);
+	window.addEventListener('beforeunload', saveListState);
 
 	// 难度等级：从数据里收集，形如 14 / 14+
 	function levelKey(lv) {
@@ -1153,6 +1154,17 @@
 	function syncDesignerUI() {
 		updateDesignerHint();
 		markDesignerChips();
+		// 难度 chip 回显（多选）
+		var dp = panelEl('chuni-designer-panel');
+		if (dp) {
+			dp.querySelectorAll('.chuni-diff-chip[data-diff]').forEach(function (x) {
+				var v = x.getAttribute('data-diff');
+				var on = v === 'all'
+					? (state.designerDiff && state.designerDiff.length === 5)
+					: (state.designerDiff || []).indexOf(v) !== -1;
+				x.classList.toggle('active', on);
+			});
+		}
 		var cToggle = panelEl('chuni-collab-toggle');
 		if (cToggle) cToggle.classList.toggle('active', !!state.collab);
 		var dToggle = panelEl('chuni-designer-toggle');
@@ -1160,6 +1172,8 @@
 			var active = !!(state.designer || state.designerRaw || state.collab);
 			dToggle.classList.toggle('active', active);
 		}
+		// 回来时如果还带着谱师筛选，把面板重新展开
+		if (state.designer || state.designerRaw) openDesignerPanel(true);
 	}
 
 	function pickDesigner(name) {
