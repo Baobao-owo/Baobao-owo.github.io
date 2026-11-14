@@ -2564,3 +2564,63 @@ html.darkmode .chuni-diff-top {
 /* 谱面确认：等级数字紧跟难度名，不再被推到行尾 */
 .chuni-confirm-name { gap: 6px; }
 .chuni-confirm-src { margin-left: 0; }
+
+/* ===== 手机端适配（≤640px） ===== */
+@media (max-width: 640px) {
+  /* 工具栏：按钮更紧凑，允许换行 */
+  .chuni-toolbar { padding: 10px 10px; }
+  .chuni-toolbar-main { gap: 6px; }
+  .chuni-toolbar-main .chuni-sort-btn,
+  .chuni-toolbar-sortrow .chuni-sort-btn { padding: 4px 10px; font-size: 12.5px; }
+  /* 排序按钮一行横滑，计数单独占一行始终可见 */
+  .chuni-toolbar-sortrow { gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .chuni-toolbar-sortrow .chuni-sortscroll {
+    display: flex; align-items: center; gap: 6px;
+    flex: 1 1 100%;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+  .chuni-toolbar-sortrow .chuni-sortscroll::-webkit-scrollbar { height: 0; }
+  .chuni-toolbar-sortrow .chuni-sort { flex: 0 0 auto; }
+  .chuni-toolbar-sortrow .chuni-dir-btn { flex: 0 0 auto; margin-left: 0; }
+  .chuni-toolbar-sortrow .chuni-count { flex: 1 1 100%; margin-left: 0; font-size: 11.5px; }
+  .chuni-toolbar-filters { gap: 6px; }
+  .chuni-removed-btn { padding: 5px 10px; font-size: 12.5px; }
+
+  /* 等级 chips：小一号，一行能放更多 */
+  .chuni-levels { gap: 4px; }
+  .chuni-lv-chip { min-width: 30px; padding: 4px 7px; font-size: 12px; }
+  .chuni-star-chip { padding: 4px 10px; font-size: 12px; }
+
+  /* 曲目行：标题占一行，难度徽章换行到下面 */
+  .chuni-row { flex-wrap: wrap; row-gap: 6px; padding: 8px 6px; align-items: flex-start; }
+  .chuni-thumb { flex: 0 0 42px; width: 42px; height: 42px; }
+  .chuni-row-main { flex: 1 1 0; min-width: 0; white-space: normal; }
+  .chuni-row-sub, .chuni-row-meta { white-space: normal; line-height: 1.5; }
+  .chuni-row-title { font-size: 14px; }
+  .chuni-row-badges { flex: 1 1 100%; margin-left: 0; gap: 4px; justify-content: flex-start; }
+  .chuni-row-badges .chuni-badge { font-size: 11px; padding: 1px 6px; min-width: 0; }
+
+  /* 谱师面板：chip 更小，搜索框/清空按钮不错位 */
+  .chuni-designer-panel { padding: 12px 10px; }
+  .chuni-dz-chip { padding: 5px 9px; font-size: 12.5px; }
+}
+
+@media (max-width: 640px) {
+  /* 单曲页详细表：难度列不换行，数字列收窄 */
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:first-child,
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:first-child {
+    width: auto; white-space: nowrap; padding-right: 4px;
+  }
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(2),
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(2),
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(3),
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(3),
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(4),
+  .chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(4) {
+    width: 52px; padding: 4px 3px;
+  }
+  .chuni-detail-table th:last-child,
+  .chuni-detail-table td.chuni-designer { padding-left: 6px; }
+  .chuni-diff-name { font-size: 11.5px; }
+}
