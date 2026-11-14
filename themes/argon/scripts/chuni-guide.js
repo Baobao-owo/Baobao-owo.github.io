@@ -63,6 +63,16 @@ const versionLabel = new Map(d.versions.map(function (v) {
     ['b', 'a', 'e', 'm', 'u'].forEach(function (d) { (rec[d] || []).forEach(function (x) { ppl.add(x); }); });
     return ppl.size;
   }
+  // 别名拆出来的成员，只有「原署名里看不出来」才值得显示
+  function memberNote(rawName) {
+    const mapped = DESIGNER_ALIAS[rawName];
+    if (!mapped || mapped.indexOf(' × ') === -1) return '';
+    const norm = function (x) { return String(x || '').normalize('NFKC').toLowerCase().replace(/[\s\u3000]/g, ''); };
+    const base = norm(rawName);
+    const tokens = mapped.split(' × ').map(function (x) { return x.trim(); }).filter(Boolean);
+    const unseen = tokens.filter(function (t) { return base.indexOf(norm(t)) === -1; });
+    return unseen.length ? mapped : '';
+  }
   // 谱师索引（用于判断某张谱的作者是否「已知」）
   const DESIGNER_IDX = (function () {
     try {
@@ -127,7 +137,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
     if (collabDocxSet.has(normTitle(title))) return true;
     if (collabPeopleCount(title) >= 2) return true;
     return (sheets || []).some(function (sh) {
-      const d = String(sh.designer || '');
+      const d = String(sh.designer || '')
+        // 去掉【】/[]/（）里的修饰再判断：「[O.N.×STAGE!]ミニミライト」是单人
+        .replace(/【[^】]*】|\[[^\]]*\]|（[^）]*）|\([^)]*\)/g, '')
+        .trim();
       if (!d) return false;
       if (COLLAB_SEP.test(d)) return true;
       return looseNames.has(d.toLowerCase());
@@ -239,8 +252,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const fixKey = String(s.title).trim() + '::' + String(sh.difficulty).toLowerCase();
         const fixVal = (DESIGNER_FIX.overrides || {})[fixKey];
         if (typeof fixVal === 'string') name = fixVal;
-        const RAW_HAS_SEP = /\s*(?:vs\.?|&|＆|×|＋|\+)\s*/i;
-        const mem = (name && !RAW_HAS_SEP.test(name) && DESIGNER_ALIAS[name] && DESIGNER_ALIAS[name].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[name] : '';
+        const mem = name ? memberNote(name) : '';
         return Object.assign({}, sh, {
           designer: name,
           mem: mem
@@ -403,8 +415,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const known = isKnownDesigner(e.raw.title, letter) ? 1 : 0;
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
         const rawName = String(sh.designer || '').trim();
-        const RAW_SEP_RE = /\s*(?:vs\.?|&|＆|×|＋|\+)\s*/i;
-        const memName = (rawName && !RAW_SEP_RE.test(rawName) && DESIGNER_ALIAS[rawName] && DESIGNER_ALIAS[rawName].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[rawName] : '';
+        const memName = rawName ? memberNote(rawName) : '';
         return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '', kn: known, mem: memName };
       })
     };
