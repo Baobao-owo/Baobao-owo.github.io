@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=606c4a12">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=df6390a4">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -563,8 +563,9 @@
 					<span class="chuni-count" id="chuni-count"></span>
 				</div>
 				<div class="chuni-toolbar-filters">
+					<button type="button" class="chuni-removed-btn" id="chuni-hide-removed">不显示删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">仅显示删除曲</button>
-					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
+					<button type="button" class="chuni-removed-btn chuni-we-btn" id="chuni-we">WORLD'S END</button>
 				</div>
 			</div>
 
@@ -613,7 +614,7 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'title', dir: 1, removed: false, hideRemoved: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -679,6 +680,8 @@
 		if (saEl) saEl.value = state.qa || '';
 		var rmEl = document.getElementById('chuni-removed');
 		if (rmEl) rmEl.classList.toggle('active', !!state.removed);
+		var hideEl = document.getElementById('chuni-hide-removed');
+		if (hideEl) hideEl.classList.toggle('active', !!state.hideRemoved);
 		var weEl = document.getElementById('chuni-we');
 		if (weEl) weEl.classList.toggle('active', !!state.we);
 		document.querySelectorAll('#chuni-levels button[data-level]').forEach(function (b) {
@@ -827,6 +830,7 @@
 			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
 			var isDel = !!(r.rm || r.cnrm);
 			var isWE = !!(r.we && r.we.length);
+			if (state.hideRemoved && isDel) return false;
 			if (state.removed) {
 				if (!isDel) return false;
 				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
@@ -1281,10 +1285,23 @@
 	var cat = document.getElementById('chuni-cat');
 	if (cat) cat.addEventListener('change', function () { state.cat = cat.value; state.page = 1; renderRows(); });
 
+	var hideRmBtn = document.getElementById('chuni-hide-removed');
+	if (hideRmBtn) hideRmBtn.addEventListener('click', function () {
+		state.hideRemoved = !state.hideRemoved;
+		if (state.hideRemoved) state.removed = false;
+		hideRmBtn.classList.toggle('active', state.hideRemoved);
+		if (rmBtn) rmBtn.classList.toggle('active', state.removed);
+		state.page = 1;
+		renderRows();
+	});
+
 	var rmBtn = document.getElementById('chuni-removed');
 	if (rmBtn) rmBtn.addEventListener('click', function () {
 		state.removed = !state.removed;
+		if (state.removed) state.hideRemoved = false;
 		rmBtn.classList.toggle('active', state.removed);
+		var hb = document.getElementById('chuni-hide-removed');
+		if (hb) hb.classList.toggle('active', state.hideRemoved);
 		state.page = 1;
 		renderRows();
 	});

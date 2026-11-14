@@ -2334,3 +2334,51 @@ html.darkmode .chuni-parts-note { color: #7d8a96; }
 .chuni-titles-table td {
   text-align: center !important;
 }
+
+/* 曲目导览：删除曲/WE 那一排 */
+.chuni-toolbar-filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.chuni-toolbar-filters #chuni-we { margin-left: auto; }
+
+/* 「不显示删除曲」：中性灰，和红色的「仅显示删除曲」区分开 */
+#chuni-hide-removed {
+  border-style: dashed;
+  border-color: rgba(120, 130, 140, 0.5);
+  color: #6d7b88;
+}
+#chuni-hide-removed.active {
+  background: #6d7b88;
+  border-style: solid;
+  border-color: #6d7b88;
+  color: #fff;
+}
+html.darkmode #chuni-hide-removed { background: #333945; border-color: #4d535c; color: #a9bccb; }
+html.darkmode #chuni-hide-removed.active { background: #6d7b88; color: #fff; }
+
+/* WORLD'S END：游戏里是彩色图标，这边给个彩虹描边 */
+.chuni-toolbar-filters .chuni-we-btn {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #ff8a8a, #ffc36b, #ffe66b, #8fe08f, #7cc9f0, #b39df3, #ff8ad4) border-box;
+  color: #6a5f86;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.chuni-toolbar-filters .chuni-we-btn.active {
+  background:
+    linear-gradient(#f6f0ff, #f6f0ff) padding-box,
+    linear-gradient(90deg, #ff8a8a, #ffc36b, #ffe66b, #8fe08f, #7cc9f0, #b39df3, #ff8ad4) border-box;
+  color: #5a4a7a;
+}
+html.darkmode .chuni-toolbar-filters .chuni-we-btn {
+  background:
+    linear-gradient(#333945, #333945) padding-box,
+    linear-gradient(90deg, #ff8a8a, #ffc36b, #ffe66b, #8fe08f, #7cc9f0, #b39df3, #ff8ad4) border-box;
+  color: #cfc2e8;
+}
+html.darkmode .chuni-toolbar-filters .chuni-we-btn.active {
+  background:
+    linear-gradient(#3d4450, #3d4450) padding-box,
+    linear-gradient(90deg, #ff8a8a, #ffc36b, #ffe66b, #8fe08f, #7cc9f0, #b39df3, #ff8ad4) border-box;
+  color: #efe6ff;
+}
