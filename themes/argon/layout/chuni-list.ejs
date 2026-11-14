@@ -51,7 +51,6 @@
 				<div class="chuni-toolbar-filters">
 					<button type="button" class="chuni-removed-btn" id="chuni-hide-removed">不显示删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">仅显示删除曲</button>
-					<button type="button" class="chuni-removed-btn" id="chuni-big">大合作</button>
 					<button type="button" class="chuni-removed-btn chuni-we-btn" id="chuni-we">WORLD'S END</button>
 				</div>
 			</div>
@@ -66,6 +65,8 @@
 				</div>
 				<div class="chuni-designer-diff">
 					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
+					<button type="button" class="chuni-diff-chip chuni-solo-chip" id="chuni-solo-toggle" title="只显示没有合作谱的曲目">仅显示单独</button>
+					<button type="button" class="chuni-diff-chip chuni-big-chip" id="chuni-big-toggle" title="只显示大合作（有分工表或 3 人以上联名）">仅显示大合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
 				<div class="chuni-designer-grid" id="chuni-designer-grid"></div>
@@ -95,7 +96,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, big: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, solo: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, big: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -341,6 +342,7 @@
 				if (isWE && !state.we) return false;
 			}
 			if (state.big && !r.big) return false;
+			if (state.solo && collabEntry(r)) return false;
 			if (state.we && !isWE) return false;
 			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
 			if (!state.removed && !state.we && isWE) return false;
@@ -713,8 +715,7 @@
 				x.classList.toggle('active', on);
 			});
 		}
-		var cToggle = panelEl('chuni-collab-toggle');
-		if (cToggle) cToggle.classList.toggle('active', !!state.collab);
+		syncModeChips();
 		var dToggle = panelEl('chuni-designer-toggle');
 		if (dToggle) {
 			var active = !!(state.designer || state.designerRaw || state.collab);
@@ -808,26 +809,39 @@
 	var dq = panelEl('chuni-designer-q');
 	if (dq) dq.addEventListener('input', renderDesignerPanel);
 
+	function syncModeChips() {
+		['chuni-collab-toggle', 'chuni-solo-toggle', 'chuni-big-toggle'].forEach(function (id) {
+			var el = panelEl(id);
+			if (!el) return;
+			var key = id === 'chuni-collab-toggle' ? 'collab' : (id === 'chuni-solo-toggle' ? 'solo' : 'big');
+			el.classList.toggle('active', !!state[key]);
+		});
+	}
+	function setMode(mode) {
+		state.collab = mode === 'collab';
+		state.solo = mode === 'solo';
+		state.big = mode === 'big';
+		state.page = 1;
+		syncModeChips();
+		renderRows();
+	}
 	var cToggle = panelEl('chuni-collab-toggle');
 	if (cToggle) cToggle.addEventListener('click', function () {
-		state.collab = !state.collab;
-		cToggle.classList.toggle('active', state.collab);
-		state.page = 1;
-		renderRows();
+		setMode(state.collab ? '' : 'collab');
+	});
+	var sToggle = panelEl('chuni-solo-toggle');
+	if (sToggle) sToggle.addEventListener('click', function () {
+		setMode(state.solo ? '' : 'solo');
+	});
+	var bToggle = panelEl('chuni-big-toggle');
+	if (bToggle) bToggle.addEventListener('click', function () {
+		setMode(state.big ? '' : 'big');
 	});
 
 	var st = document.getElementById('chuni-search-title');
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
 	var sa = document.getElementById('chuni-search-artist');
 	if (sa) sa.addEventListener('input', function () { state.qa = sa.value; state.page = 1; renderRows(); });
-
-	var bigBtn = document.getElementById('chuni-big');
-	if (bigBtn) bigBtn.addEventListener('click', function () {
-		state.big = !state.big;
-		bigBtn.classList.toggle('active', state.big);
-		state.page = 1;
-		renderRows();
-	});
 
 	var weBtn = document.getElementById('chuni-we');
 	if (weBtn) weBtn.addEventListener('click', function () {
