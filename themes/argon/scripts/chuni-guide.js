@@ -63,6 +63,26 @@ const versionLabel = new Map(d.versions.map(function (v) {
     ['b', 'a', 'e', 'm', 'u'].forEach(function (d) { (rec[d] || []).forEach(function (x) { ppl.add(x); }); });
     return ppl.size;
   }
+  // 「合作谱」判定：collab 数据里有 / 署名带双人分隔符 / 署名是团队名义
+  const looseNames = (function () {
+    try {
+      const f = hexo.base_dir + 'source/assets/data/designers.json';
+      if (!fs.existsSync(f)) return new Set();
+      const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+      return new Set((d.loose || []).map(function (x) { return String(x.name).toLowerCase(); }));
+    } catch (e) { return new Set(); }
+  })();
+  const COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋)\s*/;
+  function isCollabSong(title, sheets) {
+    if (collabPeopleCount(title) >= 2) return true;
+    return (sheets || []).some(function (sh) {
+      const d = String(sh.designer || '');
+      if (!d) return false;
+      if (COLLAB_SEP.test(d)) return true;
+      return looseNames.has(d.toLowerCase());
+    });
+  }
+
   // 大合作：有 wiki 分工表，或者 3 人以上联名
   var partNormList = null;
   function isBigCollab(title) {
@@ -303,6 +323,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       cn: e.inCN ? 1 : 0,
       rm: e.removed ? 1 : 0,
       big: isBigCollab(e.raw.title) ? 1 : 0,
+      cl: isCollabSong(e.raw.title, e.raw.sheets) ? 1 : 0,
       cnrm: e.cnRemoved ? 1 : 0,
       we: (function () {
         var stars = [];

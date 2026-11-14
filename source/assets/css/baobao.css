@@ -2704,3 +2704,13 @@ html.darkmode .chuni-diff-top {
     box-sizing: border-box;
   }
 }
+
+/* 谱师面板：只显示三行左右，可滚动 */
+#chuni-designer-grid {
+  max-height: 132px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@media (max-width: 640px) {
+  #chuni-designer-grid { max-height: 120px; }
+}
