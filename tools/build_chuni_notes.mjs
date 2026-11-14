@@ -53,10 +53,25 @@ const out = {};
 let matched = 0;
 const unmatched = new Set();
 
+// 会报里的标题常带装饰：＜曲名＞、《曲名》、○曲名、・曲名，或「曲名 (MASTER) / 另一首」
+function candidates(title) {
+  const out = [];
+  const push = (t) => {
+    const v = bareTitle(String(t || '').replace(/^[＜<《「【\[（(・○●◆◇■□☆★]+/, '').replace(/[＞>》」】\]）)・]+$/, '').trim());
+    if (v && !out.includes(v)) out.push(v);
+  };
+  push(title);
+  String(title).split(/[／/]/).forEach(push);
+  return out;
+}
+
 for (const r of recs) {
   if (!r.title) continue;
-  const key = norm(bareTitle(r.title));
-  const song = index.get(key);
+  let song = null;
+  for (const c of candidates(r.title)) {
+    const hit = index.get(norm(c));
+    if (hit) { song = hit; break; }
+  }
   if (!song) {
     unmatched.add(r.title);
     continue;
