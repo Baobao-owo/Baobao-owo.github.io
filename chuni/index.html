@@ -922,7 +922,11 @@
 				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
 				if (isWE && !state.we) return false;
 			}
-			if (state.solo && soloKeysOf(r).length === 0) return false;
+			// 合作 / 单独模式下，一张谱都点不亮的曲目直接不列（避免全灰行）
+			if (state.solo || state.collab) {
+				var vkMode = visibleKeys(r);
+				if (!vkMode || !vkMode.length) return false;
+			}
 			if (state.we && !isWE) return false;
 			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
 			if (!state.removed && !state.we && isWE) return false;
