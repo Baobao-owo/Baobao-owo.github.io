@@ -1052,17 +1052,19 @@
 			// 只要是确认过的合作谱，就一直显示绿底分工（不再依赖筛选状态）
 			if (!dsTag) {
 				var cParts = [];
+				var vKeys = visibleKeys(r);
+				var showK = function (k) { return !vKeys || vKeys.indexOf(k) !== -1; };
 				var ceRow = collabEntry(r);
 				if (ceRow) {
 					['b', 'a', 'e', 'm', 'u'].forEach(function (k) {
 						var ppl = ceRow[k];
-						if (ppl && ppl.length > 1) cParts.push(k.toUpperCase() + ' 合作 ' + ppl.join(' × '));
+						if (ppl && ppl.length > 1 && showK(k)) cParts.push(k.toUpperCase() + ' 合作 ' + ppl.join(' × '));
 					});
 				}
 				// 组合别名（レモンとアロエ → じゃこレモン × 夕凪アロエ）也一并显示
 				(r.sh || []).forEach(function (sh) {
 					var k = DIFF_KEY[sh.d];
-					if (!k) return;
+					if (!k || !showK(k)) return;
 					if (sh.mem) {
 						var label = k.toUpperCase() + ' 合作 ' + sh.mem;
 						if (cParts.indexOf(label) === -1 && cParts.join(' ').indexOf(sh.mem) === -1) cParts.push(label);
