@@ -117,7 +117,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       return new Set((d.loose || []).map(function (x) { return String(x.name).toLowerCase(); }));
     } catch (e) { return new Set(); }
   })();
-  const COLLAB_SEP = /\s*(?:&|＆|\bVS\.?\b|\bvs\.?\b|×|＋|＜ー＞|<―>|<->|-\+-)\s*/i;
+  const COLLAB_SEP = /\s*(?:&|＆|\bVS\.?\b|\bvs\.?\b|×|＋|＜ー＞|<―>|<->|-\+-|supported by|resurrected by|fumbled by|panicked by|cooperated|affected by|fused with|meets|feat\.?)\s*/i;
   // docx（谱师学ep0.5）里列过的曲目一律算合作曲
   const collabDocxSet = new Set(((hexo.locals.get('data') && hexo.locals.get('data').collab_docx_titles) || []).map(function (t) { return normTitle(t); }));
   // 用户确认是单人写、但 docx 里列过的曲目
