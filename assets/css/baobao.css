@@ -2677,3 +2677,18 @@ html.darkmode .chuni-diff-top {
   .chuni-levels::-webkit-scrollbar { display: none; }
   .chuni-lv-chip { flex: 0 0 auto; min-width: 42px; }
 }
+
+/* 手机端：难度 chip 也改横向滑动 */
+@media (max-width: 640px) {
+  .chuni-diff-top {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    gap: 6px;
+  }
+  .chuni-diff-top::-webkit-scrollbar { display: none; }
+  .chuni-diff-top .chuni-diff-chip { flex: 0 0 auto; }
+}
