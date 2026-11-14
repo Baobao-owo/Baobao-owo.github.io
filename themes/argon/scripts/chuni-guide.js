@@ -78,6 +78,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       return { songs: songs, names: new Set((d.designers || []).map(function (x) { return x.name; })) };
     } catch (e) { return { songs: {}, names: new Set() }; }
   })();
+  const DESIGNER_FIX = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_fix) || {};
   const DESIGNER_ALIAS = (function () {
     try {
       const f = hexo.base_dir + 'source/_data/chuni_designer_alias.json';
@@ -224,7 +225,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const masterDesigner = fromMaster[letter];
         // 谱师栏保留游戏内原文（不过滤、不合并别名）
         const cur = String(sh.designer || '').trim();
-        const name = (cur && cur !== '-') ? cur : (fromFill[letter] || '');
+        let name = (cur && cur !== '-') ? cur : (fromFill[letter] || '');
+        const fixKey = String(s.title).trim() + '::' + String(sh.difficulty).toLowerCase();
+        const fixVal = (DESIGNER_FIX.overrides || {})[fixKey];
+        if (typeof fixVal === 'string') name = fixVal;
         const mem = (name && DESIGNER_ALIAS[name] && DESIGNER_ALIAS[name].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[name] : '';
         return Object.assign({}, sh, {
           designer: name,
