@@ -824,7 +824,15 @@
 	function visibleKeys(r) {
 		// 合作 / 单独：只亮对应写法的谱，其余变灰
 		if (state.collab) return collabKeysOf(r);
-		if (state.solo) return soloKeysOf(r);
+		if (state.solo) {
+			var sk = soloKeysOf(r);
+			// 单独模式 + 选了谱师：只亮他写的那些单人谱
+			if (state.designer || state.designerRaw) {
+				var dh = matcher(r).map(function (x) { return x.d; });
+				sk = sk.filter(function (d) { return dh.indexOf(d) !== -1; });
+			}
+			return sk;
+		}
 		var sel = state.designerDiff || [];
 		if (state.designer || state.designerRaw) {
 			var hit = matcher(r).map(function (x) { return x.d; });
