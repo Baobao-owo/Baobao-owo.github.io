@@ -54,8 +54,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const weDeletedSet = new Set((weDeletedData.songs || []).map(function (x) { return normTitle(x.title); }));
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
   // 补录的删除曲（wiki 配信終了 + 本地游戏数据封面）
-  const removedSongs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed_songs) || [];
-  (Array.isArray(removedSongs) ? removedSongs : []).forEach(function (s) {
+  const removedSongs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed_songs) || [];  (Array.isArray(removedSongs) ? removedSongs : []).forEach(function (s) {
     removedIds.add(String(s.id));
   });
 
