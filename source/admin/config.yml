@@ -1,6 +1,9 @@
 ﻿# Decap CMS 配置
+# 本地编辑：npx decap-server + npm run dev，然后开 http://localhost:4000/admin/
 # 后台：https://baobao-owo.github.io/admin/
 # 登录走 DecapBridge（PKCE），提交通过它的 gateway 落到仓库 main
+
+local_backend: true
 
 backend:
   name: git-gateway
