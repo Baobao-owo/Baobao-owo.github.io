@@ -86,6 +86,23 @@
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
 	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: 'all', collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	// 返回列表时恢复上次的筛选/排序/滚动位置
+	var LIST_STATE_KEY = 'chuni-list-state-v1';
+	function saveListState() {
+		try {
+			sessionStorage.setItem(LIST_STATE_KEY, JSON.stringify({ state: state, scroll: window.scrollY }));
+		} catch (e) {}
+	}
+	function loadListState() {
+		try {
+			var raw = sessionStorage.getItem(LIST_STATE_KEY);
+			if (!raw) return null;
+			sessionStorage.removeItem(LIST_STATE_KEY);
+			return JSON.parse(raw);
+		} catch (e) {
+			return null;
+		}
+	}
 	var DESIGNERS = null;
 	var COLLAB = null;
 
@@ -97,6 +114,40 @@
 	var emptyEl = document.getElementById('chuni-empty');
 	var loadingEl = document.getElementById('chuni-loading');
 	var levelsEl = document.getElementById('chuni-levels');
+
+	// 把 state 回显到工具栏控件上
+	function syncControls() {
+		document.querySelectorAll('#chuni-version button[data-version]').forEach(function (b) {
+			b.classList.toggle('active', b.getAttribute('data-version') === state.version);
+		});
+		var catEl = document.getElementById('chuni-cat');
+		if (catEl) catEl.value = state.cat;
+		document.querySelectorAll('#chuni-sort button[data-sort]').forEach(function (b) {
+			var s = b.getAttribute('data-sort');
+			if (s === 'dir') return;
+			b.classList.toggle('active', s === state.sort);
+		});
+		var dirEl = document.getElementById('chuni-dir');
+		if (dirEl) dirEl.textContent = state.dir === 1 ? '正序 ↑' : '倒序 ↓';
+		var stEl = document.getElementById('chuni-search-title');
+		if (stEl) stEl.value = state.qt || '';
+		var saEl = document.getElementById('chuni-search-artist');
+		if (saEl) saEl.value = state.qa || '';
+		var rmEl = document.getElementById('chuni-removed');
+		if (rmEl) rmEl.classList.toggle('active', !!state.removed);
+		var weEl = document.getElementById('chuni-we');
+		if (weEl) weEl.classList.toggle('active', !!state.we);
+		document.querySelectorAll('#chuni-levels button[data-level]').forEach(function (b) {
+			b.classList.toggle('active', (state.levels || []).indexOf(b.getAttribute('data-level')) >= 0);
+		});
+	}
+
+	// 点歌进详情页前，把当前状态存起来
+	document.addEventListener('click', function (e) {
+		var a = e.target && e.target.closest ? e.target.closest('a[href^="/chuni/"]') : null;
+		if (a) saveListState();
+	});
+	window.addEventListener('pagehide', saveListState);
 
 	// 难度等级：从数据里收集，形如 14 / 14+
 	function levelKey(lv) {
@@ -629,7 +680,17 @@
 			all = rows;
 			renderLevelChips();
 			if (loadingEl) loadingEl.remove();
+			var saved = loadListState();
+			if (saved && saved.state) {
+				try {
+					Object.keys(saved.state).forEach(function (k) { if (k !== 'designer' && k !== 'designerRaw' && k !== 'designerDiff' && k !== 'collab') state[k] = saved.state[k]; });
+					syncControls();
+				} catch (e) {}
+			}
 			renderRows();
+			if (saved && saved.scroll) {
+				setTimeout(function () { window.scrollTo(0, saved.scroll); }, 80);
+			}
 		})
 		.catch(function () {
 			if (loadingEl) loadingEl.textContent = '曲目数据加载失败';
