@@ -1,4 +1,4 @@
-// 重建谱师索引：以 .c2s 的 CREATOR 为主，朋友那份 wiki 数据作补充
+﻿// 重建谱师索引：以 .c2s 的 CREATOR 为主，朋友那份 wiki 数据作补充
 // 输出：source/assets/data/designers.json
 import fs from 'node:fs';
 
@@ -40,6 +40,19 @@ if (fs.existsSync(WIKI_ALIASES)) {
   }
 }
 
+// 用户手工填的对照（tools/designer-manual.json）优先级最高
+const MANUAL_FILE = 'tools/designer-manual.json';
+const manual = fs.existsSync(MANUAL_FILE)
+  ? JSON.parse(fs.readFileSync(MANUAL_FILE, 'utf8'))
+  : { aliases: {}, newDesigners: [], collab: {} };
+for (const [bad, good] of Object.entries(manual.aliases || {})) {
+  alias2who.set(norm(bad), good);
+}
+const manualDesigners = manual.newDesigners || [];
+for (const d of manualDesigners) {
+  for (const a of d.aliases || []) alias2who.set(norm(a), d.name);
+  alias2who.set(norm(d.name), d.name);
+}
 // 名义前面挂的「【Ex】」是活动/复刻标记，不是另一个人：
 // 先原样查，查不到就去掉前缀再查一次。
 const EX_PREFIX = /^\s*(?:【\s*ex\s*】|\[\s*ex\s*\]|（\s*ex\s*）|\(\s*ex\s*\))\s*/i;
@@ -250,6 +263,43 @@ for (const [title, entry] of Object.entries(songsOut)) {
   }
 }
 
+// 用户新增的谱师（不在朋友那份名单里）
+// 只写合作谱的也要能出现在面板上，否则「仅显示合作」里点不到他
+const collabCount = (() => {
+  const m = new Map();
+  for (const entry of Object.values(collabData)) {
+    for (const people of Object.values(entry)) {
+      if (!Array.isArray(people)) continue;
+      for (const p of people) {
+        if (!m.has(p)) m.set(p, new Set());
+      }
+    }
+  }
+  for (const [title, entry] of Object.entries(collabData)) {
+    for (const [diff, people] of Object.entries(entry)) {
+      if (!Array.isArray(people)) continue;
+      for (const p of people) m.get(p).add(title + '.' + diff);
+    }
+  }
+  return m;
+})();
+for (const d of manualDesigners) {
+  const solo = whoSongs.get(d.name);
+  const collabSet = collabCount.get(d.name) || new Set();
+  if (collabSet.size && !solo) {
+    // 只有合作谱：用它自己的合作条目补上（不重复计已有的单人曲）
+  }
+  const total = new Set([...(solo || []), ...collabSet]);
+  if (!total.size) continue;
+  designers.push({
+    name: d.name,
+    id: 'manual-' + d.name,
+    charts: whoCharts.get(d.name) || 0,
+    songs: total.size,
+    aliases: (d.aliases || []).length,
+  });
+}
+designers.sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
 const loose = [...looseSongs.entries()]
   .filter(([name]) => !coveredByCollab.has(norm(name)))
   .map(([name, set]) => ({ name, songs: set.size }))

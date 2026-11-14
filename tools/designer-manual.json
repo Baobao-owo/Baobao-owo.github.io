@@ -1,0 +1,35 @@
+{
+  "aliases": {
+    "-DestroyeR:MistilteinN-": "ミストルティン",
+    ".jack//Roots": "Jack",
+    "A Lucidness vs すきやき奉行": "すきやき奉行",
+    "Gigalomonoclocks": "ものくろっく",
+    "Monster -FINAL JUDGMENT-": "じゃこレモン",
+    "OVERLOAD LEMON": "じゃこレモン",
+    "wonder* vs Techno kichen": "Techno Kitchen",
+    "エメラルド・ウォー！": "Emerald",
+    "すきやき奉行、狂☆4…Demon's Cry": "すきやき奉行",
+    "すきやき奉行、止☆2…Elemental Stopping": "すきやき奉行",
+    "ミストのアトリエ": "ミストルティン",
+    "ミニミライト＠みんマンション": "ミニミライト",
+    "魔法少犬はっぴー☆": "はっぴー",
+    "シチミヘルツ": "シチミヘルツ"
+  },
+  "newDesigners": [
+    {
+      "name": "シチミヘルツ",
+      "aliases": ["7.3GHz"],
+      "note": "舞萌（maimai）那边的谱师，站内目前只有「名前のない怪物」"
+    },
+    {
+      "name": "原D(羽田の白い彗星)",
+      "aliases": ["原D", "羽田の白い彗星"],
+      "note": "用户确认：原D 与 羽田の白い彗星 是同一个人"
+    }
+  ],
+  "collab": {
+    "rumbling hearts": {
+      "m": ["ロシェ＠ペンギン", "原D(羽田の白い彗星)"]
+    }
+  }
+}
