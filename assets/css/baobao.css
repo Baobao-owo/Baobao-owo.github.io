@@ -2624,3 +2624,40 @@ html.darkmode .chuni-diff-top {
   .chuni-detail-table td.chuni-designer { padding-left: 6px; }
   .chuni-diff-name { font-size: 11.5px; }
 }
+
+/* 手机端适配：曲目导览 */
+.chuni-search:focus,
+.chuni-designer-q:focus {
+  outline: none;
+  border-color: var(--themecolor, #4f7f9c);
+  box-shadow: 0 0 0 2px rgba(79, 127, 156, 0.15);
+}
+
+@media (max-width: 640px) {
+  .chuni-toolbar { padding: 10px 10px 12px; }
+  .chuni-toolbar-main { gap: 8px; }
+  .chuni-seg-btn { padding: 5px 10px; font-size: 12px; }
+  .chuni-select { font-size: 12px; height: 30px; }
+  .chuni-sort-btn { padding: 4px 8px; font-size: 12px; }
+  .chuni-removed-btn { padding: 4px 9px; font-size: 12px; }
+  .chuni-diff-chip { padding: 4px 9px; font-size: 12px; }
+  .chuni-diff-top { margin-top: 8px; gap: 6px; }
+  .chuni-toolbar-filters { margin-top: 8px; padding-top: 8px; gap: 6px; }
+  .chuni-we-btn { margin-left: 0; }
+  .chuni-levels { gap: 5px; }
+  .chuni-lv-chip { min-width: 38px; font-size: 11px; padding: 3px 0; }
+  .chuni-search { min-width: 0; width: 100%; font-size: 13px; }
+  .chuni-searches { gap: 8px; }
+  .chuni-row { padding: 8px 10px; gap: 8px; }
+  .chuni-thumb { width: 40px; height: 40px; border-radius: 6px; }
+  .chuni-row-title { font-size: 14px; }
+  .chuni-row-sub { font-size: 11px; }
+  .chuni-badge { font-size: 11px; padding: 1px 5px; min-width: 30px; }
+  .chuni-row-tag-removed,
+  .chuni-row-tag-big,
+  .chuni-row-tag-ds { font-size: 11px; padding: 0 6px; vertical-align: 1px; }
+  .chuni-dz-chip { font-size: 12px; padding: 4px 10px; }
+  .chuni-designer-panel { padding: 10px; }
+  .chuni-designer-diff { gap: 6px; }
+  .chuni-count { font-size: 12px; }
+}
