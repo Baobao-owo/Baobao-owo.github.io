@@ -9,6 +9,11 @@ const c2s = JSON.parse(fs.readFileSync('_tmp/game/c2s-designers-all.json', 'utf8
 const LETTER = { basic: 'B', advanced: 'A', expert: 'E', master: 'M', ultima: 'U' };
 const IDX = { basic: 0, advanced: 1, expert: 2, master: 3, ultima: 4 };
 
+// 用户确认的别名映射（CREATOR 里出现的写法 → 实际谱师）
+const EXTRA_ALIAS = JSON.parse(fs.readFileSync('tools/designer-alias-extra.json', 'utf8').replace(/^\uFEFF/, ''));
+const FIX = {};
+for (const [alias, who] of Object.entries(EXTRA_ALIAS)) FIX[alias.toLowerCase()] = who;
+
 const fill = {};
 let count = 0;
 
@@ -24,7 +29,7 @@ for (const s of data.songs) {
     if (!v) continue;
     const letter = LETTER[sh.difficulty];
     if (!fill[s.title]) fill[s.title] = {};
-    fill[s.title][letter] = v;
+    fill[s.title][letter] = FIX[String(v).toLowerCase()] || v;
     count++;
   }
 }

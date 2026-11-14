@@ -28,6 +28,9 @@ for (const d of friend.designers || []) {
   alias2who.set(norm(d.name), d.name);
   for (const a of d.aliases || []) alias2who.set(norm(a), d.name);
 }
+// 用户确认的额外写法（游戏 CREATOR 里出现的别名）
+const EXTRA_ALIAS = JSON.parse(fs.readFileSync('tools/designer-alias-extra.json', 'utf8').replace(/^﻿/, ''));
+for (const [alias, who] of Object.entries(EXTRA_ALIAS)) alias2who.set(norm(alias), who);
 
 // wiki「譜面製作者一覧」里逐曲标注的クレジット名，补进别名表
 // （只补朋友数据里没有的，避免覆盖）
@@ -136,6 +139,24 @@ for (const s of friend.songs || []) {
   friendCharts.set(norm(s.title), entry);
 }
 
+
+// 部分新曲以曲目页的「譜面作者」为准（tools/designer-song-credits.json）
+function songCreditWho(titleKey, diff) {
+  if (!songCreditWho._data) {
+    try {
+      songCreditWho._data = JSON.parse(fs.readFileSync('tools/designer-song-credits.json', 'utf8'));
+    } catch (e) {
+      songCreditWho._data = {};
+    }
+    songCreditWho._keys = new Map();
+    for (const t of Object.keys(songCreditWho._data)) songCreditWho._keys.set(norm(t), t);
+  }
+  const t = songCreditWho._keys.get(titleKey);
+  if (!t) return '';
+  const cell = songCreditWho._data[t] && songCreditWho._data[t][diff];
+  return cell && cell.who ? cell.who : '';
+}
+
 const IDX = { e: 2, m: 3, u: 4, a: 1, b: 0 };
 
 const songsOut = {};
@@ -171,7 +192,9 @@ for (const s of allSongs) {
       if (v) raw = v;
     }
     if (!raw) raw = fd[diff] || '';
-    if (!raw) continue;
+    const fixedWho = songCreditWho(key, diff);
+    if (!raw && !fixedWho) continue;
+    if (!raw) raw = fixedWho;
 
     const UNKNOWN_WHO = '制作者不明';
 const unknownPos = new Map();
@@ -203,7 +226,7 @@ const commentWho = (() => {
   };
 })();
 
-const who = resolveWho(raw) || teamOf(raw) || commentWho(key, diff) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
+const who = fixedWho || resolveWho(raw) || teamOf(raw) || commentWho(key, diff) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';

@@ -42,6 +42,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const notesMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_notes) || {};
+  const designerAlias = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_alias) || {};
   // 合作曲分工表（wiki 曲目页的「担当箇所 / 担当ND」）
   const collabParts = (hexo.locals.get('data') && hexo.locals.get('data').collab_parts) || {};
   const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
@@ -129,8 +130,10 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
         const masterDesigner = fromMaster[letter];
         const cur = String(sh.designer || '').trim();
         const filled = (cur && cur !== '-') ? '' : (fromFill[letter] || '');
+        let name = masterDesigner || filled || sh.designer || '';
+        if (name && designerAlias[name]) name = designerAlias[name];
         return Object.assign({}, sh, {
-          designer: masterDesigner || filled || sh.designer || ''
+          designer: name
         });
       })
     });
