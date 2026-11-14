@@ -194,6 +194,23 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
 
   const routes = [];
 
+  // wiki「楽曲一覧(追加日順)」：曲名 -> 追加日 + 页面顺序
+  const addOrder = (function () {
+    try {
+      const p = path.join(hexo.base_dir, 'tools/song-addorder.json');
+      if (!fs.existsSync(p)) return {};
+      const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+      const m = {};
+      for (const k of Object.keys(raw)) {
+        const key = String(k).normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+        m[key] = raw[k];
+      }
+      return m;
+    } catch (err) {
+      return {};
+    }
+  })();
+
   // 给列表页用的精简数据（前端分页渲染）
   const compact = songs.map(function (e) {
     return {
@@ -203,7 +220,22 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       c: e.raw.category,
       v: e.raw.version,
       // 追加日（用来在同一个版本内按上线顺序排）
+      // wiki「楽曲一覧(追加日順)」收录了的优先用它，新曲日期更准
       rel: (function () {
+        const key = String(e.raw.title || '')
+          .normalize('NFKC')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .toLowerCase();
+        const w = addOrder[key];
+        if (w && w.date) {
+          const wm = String(w.date).match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+          if (wm) {
+            const dnum = Number(wm[1]) * 10000 + Number(wm[2]) * 100 + Number(wm[3]);
+            // 同一天内按 wiki 页面顺序（越靠前越新）
+            return dnum * 1000 + (1000 - (Number(w.order) || 0));
+          }
+        }
         const t = String(e.raw.release || '');
         const m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
         return m ? Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]) : 0;
