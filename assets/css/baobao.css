@@ -2439,8 +2439,9 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
 /* 工具栏：谱师筛选提到第一行；倒序放到排序组最右 */
 .chuni-toolbar-main { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .chuni-toolbar-main #chuni-designer-toggle { margin-left: 4px; }
-.chuni-toolbar-main .chuni-sort { margin-left: 4px; }
-.chuni-sort .chuni-dir-btn { margin-left: 10px; }
+.chuni-toolbar-main .chuni-sort { flex: 1 1 auto; margin-left: 4px; }
+.chuni-toolbar-main .chuni-sort-btn { padding: 4px 14px; }
+.chuni-toolbar-main .chuni-dir-btn { margin-left: 8px; }
 @media (max-width: 720px) {
   .chuni-toolbar-main .chuni-sort { margin-left: 0; }
 }
