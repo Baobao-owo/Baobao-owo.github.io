@@ -793,8 +793,8 @@
 				if (!ds) return;
 				// 署名是组合/团队别名（归不到具体谱师）也算合作
 				var rec = ent[k];
-				var normName = function (x) { return String(x || '').normalize('NFKC').toLowerCase().replace(/[\s\u3000]/g, ''); };
-				var teamAlias = rec && (!rec.who || rec.who === '制作者不明' || normName(rec.raw) !== normName(rec.who));
+				// 只有「归不到具体谱师」或「别名本身就是双人组合」才算团队名义
+				var teamAlias = rec && (!rec.who || rec.who === '制作者不明' || !!sh.mem);
 				if (teamAlias || COLLAB_SEP.test(ds) || LOOSE_SET[ds.toLowerCase()] || COLLAB_TEAM_RE.test(ds)) out.push(k);
 			});
 		}
