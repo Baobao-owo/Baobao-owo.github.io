@@ -2532,3 +2532,12 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
   color: #b06a2a;
   flex: none;
 }
+
+/* 顶部难度 chip 行 */
+.chuni-diff-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-left: 4px;
+}
