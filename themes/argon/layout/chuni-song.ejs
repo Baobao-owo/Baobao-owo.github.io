@@ -141,7 +141,7 @@
 							<td class="chuni-lv chuni-col-center"><%= lvText %></td>
 							<td class="chuni-iv chuni-col-center"><%= ivText %></td>
 							<td class="chuni-col-center"><%= n.total || '—' %></td>
-							<td class="chuni-designer"><%= sh.designer && sh.designer !== '-' ? sh.designer : '—' %></td>
+							<td class="chuni-designer"><%= sh.designer && sh.designer !== '-' ? sh.designer : '—' %><% if (sh.mem) { %><span class="chuni-designer-mem">（<%= sh.mem %>）</span><% } %></td>
 						</tr>
 					<% }); %>
 					</tbody>

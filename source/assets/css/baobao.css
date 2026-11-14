@@ -2730,3 +2730,11 @@ html.darkmode .chuni-diff-top {
   padding: 2px 10px;
   font-size: 12px;
 }
+
+/* 谱面作者旁边的组合成员说明 */
+.chuni-designer-mem {
+  display: block;
+  font-size: 11px;
+  color: #8b98a5;
+  margin-top: 2px;
+}

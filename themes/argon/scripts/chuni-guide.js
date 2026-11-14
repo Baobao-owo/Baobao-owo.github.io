@@ -109,7 +109,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋)\s*/;
   // docx（谱师学ep0.5）里列过的曲目一律算合作曲
   const collabDocxSet = new Set(((hexo.locals.get('data') && hexo.locals.get('data').collab_docx_titles) || []).map(function (t) { return normTitle(t); }));
+  // 用户确认是单人写、但 docx 里列过的曲目
+  const COLLAB_EXCLUDE = new Set([normTitle('[改]Oshama Scramble!'), normTitle('タイムカプセル')]);
   function isCollabSong(title, sheets) {
+    if (COLLAB_EXCLUDE.has(normTitle(title))) return false;
     if (collabDocxSet.has(normTitle(title))) return true;
     if (collabPeopleCount(title) >= 2) return true;
     return (sheets || []).some(function (sh) {
@@ -222,8 +225,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
         // 谱师栏保留游戏内原文（不过滤、不合并别名）
         const cur = String(sh.designer || '').trim();
         const name = (cur && cur !== '-') ? cur : (fromFill[letter] || '');
+        const mem = (name && DESIGNER_ALIAS[name] && DESIGNER_ALIAS[name].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[name] : '';
         return Object.assign({}, sh, {
-          designer: name
+          designer: name,
+          mem: mem
         });
       })
     });
