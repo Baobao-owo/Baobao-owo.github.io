@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const s = page.song || {};
 	const sheets = s.sheets || [];
 	const extra2 = page.extra || {};
@@ -26,6 +26,8 @@
 	const titlesRows = (extra2.titles || []).filter(function (r) { return r && r.length >= 2; });
 	const titlesZh = (extra2.titles_zh || []).filter(function (r) { return r && r.length >= 2; });
 	const titleKinds = extra2.title_kinds || [];
+	// 合作曲分工表（wiki 的「担当箇所 / 担当ND」）
+	const partsTable = page.collabParts || null;
 	const hasTitles = titlesRows.length > 1;
 	const origins = (extra2.origins || []).filter(Boolean);
 	const originsZh = (extra2.origins_zh || []).filter(Boolean);
@@ -129,6 +131,31 @@
 					</tbody>
 				</table>
 			</div>
+
+			<% if (partsTable) { %>
+			<div class="chuni-section">
+				<div class="chuni-section-title">合作分工</div>
+				<table class="chuni-parts-table">
+					<thead>
+						<tr>
+							<% partsTable.headers.forEach(function (h) { %>
+							<th><%= h %></th>
+							<% }); %>
+						</tr>
+					</thead>
+					<tbody>
+						<% partsTable.rows.forEach(function (r) { %>
+						<tr>
+							<% r.forEach(function (c, ci) { %>
+							<td<%- ci === 0 ? ' class="chuni-parts-key"' : '' %>><%= c %></td>
+							<% }); %>
+						</tr>
+						<% }); %>
+					</tbody>
+				</table>
+				<p class="chuni-parts-note">据 wiki 曲目页的「担当箇所 / 担当ND」整理</p>
+			</div>
+			<% } %>
 
 			<% if (hasHist) { %>
 			<div class="chuni-section">

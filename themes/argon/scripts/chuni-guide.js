@@ -1,4 +1,4 @@
-// 曲目导览：用公开数据集生成静态页面
+﻿// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -42,6 +42,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const notesMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_notes) || {};
+  // 合作曲分工表（wiki 曲目页的「担当箇所 / 担当ND」）
+  const collabParts = (hexo.locals.get('data') && hexo.locals.get('data').collab_parts) || {};
   const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
   const cnSongMap = cnData.songs || {};
   const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
@@ -57,6 +59,18 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
     removedIds.add(String(s.id));
   });
 
+  // 合作分工表按 normTitle 建索引（和前端/数据里的写法保持一致）
+  const partsByNorm = (function () {
+    const m = {};
+    Object.keys(collabParts).forEach(function (k) {
+      const p = collabParts[k];
+      if (p && p.title) m[normTitle(p.title)] = p;
+    });
+    return m;
+  })();
+  function partsOf(title) {
+    return partsByNorm[normTitle(title)] || null;
+  }
   function normTitle(t) {
     return String(t)
       .normalize('NFKC')
@@ -246,7 +260,8 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
         versionLabel: entry.versionLabel,
         guide: { updated: d.updated, categories: d.categories, versions: d.versions },
         extra: extra[entry.raw.id] || null,
-        notes: notesMap[String(entry.raw.title).trim()] || null
+        notes: notesMap[String(entry.raw.title).trim()] || null,
+        collabParts: partsOf(entry.raw.title)
       }
     });
   });
