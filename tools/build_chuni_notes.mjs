@@ -96,6 +96,10 @@ const PAGE_SLUG = {
   '企鹅秘话 第 1 话': 'chunithm-penguin-secret-1',
 };
 const fuzzy = [];
+// 会报里的条目有时没写难度，按 wiki 补上（key: 曲名|期数|谱师）
+const NOTE_DIFF_FIX = {
+  '【The Metaverse -First story of the SeelischTact-】（光）|8 周年会报|そらいろカリン': "WORLD'S END",
+};
 // 会报里写法不同、但确实就是站内某首歌的手动对应（用户确认：直接贴过去就行）
 const MANUAL_MAP = {
   '僕たちのギャグマンガ日和': '僕達のギャグマンガ日和',
@@ -198,7 +202,7 @@ for (const r of recs) {
   const item = {
     r: r.round,
     d: cleanDesigner(r.designer),
-    df: r.diff || '',
+    df: NOTE_DIFF_FIX[[r.title, r.round, r.designer].join('|')] || r.diff || '',
     jp: tidy(r.jp),
     zh: fixZh(r.zh),
   };
