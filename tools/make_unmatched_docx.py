@@ -5,7 +5,7 @@ from docx.shared import Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 ROWS = json.load(open(r"D:\Deepseek work\blog\_tmp\build\unmatched-notes.json", encoding="utf-8"))
-OUT = r"D:\Deepseek work\blog\_tmp\谱师留言-未匹配清单-2.docx"
+OUT = r"D:\Deepseek work\blog\_tmp\谱师留言-未匹配清单-3.docx"
 
 songs = [r for r in ROWS if "歌曲" in r["kind"]]
 others = [r for r in ROWS if "歌曲" not in r["kind"]]

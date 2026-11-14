@@ -95,6 +95,9 @@ const MANUAL_MAP = {
   'Your Affection': 'Your Affection(Daisuke Asakura Remix)',
   '・盟月【MASTER】': '盟月',
   '新時代': '新時代（ウタfrom ONE PIECE FILM RED）',
+  'WAVE［割］': 'WAVE',
+  '秘神マターラ feat.魂音泉［布］': '【東方ニコカラ】秘神マターラ feat.魂音泉【IOSYS】',
+  'AIR［狂］': 'Air',
 };
 // 明确属于隔壁音击（ONGEKI）、不挂到中二曲目上
 const SKIP_TITLES = new Set([
@@ -106,15 +109,34 @@ const out = {};
 let matched = 0;
 const unmatched = new Set();
 
+// 括号里是难度、(vs 谱师)、名义说明时才去掉；像「-[i]3-」这种是曲名本身，不能动
+function stripNotes(s) {
+  return String(s || '').replace(/[【（(［\[][^】）)］\]]*[】）)］\]]/g, (m) => {
+    const inner = m.slice(1, -1).trim();
+    if (/^(BASIC|ADVANCED|EXPERT|MASTER|ULTIMA|WORLD'?S END)$/i.test(inner)) return '';
+    if (/^vs[\s\u3000]/i.test(inner)) return '';
+    if (/名义|名義/.test(inner)) return '';
+    return m;
+  });
+}
+
 // 会报里的标题常带装饰：＜曲名＞、《曲名》、○曲名、・曲名，或「曲名 (MASTER) / 另一首」
 function candidates(title) {
   const out = [];
   const push = (t) => {
-    const v = bareTitle(String(t || '').replace(/^[＜<《「【\[（(・○●◆◇■□☆★]+/, '').replace(/[＞>》」】\]）)・]+$/, '').trim());
+    let v = bareTitle(String(t || '').trim());
+    v = v.replace(/^[＜<《「【\[（(・○●◆◇■□☆★▼▽※\s]+/, '').replace(/[＞>》」】\]）)・\s]+$/, '');
+    v = bareTitle(v.trim()).trim();
     if (v && !out.includes(v)) out.push(v);
   };
-  push(title);
-  String(title).split(/[／/]/).forEach(push);
+  const base = String(title || '').trim();
+  const noNotes = stripNotes(base);
+  push(base);
+  push(noNotes);
+  push(base.replace(/\b(BASIC|ADVANCED|EXPERT|MASTER|ULTIMA)\b/gi, ''));
+  push(noNotes.replace(/\b(BASIC|ADVANCED|EXPERT|MASTER|ULTIMA)\b/gi, ''));
+  String(base).split(/[／/]/).forEach(push);
+  String(noNotes).split(/[／/]/).forEach(push);
   return out;
 }
 

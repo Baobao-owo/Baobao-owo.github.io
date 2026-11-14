@@ -39,9 +39,16 @@ function splitBlocks(blockHtml) {
     const plain = textOf(m[2]);
     if (/report-subheading/.test(cls) || /^■/.test(plain)) {
       const head = plain.replace(/^■/, '').trim();
-      const dm = head.match(/[（(]\s*([A-Za-z\s]+?)\s*[)）]\s*$/);
-      const diff = dm ? dm[1].toUpperCase().trim() : '';
-      const title = dm ? head.slice(0, dm.index).trim() : head;
+      // 难度后缀有 (EXPERT)、【EXPERT】、【EXPERT】【MASTER】、(WORLD’S END) 等写法
+      let title = head;
+      const diffs = [];
+      let mm;
+      while ((mm = title.match(/[\s]*[（(【\[]\s*([A-Za-z\s'’]+?)\s*[)）】\]]\s*$/))) {
+        diffs.unshift(mm[1].toUpperCase().trim());
+        title = title.slice(0, mm.index).trim();
+      }
+      const diff = diffs.join(' / ');
+      if (!title) { cur = null; continue; }
       cur = { title, diff, body: [] };
       out.push(cur);
     } else if (cur && plain) {
