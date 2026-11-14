@@ -2266,3 +2266,15 @@ html.darkmode .chuni-parts-table th { background: #333945; color: #a9bccb; borde
 html.darkmode .chuni-parts-table td { color: #dfe8ef; border-bottom-color: #343a44; }
 html.darkmode .chuni-parts-table .chuni-parts-key { color: #9fb0bf; }
 html.darkmode .chuni-parts-note { color: #7d8a96; }
+
+/* 合作标签：人太多时只显示一行，超出用省略号（完整名单在单曲页） */
+.chuni-row-tag-ds.is-collab {
+  max-width: 46ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: 2px;
+}
+@media (max-width: 720px) {
+  .chuni-row-tag-ds.is-collab { max-width: 22ch; }
+}
