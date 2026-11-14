@@ -1,4 +1,4 @@
-﻿<%
+<%
 	const g = page.guide || {};
 	const cats = g.categories || [];
 	const versions = g.versions || [];
@@ -465,7 +465,7 @@
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 				'<div class="chuni-row-main">' +
-				'<div class="chuni-row-title">' + r.t + (r.cnrm ? '<span class="chuni-row-tag-removed">国服已删除</span>' : (r.rm ? '<span class="chuni-row-tag-removed">已删除</span>' : '')) + dsTag + '</div>' +
+				'<div class="chuni-row-title">' + r.t + ((r.cnrm || r.rm) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + dsTag + '</div>' +
 				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 				'</div>' +
 				'<div class="chuni-row-badges">' + badges + '</div>' +

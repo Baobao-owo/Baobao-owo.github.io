@@ -2285,3 +2285,24 @@ html.darkmode .chuni-parts-note { color: #7d8a96; }
 .chuni-diff-chip.diff-e.active { background: #e2564c; border-color: #e2564c; color: #fff; }
 .chuni-diff-chip.diff-m.active { background: #a05fc0; border-color: #a05fc0; color: #fff; }
 .chuni-diff-chip.diff-u.active { background: #3a3a3a; border-color: #3a3a3a; color: #fff; }
+
+/* 删除曲标记：跟行标题、艺术家同字号，看起来齐一点 */
+.chuni-row-tag-removed {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: 1px;
+}
+
+/* 删除曲标记：与行标题同字号，视觉对齐 */
+.chuni-row-tag-removed {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+  line-height: 1.5;
+}
