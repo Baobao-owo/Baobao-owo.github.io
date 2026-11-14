@@ -2,10 +2,9 @@
 title: 推球杯 Act.2 杂记（上）
 date: 2026-10-08 23:51:00
 categories: 杂谈
-tags: [推球杯, 中二节奏, 比赛杂记]
+tags: [比赛]
+thumbnail: /assets/img/bili-opus-act2/cover.webp
 ---
-
-> 本文原载于 B 站专栏 [cv53343991](https://www.bilibili.com/read/cv53343991)，搬到博客留个档。
 
 ## 写到最前
 
