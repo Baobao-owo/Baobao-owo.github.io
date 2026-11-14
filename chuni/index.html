@@ -1212,9 +1212,12 @@
 			if (!b) return;
 			var lv = b.getAttribute('data-level');
 			if (!lv) return;
+			// 等级是互斥的：点一个就只筛这个等级，再点一次取消
 			var i = state.levels.indexOf(lv);
-			if (i === -1) state.levels.push(lv); else state.levels.splice(i, 1);
-			b.classList.toggle('active');
+			state.levels = (i === -1) ? [lv] : [];
+			document.querySelectorAll('#chuni-levels button[data-level]').forEach(function (x) {
+				x.classList.toggle('active', state.levels.indexOf(x.getAttribute('data-level')) !== -1);
+			});
 			if (levelsEl) levelsEl.classList.toggle('filtering', state.levels.length > 0);
 			state.page = 1;
 			renderRows();
