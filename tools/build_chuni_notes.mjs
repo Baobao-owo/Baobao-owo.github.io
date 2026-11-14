@@ -82,6 +82,26 @@ const PAGE_SLUG = {
   '企鹅秘话 第 1 话': 'chunithm-penguin-secret-1',
 };
 const fuzzy = [];
+// 会报里写法不同、但确实就是站内某首歌的手动对应（用户确认：直接贴过去就行）
+const MANUAL_MAP = {
+  '僕たちのギャグマンガ日和': '僕達のギャグマンガ日和',
+  '愛包ダンスホール (MASTER)': '愛包ダンスホール',
+  'Not On the Sideline': 'Not On The Sidelines - Street Fighter 6 Main Theme',
+  'トウキョウ・シャンディ・ランデヴ': 'トウキョウ・シャンディ・ランデヴ feat. 花譜, ツミキ',
+  '《MALKUTH -The Last Ruler of Terrestrials-》《DA\u2019AT -The First Seeker of Souls-》': 'MALKUTH -The Last Ruler of Terrestrials-',
+  '多重未来のカルテット': '多重未来のカルテット -Quartet Theme-',
+  'ENDYMION(EXPERT)': 'ENDYMION',
+  '巫女みこナース（EXP）': '巫女みこナース・愛のテーマ',
+  'Your Affection': 'Your Affection(Daisuke Asakura Remix)',
+  '・盟月【MASTER】': '盟月',
+  '新時代': '新時代（ウタfrom ONE PIECE FILM RED）',
+};
+// 明确属于隔壁音击（ONGEKI）、不挂到中二曲目上
+const SKIP_TITLES = new Set([
+  'Dynamite', 'I Love It', 'I Really Like You', 'I Will Survive（Eric Kupper Mix Extended）',
+  'Runaway（U&I）', 'Permission to Dance', 'Trinity Departure', 'Saika', 'Deep-Connect',
+  'ヴァルマシアゴースト', 'Prominence（オンゲキ）',
+]);
 const out = {};
 let matched = 0;
 const unmatched = new Set();
@@ -100,8 +120,14 @@ function candidates(title) {
 
 for (const r of recs) {
   if (!r.title) continue;
+  if (SKIP_TITLES.has(String(r.title).trim())) {
+    unmatched.add(r.title);
+    continue;
+  }
   let song = null;
-  for (const c of candidates(r.title)) {
+  const manual = MANUAL_MAP[String(r.title).trim()];
+  if (manual) song = index.get(norm(manual)) || null;
+  for (const c of (song ? [] : candidates(r.title))) {
     const hit = index.get(norm(c));
     if (hit) { song = hit; break; }
   }
