@@ -236,7 +236,9 @@
 	}
 
 	// 合作谱覆盖到的难度（e/m/u）；选了谱师时只看他参与合作的
-	var COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋)\s*/;
+	var COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋|supported by|resurrected by|fumbled by|panicked by|cooperated|affected by|fused with|meets|\band\b|feat\.?|合作)\s*/i;
+	// 团队名义关键词（譜面ボーイズ / 楽団 / 教団 …）
+	var COLLAB_TEAM_RE = /(ボーイズ|譜百|楽団|教団|組長|ユニット|コラボ|チーム|怪盗団|Fumen|軍|連合|団)/;
 	var LOOSE_SET = null;
 	var DIFF_KEY = { basic: 'b', advanced: 'a', expert: 'e', master: 'm', ultima: 'u' };
 	function collabKeysOf(r) {
@@ -257,12 +259,17 @@
 				LOOSE_SET = {};
 				((DESIGNERS && DESIGNERS.loose) || []).forEach(function (d) { LOOSE_SET[String(d.name).toLowerCase()] = 1; });
 			}
+			var ent = designerEntry(r) || {};
 			(r.sh || []).forEach(function (sh) {
 				var k = DIFF_KEY[sh.d];
 				if (!k || keys.indexOf(k) === -1) return;
-				var ds = String(sh.ds || '');
+				var ds = String(sh.ds || '').trim();
 				if (!ds) return;
-				if (COLLAB_SEP.test(ds) || LOOSE_SET[ds.toLowerCase()]) out.push(k);
+				// 署名是组合/团队别名（归不到具体谱师）也算合作
+				var rec = ent[k];
+				var normName = function (x) { return String(x || '').normalize('NFKC').toLowerCase().replace(/[\s\u3000]/g, ''); };
+				var teamAlias = rec && (!rec.who || rec.who === '制作者不明' || normName(rec.raw) !== normName(rec.who));
+				if (teamAlias || COLLAB_SEP.test(ds) || LOOSE_SET[ds.toLowerCase()] || COLLAB_TEAM_RE.test(ds)) out.push(k);
 			});
 		}
 		return out;
@@ -281,8 +288,11 @@
 	}
 
 	function visibleKeys(r) {
-		// 合作 / 单独：只亮对应写法的谱，其余变灰；查不出来就全灰
-		if (state.collab) return collabKeysOf(r);
+		// 合作 / 单独：只亮对应写法的谱，其余变灰；合作模式查不出来时退回全亮
+		if (state.collab) {
+			var ck = collabKeysOf(r);
+			return ck.length ? ck : null;
+		}
 		if (state.solo) return soloKeysOf(r);
 		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
 		return null;
@@ -504,6 +514,20 @@
 					});
 				}
 				if (cParts.length) dsTag = '<span class="chuni-row-tag-ds is-collab">' + cParts.join(' / ') + '</span>';
+			}
+			// WORLD'S END 独占曲：没有 B/A/E/M/U 谱面，就只显示一个 WE 徽章
+			var stdSheets = (r.sh || []).some(function (sh) { return DIFF_ORDER.indexOf(sh.d) !== -1; });
+			if (!stdSheets && ((r.we && r.we.length) || r.weAttr)) {
+				var starTxt = (r.we && r.we.length) ? ' ☆' + Math.max.apply(null, r.we) : '';
+				var weAttr = r.weAttr ? '【' + r.weAttr + '】' : '';
+				return '<a class="chuni-row" href="' + r.u + '">' +
+					'<img class="chuni-thumb" src="' + (r.cov || '') + '" alt="" loading="lazy">' +
+					'<div class="chuni-row-main">' +
+					'<div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + ((r.cnrm || r.rm) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + dsTag + '</div>' +
+					'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
+					'</div>' +
+					'<div class="chuni-row-badges"><span class="chuni-badge chuni-badge-we">WE ' + weAttr + starTxt + '</span></div>' +
+					'</a>';
 			}
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
@@ -927,8 +951,10 @@
 		.then(function (r) { return r.json(); })
 		.then(function (data) {
 			DESIGNERS = data;
-				renderDesignerPanel();
+			renderDesignerPanel();
 			syncDesignerCount();
+			// 谱师数据到位后，合作/单独模式的定数遮罩要重算（否则首次渲染可能全灰）
+			if (state.collab || state.solo || state.designer || state.designerRaw) renderRows();
 		})
 		.catch(function () {
 			var toggle = panelEl('chuni-designer-toggle');
