@@ -2661,3 +2661,19 @@ html.darkmode .chuni-diff-top {
   .chuni-designer-diff { gap: 6px; }
   .chuni-count { font-size: 12px; }
 }
+
+/* 手机端：定数 chip 改横向滑动，不再换行占半屏 */
+@media (max-width: 640px) {
+  .chuni-levels {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+  .chuni-levels::-webkit-scrollbar { display: none; }
+  .chuni-lv-chip { flex: 0 0 auto; min-width: 42px; }
+}
