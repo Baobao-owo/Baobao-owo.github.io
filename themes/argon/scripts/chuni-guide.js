@@ -1,4 +1,4 @@
-﻿// 曲目导览：用公开数据集生成静态页面
+// 曲目导览：用公开数据集生成静态页面
 // 列表页 /chuni/ + 每首歌 /chuni/<slug>/ 详情页
 const crypto = require('crypto');
 const fs = require('fs');
@@ -202,6 +202,12 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
       a: e.raw.artist,
       c: e.raw.category,
       v: e.raw.version,
+      // 追加日（用来在同一个版本内按上线顺序排）
+      rel: (function () {
+        const t = String(e.raw.release || '');
+        const m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+        return m ? Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]) : 0;
+      })(),
       b: e.raw.bpm,
       cov: e.cover,
       min: e.minLevel,
