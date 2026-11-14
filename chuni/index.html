@@ -815,10 +815,7 @@
 
 	function visibleKeys(r) {
 		// 合作 / 单独：只亮对应写法的谱，其余变灰；合作模式查不出来时退回全亮
-		if (state.collab) {
-			var ck = collabKeysOf(r);
-			return ck.length ? ck : null;
-		}
+		if (state.collab) return collabKeysOf(r);
 		if (state.solo) return soloKeysOf(r);
 		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
 		return null;
