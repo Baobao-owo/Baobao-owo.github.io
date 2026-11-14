@@ -522,7 +522,23 @@
 <article class="post post-full card bg-white shadow-sm border-0">
 	<div class="post-content" id="post_content">
 		<div class="chuni-song">
-			<a class="map-back" href="/chuni/">← 返回曲目导览</a>
+			<a class="map-back" id="chuni-map-back" href="/chuni/">← 返回曲目导览</a>
+<script>
+	(function () {
+		var back = document.getElementById('chuni-map-back');
+		if (!back) return;
+		back.addEventListener('click', function (e) {
+			// 从曲目导览点进来时，用浏览器后退，能保留筛选条件和滚动位置
+			try {
+				var ref = document.referrer || '';
+				if (ref.indexOf(location.origin + '/chuni/') === 0 && history.length > 1) {
+					e.preventDefault();
+					history.back();
+				}
+			} catch (err) {}
+		});
+	})();
+</script>
 
 			<div class="chuni-wiki-head">
 				<div class="chuni-jacket-box">
