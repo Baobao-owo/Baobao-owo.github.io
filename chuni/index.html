@@ -850,7 +850,9 @@
 		var qt = state.qt.trim().toLowerCase();
 		var qa = state.qa.trim().toLowerCase();
 		var rows = all.filter(function (r) {
-			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
+			// 国服模式下，国服下架的曲目也算国服曲库（之前只有点「仅显示删除曲」才露面，
+			// 导致「不显示删除曲」开关在国服几乎不起作用）
+			if (state.version === 'cn' && !r.cn && !r.cnrm) return false;
 			var isDel = !!(r.rm || r.cnrm);
 			var isWE = !!(r.we && r.we.length);
 			if (state.hideRemoved && isDel) return false;
@@ -1135,7 +1137,9 @@
 		return all.filter(function (r) {
 			var isDel = !!(r.rm || r.cnrm);
 			var isWE = !!(r.we && r.we.length);
-			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
+			// 国服模式下，国服下架的曲目也算国服曲库（之前只有点「仅显示删除曲」才露面，
+			// 导致「不显示删除曲」开关在国服几乎不起作用）
+			if (state.version === 'cn' && !r.cn && !r.cnrm) return false;
 			if (state.hideRemoved && isDel) return false;
 			if (state.removed) {
 				if (!isDel) return false;
