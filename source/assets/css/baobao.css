@@ -2541,3 +2541,22 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
   align-items: center;
   margin-left: 4px;
 }
+
+/* 顶部难度 chip 行：与上一行的间距跟工具栏其它行一致 */
+.chuni-diff-top {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #e6ecf2;
+  width: 100%;
+  margin-left: 0;
+}
+html.darkmode .chuni-diff-top {
+  border-top-color: #3a404b;
+}
+
+/* 顶部难度 chip 行：只加间距，不加分隔线 */
+.chuni-diff-top {
+  margin-top: 10px;
+  padding-top: 0;
+  border-top: 0;
+}
