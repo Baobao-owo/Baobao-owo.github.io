@@ -614,7 +614,7 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'version', dir: -1, removed: false, hideRemoved: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
