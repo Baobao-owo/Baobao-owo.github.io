@@ -3,10 +3,12 @@ import fs from 'node:fs';
 
 const norm = (s) =>
   String(s || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
     .normalize('NFKC')
     .toLowerCase()
     .replace(/[\s\u3000]/g, '')
-    .replace(/[\[\]【】()（）「」『』!！?？'‘’“”"・:：;；,，.。~～\-–—_♣♠♥♦♡♢/\\|&]/g, '');
+    .replace(/[\[\]【】＜＞《》〈〉○●◇◆■□☆★()（）「」『』!！?？'‘’“”"・:：;；,，.。~～\-–—_♣♠♥♦♡♢/\\|&]/g, '');
 
 // 去掉曲名后面的读音说明，例如「]-[|/34<#!(ヒバチ)」
 const bareTitle = (t) => String(t || '').replace(/[（(][^（）()]*[)）]\s*$/, '').trim();
@@ -49,6 +51,37 @@ function fixZh(text) {
   return t.trim();
 }
 
+function bigrams(s) {
+  const out = new Set();
+  for (let i = 0; i < s.length - 1; i++) out.add(s.slice(i, i + 2));
+  return out;
+}
+
+function dice(a, b) {
+  if (!a || !b) return 0;
+  if (a === b) return 1;
+  const A = bigrams(a);
+  const B = bigrams(b);
+  let inter = 0;
+  for (const x of A) if (B.has(x)) inter++;
+  return (2 * inter) / (A.size + B.size || 1);
+}
+
+const unmatchedRows = [];
+const PAGE_SLUG = {
+  '11 周年会报': 'chunithm-11th-report',
+  '10 周年会报': 'chunithm-10th-report',
+  '9 周年会报': 'chunithm-9th-report',
+  '8 周年会报': 'chunithm-8th-report',
+  '7 周年会报': 'chunithm-7th-report',
+  '企鹅秘话 第 6 话': 'chunithm-penguin-secret-6',
+  '企鹅秘话 第 5 话': 'chunithm-penguin-secret-5',
+  '企鹅秘话 第 4 话': 'chunithm-penguin-secret-4',
+  '企鹅秘话 第 3 话': 'chunithm-penguin-secret-3',
+  '企鹅秘话 第 2 话': 'chunithm-penguin-secret-2',
+  '企鹅秘话 第 1 话': 'chunithm-penguin-secret-1',
+};
+const fuzzy = [];
 const out = {};
 let matched = 0;
 const unmatched = new Set();
@@ -73,7 +106,30 @@ for (const r of recs) {
     if (hit) { song = hit; break; }
   }
   if (!song) {
+    const key = norm(r.title);
+    let best = null;
+    let bestScore = 0;
+    for (const [k, t] of index) {
+      const sc = dice(key, k);
+      if (sc > bestScore) { bestScore = sc; best = t; }
+    }
+    if (best && bestScore >= 0.86) {
+      song = best;
+      fuzzy.push({ title: r.title, matched: best, score: Number(bestScore.toFixed(2)), round: r.round });
+    }
+  }
+  if (!song) {
     unmatched.add(r.title);
+    unmatchedRows.push({
+      round: r.round,
+      src: 'https://note-report.pages.dev/' + (PAGE_SLUG[r.round] || ''),
+      designer: r.designer || '',
+      diff: r.diff || '',
+      title: r.title,
+      jp: String(r.jp || '').split('\n')[0].slice(0, 160),
+      zh: String(r.zh || '').split('\n')[0].slice(0, 160),
+      kind: (/^(前言|结尾|后记|关于|数据|Lineup|阵容|致辞|贺词|祝|引言|序|附录|乐曲公募)/.test(r.title) || !r.diff) ? '疑似小标题/非曲目' : '疑似歌曲（站内没有）',
+    });
     continue;
   }
   const item = {
@@ -92,6 +148,8 @@ for (const r of recs) {
 }
 
 fs.writeFileSync('source/_data/chuni_notes.json', JSON.stringify(out, null, 0), 'utf8');
+fs.writeFileSync('_tmp/build/unmatched-notes.json', JSON.stringify(unmatchedRows, null, 1), 'utf8');
+fs.writeFileSync('_tmp/build/fuzzy-matches.json', JSON.stringify(fuzzy, null, 1), 'utf8');
 const sizes = Object.values(out).map((a) => a.length);
 console.log('匹配到曲目:', Object.keys(out).length, '| 条目:', matched, '| 有日文:', Object.values(out).flat().filter((x) => x.jp).length);
 console.log('单曲最多条目:', Math.max(...sizes));
