@@ -63,6 +63,40 @@ const versionLabel = new Map(d.versions.map(function (v) {
     ['b', 'a', 'e', 'm', 'u'].forEach(function (d) { (rec[d] || []).forEach(function (x) { ppl.add(x); }); });
     return ppl.size;
   }
+  // 谱师索引（用于判断某张谱的作者是否「已知」）
+  const DESIGNER_IDX = (function () {
+    try {
+      const f = hexo.base_dir + 'source/assets/data/designers.json';
+      if (!fs.existsSync(f)) return { songs: {}, names: new Set() };
+      const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+      // 索引再按本项目的 normTitle 建一份，避免标点差异对不上
+      const songs = {};
+      Object.keys(d.songs || {}).forEach(function (k) {
+        const nk = normTitle(k);
+        if (!songs[nk]) songs[nk] = d.songs[k];
+      });
+      return { songs: songs, names: new Set((d.designers || []).map(function (x) { return x.name; })) };
+    } catch (e) { return { songs: {}, names: new Set() }; }
+  })();
+  const DESIGNER_ALIAS = (function () {
+    try {
+      const f = hexo.base_dir + 'source/_data/chuni_designer_alias.json';
+      return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {};
+    } catch (e) { return {}; }
+  })();
+  // 作者「已知」：署名本身就是谱师名，或者能在别名表里归到某个谱师
+  function isKnownDesigner(title, letter) {
+    const rec = DESIGNER_IDX.songs[normTitle(title)];
+    if (!rec || !letter) return false;
+    const x = rec[String(letter).toLowerCase()];
+    if (!x) return false;
+    const raw = String(x.raw || '').trim();
+    if (!raw) return false;
+    if (DESIGNER_IDX.names.has(raw)) return true;
+    const mapped = DESIGNER_ALIAS[raw];
+    return !!(mapped && DESIGNER_IDX.names.has(mapped));
+  }
+
   // 「合作谱」判定：collab 数据里有 / 署名带双人分隔符 / 署名是团队名义
   const looseNames = (function () {
     try {
@@ -343,8 +377,9 @@ const versionLabel = new Map(d.versions.map(function (v) {
       })(),
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
+        const known = isKnownDesigner(e.raw.title, letter) ? 1 : 0;
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
-        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '' };
+        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '', kn: known };
       })
     };
   });

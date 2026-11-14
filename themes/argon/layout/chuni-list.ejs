@@ -271,7 +271,13 @@
 	// 当前该亮哪几个难度（e/m/u）；null = 全亮
 	function soloKeysOf(r) {
 		var col = collabKeysOf(r);
-		return ['b', 'a', 'e', 'm', 'u'].filter(function (k) { return col.indexOf(k) === -1; });
+		var known = {};
+		(r.sh || []).forEach(function (sh) {
+			var k = DIFF_KEY[sh.d];
+			if (k && sh.kn) known[k] = 1;
+		});
+		// 合作谱、作者不明的谱都不算「单独」
+		return ['b', 'a', 'e', 'm', 'u'].filter(function (k) { return col.indexOf(k) === -1 && known[k]; });
 	}
 
 	function visibleKeys(r) {
@@ -361,7 +367,7 @@
 				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
 				if (isWE && !state.we) return false;
 			}
-			if (state.solo && collabEntry(r)) return false;
+			if (state.solo && soloKeysOf(r).length === 0) return false;
 			if (state.we && !isWE) return false;
 			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
 			if (!state.removed && !state.we && isWE) return false;
