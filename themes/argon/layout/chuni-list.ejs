@@ -28,10 +28,10 @@
 						<% }); %>
 					</select>
 					<div class="chuni-sort" id="chuni-sort">
-						<button type="button" class="chuni-sort-btn active" data-sort="title">按标题首字母</button>
-						<button type="button" class="chuni-sort-btn" data-sort="version">按版本稼动</button>
+						<button type="button" class="chuni-sort-btn active" data-sort="version">按版本稼动</button>
+						<button type="button" class="chuni-sort-btn" data-sort="title">按标题首字母</button>
 						<button type="button" class="chuni-sort-btn" data-sort="const">按定数</button>
-						<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">正序 ↑</button>
+						<button type="button" class="chuni-sort-btn" id="chuni-dir" data-sort="dir">倒序 ↓</button>
 						<button type="button" class="chuni-sort-btn chuni-designer-toggle" id="chuni-designer-toggle" aria-expanded="false">按谱师筛选</button>
 					</div>
 					<span class="chuni-count" id="chuni-count"></span>
@@ -88,7 +88,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'title', dir: 1, removed: false, hideRemoved: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -358,7 +358,8 @@
 		rows.sort(function (x, y) {
 			var d = 0;
 			if (state.sort === 'version') {
-				d = (vIndex[x.v] == null ? 99 : vIndex[x.v]) - (vIndex[y.v] == null ? 99 : vIndex[y.v]);
+				// 没有版本号的（新曲还没标）当最旧处理，倒序时沉到最后
+				d = (vIndex[x.v] == null ? -1 : vIndex[x.v]) - (vIndex[y.v] == null ? -1 : vIndex[y.v]);
 				if (d) return d * state.dir;
 			}
 			if (state.sort === 'const') {
