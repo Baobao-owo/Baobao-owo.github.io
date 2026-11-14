@@ -184,7 +184,10 @@
 					}
 					const allRows = (extra2.history_expanded && extra2.history_expanded.length > 1) ? extra2.history_expanded : hist.rows;
 					const histHead = allRows[0];
-					const histRows = allRows.slice(1);
+					// 全是「—」的行（例如新版本还没改定数）不显示，免得看起来像空表
+					const histRows = allRows.slice(1).filter(function (r) {
+						return r.slice(1).some(function (c) { return String(c).trim() !== '—' && String(c).trim() !== '-'; });
+					});
 					const DIFF_FULL = { B: 'BASIC', A: 'ADVANCED', E: 'EXPERT', M: 'MASTER', U: 'ULTIMA' };
 					function shortVer(v) { return String(v).replace(/CHUNITHM NEW/g, 'NEW').replace(/CHUNITHM /g, '').replace(/PARADISE LOST/g, 'PARADISE×').replace(/ PLUS/g, '+').trim(); }
 				%>
