@@ -121,7 +121,15 @@
 	function applySavedListState() {
 		if (!savedListState || listStateApplied) return;
 		try {
-			Object.keys(savedListState.state || {}).forEach(function (k) { state[k] = savedListState.state[k]; });
+			// 只恢复已知字段，旧版存的状态可能缺字段/类型不对，不能整个覆盖
+			['version', 'qt', 'qa', 'cat', 'designer', 'designerRaw', 'collab', 'solo', 'levels', 'stars',
+			 'sort', 'dir', 'removed', 'hideRemoved', 'we', 'page'].forEach(function (k) {
+				var v = savedListState.state && savedListState.state[k];
+				if (v === undefined || v === null) return;
+				if ((k === 'levels' || k === 'stars') && !Array.isArray(v)) return;
+				state[k] = v;
+			});
+			if (!Array.isArray(state.designerDiff) || !state.designerDiff.length) state.designerDiff = ['b', 'a', 'e', 'm', 'u'];
 			syncControls();
 			syncDesignerUI();
 			if (typeof renderLevelChips === 'function') renderLevelChips();
@@ -628,7 +636,7 @@
 		});
 	});
 
-	document.querySelectorAll('#chuni-sort .chuni-sort-btn').forEach(function (b) {
+	document.querySelectorAll('#chuni-sort .chuni-sort-btn, #chuni-dir').forEach(function (b) {
 		b.addEventListener('click', function () {
 			var key = b.getAttribute('data-sort');
 			if (key === 'dir') {
