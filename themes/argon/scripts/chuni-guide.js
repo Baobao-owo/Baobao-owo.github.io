@@ -140,6 +140,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
       const d = String(sh.designer || '')
         // 去掉【】/[]/（）里的修饰再判断：「[O.N.×STAGE!]ミニミライト」是单人
         .replace(/【[^】]*】|\[[^\]]*\]|（[^）]*）|\([^)]*\)/g, '')
+        // 去掉英文单词里的 &：「Redarrow -U&iVERSE-」里的 & 不是合作分隔符
+        .replace(/\b[A-Za-z0-9]+(?:&[A-Za-z0-9]+)+\b/g, ' ')
         .trim();
       if (!d) return false;
       if (COLLAB_SEP.test(d)) return true;
