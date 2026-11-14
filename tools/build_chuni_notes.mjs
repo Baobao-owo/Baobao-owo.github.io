@@ -18,8 +18,17 @@ const site = JSON.parse(fs.readFileSync('source/_data/chuni.json', 'utf8'));
 const removed = JSON.parse(fs.readFileSync('source/_data/chuni_removed_songs.json', 'utf8'));
 
 const index = new Map(); // norm(title) -> 站内 title
-for (const s of site.songs) index.set(norm(s.title), s.title);
-for (const s of removed) if (!index.has(norm(s.title))) index.set(norm(s.title), s.title);
+// 站内曲名常带「(TV edit)」「（104期Ver.）」这类后缀，去掉后的写法也登记一份
+for (const s of site.songs) {
+  index.set(norm(s.title), s.title);
+  const bare = norm(bareTitle(s.title));
+  if (bare && !index.has(bare)) index.set(bare, s.title);
+}
+for (const s of removed) {
+  if (!index.has(norm(s.title))) index.set(norm(s.title), s.title);
+  const bare = norm(bareTitle(s.title));
+  if (bare && !index.has(bare)) index.set(bare, s.title);
+}
 
 // 常见术语统一（只做明显错译）
 const TERM_FIX = [
