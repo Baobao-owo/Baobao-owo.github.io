@@ -2445,3 +2445,14 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
 @media (max-width: 720px) {
   .chuni-toolbar-main .chuni-sort { margin-left: 0; }
 }
+
+/* 工具栏第二行：排序按钮 + 计数 + 倒序（固定单独一行） */
+.chuni-toolbar-sortrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.chuni-toolbar-sortrow .chuni-count { margin-left: auto; }
+.chuni-toolbar-sortrow .chuni-dir-btn { margin-left: 8px; }
