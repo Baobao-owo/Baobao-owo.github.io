@@ -66,14 +66,12 @@
 				<div class="chuni-designer-diff">
 					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
 					<button type="button" class="chuni-diff-chip chuni-solo-chip" id="chuni-solo-toggle" title="只显示没有合作谱的曲目">仅显示单独</button>
-					<button type="button" class="chuni-diff-chip chuni-big-chip" id="chuni-big-toggle" title="只显示大合作（有分工表或 3 人以上联名）">仅显示大合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
 				<div class="chuni-designer-grid" id="chuni-designer-grid"></div>
-				<details class="chuni-designer-loose" id="chuni-designer-loose-wrap">
-					<summary id="chuni-designer-loose-summary">其他名义</summary>
-					<div class="chuni-designer-grid" id="chuni-designer-loose"></div>
-				</details>
+				<div class="chuni-designer-diff">
+					<button type="button" class="chuni-diff-chip chuni-other-chip" id="chuni-other-toggle" title="只显示以团队/恶搞名义署名的谱面">其他合作</button>
+				</div>
 			</div>
 
 			<div class="chuni-levels" id="chuni-levels"></div>
@@ -96,7 +94,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, solo: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, big: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, solo: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, other: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -322,6 +320,17 @@
 		return out;
 	}
 
+	// 「其他合作」：谱面署名属于 designers.json 里的「其他名义」清单（团队 / 恶搞名义）
+	var looseNameSet = null;
+	function otherCollabMatch(r) {
+		if (!DESIGNERS || !DESIGNERS.loose) return false;
+		if (!looseNameSet) {
+			looseNameSet = {};
+			DESIGNERS.loose.forEach(function (d) { looseNameSet[String(d.name).toLowerCase()] = 1; });
+		}
+		return (r.sh || []).some(function (sh) { return sh.ds && looseNameSet[String(sh.ds).toLowerCase()]; });
+	}
+
 	function designerMatch(r) {
 		return matcher(r).length > 0;
 	}
@@ -341,7 +350,7 @@
 				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
 				if (isWE && !state.we) return false;
 			}
-			if (state.big && !r.big) return false;
+			if (state.other && !otherCollabMatch(r)) return false;
 			if (state.solo && collabEntry(r)) return false;
 			if (state.we && !isWE) return false;
 			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
@@ -662,18 +671,6 @@
 		grid.innerHTML = list.map(function (d) { return designerLabel(d.name, d.songs); }).join('') ||
 			'<div class="chuni-dz-none">没有匹配的谱师</div>';
 
-		var loose = DESIGNERS.loose.map(function (d) {
-			return { name: d.name, songs: countFor(d.name, picked) };
-		}).filter(function (d) {
-			if (!q) return true;
-			return d.name.toLowerCase().indexOf(q) !== -1;
-		});
-		loose.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
-		if (looseEl) {
-			looseEl.innerHTML = loose.slice(0, 120).map(function (d) { return designerLabel(d.name, d.songs); }).join('');
-		}
-		var summary = panelEl('chuni-designer-loose-summary');
-		if (summary) summary.textContent = '其他名义（' + DESIGNERS.loose.length + ' 个，合作 / 恶搞名义）';
 		markDesignerChips();
 	}
 
@@ -768,7 +765,7 @@
 		state.designerRaw = '';
 		state.collab = false;
 		state.solo = false;
-		state.big = false;
+		state.other = false;
 		var q = panelEl('chuni-designer-q');
 		if (q) q.value = '';
 		updateDesignerHint();
@@ -830,17 +827,15 @@
 	if (dq) dq.addEventListener('input', renderDesignerPanel);
 
 	function syncModeChips() {
-		['chuni-collab-toggle', 'chuni-solo-toggle', 'chuni-big-toggle'].forEach(function (id) {
-			var el = panelEl(id);
-			if (!el) return;
-			var key = id === 'chuni-collab-toggle' ? 'collab' : (id === 'chuni-solo-toggle' ? 'solo' : 'big');
-			el.classList.toggle('active', !!state[key]);
+		[['chuni-collab-toggle', 'collab'], ['chuni-solo-toggle', 'solo'], ['chuni-other-toggle', 'other']].forEach(function (pair) {
+			var el = panelEl(pair[0]);
+			if (el) el.classList.toggle('active', !!state[pair[1]]);
 		});
 	}
 	function setMode(mode) {
 		state.collab = mode === 'collab';
 		state.solo = mode === 'solo';
-		state.big = mode === 'big';
+		state.other = mode === 'other';
 		state.page = 1;
 		syncModeChips();
 		renderRows();
@@ -853,9 +848,9 @@
 	if (sToggle) sToggle.addEventListener('click', function () {
 		setMode(state.solo ? '' : 'solo');
 	});
-	var bToggle = panelEl('chuni-big-toggle');
-	if (bToggle) bToggle.addEventListener('click', function () {
-		setMode(state.big ? '' : 'big');
+	var oToggle = panelEl('chuni-other-toggle');
+	if (oToggle) oToggle.addEventListener('click', function () {
+		setMode(state.other ? '' : 'other');
 	});
 
 	var st = document.getElementById('chuni-search-title');
