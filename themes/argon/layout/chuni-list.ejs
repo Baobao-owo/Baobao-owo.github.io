@@ -603,7 +603,11 @@
 
 		listEl.innerHTML = html;
 		emptyEl.hidden = rows.length !== 0;
-		countEl.textContent = '显示 ' + (rows.length ? start + 1 : 0) + '–' + (start + pageRows.length) + ' / ' + rows.length;
+		var anyFilter = !!(state.designer || state.designerRaw || state.collab || state.solo ||
+			(state.levels || []).length || (state.stars || []).length || state.qt || state.qa ||
+			state.cat !== 'all' || state.version !== 'all' || state.removed || !state.hideRemoved || state.we);
+		countEl.textContent = '显示 ' + (rows.length ? start + 1 : 0) + '–' + (start + pageRows.length) + ' / ' + rows.length +
+			(anyFilter ? '（已筛选，全库 ' + all.length + ' 首）' : '');
 		totalEl.textContent = String(all.length);
 		renderPager(pages);
 		// 谱师面板开着的话，人数跟着当前的删除曲 / WE 开关重算
