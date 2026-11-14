@@ -111,7 +111,17 @@ const versionLabel = new Map(d.versions.map(function (v) {
   // docx（谱师学ep0.5）里列过的曲目一律算合作曲
   const collabDocxSet = new Set(((hexo.locals.get('data') && hexo.locals.get('data').collab_docx_titles) || []).map(function (t) { return normTitle(t); }));
   // 用户确认是单人写、但 docx 里列过的曲目
-  const COLLAB_EXCLUDE = new Set([normTitle('[改]Oshama Scramble!'), normTitle('タイムカプセル')]);
+  const COLLAB_EXCLUDE = new Set((function () {
+      const base = ['[改]Oshama Scramble!', 'タイムカプセル'];
+      try {
+        const p = path.join(hexo.base_dir, 'tools/collab-exclude.json');
+        if (fs.existsSync(p)) {
+          const extra = JSON.parse(fs.readFileSync(p, 'utf8'));
+          if (Array.isArray(extra)) extra.forEach(function (t) { base.push(String(t)); });
+        }
+      } catch (e) {}
+      return base.map(normTitle);
+    })());
   function isCollabSong(title, sheets) {
     if (COLLAB_EXCLUDE.has(normTitle(title))) return false;
     if (collabDocxSet.has(normTitle(title))) return true;
