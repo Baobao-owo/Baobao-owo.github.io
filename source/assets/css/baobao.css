@@ -2560,3 +2560,7 @@ html.darkmode .chuni-diff-top {
   padding-top: 0;
   border-top: 0;
 }
+
+/* 谱面确认：等级数字紧跟难度名，不再被推到行尾 */
+.chuni-confirm-name { gap: 6px; }
+.chuni-confirm-src { margin-left: 0; }
