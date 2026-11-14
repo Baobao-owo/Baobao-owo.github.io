@@ -807,7 +807,11 @@
 			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
 			var isDel = !!(r.rm || r.cnrm);
 			var isWE = !!(r.we && r.we.length);
-			if (state.removed && !isDel) return false;
+			if (state.removed) {
+				if (!isDel) return false;
+				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
+				if (isWE && !state.we) return false;
+			}
 			if (state.we && !isWE) return false;
 			if (!state.removed && !state.we && (isDel || isWE)) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
