@@ -13,7 +13,7 @@ for (const key of Object.keys(songs)) {
   for (const d of ['b', 'a', 'e', 'm', 'u']) {
     const x = rec[d];
     if (!x || !x.raw || !x.who) continue;
-    if (x.who === '制作者不明') continue;
+    if (x.who === '制作者不明' || x.who === '团队名义') continue;
     if (x.raw !== x.who) out[x.raw] = x.who;
   }
 }

@@ -226,7 +226,9 @@ const commentWho = (() => {
   };
 })();
 
-const who = fixedWho || resolveWho(raw) || teamOf(raw) || commentWho(key, diff) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
+let who = fixedWho || resolveWho(raw) || teamOf(raw) || commentWho(key, diff) || (isUnknownChart(key, diff) ? UNKNOWN_WHO : '');
+    // 团队名义 / 制作者不明 这类占位不要：直接显示游戏内原始署名
+    if (who === '团队名义') who = '';
     entry[diff] = { who, raw };
     // 面板只按 E/M/U 统计（和筛选器的难度按钮一致），B/A 只存数据不计数
     const counted = diff === 'e' || diff === 'm' || diff === 'u';
