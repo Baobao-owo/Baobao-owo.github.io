@@ -2692,3 +2692,15 @@ html.darkmode .chuni-diff-top {
   .chuni-diff-top::-webkit-scrollbar { display: none; }
   .chuni-diff-top .chuni-diff-chip { flex: 0 0 auto; }
 }
+
+/* 手机端：难度徽章与桌面等宽对齐 */
+@media (max-width: 640px) {
+  .chuni-row-badges { gap: 6px; }
+  .chuni-row-badges .chuni-badge {
+    min-width: 52px;
+    padding: 3px 0;
+    text-align: center;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+}
