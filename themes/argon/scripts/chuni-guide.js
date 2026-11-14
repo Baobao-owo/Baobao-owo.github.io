@@ -132,10 +132,9 @@ const versionLabel = new Map(d.versions.map(function (v) {
       sheets: s.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const masterDesigner = fromMaster[letter];
+        // 谱师栏保留游戏内原文（不过滤、不合并别名）
         const cur = String(sh.designer || '').trim();
-        const filled = (cur && cur !== '-') ? '' : (fromFill[letter] || '');
-        let name = masterDesigner || filled || sh.designer || '';
-        if (name && designerAlias[name]) name = designerAlias[name];
+        const name = (cur && cur !== '-') ? cur : (fromFill[letter] || '');
         return Object.assign({}, sh, {
           designer: name
         });
