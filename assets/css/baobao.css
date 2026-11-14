@@ -2252,3 +2252,17 @@ html.darkmode .post-content details.about-more {
 .chuni-note-zh {
   white-space: pre-line;
 }
+
+/* 单曲页：合作分工表（wiki 担当箇所 / 担当ND） */
+.chuni-parts-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.chuni-parts-table th {
+  background: #f3f7fa; color: #7a8895; font-weight: 600; font-size: 12px;
+  padding: 6px 10px; border-bottom: 1px solid #e6ecf2; text-align: left;
+}
+.chuni-parts-table td { padding: 7px 10px; border-bottom: 1px solid #eef2f6; color: #3f4b57; }
+.chuni-parts-table .chuni-parts-key { color: #6d7d8b; font-variant-numeric: tabular-nums; white-space: nowrap; width: 40%; }
+.chuni-parts-note { margin: 8px 0 0; font-size: 11px; color: #9aa7b2; }
+html.darkmode .chuni-parts-table th { background: #333945; color: #a9bccb; border-bottom-color: #3a404b; }
+html.darkmode .chuni-parts-table td { color: #dfe8ef; border-bottom-color: #343a44; }
+html.darkmode .chuni-parts-table .chuni-parts-key { color: #9fb0bf; }
+html.darkmode .chuni-parts-note { color: #7d8a96; }
