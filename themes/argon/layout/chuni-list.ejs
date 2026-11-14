@@ -37,7 +37,7 @@
 					<span class="chuni-count" id="chuni-count"></span>
 				</div>
 				<div class="chuni-toolbar-filters">
-					<button type="button" class="chuni-removed-btn" id="chuni-removed">删除曲</button>
+					<button type="button" class="chuni-removed-btn" id="chuni-removed">仅显示删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-we">WORLD'S END</button>
 				</div>
 			</div>
@@ -307,7 +307,9 @@
 				if (isWE && !state.we) return false;
 			}
 			if (state.we && !isWE) return false;
-			if (!state.removed && !state.we && (isDel || isWE)) return false;
+			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
+			if (!state.removed && !state.we && isWE) return false;
+			if (state.removed && !state.we && isWE) return false;
 			if (state.cat !== 'all' && r.c !== state.cat) return false;
 			if ((state.designer || state.designerRaw) && !designerMatch(r)) return false;
 			if (state.collab && COLLAB) {
