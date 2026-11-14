@@ -240,7 +240,7 @@
 	var LOOSE_SET = null;
 	var DIFF_KEY = { basic: 'b', advanced: 'a', expert: 'e', master: 'm', ultima: 'u' };
 	function collabKeysOf(r) {
-		var keys = (state.designerDiff && state.designerDiff.length) ? state.designerDiff.slice() : ['e', 'm', 'u'];
+		var keys = ['b', 'a', 'e', 'm', 'u'];
 		var out = [];
 		var c = collabEntry(r);
 		if (c) {
@@ -269,12 +269,15 @@
 	}
 
 	// 当前该亮哪几个难度（e/m/u）；null = 全亮
+	function soloKeysOf(r) {
+		var col = collabKeysOf(r);
+		return ['b', 'a', 'e', 'm', 'u'].filter(function (k) { return col.indexOf(k) === -1; });
+	}
+
 	function visibleKeys(r) {
-		if (state.collab) {
-			var ck = collabKeysOf(r);
-			// 查不出具体哪几张谱是合作时，不要整行变灰
-			return ck.length ? ck : null;
-		}
+		// 合作 / 单独：只亮对应写法的谱，其余变灰；查不出来就全灰
+		if (state.collab) return collabKeysOf(r);
+		if (state.solo) return soloKeysOf(r);
 		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
 		return null;
 	}
@@ -499,7 +502,7 @@
 			var byDiff = {};
 			(r.sh || []).forEach(function (sh) { byDiff[sh.d] = sh; });
 			// 选了谱师时，只给「他写的那张谱」显示定数，其它难度留空
-			var DESIGNER_KEY = { expert: 'e', master: 'm', ultima: 'u' };
+			var DESIGNER_KEY = { basic: 'b', advanced: 'a', expert: 'e', master: 'm', ultima: 'u' };
 			var badges = DIFF_ORDER.map(function (d) {
 				var sh = byDiff[d];
 				if (!sh) return '<span class="chuni-badge chuni-badge-empty">—</span>';
