@@ -2278,3 +2278,10 @@ html.darkmode .chuni-parts-note { color: #7d8a96; }
 @media (max-width: 720px) {
   .chuni-row-tag-ds.is-collab { max-width: 22ch; }
 }
+
+/* 谱师难度 chip：可多选，带难度色 */
+.chuni-diff-chip.diff-b.active { background: #7ec850; border-color: #7ec850; color: #fff; }
+.chuni-diff-chip.diff-a.active { background: #f0b429; border-color: #f0b429; color: #fff; }
+.chuni-diff-chip.diff-e.active { background: #e2564c; border-color: #e2564c; color: #fff; }
+.chuni-diff-chip.diff-m.active { background: #a05fc0; border-color: #a05fc0; color: #fff; }
+.chuni-diff-chip.diff-u.active { background: #3a3a3a; border-color: #3a3a3a; color: #fff; }

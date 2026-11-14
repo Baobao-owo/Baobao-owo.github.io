@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=24460070">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=84208826">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -578,9 +578,11 @@
 				</div>
 				<div class="chuni-designer-diff" id="chuni-designer-diff">
 					<button type="button" class="chuni-diff-chip active" data-diff="all">全部难度</button>
-					<button type="button" class="chuni-diff-chip" data-diff="e">EXPERT</button>
-					<button type="button" class="chuni-diff-chip" data-diff="m">MASTER</button>
-					<button type="button" class="chuni-diff-chip" data-diff="u">ULTIMA</button>
+					<button type="button" class="chuni-diff-chip diff-b" data-diff="b">BASIC</button>
+					<button type="button" class="chuni-diff-chip diff-a" data-diff="a">ADVANCED</button>
+					<button type="button" class="chuni-diff-chip diff-e" data-diff="e">EXPERT</button>
+					<button type="button" class="chuni-diff-chip diff-m" data-diff="m">MASTER</button>
+					<button type="button" class="chuni-diff-chip diff-u" data-diff="u">ULTIMA</button>
 					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
@@ -611,7 +613,7 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: 'all', collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: [], collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -743,7 +745,8 @@
 		var c = collabEntry(r);
 		if (!c) return [];
 		var out = [];
-		['e', 'm', 'u'].forEach(function (k) {
+		var keys = (state.designerDiff && state.designerDiff.length) ? state.designerDiff.slice() : ['e', 'm', 'u'];
+		keys.forEach(function (k) {
 			var ppl = c[k];
 			if (!ppl || ppl.length < 2) return;
 			if ((state.designer || state.designerRaw) && ppl.indexOf(state.designer) === -1) return;
@@ -760,7 +763,7 @@
 	}
 
 	function designerDiffKeys(r) {
-		var map = { e: 'expert', m: 'master', u: 'ultima' };
+		var map = { b: 'basic', a: 'advanced', e: 'expert', m: 'master', u: 'ultima' };
 		var k = visibleKeys(r);
 		return k ? k.map(function (x) { return map[x]; }) : null;
 	}
@@ -808,7 +811,7 @@
 				else if (state.designerRaw && hit.raw === state.designerRaw) out.push({ d: k, kind: 'solo', who: hit.raw });
 			}
 		});
-		if (state.designerDiff !== 'all') out = out.filter(function (x) { return x.d === state.designerDiff; });
+		if (state.designerDiff && state.designerDiff.length) out = out.filter(function (x) { return state.designerDiff.indexOf(x.d) !== -1; });
 		return out;
 	}
 
@@ -1077,23 +1080,44 @@
 			String(name) + '<span class="chuni-dz-n">' + count + '</span></button>';
 	}
 
+	// 选了难度时，谱师曲数只数这些难度上的谱
+	function countFor(name, diffs) {
+		var songs = DESIGNERS.songs || {};
+		var n = 0;
+		Object.keys(songs).forEach(function (k) {
+			var rec = songs[k];
+			var hit = diffs.some(function (d) {
+				var x = rec[d];
+				return x && (x.who === name || x.raw === name);
+			});
+			if (hit) n++;
+		});
+		return n;
+	}
+
 	function renderDesignerPanel() {
 		var grid = panelEl('chuni-designer-grid');
 		var looseEl = panelEl('chuni-designer-loose');
 		if (!grid || !DESIGNERS) return;
 		var q = (panelEl('chuni-designer-q').value || '').trim().toLowerCase();
-		var list = DESIGNERS.designers.filter(function (d) {
-			if (!q) return true;
-			if (d.name.toLowerCase().indexOf(q) !== -1) return true;
-			return false;
-		});
-		grid.innerHTML = list.map(function (d) { return designerLabel(d.name, d.songs); }).join('') ||
-			'<div class="chuni-dz-none">没有匹配的谱师</div>';
-
-		var loose = DESIGNERS.loose.filter(function (d) {
+		var picked = state.designerDiff && state.designerDiff.length ? state.designerDiff : null;
+		var list = DESIGNERS.designers.map(function (d) {
+			return { name: d.name, songs: picked ? countFor(d.name, picked) : d.songs, aliases: d.aliases, id: d.id };
+		}).filter(function (d) {
 			if (!q) return true;
 			return d.name.toLowerCase().indexOf(q) !== -1;
 		});
+		if (picked) list.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
+		grid.innerHTML = list.map(function (d) { return designerLabel(d.name, d.songs); }).join('') ||
+			'<div class="chuni-dz-none">没有匹配的谱师</div>';
+
+		var loose = DESIGNERS.loose.map(function (d) {
+			return { name: d.name, songs: picked ? countFor(d.name, picked) : d.songs };
+		}).filter(function (d) {
+			if (!q) return true;
+			return d.name.toLowerCase().indexOf(q) !== -1;
+		});
+		if (picked) loose.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
 		if (looseEl) {
 			looseEl.innerHTML = loose.slice(0, 120).map(function (d) { return designerLabel(d.name, d.songs); }).join('');
 		}
@@ -1191,9 +1215,23 @@
 		if (chip) { pickDesigner(chip.getAttribute('data-who')); return; }
 		var diff = e.target.closest('.chuni-diff-chip');
 		if (diff && diff.hasAttribute('data-diff')) {
-			state.designerDiff = diff.getAttribute('data-diff');
-			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) { x.classList.toggle('active', x === diff); });
+			var d = diff.getAttribute('data-diff');
+			if (d === 'all') {
+				state.designerDiff = [];
+			} else {
+				var arr = (state.designerDiff || []).slice();
+				var i = arr.indexOf(d);
+				if (i === -1) arr.push(d); else arr.splice(i, 1);
+				state.designerDiff = arr;
+			}
+			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) {
+				if (!x.hasAttribute('data-diff')) return;
+				var v = x.getAttribute('data-diff');
+				var on = v === 'all' ? (!state.designerDiff || !state.designerDiff.length) : state.designerDiff.indexOf(v) !== -1;
+				x.classList.toggle('active', on);
+			});
 			state.page = 1;
+			renderDesignerPanel();
 			renderRows();
 		}
 	});
