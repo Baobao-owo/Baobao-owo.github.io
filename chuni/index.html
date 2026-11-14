@@ -762,23 +762,45 @@
 	}
 
 	// 合作谱覆盖到的难度（e/m/u）；选了谱师时只看他参与合作的
+	var COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋)\s*/;
+	var LOOSE_SET = null;
+	var DIFF_KEY = { basic: 'b', advanced: 'a', expert: 'e', master: 'm', ultima: 'u' };
 	function collabKeysOf(r) {
-		var c = collabEntry(r);
-		if (!c) return [];
-		var out = [];
 		var keys = (state.designerDiff && state.designerDiff.length) ? state.designerDiff.slice() : ['e', 'm', 'u'];
-		keys.forEach(function (k) {
-			var ppl = c[k];
-			if (!ppl || ppl.length < 2) return;
-			if ((state.designer || state.designerRaw) && ppl.indexOf(state.designer) === -1) return;
-			out.push(k);
-		});
+		var out = [];
+		var c = collabEntry(r);
+		if (c) {
+			keys.forEach(function (k) {
+				var ppl = c[k];
+				if (!ppl || ppl.length < 2) return;
+				if ((state.designer || state.designerRaw) && ppl.indexOf(state.designer) === -1) return;
+				out.push(k);
+			});
+		}
+		if (!out.length) {
+			// 数据里没这条时，从谱面署名判断（双人写法 / 团队名义）
+			if (!LOOSE_SET) {
+				LOOSE_SET = {};
+				((DESIGNERS && DESIGNERS.loose) || []).forEach(function (d) { LOOSE_SET[String(d.name).toLowerCase()] = 1; });
+			}
+			(r.sh || []).forEach(function (sh) {
+				var k = DIFF_KEY[sh.d];
+				if (!k || keys.indexOf(k) === -1) return;
+				var ds = String(sh.ds || '');
+				if (!ds) return;
+				if (COLLAB_SEP.test(ds) || LOOSE_SET[ds.toLowerCase()]) out.push(k);
+			});
+		}
 		return out;
 	}
 
 	// 当前该亮哪几个难度（e/m/u）；null = 全亮
 	function visibleKeys(r) {
-		if (state.collab) return collabKeysOf(r);
+		if (state.collab) {
+			var ck = collabKeysOf(r);
+			// 查不出具体哪几张谱是合作时，不要整行变灰
+			return ck.length ? ck : null;
+		}
 		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
 		return null;
 	}
