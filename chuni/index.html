@@ -567,9 +567,9 @@
 					<span class="chuni-count" id="chuni-count"></span>
 				</div>
 				<div class="chuni-designer-diff chuni-diff-top" id="chuni-designer-diff">
-					<button type="button" class="chuni-diff-chip" data-diff="all">全部难度</button>
-					<button type="button" class="chuni-diff-chip diff-b" data-diff="b">BASIC</button>
-					<button type="button" class="chuni-diff-chip diff-a" data-diff="a">ADVANCED</button>
+					<button type="button" class="chuni-diff-chip active" data-diff="all">全部难度</button>
+					<button type="button" class="chuni-diff-chip diff-b active" data-diff="b">BASIC</button>
+					<button type="button" class="chuni-diff-chip diff-a active" data-diff="a">ADVANCED</button>
 					<button type="button" class="chuni-diff-chip diff-e active" data-diff="e">EXPERT</button>
 					<button type="button" class="chuni-diff-chip diff-m active" data-diff="m">MASTER</button>
 					<button type="button" class="chuni-diff-chip diff-u active" data-diff="u">ULTIMA</button>
@@ -617,7 +617,7 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, solo: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['b', 'a', 'e', 'm', 'u'], collab: false, solo: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -814,10 +814,16 @@
 	}
 
 	function visibleKeys(r) {
-		// 合作 / 单独：只亮对应写法的谱，其余变灰；合作模式查不出来时退回全亮
+		// 合作 / 单独：只亮对应写法的谱，其余变灰
 		if (state.collab) return collabKeysOf(r);
 		if (state.solo) return soloKeysOf(r);
-		if (state.designer || state.designerRaw) return matcher(r).map(function (x) { return x.d; });
+		var sel = state.designerDiff || [];
+		if (state.designer || state.designerRaw) {
+			var hit = matcher(r).map(function (x) { return x.d; });
+			return sel.length ? hit.filter(function (d) { return sel.indexOf(d) !== -1; }) : hit;
+		}
+		// 没选谱师时：取消勾选的难度灰掉
+		if (sel.length && sel.length < 5) return sel.slice();
 		return null;
 	}
 
@@ -1367,9 +1373,8 @@
 		if (diff && diff.hasAttribute('data-diff')) {
 			var d = diff.getAttribute('data-diff');
 			if (d === 'all') {
-				// 全部难度 = 五档全选；已经全选时再点一次就只留默认的红紫黑
-				var allKeys = ['b', 'a', 'e', 'm', 'u'];
-				state.designerDiff = (state.designerDiff || []).length === allKeys.length ? ['e', 'm', 'u'] : allKeys;
+				// 全部难度 = 五档全选
+				state.designerDiff = ['b', 'a', 'e', 'm', 'u'];
 			} else {
 				var arr = (state.designerDiff || []).slice();
 				var i = arr.indexOf(d);
