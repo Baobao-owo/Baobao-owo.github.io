@@ -506,6 +506,9 @@
 		countEl.textContent = '显示 ' + (rows.length ? start + 1 : 0) + '–' + (start + pageRows.length) + ' / ' + rows.length;
 		totalEl.textContent = String(all.length);
 		renderPager(pages);
+		// 谱师面板开着的话，人数跟着当前的删除曲 / WE 开关重算
+		var dpnl = panelEl('chuni-designer-panel');
+		if (dpnl && !dpnl.hidden && DESIGNERS) renderDesignerPanel();
 	}
 
 	function renderPager(pages) {
@@ -599,19 +602,34 @@
 			String(name) + '<span class="chuni-dz-n">' + count + '</span></button>';
 	}
 
-	// 选了难度时，谱师曲数只数这些难度上的谱
+	// 面板计数用的底池：先过掉「删除曲 / WE / 版本」这些行级开关
+	function designerBaseRows() {
+		return all.filter(function (r) {
+			var isDel = !!(r.rm || r.cnrm);
+			var isWE = !!(r.we && r.we.length);
+			if (state.version === 'cn' && !r.cn && !(state.removed && r.cnrm)) return false;
+			if (state.hideRemoved && isDel) return false;
+			if (state.removed) {
+				if (!isDel) return false;
+				if (isWE && !state.we) return false;
+			}
+			if (state.we && !isWE) return false;
+			if (!state.removed && !state.we && isWE) return false;
+			return true;
+		});
+	}
+
+	// 谱师曲数：只数当前底池里、且落在所选难度上的谱
 	function countFor(name, diffs) {
-		var songs = DESIGNERS.songs || {};
-		var n = 0;
-		Object.keys(songs).forEach(function (k) {
-			var rec = songs[k];
-			var hit = diffs.some(function (d) {
-				var x = rec[d];
+		var keys = diffs && diffs.length ? diffs : ['e', 'm', 'u'];
+		return designerBaseRows().filter(function (r) {
+			var e = designerEntry(r);
+			if (!e) return false;
+			return keys.some(function (d) {
+				var x = e[d];
 				return x && (x.who === name || x.raw === name);
 			});
-			if (hit) n++;
-		});
-		return n;
+		}).length;
 	}
 
 	function renderDesignerPanel() {
@@ -621,22 +639,22 @@
 		var q = (panelEl('chuni-designer-q').value || '').trim().toLowerCase();
 		var picked = state.designerDiff && state.designerDiff.length ? state.designerDiff : null;
 		var list = DESIGNERS.designers.map(function (d) {
-			return { name: d.name, songs: picked ? countFor(d.name, picked) : d.songs, aliases: d.aliases, id: d.id };
+			return { name: d.name, songs: countFor(d.name, picked), aliases: d.aliases, id: d.id };
 		}).filter(function (d) {
 			if (!q) return true;
 			return d.name.toLowerCase().indexOf(q) !== -1;
 		});
-		if (picked) list.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
+		list.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
 		grid.innerHTML = list.map(function (d) { return designerLabel(d.name, d.songs); }).join('') ||
 			'<div class="chuni-dz-none">没有匹配的谱师</div>';
 
 		var loose = DESIGNERS.loose.map(function (d) {
-			return { name: d.name, songs: picked ? countFor(d.name, picked) : d.songs };
+			return { name: d.name, songs: countFor(d.name, picked) };
 		}).filter(function (d) {
 			if (!q) return true;
 			return d.name.toLowerCase().indexOf(q) !== -1;
 		});
-		if (picked) loose.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
+		loose.sort(function (a, b) { return b.songs - a.songs || a.name.localeCompare(b.name, 'ja'); });
 		if (looseEl) {
 			looseEl.innerHTML = loose.slice(0, 120).map(function (d) { return designerLabel(d.name, d.songs); }).join('');
 		}
