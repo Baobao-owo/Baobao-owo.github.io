@@ -1,282 +1,8542 @@
 {
+ "言葉": {
+  "date": "2017-08-03",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "りばーぶ": {
+  "date": "2017-08-03",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Barbed Eye": {
+  "date": "2017-08-03",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "分からない": {
+  "date": "2017-08-03",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Dengeki Tube": {
+  "date": "2017-07-20",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Supersonic Generation": {
+  "date": "2017-07-20",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Devastating Blaster": {
+  "date": "2017-07-20",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "TiamaT:F minor": {
+  "date": "2017-07-20",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "混沌を越えし我らが神聖なる調律主を讃えよ": {
+  "date": "2017-07-20",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "My Soul,Your Beats!": {
+  "date": "2017-07-06",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Thousand Enemies": {
+  "date": "2017-07-06",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "夢想歌": {
+  "date": "2017-07-06",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Face of Fact": {
+  "date": "2017-07-06",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "true my heart -Lovable mix-": {
+  "date": "2017-07-06",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "イロ": {
+  "date": "2017-07-06",
+  "order": 6,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "響": {
+  "date": "2017-06-22",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Warcry": {
+  "date": "2017-06-22",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "覚醒楽奏メタフィクション": {
+  "date": "2017-06-22",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ドライヴ・オン・ザ・レインボー": {
+  "date": "2017-06-22",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "クローバー♣かくめーしょん": {
+  "date": "2017-06-08",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ぐーちょきパレード": {
+  "date": "2017-06-08",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "nico": {
+  "date": "2017-06-08",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "すきなことだけでいいです": {
+  "date": "2017-06-08",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "デリヘル呼んだら君が来た": {
+  "date": "2017-06-08",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "チュルリラ・チュルリラ・ダッダッダ！": {
+  "date": "2017-06-08",
+  "order": 6,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "だんだん早くなる": {
+  "date": "2017-06-08",
+  "order": 7,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ECHO": {
+  "date": "2017-06-08",
+  "order": 8,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "taboo tears you up": {
+  "date": "2017-05-25",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "キュアリアス光吉古牌 －祭－": {
+  "date": "2017-05-25",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Help me, ERINNNNNN!! -Cranky remix-": {
+  "date": "2017-05-25",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "仙酌絶唱のファンタジア": {
+  "date": "2017-05-25",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "幽闇に目醒めしは": {
+  "date": "2017-05-11",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Starlight Vision": {
+  "date": "2017-05-11",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Club Ibuki in Break All": {
+  "date": "2017-05-11",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "永遠のメロディ": {
+  "date": "2017-05-11",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Like the Wind [Reborn]": {
+  "date": "2017-04-27",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ゲシュタルト！テスト期間！！": {
+  "date": "2017-04-20",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "おまかせ！！トラブルメイ娘☆とれびちゃん": {
+  "date": "2017-04-20",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "願い星": {
+  "date": "2017-04-20",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "オススメ☆♂♀☆でぃすとぴあ": {
+  "date": "2017-04-20",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "だんご大家族": {
+  "date": "2017-04-06",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ラブリー☆えんじぇる!!": {
+  "date": "2017-04-06",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "GAME": {
+  "date": "2017-04-06",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "H-A-J-I-M-A-R-I-U-T-A-!!": {
+  "date": "2017-04-06",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "若い力 -SEGA HARD GIRLS MIX-": {
+  "date": "2017-04-06",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "レッツゴー!陰陽師": {
+  "date": "2017-04-06",
+  "order": 6,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Jumping!!": {
+  "date": "2017-03-23",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "極上スマイル": {
+  "date": "2017-03-23",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Name of oath": {
+  "date": "2017-03-23",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Bird Sprite": {
+  "date": "2017-03-23",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "FEEL×ALIVE": {
+  "date": "2017-03-09",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ぶぉん！ぶぉん！らいど・おん！": {
+  "date": "2017-03-09",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "地球最後の告白を": {
+  "date": "2017-03-09",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "虎視眈々": {
+  "date": "2017-03-09",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "おこちゃま戦争": {
+  "date": "2017-03-09",
+  "order": 6,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "桜ノ雨": {
+  "date": "2017-03-09",
+  "order": 7,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "いーあるふぁんくらぶ": {
+  "date": "2017-03-09",
+  "order": 8,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "泡沫、哀のまほろば": {
+  "date": "2017-02-23",
+  "order": 1,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "愛き夜道 feat. ランコ、雨天決行": {
+  "date": "2017-02-23",
+  "order": 2,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Starlight Dance Floor": {
+  "date": "2017-02-23",
+  "order": 3,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Witches night": {
+  "date": "2017-02-23",
+  "order": 4,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "GOODTEK": {
+  "date": "2017-02-23",
+  "order": 5,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Daydream café": {
+  "date": "2017-02-23",
+  "order": 7,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ノーポイッ!": {
+  "date": "2017-02-23",
+  "order": 8,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "ムーンライト伝説": {
+  "date": "2017-02-23",
+  "order": 9,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Redo": {
+  "date": "2017-02-23",
+  "order": 10,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Evans": {
+  "date": "2017-02-23",
+  "order": 11,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "FLOATED CALM": {
+  "date": "2017-02-23",
+  "order": 12,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "Finite": {
+  "date": "2017-02-23",
+  "order": 13,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "神威": {
+  "date": "2017-02-23",
+  "order": 14,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "RevolutionGame": {
+  "date": "2017-02-23",
+  "order": 17,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "最愛テトラグラマトン": {
+  "date": "2017-02-23",
+  "order": 18,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "札付きのワル ～マイケルのうた～": {
+  "date": "2017-02-23",
+  "order": 19,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "We Gonna Party -Feline Groove Mix-": {
+  "date": "2017-02-23",
+  "order": 20,
+  "version": "CHUNITHM AIR PLUS"
+ },
+ "神曲": {
+  "date": "2017-01-26",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "白い雪のプリンセスは": {
+  "date": "2017-01-26",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "愛言葉": {
+  "date": "2017-01-26",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "鬼KYOKAN": {
+  "date": "2017-01-26",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "有頂天ビバーチェ": {
+  "date": "2017-01-26",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "幸せになれる隠しコマンドがあるらしい": {
+  "date": "2017-01-26",
+  "order": 7,
+  "version": "CHUNITHM AIR"
+ },
+ "Be My Friend": {
+  "date": "2017-01-12",
+  "order": 1,
+  "version": "CHUNITHM AIR"
+ },
+ "僕らの翼": {
+  "date": "2017-01-12",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "ぶいえす!!らいばる!!": {
+  "date": "2017-01-12",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "Strahv": {
+  "date": "2017-01-12",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "風仁雷仁": {
+  "date": "2017-01-12",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "★LittlE HearTs★": {
+  "date": "2017-01-12",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "In The Blue Sky '01": {
+  "date": "2016-12-15",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "Dreams Dreams：Kids Ver.": {
+  "date": "2016-12-15",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "STAIRWAY TO GENERATION": {
+  "date": "2016-12-15",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "空威張りビヘイビア": {
+  "date": "2016-12-15",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "サウンドプレイヤー": {
+  "date": "2016-12-15",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "D.E.A.D.L.Y.": {
+  "date": "2016-12-15",
+  "order": 7,
+  "version": "CHUNITHM AIR"
+ },
+ "ウソラセラ": {
+  "date": "2016-12-15",
+  "order": 8,
+  "version": "CHUNITHM AIR"
+ },
+ "BOKUTO": {
+  "date": "2016-12-15",
+  "order": 9,
+  "version": "CHUNITHM AIR"
+ },
+ "玩具狂奏曲 -終焉-": {
+  "date": "2016-12-15",
+  "order": 10,
+  "version": "CHUNITHM AIR"
+ },
+ "かくしん的☆めたまるふぉ～ぜっ!": {
+  "date": "2016-12-01",
+  "order": 1,
+  "version": "CHUNITHM AIR"
+ },
+ "ひだまりデイズ": {
+  "date": "2016-12-01",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "Sakura Fubuki": {
+  "date": "2016-12-01",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "Kronos": {
+  "date": "2016-12-01",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "JULIAN": {
+  "date": "2016-12-01",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "エンヴィキャットウォーク": {
+  "date": "2016-11-17",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "アカツキアライヴァル": {
+  "date": "2016-11-17",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "ラクガキスト": {
+  "date": "2016-11-17",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "リモコン": {
+  "date": "2016-11-17",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "アウターサイエンス": {
+  "date": "2016-11-17",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "This game": {
+  "date": "2016-11-02",
+  "order": 1,
+  "version": "CHUNITHM AIR"
+ },
+ "オラシオン": {
+  "date": "2016-11-02",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "Dreadnought": {
+  "date": "2016-11-02",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "STAGER": {
+  "date": "2016-11-02",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "Her Majesty": {
+  "date": "2016-11-02",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "Oshama Scramble! (Cranky Remix)": {
+  "date": "2016-10-20",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "Hyperion": {
+  "date": "2016-10-20",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "Paqqin": {
+  "date": "2016-10-20",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "紅華刑": {
+  "date": "2016-10-20",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "Tidal Wave": {
+  "date": "2016-10-20",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "ってゐ！ ～えいえんてゐVer～": {
+  "date": "2016-10-06",
+  "order": 1,
+  "version": "CHUNITHM AIR"
+ },
+ "患部で止まってすぐ溶ける～狂気の優曇華院": {
+  "date": "2016-10-06",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "No Routine": {
+  "date": "2016-10-06",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "ひれ伏せ愚民どもっ！": {
+  "date": "2016-10-06",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "エテルニタス・ルドロジー": {
+  "date": "2016-10-06",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "Imperishable Night 2006 (2016 Refine)": {
+  "date": "2016-10-06",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "Say A Vengeance": {
+  "date": "2016-09-21",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "010": {
+  "date": "2016-09-21",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "ERIS -Legend of Gaidelia-": {
+  "date": "2016-09-21",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "Angel dust": {
+  "date": "2016-09-21",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "Tell Your World": {
+  "date": "2016-09-08",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "からくりピエロ": {
+  "date": "2016-09-08",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "深海少女": {
+  "date": "2016-09-08",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "ロミオとシンデレラ": {
+  "date": "2016-09-08",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "初音ミクの消失": {
+  "date": "2016-09-08",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "みくみくにしてあげる♪【してやんよ】": {
+  "date": "2016-09-08",
+  "order": 7,
+  "version": "CHUNITHM AIR"
+ },
+ "鳥の詩": {
+  "date": "2016-08-31",
+  "order": 2,
+  "version": "CHUNITHM AIR"
+ },
+ "夏影": {
+  "date": "2016-08-31",
+  "order": 3,
+  "version": "CHUNITHM AIR"
+ },
+ "secret base ～君がくれたもの～(10 years after Ver.)": {
+  "date": "2016-08-31",
+  "order": 4,
+  "version": "CHUNITHM AIR"
+ },
+ "フレンズ": {
+  "date": "2016-08-31",
+  "order": 5,
+  "version": "CHUNITHM AIR"
+ },
+ "夏祭り": {
+  "date": "2016-08-31",
+  "order": 6,
+  "version": "CHUNITHM AIR"
+ },
+ "Rising Hope": {
+  "date": "2016-08-31",
+  "order": 7,
+  "version": "CHUNITHM AIR"
+ },
+ "fake!fake!": {
+  "date": "2016-08-31",
+  "order": 8,
+  "version": "CHUNITHM AIR"
+ },
+ "月に叢雲華に風": {
+  "date": "2016-08-31",
+  "order": 9,
+  "version": "CHUNITHM AIR"
+ },
+ "幻想のサテライト": {
+  "date": "2016-08-31",
+  "order": 10,
+  "version": "CHUNITHM AIR"
+ },
+ "凛として咲く花の如く": {
+  "date": "2016-08-31",
+  "order": 11,
+  "version": "CHUNITHM AIR"
+ },
+ "PRIVATE SERVICE": {
+  "date": "2016-08-31",
+  "order": 12,
+  "version": "CHUNITHM AIR"
+ },
+ "Air": {
+  "date": "2016-08-31",
+  "order": 13,
+  "version": "CHUNITHM AIR"
+ },
+ "DataErr0r": {
+  "date": "2016-08-31",
+  "order": 14,
+  "version": "CHUNITHM AIR"
+ },
+ "その群青が愛しかったようだった": {
+  "date": "2016-08-31",
+  "order": 16,
+  "version": "CHUNITHM AIR"
+ },
+ "心象蜃気楼": {
+  "date": "2016-08-31",
+  "order": 17,
+  "version": "CHUNITHM AIR"
+ },
+ "ケモノガル": {
+  "date": "2016-08-31",
+  "order": 18,
+  "version": "CHUNITHM AIR"
+ },
+ "後夜祭": {
+  "date": "2016-08-31",
+  "order": 19,
+  "version": "CHUNITHM AIR"
+ },
+ "Tuning Rangers": {
+  "date": "2016-08-31",
+  "order": 20,
+  "version": "CHUNITHM AIR"
+ },
+ "First Twinkle": {
+  "date": "2016-08-31",
+  "order": 21,
+  "version": "CHUNITHM AIR"
+ },
+ "明るい未来": {
+  "date": "2016-08-31",
+  "order": 22,
+  "version": "CHUNITHM AIR"
+ },
+ "Philosopher": {
+  "date": "2016-08-31",
+  "order": 23,
+  "version": "CHUNITHM AIR"
+ },
+ "Schrecklicher Aufstand": {
+  "date": "2016-08-31",
+  "order": 24,
+  "version": "CHUNITHM AIR"
+ },
+ "ロボットプラネットユートピア": {
+  "date": "2016-08-31",
+  "order": 25,
+  "version": "CHUNITHM AIR"
+ },
+ "水晶世界 ～Fracture～": {
+  "date": "2019-10-10",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Pangaea": {
+  "date": "2019-10-10",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "One In A Billion": {
+  "date": "2019-10-03",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "テオ": {
+  "date": "2019-10-03",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ハイセンスナンセンス": {
+  "date": "2019-10-03",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "デンパラダイム": {
+  "date": "2019-10-03",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "NEVER SURRENDER": {
+  "date": "2019-09-19",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Doll Judgment": {
+  "date": "2019-09-19",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "お嫁にしなさいっ！": {
+  "date": "2019-09-19",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "待チ人ハ来ズ。": {
+  "date": "2019-09-19",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "星の器～STAR OF ANDROMEDA": {
+  "date": "2019-09-19",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "YURUSHITE": {
+  "date": "2019-09-05",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ユメキキョウ": {
+  "date": "2019-09-05",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Black Swan Lake": {
+  "date": "2019-09-05",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "GIGA DRIVE": {
+  "date": "2019-09-05",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Rebellion": {
+  "date": "2019-09-05",
+  "order": 6,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "The Other Side of the Wall": {
+  "date": "2019-08-22",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "WORLD'S END": {
+  "date": "2019-08-22",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ワールズエンド・ダンスホール": {
+  "date": "2019-08-22",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Worlds End": {
+  "date": "2019-08-22",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ZEUS": {
+  "date": "2019-08-08",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Vibrant Verve": {
+  "date": "2019-08-08",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "暗晦にハイライト": {
+  "date": "2019-08-08",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "8-EM": {
+  "date": "2019-08-08",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Killing Rhythm": {
+  "date": "2019-08-08",
+  "order": 6,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "FLY two BLUE": {
+  "date": "2019-07-26",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Wish me luck!!!!": {
+  "date": "2019-07-26",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Pure Ruby": {
+  "date": "2019-07-26",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "STARTLINER": {
+  "date": "2019-07-26",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "メルト": {
+  "date": "2019-07-11",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Distance": {
+  "date": "2019-07-04",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Outlaw's Lullaby": {
+  "date": "2019-07-04",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "The Pursuit of Speed": {
+  "date": "2019-07-04",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "燃えてもエンジョイ！宛城、炎上！！": {
+  "date": "2019-07-04",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "TREAT OR TREAT?": {
+  "date": "2019-06-20",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "TRIGGER": {
+  "date": "2019-06-20",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "妄想感傷代償連盟": {
+  "date": "2019-06-20",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Everlasting Today": {
+  "date": "2019-06-20",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "CO5M1C R4ILR0AD": {
+  "date": "2019-06-06",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Funny Funky Freaky": {
+  "date": "2019-06-06",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "恋のチャイム": {
+  "date": "2019-06-06",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "逃げろ！サテライトキャンパス！！": {
+  "date": "2019-06-06",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "THE BRASS OF GOODSPEED!!": {
+  "date": "2019-06-06",
+  "order": 6,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "咲かせよ 沸かせよ バンバンBURN！": {
+  "date": "2019-05-23",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Love your enemies": {
+  "date": "2019-05-23",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Fracture Ray": {
+  "date": "2019-05-23",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Axium Crisis": {
+  "date": "2019-05-23",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Grievous Lady": {
+  "date": "2019-05-23",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "あうんどばいみー": {
+  "date": "2019-05-09",
+  "order": 1,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "White Traveling Girl": {
+  "date": "2019-05-09",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ゴールドビジョン": {
+  "date": "2019-05-09",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "トランスダンスアナーキー": {
+  "date": "2019-05-09",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ARM (IOSYS)": {
+  "date": "2019-05-09",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Seyana.～何でも言うことを聞いてくれるアカネチャン～": {
+  "date": "2019-04-25",
+  "order": 2,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "はやくそれになりたい！": {
+  "date": "2019-04-25",
+  "order": 3,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ちがう!!!": {
+  "date": "2019-04-25",
+  "order": 4,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "雨とペトラ": {
+  "date": "2019-04-25",
+  "order": 5,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "GO": {
+  "date": "2019-04-25",
+  "order": 6,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "キミとボクのミライ": {
+  "date": "2019-04-25",
+  "order": 7,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "SHINY DAYS": {
+  "date": "2019-04-25",
+  "order": 8,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "U.S.A.": {
+  "date": "2019-04-25",
+  "order": 9,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Sparkling Daydream": {
+  "date": "2019-04-25",
+  "order": 10,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Don't say \"lazy\"": {
+  "date": "2019-04-25",
+  "order": 11,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "ウサテイ": {
+  "date": "2019-04-25",
+  "order": 12,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "BlythE": {
+  "date": "2019-04-25",
+  "order": 13,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Super Lovely(Heavenly Remix)": {
+  "date": "2019-04-25",
+  "order": 14,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Ai Nov": {
+  "date": "2019-04-25",
+  "order": 16,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "エンジェデビ": {
+  "date": "2019-04-25",
+  "order": 17,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Servant of Love": {
+  "date": "2019-04-25",
+  "order": 18,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "アイリちゃんは暗黒魔導士!": {
+  "date": "2019-04-25",
+  "order": 19,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "電光石火": {
+  "date": "2019-04-25",
+  "order": 20,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "strelitzia": {
+  "date": "2019-04-25",
+  "order": 21,
+  "version": "CHUNITHM AMAZON PLUS"
+ },
+ "Pilgrimage": {
+  "date": "2019-03-20",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "CYCLES": {
+  "date": "2019-03-20",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "高気圧ねこロック": {
+  "date": "2019-03-20",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "FEEL the BEATS": {
+  "date": "2019-03-20",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "夢花火": {
+  "date": "2019-03-20",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Clattanoia": {
+  "date": "2019-03-07",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "L.L.L.": {
+  "date": "2019-03-07",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Papyrus": {
+  "date": "2019-03-07",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Black Lair": {
+  "date": "2019-03-07",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "End Time": {
+  "date": "2019-03-07",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "CITRUS MONSTER": {
+  "date": "2019-02-21",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Life": {
+  "date": "2019-02-21",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Innocent Truth": {
+  "date": "2019-02-21",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Solstånd": {
+  "date": "2019-02-21",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Sqlupp": {
+  "date": "2019-02-21",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Climax": {
+  "date": "2019-02-21",
+  "order": 6,
+  "version": "CHUNITHM AMAZON"
+ },
+ "MIRACLE RUSH": {
+  "date": "2019-02-07",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Futuristic Player": {
+  "date": "2019-02-07",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "輪廻転生": {
+  "date": "2019-02-07",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "おちゃめ機能": {
+  "date": "2019-02-07",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "涙色メモリア": {
+  "date": "2019-01-24",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Magic": {
+  "date": "2019-01-24",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "男装女形表裏一体発狂小娘の詐称疑惑と苦悩と情熱。": {
+  "date": "2019-01-24",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "コモリの怪物": {
+  "date": "2019-01-24",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "中学2年生のアンドロイド": {
+  "date": "2019-01-24",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "The Girls Are Alright!": {
+  "date": "2019-01-10",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Nhelv": {
+  "date": "2019-01-10",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "PUPA": {
+  "date": "2019-01-10",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Parousia": {
+  "date": "2019-01-10",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "フリィダム ロリィタ": {
+  "date": "2018-12-20",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "DAYBREAK FRONTLINE": {
+  "date": "2018-12-20",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "バレリーコ": {
+  "date": "2018-12-20",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Mass Destruction(\"P3\" + \"P3F\" ver.)": {
+  "date": "2018-12-20",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "全ての人の魂の戦い(Daisuke Asakura Remix)": {
+  "date": "2018-12-20",
+  "order": 6,
+  "version": "CHUNITHM AMAZON"
+ },
+ "コレカラ": {
+  "date": "2018-12-06",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "理燃-コトワリ-": {
+  "date": "2018-12-06",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "アルカテイル": {
+  "date": "2018-12-06",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Blooming Villain(ATLUS Konishi Remix)": {
+  "date": "2018-12-06",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "GROOVY": {
+  "date": "2018-12-06",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "地獄の端にて君を待つ": {
+  "date": "2018-11-22",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "聖少女サクリファイス": {
+  "date": "2018-11-22",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "究極焼肉レストラン！お燐の地獄亭！": {
+  "date": "2018-11-22",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "WARNING!": {
+  "date": "2018-11-22",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Paranoia": {
+  "date": "2018-11-22",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "ナイト・オブ・ナイツ(Cranky Remix)": {
+  "date": "2018-11-22",
+  "order": 6,
+  "version": "CHUNITHM AMAZON"
+ },
+ "2DVenture": {
+  "date": "2018-11-08",
+  "order": 1,
+  "version": "CHUNITHM AMAZON"
+ },
+ "ぜったい！昇天★鎮魂歌♂": {
+  "date": "2018-11-08",
+  "order": 2,
+  "version": "CHUNITHM AMAZON"
+ },
+ "StufeStern": {
+  "date": "2018-11-08",
+  "order": 3,
+  "version": "CHUNITHM AMAZON"
+ },
+ "夕焼けのRed Parade": {
+  "date": "2018-11-08",
+  "order": 4,
+  "version": "CHUNITHM AMAZON"
+ },
+ "スピカの天秤": {
+  "date": "2018-11-08",
+  "order": 5,
+  "version": "CHUNITHM AMAZON"
+ },
+ "sister's noise": {
+  "date": "2018-11-08",
+  "order": 6,
+  "version": "CHUNITHM AMAZON"
+ },
+ "POP TEAM EPIC": {
+  "date": "2018-11-08",
+  "order": 7,
+  "version": "CHUNITHM AMAZON"
+ },
+ "青空のラプソディ": {
+  "date": "2018-11-08",
+  "order": 8,
+  "version": "CHUNITHM AMAZON"
+ },
+ "DreamRiser": {
+  "date": "2018-11-08",
+  "order": 9,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Butterfly -CHUNITHM edit-": {
+  "date": "2018-11-08",
+  "order": 10,
+  "version": "CHUNITHM AMAZON"
+ },
+ "ロキ": {
+  "date": "2018-11-08",
+  "order": 12,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Grip & Break down !!": {
+  "date": "2018-11-08",
+  "order": 13,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Brain Power": {
+  "date": "2018-11-08",
+  "order": 14,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Taiko Drum Monster": {
+  "date": "2018-11-08",
+  "order": 15,
+  "version": "CHUNITHM AMAZON"
+ },
+ "GERBERA": {
+  "date": "2018-11-08",
+  "order": 16,
+  "version": "CHUNITHM AMAZON"
+ },
+ "ouroboros -twin stroke of the end-": {
+  "date": "2018-11-08",
+  "order": 17,
+  "version": "CHUNITHM AMAZON"
+ },
+ "larva": {
+  "date": "2018-11-08",
+  "order": 19,
+  "version": "CHUNITHM AMAZON"
+ },
+ "朝焼けプラットホーム": {
+  "date": "2018-11-08",
+  "order": 20,
+  "version": "CHUNITHM AMAZON"
+ },
+ "PAST": {
+  "date": "2018-11-08",
+  "order": 21,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Blessed": {
+  "date": "2018-11-08",
+  "order": 22,
+  "version": "CHUNITHM AMAZON"
+ },
+ "FRIDAY FRIDAY": {
+  "date": "2018-11-08",
+  "order": 23,
+  "version": "CHUNITHM AMAZON"
+ },
+ "足立オウフwwww": {
+  "date": "2018-11-08",
+  "order": 24,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Seagull": {
+  "date": "2018-11-08",
+  "order": 25,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Blaster Heaven": {
+  "date": "2018-11-08",
+  "order": 26,
+  "version": "CHUNITHM AMAZON"
+ },
+ "ハートアタック": {
+  "date": "2018-11-08",
+  "order": 27,
+  "version": "CHUNITHM AMAZON"
+ },
+ "Summer is over": {
+  "date": "2018-11-08",
+  "order": 28,
+  "version": "CHUNITHM AMAZON"
+ },
+ "folern": {
+  "date": "2018-11-08",
+  "order": 29,
+  "version": "CHUNITHM AMAZON"
+ },
+ "乙女解剖": {
+  "date": "2021-01-07",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "フィクサー": {
+  "date": "2021-01-07",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "KILLER B": {
+  "date": "2020-12-24",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "アヤカシ": {
+  "date": "2020-12-24",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "残響": {
+  "date": "2020-12-24",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "クレイジー・ビート": {
+  "date": "2020-12-24",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "killy killy JOKER": {
+  "date": "2020-12-10",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Lostorage": {
+  "date": "2020-12-10",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "小悪魔の遊園地": {
+  "date": "2020-12-10",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "The Metaverse -First story of the SeelischTact-": {
+  "date": "2020-12-10",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Kadenz": {
+  "date": "2020-11-26",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "euphoric field（English）": {
+  "date": "2020-11-26",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "MARENOL": {
+  "date": "2020-11-26",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "撃舞": {
+  "date": "2020-11-26",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "みんな Happy!!": {
+  "date": "2020-11-26",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Here We Go": {
+  "date": "2020-11-26",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "P！P！P！P！がおー!!": {
+  "date": "2020-11-26",
+  "order": 7,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "SUPER RESULT BEAT vol.1": {
+  "date": "2020-11-12",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "U ARE": {
+  "date": "2020-11-12",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ハードコア・シンドローム": {
+  "date": "2020-11-12",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Hainuwele": {
+  "date": "2020-11-12",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "宿星審判": {
+  "date": "2020-11-12",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "今宵mofumofu!!": {
+  "date": "2020-10-29",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "インドア系ならトラックメイカー": {
+  "date": "2020-10-29",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Blackmagik Blazing": {
+  "date": "2020-10-29",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Energy Booster ～ 上海紅茶館": {
+  "date": "2020-10-15",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "7 days a week": {
+  "date": "2020-10-15",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "メイドと血の懐中時計": {
+  "date": "2020-10-15",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ARROW RAIN feat. Ayame": {
+  "date": "2020-10-15",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "悪戯センセーション": {
+  "date": "2020-10-15",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "チャージマン研！": {
+  "date": "2020-10-01",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "殺人レコード恐怖のメロディ": {
+  "date": "2020-10-01",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "felys -final remix-": {
+  "date": "2020-09-17",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Jörqer": {
+  "date": "2020-09-17",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ちゅんちゅちゅチューン": {
+  "date": "2020-09-17",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ドルオタ忍道！楠子ノ巻": {
+  "date": "2020-09-17",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "エキセントリックコンコン": {
+  "date": "2020-09-17",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "大天使ユリア★降臨!": {
+  "date": "2020-09-17",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Sweet Requiem": {
+  "date": "2020-09-03",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "レータイスパークEx": {
+  "date": "2020-09-03",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "檄！帝国華撃団＜新章＞": {
+  "date": "2020-09-03",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "かっとばせ！未来へ": {
+  "date": "2020-08-20",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ALL FOR ONE★": {
+  "date": "2020-08-20",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ブレス・ユア・ブレス": {
+  "date": "2020-08-20",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Jump for Joy": {
+  "date": "2020-08-20",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Ascension to Heaven": {
+  "date": "2020-08-06",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ロング・スロー・アライブ": {
+  "date": "2020-08-06",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "迷える薔薇に終わらぬ夜を": {
+  "date": "2020-08-06",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "パームカルマ": {
+  "date": "2020-08-06",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Therapeutic Hoedown": {
+  "date": "2020-08-06",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "アイドル活動！オンパレード！ver.": {
+  "date": "2020-07-22",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "ダイヤモンドハッピー": {
+  "date": "2020-07-22",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "禁じられた遊び": {
+  "date": "2020-07-22",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Jade Star": {
+  "date": "2020-07-22",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "HELLO to DREAM": {
+  "date": "2020-07-22",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "君色Everyday": {
+  "date": "2020-07-22",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "お願いマッスル": {
+  "date": "2020-07-22",
+  "order": 7,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Ray ―はじまりのセカイ―(クロニクルアレンジver.)": {
+  "date": "2020-07-22",
+  "order": 8,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "狩猟戦旗～REQUIEM": {
+  "date": "2020-07-22",
+  "order": 9,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "さよならエレジー": {
+  "date": "2020-07-22",
+  "order": 10,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "紅蓮華": {
+  "date": "2020-07-22",
+  "order": 11,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "五等分の気持ち": {
+  "date": "2020-07-22",
+  "order": 12,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "God knows...": {
+  "date": "2020-07-22",
+  "order": 13,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "絶対にチョコミントを食べるアオイチャン": {
+  "date": "2020-07-22",
+  "order": 15,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "だれかの心臓になれたなら": {
+  "date": "2020-07-22",
+  "order": 16,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Catch the Wave": {
+  "date": "2020-07-22",
+  "order": 17,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Auxesia": {
+  "date": "2020-07-22",
+  "order": 18,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Sound Chimera": {
+  "date": "2020-07-22",
+  "order": 19,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "conflict(斉唱)": {
+  "date": "2020-07-22",
+  "order": 21,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "紅き魔汁、闇より降りて天啓の響きを導く": {
+  "date": "2020-07-22",
+  "order": 22,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "エンドマークに希望と涙を添えて～イロドリミドリアレンジ～": {
+  "date": "2020-07-22",
+  "order": 23,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "Ghost Dance": {
+  "date": "2020-07-22",
+  "order": 25,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "モノクロトワイライト": {
+  "date": "2020-07-22",
+  "order": 26,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "シャッキーーン！！": {
+  "date": "2020-07-22",
+  "order": 27,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "《破滅》 ～ Rhapsody for The End": {
+  "date": "2020-07-22",
+  "order": 28,
+  "version": "CHUNITHM CRYSTAL PLUS"
+ },
+ "タテマエと本心の大乱闘": {
+  "date": "2020-07-02",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Bull's Eye": {
+  "date": "2020-06-18",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Rightfully": {
+  "date": "2020-06-18",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Giselle": {
+  "date": "2020-06-18",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "7 colors*": {
+  "date": "2020-06-18",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Life is PIANO": {
+  "date": "2020-06-18",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "巫女みこナース・愛のテーマ": {
+  "date": "2020-06-11",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "nowhere": {
+  "date": "2020-06-11",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "音弾超人ゴリライザー": {
+  "date": "2020-06-11",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Be A Shooter！～NORMAL BIG BONUS～": {
+  "date": "2020-06-11",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "徒花ネクロマンシー": {
+  "date": "2020-03-19",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "目覚めRETURNER": {
+  "date": "2020-03-19",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Ladymade Star": {
+  "date": "2020-03-19",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Memory of Beach": {
+  "date": "2020-03-19",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "SON OF SUN": {
+  "date": "2020-03-19",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ヴンダーカンマー": {
+  "date": "2020-03-05",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Destination": {
+  "date": "2020-03-05",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Fidget Dancer": {
+  "date": "2020-03-05",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Megameteor": {
+  "date": "2020-03-05",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Trrricksters!!": {
+  "date": "2020-03-05",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Pump!n": {
+  "date": "2020-02-20",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Endless Seeker": {
+  "date": "2020-02-20",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "STRIPES feat. EL.J(2018 reinterpretation)": {
+  "date": "2020-02-20",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Cosmic Magic Shooter": {
+  "date": "2020-02-20",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "神楽": {
+  "date": "2020-02-20",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Bad Apple!! feat.nomico(Nhato Remix)": {
+  "date": "2020-02-20",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ストライク・ザ・ブラッド": {
+  "date": "2020-02-06",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ダブルラリアット": {
+  "date": "2020-02-06",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "＊ハロー、プラネット。": {
+  "date": "2020-02-06",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "magnet": {
+  "date": "2020-02-06",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "気ままな天使たち": {
+  "date": "2020-01-23",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ハッピー・ハッピー・フレンズ": {
+  "date": "2020-01-23",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "AXION": {
+  "date": "2020-01-23",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "チョウの標本": {
+  "date": "2020-01-23",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Deal with the devil": {
+  "date": "2020-01-09",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Star Divine": {
+  "date": "2020-01-09",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "輪舞-revolution": {
+  "date": "2020-01-09",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "御旗のもとに": {
+  "date": "2020-01-09",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "神威 (NAOKI × ZPP MIX)": {
+  "date": "2020-01-09",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Black Lotus": {
+  "date": "2019-12-19",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "《混乱》 ～ Muspell": {
+  "date": "2019-12-19",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "《理想》 ～ Cloudland": {
+  "date": "2019-12-19",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "《逃避》 ～ The Deserter": {
+  "date": "2019-12-19",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "《最愛》 ～ Curse": {
+  "date": "2019-12-19",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "《運命》 ～ Ray of Hope": {
+  "date": "2019-12-19",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "▲MEW▲△MEW△CAKE": {
+  "date": "2019-12-05",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "野良猫ハート": {
+  "date": "2019-12-05",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Baby Sweet Berry Love": {
+  "date": "2019-12-05",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "進捗どうですか？": {
+  "date": "2019-12-05",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "アカリがやってきたぞっ": {
+  "date": "2019-11-21",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "おねがいダーリン": {
+  "date": "2019-11-21",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "リンカーネイション": {
+  "date": "2019-11-21",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "太陽系デスコ": {
+  "date": "2019-11-21",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Lover's Trick": {
+  "date": "2019-11-07",
+  "order": 1,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "まごころのカスクルゥト": {
+  "date": "2019-11-07",
+  "order": 2,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "absolute rightness": {
+  "date": "2019-11-07",
+  "order": 3,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "せかいせいふく！ゆりあちゃん！": {
+  "date": "2019-11-07",
+  "order": 4,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Trackless wilderness": {
+  "date": "2019-11-07",
+  "order": 5,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Walzer für das Nichts": {
+  "date": "2019-11-07",
+  "order": 6,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "grilletto": {
+  "date": "2019-11-07",
+  "order": 7,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "UNION": {
+  "date": "2019-11-07",
+  "order": 8,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Lemon": {
+  "date": "2019-11-07",
+  "order": 9,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "BURST THE GRAVITY": {
+  "date": "2019-11-07",
+  "order": 10,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ヒプノシスマイク -Division Battle Anthem-": {
+  "date": "2019-11-07",
+  "order": 11,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ハッピー☆マテリアル": {
+  "date": "2019-11-07",
+  "order": 12,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ただ君に晴れ": {
+  "date": "2019-11-07",
+  "order": 13,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ロスタイムメモリー": {
+  "date": "2019-11-07",
+  "order": 15,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ヒバナ": {
+  "date": "2019-11-07",
+  "order": 16,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "最終鬼畜妹フランドール・S": {
+  "date": "2019-11-07",
+  "order": 17,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Destr0yer": {
+  "date": "2019-11-07",
+  "order": 18,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "R.I.P.": {
+  "date": "2019-11-07",
+  "order": 19,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Opfer": {
+  "date": "2019-11-07",
+  "order": 22,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "とーきょー全域★アキハバラ？(ver.にこる)": {
+  "date": "2019-11-07",
+  "order": 23,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "サヴァイバル・キリング・メーカー": {
+  "date": "2019-11-07",
+  "order": 24,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ツクヨミステップ": {
+  "date": "2019-11-07",
+  "order": 25,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "ハジマリノピアノ": {
+  "date": "2019-11-07",
+  "order": 26,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "溝口ゆうま axel.大瀬良あい": {
+  "date": "2019-11-07",
+  "order": 27,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "レーイレーイ": {
+  "date": "2019-11-07",
+  "order": 28,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Surrogate Life": {
+  "date": "2019-11-07",
+  "order": 29,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "Nijirate Fanatics": {
+  "date": "2019-11-07",
+  "order": 30,
+  "version": "CHUNITHM CRYSTAL"
+ },
+ "NAGAREBOSHI☆ROCKET": {
+  "date": "2024-11-28",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "群青シグナル": {
+  "date": "2024-11-28",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Flower": {
+  "date": "2024-11-28",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Sleep Walking Orchestra": {
+  "date": "2024-11-14",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "What's up? Pop!": {
+  "date": "2024-11-14",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "まにまに": {
+  "date": "2024-11-14",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Acid God": {
+  "date": "2024-11-14",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Forsaken Tale": {
+  "date": "2024-11-14",
+  "order": 6,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Lovely Lovely Lover": {
+  "date": "2024-10-17",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Fire Engine73": {
+  "date": "2024-10-17",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "LibrariA": {
+  "date": "2024-10-17",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Tuatha Dé Danann": {
+  "date": "2024-10-17",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ハートサーモグラフィー": {
+  "date": "2024-10-03",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "モンダイナイトリッパー！": {
+  "date": "2024-10-03",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "特者生存ワンダラダー!!": {
+  "date": "2024-10-03",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "壱雫空": {
+  "date": "2024-09-19",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "迷星叫": {
+  "date": "2024-09-19",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ずんだパーリナイ": {
+  "date": "2024-09-19",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "X.Y.Z.": {
+  "date": "2024-09-05",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "優勝Princess♡": {
+  "date": "2024-09-05",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "乙女戦士☆あーし。": {
+  "date": "2024-09-05",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "おしゃまなプリンセス": {
+  "date": "2024-09-05",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ソーシャルワンダーランド": {
+  "date": "2024-09-05",
+  "order": 6,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ハッピータイフーン": {
+  "date": "2024-08-22",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "M.L.V.G": {
+  "date": "2024-08-22",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "壊れた人形のマーチ": {
+  "date": "2024-08-22",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ヒトリシズカ(Arranged:Iceon)": {
+  "date": "2024-08-22",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "NIGHTWAVE FRAGMENTS": {
+  "date": "2024-08-08",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Joe Fight": {
+  "date": "2024-08-08",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Poppin' Dream": {
+  "date": "2024-08-08",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Make Up Your Worldfeat. キョンシーのCiちゃん & らっぷびと": {
+  "date": "2024-08-08",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ReCoda": {
+  "date": "2024-08-01",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "トゥッティ！": {
+  "date": "2024-08-01",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "DRE4M1N9": {
+  "date": "2024-07-18",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Overhea[r]t": {
+  "date": "2024-07-18",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Malleus Maleficarum": {
+  "date": "2024-07-18",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Elusive Enforcer": {
+  "date": "2024-07-18",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "黎命に殉ず": {
+  "date": "2024-07-18",
+  "order": 6,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "熱異常": {
+  "date": "2024-07-04",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "アプリコット": {
+  "date": "2024-07-04",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "おくすり飲んで寝よう": {
+  "date": "2024-07-04",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "匿名M": {
+  "date": "2024-07-04",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "勇者": {
+  "date": "2024-07-04",
+  "order": 6,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "カオスが極まる": {
+  "date": "2024-07-04",
+  "order": 7,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "唱": {
+  "date": "2024-07-04",
+  "order": 8,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "美少女無罪♡パイレーツ": {
+  "date": "2024-07-04",
+  "order": 9,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "デビルじゃないもん": {
+  "date": "2024-07-04",
+  "order": 11,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "寝起きヤシの木": {
+  "date": "2024-07-04",
+  "order": 12,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "マツヨイナイトバグ": {
+  "date": "2024-07-04",
+  "order": 13,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Rrhar'il": {
+  "date": "2024-07-04",
+  "order": 14,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "ヒュブリスの頂に聳えるのは": {
+  "date": "2024-07-04",
+  "order": 15,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "HECATONCHEIR": {
+  "date": "2024-07-04",
+  "order": 17,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "夏宵スターマイン": {
+  "date": "2024-07-04",
+  "order": 18,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "其のエメラルドを見よ": {
+  "date": "2024-07-04",
+  "order": 19,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Stardust:RAY": {
+  "date": "2024-07-04",
+  "order": 20,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "バッドトリッパー": {
+  "date": "2024-07-04",
+  "order": 21,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "幻想ロードオブキング": {
+  "date": "2024-07-04",
+  "order": 22,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "イーヴィルガール": {
+  "date": "2024-07-04",
+  "order": 23,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "わたしはオッセルヴァトリーチェ！": {
+  "date": "2024-07-04",
+  "order": 24,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "コメクエスト": {
+  "date": "2024-07-04",
+  "order": 25,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "リ・フィクション・O": {
+  "date": "2024-07-04",
+  "order": 26,
+  "version": "CHUNITHM LUMINOUS PLUS"
+ },
+ "Alcyone": {
+  "date": "2024-06-06",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Jump!! Jump!! Jump!!": {
+  "date": "2024-06-06",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Prominence": {
+  "date": "2024-06-06",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Stargazing Dreamer": {
+  "date": "2024-06-06",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "MuseDashを作っているPeroPeroGamesさんが倒産しちゃったよ～": {
+  "date": "2024-05-23",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Rush B": {
+  "date": "2024-05-23",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "それはもうらぶちゅ": {
+  "date": "2024-05-23",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Cthugha": {
+  "date": "2024-05-23",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "XING": {
+  "date": "2024-05-23",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "とまどい→レシピ": {
+  "date": "2024-05-09",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ヒアソビ": {
+  "date": "2024-05-09",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "flos": {
+  "date": "2024-05-09",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "crazy (about you)": {
+  "date": "2024-04-25",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Dèfandour": {
+  "date": "2024-04-25",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Ultimate Force": {
+  "date": "2024-04-25",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "INTERNET YAMERO": {
+  "date": "2024-04-11",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "インターネットサバイバー": {
+  "date": "2024-04-11",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Burn it All": {
+  "date": "2024-04-11",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Stronghold LandEater": {
+  "date": "2024-04-11",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ユックリ feat.餅千歳": {
+  "date": "2024-04-01",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "D-Birth": {
+  "date": "2024-03-21",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "GIGA BLAST": {
+  "date": "2024-03-21",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Longinus": {
+  "date": "2024-03-21",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Ωκεανος": {
+  "date": "2024-03-21",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Love's Theme of BADASS ～バッド・アス 愛のテーマ～": {
+  "date": "2024-03-21",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "不可解": {
+  "date": "2024-03-07",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "海に化ける": {
+  "date": "2024-03-07",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "パラレルサーチライト": {
+  "date": "2024-03-07",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ブラック★ロックシューター": {
+  "date": "2024-03-07",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ラストピースに祝福と栄光を": {
+  "date": "2024-02-29",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "lucky omen": {
+  "date": "2024-02-22",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Sunlight Starlight": {
+  "date": "2024-02-22",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ワーカーホリック": {
+  "date": "2024-02-22",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Overturn": {
+  "date": "2024-02-22",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "First Light": {
+  "date": "2024-02-22",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "バグ": {
+  "date": "2024-02-08",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "アイデン貞貞メルトダウン": {
+  "date": "2024-01-25",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ひめごと＊クライシスターズ": {
+  "date": "2024-01-25",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Stellar Stellar": {
+  "date": "2024-01-25",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ENERGY SYNERGY MATRIX": {
+  "date": "2024-01-25",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "天使のクローバー": {
+  "date": "2024-01-11",
+  "order": 2,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Beat Eater": {
+  "date": "2024-01-11",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Glory Steady Go!": {
+  "date": "2024-01-11",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ロウワー": {
+  "date": "2024-01-11",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "さくゆいたいそう": {
+  "date": "2023-12-21",
+  "order": 1,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "おどロボ": {
+  "date": "2023-12-21",
+  "order": 3,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ALIVE": {
+  "date": "2023-12-21",
+  "order": 4,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "可愛くてごめん": {
+  "date": "2023-12-21",
+  "order": 5,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "トウキョウ・シャンディ・ランデヴfeat. 花譜, ツミキ": {
+  "date": "2023-12-21",
+  "order": 6,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "アイドル": {
+  "date": "2023-12-21",
+  "order": 7,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "STORM": {
+  "date": "2023-12-21",
+  "order": 8,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "マツケンサンバⅡ": {
+  "date": "2023-12-21",
+  "order": 9,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "強風オールバック": {
+  "date": "2023-12-21",
+  "order": 11,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "星界ちゃんと可不ちゃんのおつかい合騒曲": {
+  "date": "2023-12-21",
+  "order": 12,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "VALLIS-NERIA": {
+  "date": "2023-12-21",
+  "order": 13,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Big Bang": {
+  "date": "2023-12-21",
+  "order": 14,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Jakarta PROGRESSION": {
+  "date": "2023-12-21",
+  "order": 15,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Blow My Mind": {
+  "date": "2023-12-21",
+  "order": 16,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Spasmodic": {
+  "date": "2023-12-21",
+  "order": 17,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ΩΩPARTS": {
+  "date": "2023-12-21",
+  "order": 18,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "本物のヒーローとの戦い": {
+  "date": "2023-12-21",
+  "order": 19,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "華麗なる死闘": {
+  "date": "2023-12-21",
+  "order": 20,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "New York Back Raise": {
+  "date": "2023-12-21",
+  "order": 21,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "Sage": {
+  "date": "2023-12-21",
+  "order": 24,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "オン×ステージ！": {
+  "date": "2023-12-21",
+  "order": 25,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "MarbleBlue.": {
+  "date": "2023-12-21",
+  "order": 26,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "少女PastQ": {
+  "date": "2023-12-21",
+  "order": 27,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "君と夏色っ！～わんダフルバケーション～": {
+  "date": "2023-12-21",
+  "order": 28,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "MyPaceInvention": {
+  "date": "2023-12-21",
+  "order": 29,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "colorful": {
+  "date": "2023-12-21",
+  "order": 30,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ZegalltA": {
+  "date": "2023-12-21",
+  "order": 31,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "驚異の魔法": {
+  "date": "2023-12-21",
+  "order": 32,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "ウニの歌": {
+  "date": "2023-12-21",
+  "order": 33,
+  "version": "CHUNITHM LUMINOUS"
+ },
+ "liberate": {
+  "date": "2023-12-21",
+  "order": 34,
+  "version": "CHUNITHM LUMINOUS"
+ },
  "ふたりのスタートボタン": {
   "date": "2026-10-29",
-  "order": 1
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Amusing Flavor": {
   "date": "2026-10-29",
-  "order": 2
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "ぴるぐライド!": {
   "date": "2026-10-29",
-  "order": 3
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "Dark Falchion": {
   "date": "2026-10-29",
-  "order": 4
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "Metaverse Do Be Like This": {
   "date": "2026-10-29",
-  "order": 5
+  "order": 5,
+  "version": "CHUNITHM Mate"
  },
  "HYPER SAMPLER": {
   "date": "2026-10-29",
-  "order": 6
+  "order": 6,
+  "version": "CHUNITHM Mate"
  },
  "狂命": {
   "date": "2026-10-29",
-  "order": 7
+  "order": 7,
+  "version": "CHUNITHM Mate"
  },
  "P-KATSU": {
   "date": "2026-10-22",
-  "order": 8
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "天天天国地獄国(feat. ななひら & P丸様。)": {
   "date": "2026-10-22",
-  "order": 9
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "さっきゅんライト（2025）": {
   "date": "2026-10-22",
-  "order": 10
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "物凄い狂っとるフランちゃんが物凄いうた": {
   "date": "2026-10-22",
-  "order": 11
- },
- "nico": {
-  "date": "2026-07-16",
-  "order": 49
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "風呂入るプロファイル": {
   "date": "2026-10-08",
-  "order": 13
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "SAN値直葬": {
   "date": "2026-10-08",
-  "order": 14
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "ハイボルテージガール": {
   "date": "2026-10-08",
-  "order": 15
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "コンクエスト・チャレンジ": {
   "date": "2026-10-08",
-  "order": 16
+  "order": 5,
+  "version": "CHUNITHM Mate"
  },
  "Your Reality(Kenji Mizuno Remix)": {
   "date": "2026-09-25",
-  "order": 17
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "LaVI-Bavellabion": {
   "date": "2026-09-25",
-  "order": 18
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "奇々解体": {
   "date": "2026-09-25",
-  "order": 19
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "Colossus": {
   "date": "2026-09-17",
-  "order": 20
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Prismatic Theory": {
   "date": "2026-09-17",
-  "order": 21
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "Knockout Ravebox": {
   "date": "2026-09-17",
-  "order": 22
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "アンサレステラー": {
   "date": "2026-09-17",
-  "order": 23
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "[IMPERIALDISORDER]": {
   "date": "2026-09-17",
-  "order": 24
+  "order": 5,
+  "version": "CHUNITHM Mate"
  },
  "Smell of the Game": {
   "date": "2026-09-03",
-  "order": 25
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Find Your One Way": {
   "date": "2026-09-03",
-  "order": 26
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "Drift": {
   "date": "2026-09-03",
-  "order": 27
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "The Disaster of Passion": {
   "date": "2026-09-03",
-  "order": 28
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "JACKY [Remix]": {
   "date": "2026-09-03",
-  "order": 29
+  "order": 5,
+  "version": "CHUNITHM Mate"
  },
  "ふわパチ星雲PTL-3": {
   "date": "2026-08-20",
-  "order": 30
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Fox Hunt": {
   "date": "2026-08-20",
-  "order": 31
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "命スクリプト": {
   "date": "2026-08-20",
-  "order": 32
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "コトバノ廃都": {
   "date": "2026-08-20",
-  "order": 33
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "Glitch Street": {
   "date": "2026-08-06",
-  "order": 34
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Bunny Bunny Carrot Carrot": {
   "date": "2026-08-06",
-  "order": 35
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "On And On!!": {
   "date": "2026-08-06",
-  "order": 36
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "E.V.E": {
   "date": "2026-08-06",
-  "order": 37
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "ときめき★メテオストライク": {
   "date": "2026-07-30",
-  "order": 38
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "Ribbon": {
   "date": "2026-07-30",
-  "order": 40
+  "order": 3,
+  "version": "CHUNITHM Mate"
  },
  "シャオシャオ蘭々♪": {
   "date": "2026-07-16",
-  "order": 41
+  "order": 1,
+  "version": "CHUNITHM Mate"
  },
  "偉大なる悪魔は実は大天使パトラちゃん様なのだ！": {
   "date": "2026-07-16",
-  "order": 42
+  "order": 2,
+  "version": "CHUNITHM Mate"
  },
  "ウニの歌(Nanoru Naganai Remix)": {
   "date": "2026-07-16",
-  "order": 44
+  "order": 4,
+  "version": "CHUNITHM Mate"
  },
  "ハッピーラッキーチャッピー": {
   "date": "2026-07-16",
-  "order": 45
+  "order": 5,
+  "version": "CHUNITHM Mate"
  },
  "Bling-Bang-Bang-Born": {
   "date": "2026-07-16",
-  "order": 46
+  "order": 6,
+  "version": "CHUNITHM Mate"
  },
  "明日の私に幸あれ": {
   "date": "2026-07-16",
-  "order": 47
+  "order": 7,
+  "version": "CHUNITHM Mate"
  },
  "愛♡スクリ～ム！": {
   "date": "2026-07-16",
-  "order": 48
+  "order": 8,
+  "version": "CHUNITHM Mate"
  },
  "お返事まだカナ？おじさん構文！": {
   "date": "2026-07-16",
-  "order": 50
+  "order": 10,
+  "version": "CHUNITHM Mate"
  },
  "テレパシ": {
   "date": "2026-07-16",
-  "order": 51
+  "order": 11,
+  "version": "CHUNITHM Mate"
  },
  "最終鬼畜妹フランドール・S(原口沙輔は鬼畜なのか？remix)": {
   "date": "2026-07-16",
-  "order": 52
+  "order": 12,
+  "version": "CHUNITHM Mate"
  },
  "OMAKENO Stroke": {
   "date": "2026-07-16",
-  "order": 53
+  "order": 13,
+  "version": "CHUNITHM Mate"
  },
  "キミとのテトテコネクト": {
   "date": "2026-07-16",
-  "order": 54
+  "order": 14,
+  "version": "CHUNITHM Mate"
  },
  "Cryogenic": {
   "date": "2026-07-16",
-  "order": 55
+  "order": 15,
+  "version": "CHUNITHM Mate"
  },
  "零號車輛": {
   "date": "2026-07-16",
-  "order": 56
+  "order": 16,
+  "version": "CHUNITHM Mate"
  },
  "RE:UNION-Duo Blade Against-": {
   "date": "2026-07-16",
-  "order": 57
+  "order": 17,
+  "version": "CHUNITHM Mate"
  },
  "英雄の証": {
   "date": "2026-07-16",
-  "order": 58
+  "order": 18,
+  "version": "CHUNITHM Mate"
  },
  "白光に響く生命の叫び": {
   "date": "2026-07-16",
-  "order": 59
+  "order": 19,
+  "version": "CHUNITHM Mate"
  },
  "Hello! My World!!": {
   "date": "2026-07-16",
-  "order": 60
- },
- "イロ": {
-  "date": "2026-07-16",
-  "order": 61
- },
- "撃舞": {
-  "date": "2026-07-16",
-  "order": 62
+  "order": 20,
+  "version": "CHUNITHM Mate"
  },
  "Honey Bear": {
   "date": "2026-07-16",
-  "order": 63
+  "order": 23,
+  "version": "CHUNITHM Mate"
  },
  "ALLNIGHT_DANCER": {
   "date": "2026-07-16",
-  "order": 64
+  "order": 24,
+  "version": "CHUNITHM Mate"
  },
  "Garakuta Doll Play (sasakure.UK clutter remix)": {
   "date": "2026-07-16",
-  "order": 65
+  "order": 25,
+  "version": "CHUNITHM Mate"
  },
  "ひなたでワチャチャ": {
   "date": "2026-07-16",
-  "order": 66
+  "order": 26,
+  "version": "CHUNITHM Mate"
  },
  "白昼熱演": {
   "date": "2026-07-16",
-  "order": 67
+  "order": 27,
+  "version": "CHUNITHM Mate"
  },
  "絶対一生これで生きていく！": {
   "date": "2026-07-16",
-  "order": 68
+  "order": 28,
+  "version": "CHUNITHM Mate"
  },
  "Luminous CANDY": {
   "date": "2026-07-16",
-  "order": 69
+  "order": 29,
+  "version": "CHUNITHM Mate"
  },
  "SOMA TONE": {
   "date": "2026-07-16",
-  "order": 70
+  "order": 30,
+  "version": "CHUNITHM Mate"
  },
  "Tachy∅n": {
   "date": "2026-07-16",
-  "order": 71
+  "order": 31,
+  "version": "CHUNITHM Mate"
  },
  "ちゅ、お注射。": {
   "date": "2026-07-16",
-  "order": 72
+  "order": 32,
+  "version": "CHUNITHM Mate"
  },
  "チュウニペンギンのテーマ～左下より愛をこめて～": {
   "date": "2026-07-16",
-  "order": 73
+  "order": 33,
+  "version": "CHUNITHM Mate"
+ },
+ "Starduster": {
+  "date": "2022-09-29",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "崩壊歌姫 -disruptive diva-": {
+  "date": "2022-09-29",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "マージナル": {
+  "date": "2022-09-29",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ぽっぴっぽー": {
+  "date": "2022-09-29",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "The secret garden": {
+  "date": "2022-09-29",
+  "order": 6,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "キルミーのベイベー！": {
+  "date": "2022-09-15",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Rumbling hearts": {
+  "date": "2022-09-15",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "非実在系女子達はどうすりゃいいですか？": {
+  "date": "2022-09-15",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "恋ひ恋ふ縁": {
+  "date": "2022-09-15",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ホーリーサンバランド": {
+  "date": "2022-09-01",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "MALKUTH -The Last Ruler of Terrestrials-": {
+  "date": "2022-09-01",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "DA'AT -The First Seeker of Souls-": {
+  "date": "2022-09-01",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "僕の戦争": {
+  "date": "2022-08-18",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Y.Y.Y.計画!!!!": {
+  "date": "2022-08-18",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "最っ高のエンタメだ!!": {
+  "date": "2022-08-18",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "GODLINESS": {
+  "date": "2022-08-18",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "#SUP3RORBITAL": {
+  "date": "2022-08-04",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "WE'RE BACK!!": {
+  "date": "2022-08-04",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Brightness": {
+  "date": "2022-08-04",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Λzure Vixen": {
+  "date": "2022-08-04",
+  "order": 6,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "3倍！Sun Shine！カーニバル！": {
+  "date": "2022-07-21",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "地獄屋八丁荒らし": {
+  "date": "2022-07-21",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ハッピーエンドをはじめから": {
+  "date": "2022-07-21",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "過去を喰らう": {
+  "date": "2022-07-21",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "失礼しますが、RIP♡": {
+  "date": "2022-07-21",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "愛のシュプリーム！": {
+  "date": "2022-07-07",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "めいど・うぃず・どらごんず♥": {
+  "date": "2022-07-07",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Re：End of a Dream": {
+  "date": "2022-07-07",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "僕らのFreedom DiVE↓": {
+  "date": "2022-07-07",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "BlackFlagBreaker!!": {
+  "date": "2022-06-23",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "あの世行きのバスに乗ってさらば。": {
+  "date": "2022-06-23",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "泥の分際で私だけの大切を奪おうだなんて": {
+  "date": "2022-06-23",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "吉原ラメント": {
+  "date": "2022-06-23",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "フォニイ": {
+  "date": "2022-06-23",
+  "order": 6,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "I'll make you Super Rock Star": {
+  "date": "2022-06-09",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Reverberate": {
+  "date": "2022-06-09",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Breakthrough": {
+  "date": "2022-06-09",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Scythe of Death": {
+  "date": "2022-06-09",
+  "order": 6,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Dig Delight!": {
+  "date": "2022-05-26",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Floor Killer": {
+  "date": "2022-05-26",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "エバ": {
+  "date": "2022-05-26",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "トラフィック・ジャム": {
+  "date": "2022-05-26",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Get the star for you [DJ Command Remix]": {
+  "date": "2022-05-12",
+  "order": 1,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Music Evolution": {
+  "date": "2022-05-12",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ハウリング": {
+  "date": "2022-05-12",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "寡黙なるフォール": {
+  "date": "2022-05-12",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "みずいろレインドロップ": {
+  "date": "2022-05-12",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "星めぐり、果ての君へ。": {
+  "date": "2022-04-28",
+  "order": 2,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "モ°ルモ°ル": {
+  "date": "2022-04-28",
+  "order": 3,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "蒼穹舞楽": {
+  "date": "2022-04-28",
+  "order": 4,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Komplexe": {
+  "date": "2022-04-28",
+  "order": 5,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "愛のシンギュラリティ": {
+  "date": "2022-04-28",
+  "order": 6,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "アナタニナルノ": {
+  "date": "2022-04-28",
+  "order": 7,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Cry Baby": {
+  "date": "2022-04-28",
+  "order": 8,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "怪物": {
+  "date": "2022-04-28",
+  "order": 9,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "明け星": {
+  "date": "2022-04-28",
+  "order": 10,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "シル・ヴ・プレジデント": {
+  "date": "2022-04-28",
+  "order": 11,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "さんさーら！": {
+  "date": "2022-04-28",
+  "order": 12,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ギラギラ": {
+  "date": "2022-04-28",
+  "order": 13,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "携帯恋話": {
+  "date": "2022-04-28",
+  "order": 15,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "エンヴィーベイビー": {
+  "date": "2022-04-28",
+  "order": 16,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ダーリンダンス": {
+  "date": "2022-04-28",
+  "order": 17,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "初音天地開闢神話": {
+  "date": "2022-04-28",
+  "order": 18,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "無間嫉妬劇場『666』": {
+  "date": "2022-04-28",
+  "order": 19,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "ENDYMION": {
+  "date": "2022-04-28",
+  "order": 20,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "8OROCHI": {
+  "date": "2022-04-28",
+  "order": 21,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "竹": {
+  "date": "2022-04-28",
+  "order": 22,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "恋はりんりん☆あーりんベル": {
+  "date": "2022-04-28",
+  "order": 24,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Titania": {
+  "date": "2022-04-28",
+  "order": 26,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "タイムカプセル": {
+  "date": "2022-04-28",
+  "order": 27,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Give me Love♡": {
+  "date": "2022-04-28",
+  "order": 28,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "パズルリボン": {
+  "date": "2022-04-28",
+  "order": 29,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Be4Step": {
+  "date": "2022-04-28",
+  "order": 30,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "Everlasting Liberty": {
+  "date": "2022-04-28",
+  "order": 31,
+  "version": "CHUNITHM NEW PLUS"
+ },
+ "違う、そうじゃない": {
+  "date": "2022-04-01",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "俺ら東京さ行ぐだ": {
+  "date": "2022-04-01",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "Elemental Creation": {
+  "date": "2022-04-01",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "J219": {
+  "date": "2022-04-01",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "トリドリ⇒モリモリ! Lovely fruits☆": {
+  "date": "2022-03-24",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "夜明けのストリング": {
+  "date": "2022-03-24",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "Realize": {
+  "date": "2022-03-17",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "Long shot": {
+  "date": "2022-03-17",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "帝国少女": {
+  "date": "2022-03-17",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "クーネル・エンゲイザー": {
+  "date": "2022-03-17",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "回転 feat.あやぽんず＊": {
+  "date": "2022-03-03",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "SOUL 2 DIVIDE": {
+  "date": "2022-03-03",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "Cinderella Story [BlackY Remix]": {
+  "date": "2022-03-03",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "妖々跋扈 ～ Who done it！！！": {
+  "date": "2022-03-03",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "宵闇の月に抱かれて": {
+  "date": "2022-03-03",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "アルストロメリア": {
+  "date": "2022-03-03",
+  "order": 6,
+  "version": "CHUNITHM NEW"
+ },
+ "POTENTIAL": {
+  "date": "2022-03-03",
+  "order": 9,
+  "version": "CHUNITHM NEW"
+ },
+ "Qliphothgear": {
+  "date": "2022-02-17",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "SQUAD-Phvntom-": {
+  "date": "2022-02-17",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "parvorbital": {
+  "date": "2022-02-17",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "Inpaqq": {
+  "date": "2022-02-17",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "Strange Love": {
+  "date": "2022-02-17",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "FLARE": {
+  "date": "2022-02-03",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "テレキャスタービーボーイ": {
+  "date": "2022-02-03",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "ボッカデラベリタ": {
+  "date": "2022-02-03",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "Baqeela": {
+  "date": "2022-02-03",
+  "order": 7,
+  "version": "CHUNITHM NEW"
+ },
+ "天空カフェテリア": {
+  "date": "2022-01-20",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "ヒバリ": {
+  "date": "2022-01-20",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "Say!ファンファーレ!": {
+  "date": "2022-01-20",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "Virtual to LIVE": {
+  "date": "2022-01-20",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "圧 倒 的 存 在 感": {
+  "date": "2022-01-20",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "なだめスかし Negotiation（TVsize）": {
+  "date": "2022-01-06",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "ちくわパフェだよ☆CKP": {
+  "date": "2022-01-06",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "88D": {
+  "date": "2022-01-06",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "カラッポ・ノンフィクション": {
+  "date": "2022-01-06",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "Tuk Tuk Boshi": {
+  "date": "2022-01-06",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "プナイプナイたいそう": {
+  "date": "2022-01-06",
+  "order": 6,
+  "version": "CHUNITHM NEW"
+ },
+ "Akasagarbha -reincarnate-": {
+  "date": "2021-12-23",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "《自戒》 ～ Paganelope": {
+  "date": "2021-12-23",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "《紀律》 ～ As One": {
+  "date": "2021-12-23",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "《種子》 ～ Set You Free": {
+  "date": "2021-12-23",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "《偏愛》 ～ Shattered Memories": {
+  "date": "2021-12-23",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "Lost Princess": {
+  "date": "2021-12-09",
+  "order": 1,
+  "version": "CHUNITHM NEW"
+ },
+ "Mirage Game": {
+  "date": "2021-12-09",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "ルナティックレッドアイズ": {
+  "date": "2021-12-09",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "＃FairyJoke": {
+  "date": "2021-12-09",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "UTAKATA": {
+  "date": "2021-11-25",
+  "order": 2,
+  "version": "CHUNITHM NEW"
+ },
+ "Rule the World!!": {
+  "date": "2021-11-25",
+  "order": 3,
+  "version": "CHUNITHM NEW"
+ },
+ "どうぶつ☆パラダイス": {
+  "date": "2021-11-25",
+  "order": 4,
+  "version": "CHUNITHM NEW"
+ },
+ "永遠のAria": {
+  "date": "2021-11-25",
+  "order": 5,
+  "version": "CHUNITHM NEW"
+ },
+ "キズナミュージック♪": {
+  "date": "2021-11-25",
+  "order": 6,
+  "version": "CHUNITHM NEW"
+ },
+ "FIRE BIRD": {
+  "date": "2021-11-25",
+  "order": 7,
+  "version": "CHUNITHM NEW"
+ },
+ "夜に駆ける": {
+  "date": "2021-11-25",
+  "order": 8,
+  "version": "CHUNITHM NEW"
+ },
+ "香水": {
+  "date": "2021-11-25",
+  "order": 9,
+  "version": "CHUNITHM NEW"
+ },
+ "猫 ～THE FIRST TAKE ver.～": {
+  "date": "2021-11-25",
+  "order": 10,
+  "version": "CHUNITHM NEW"
+ },
+ "インフェルノ": {
+  "date": "2021-11-25",
+  "order": 11,
+  "version": "CHUNITHM NEW"
+ },
+ "残酷な天使のテーゼ": {
+  "date": "2021-11-25",
+  "order": 12,
+  "version": "CHUNITHM NEW"
+ },
+ "紅": {
+  "date": "2021-11-25",
+  "order": 13,
+  "version": "CHUNITHM NEW"
+ },
+ "うまぴょい伝説": {
+  "date": "2021-11-25",
+  "order": 14,
+  "version": "CHUNITHM NEW"
+ },
+ "GO! GO! MANIAC": {
+  "date": "2021-11-25",
+  "order": 15,
+  "version": "CHUNITHM NEW"
+ },
+ "エクストラ・マジック・アワー": {
+  "date": "2021-11-25",
+  "order": 16,
+  "version": "CHUNITHM NEW"
+ },
+ "名前のない怪物": {
+  "date": "2021-11-25",
+  "order": 17,
+  "version": "CHUNITHM NEW"
+ },
+ "うっせぇわ": {
+  "date": "2021-11-25",
+  "order": 18,
+  "version": "CHUNITHM NEW"
+ },
+ "廻廻奇譚": {
+  "date": "2021-11-25",
+  "order": 19,
+  "version": "CHUNITHM NEW"
+ },
+ "KING": {
+  "date": "2021-11-25",
+  "order": 21,
+  "version": "CHUNITHM NEW"
+ },
+ "電脳少女は歌姫の夢を見るか？": {
+  "date": "2021-11-25",
+  "order": 22,
+  "version": "CHUNITHM NEW"
+ },
+ "心予報": {
+  "date": "2021-11-25",
+  "order": 23,
+  "version": "CHUNITHM NEW"
+ },
+ "拝啓、桜舞い散るこの日に": {
+  "date": "2021-11-25",
+  "order": 24,
+  "version": "CHUNITHM NEW"
+ },
+ "セカイ": {
+  "date": "2021-11-25",
+  "order": 25,
+  "version": "CHUNITHM NEW"
+ },
+ "ローリンガール": {
+  "date": "2021-11-25",
+  "order": 26,
+  "version": "CHUNITHM NEW"
+ },
+ "サイバーサンダーサイダー": {
+  "date": "2021-11-25",
+  "order": 27,
+  "version": "CHUNITHM NEW"
+ },
+ "骸骨楽団とリリア": {
+  "date": "2021-11-25",
+  "order": 28,
+  "version": "CHUNITHM NEW"
+ },
+ "失敗作少女": {
+  "date": "2021-11-25",
+  "order": 29,
+  "version": "CHUNITHM NEW"
+ },
+ "高音厨音域テスト": {
+  "date": "2021-11-25",
+  "order": 30,
+  "version": "CHUNITHM NEW"
+ },
+ "深海のリトルクライ feat. 土岐麻子": {
+  "date": "2021-11-25",
+  "order": 31,
+  "version": "CHUNITHM NEW"
+ },
+ "二次元ドリームフィーバー": {
+  "date": "2021-11-25",
+  "order": 32,
+  "version": "CHUNITHM NEW"
+ },
+ "ナイト・オブ・ナイツ (かめりあ’s“ワンス・アポン・ア・ナイト”Remix)": {
+  "date": "2021-11-25",
+  "order": 33,
+  "version": "CHUNITHM NEW"
+ },
+ "Bad Apple!! feat.nomico (REDALiCE Remix)": {
+  "date": "2021-11-25",
+  "order": 34,
+  "version": "CHUNITHM NEW"
+ },
+ "No Life Queen ［DJ Command Remix］": {
+  "date": "2021-11-25",
+  "order": 35,
+  "version": "CHUNITHM NEW"
+ },
+ "Little \"Sister\" Bitch": {
+  "date": "2021-11-25",
+  "order": 36,
+  "version": "CHUNITHM NEW"
+ },
+ "キャプテン・ムラサのケツアンカー": {
+  "date": "2021-11-25",
+  "order": 37,
+  "version": "CHUNITHM NEW"
+ },
+ "ホイホイ☆幻想ホロイズム": {
+  "date": "2021-11-25",
+  "order": 38,
+  "version": "CHUNITHM NEW"
+ },
+ "FLOWER": {
+  "date": "2021-11-25",
+  "order": 39,
+  "version": "CHUNITHM NEW"
+ },
+ "ピアノ協奏曲第１番”蠍火”": {
+  "date": "2021-11-25",
+  "order": 40,
+  "version": "CHUNITHM NEW"
+ },
+ "ミュージック・リボルバー": {
+  "date": "2021-11-25",
+  "order": 41,
+  "version": "CHUNITHM NEW"
+ },
+ "Crimson Phoenix": {
+  "date": "2021-11-25",
+  "order": 42,
+  "version": "CHUNITHM NEW"
+ },
+ "DAZZLING♡SEASON": {
+  "date": "2021-11-25",
+  "order": 43,
+  "version": "CHUNITHM NEW"
+ },
+ "Satellite System ft.Diana Chiaki": {
+  "date": "2021-11-25",
+  "order": 44,
+  "version": "CHUNITHM NEW"
+ },
+ "XL TECHNO -More Dance Remix-": {
+  "date": "2021-11-25",
+  "order": 45,
+  "version": "CHUNITHM NEW"
+ },
+ "CHAOS": {
+  "date": "2021-11-25",
+  "order": 46,
+  "version": "CHUNITHM NEW"
+ },
+ "SINister Evolution": {
+  "date": "2021-11-25",
+  "order": 47,
+  "version": "CHUNITHM NEW"
+ },
+ "A Site De La Rue": {
+  "date": "2021-11-25",
+  "order": 48,
+  "version": "CHUNITHM NEW"
+ },
+ "]-[｜/34&lt;#!*2": {
+  "date": "2021-11-25",
+  "order": 49,
+  "version": "CHUNITHM NEW"
+ },
+ "MEGALOVANIA": {
+  "date": "2021-11-25",
+  "order": 50,
+  "version": "CHUNITHM NEW"
+ },
+ "REDRAVE": {
+  "date": "2021-11-25",
+  "order": 51,
+  "version": "CHUNITHM NEW"
+ },
+ "BLUE ZONE": {
+  "date": "2021-11-25",
+  "order": 52,
+  "version": "CHUNITHM NEW"
+ },
+ "花たちに希望を": {
+  "date": "2021-11-25",
+  "order": 53,
+  "version": "CHUNITHM NEW"
+ },
+ "NightTheater": {
+  "date": "2021-11-25",
+  "order": 54,
+  "version": "CHUNITHM NEW"
+ },
+ "Iudicium “Apocalypsis Mix”": {
+  "date": "2021-11-25",
+  "order": 57,
+  "version": "CHUNITHM NEW"
+ },
+ "Don't Fight The Music": {
+  "date": "2021-11-25",
+  "order": 58,
+  "version": "CHUNITHM NEW"
+ },
+ "脳天直撃": {
+  "date": "2021-11-25",
+  "order": 59,
+  "version": "CHUNITHM NEW"
+ },
+ "コスモポップファンクラブ": {
+  "date": "2021-11-25",
+  "order": 60,
+  "version": "CHUNITHM NEW"
+ },
+ "ピュグマリオンの咒文": {
+  "date": "2021-11-25",
+  "order": 61,
+  "version": "CHUNITHM NEW"
+ },
+ "Ring": {
+  "date": "2021-11-25",
+  "order": 62,
+  "version": "CHUNITHM NEW"
+ },
+ "Echoes": {
+  "date": "2021-11-25",
+  "order": 63,
+  "version": "CHUNITHM NEW"
+ },
+ "Pre Paid Pog Punk Panic": {
+  "date": "2021-11-25",
+  "order": 64,
+  "version": "CHUNITHM NEW"
+ },
+ "IMPACT": {
+  "date": "2021-11-25",
+  "order": 65,
+  "version": "CHUNITHM NEW"
+ },
+ "夢路拍子": {
+  "date": "2021-11-25",
+  "order": 66,
+  "version": "CHUNITHM NEW"
+ },
+ "Blazing Break": {
+  "date": "2021-11-25",
+  "order": 67,
+  "version": "CHUNITHM NEW"
+ },
+ "Athlete Killer \"Meteor\"": {
+  "date": "2021-11-25",
+  "order": 68,
+  "version": "CHUNITHM NEW"
+ },
+ "雪男": {
+  "date": "2021-11-25",
+  "order": 69,
+  "version": "CHUNITHM NEW"
+ },
+ "人生攻略☆Tips": {
+  "date": "2021-11-25",
+  "order": 70,
+  "version": "CHUNITHM NEW"
+ },
+ "STAR IN THE WORLD": {
+  "date": "2021-11-25",
+  "order": 71,
+  "version": "CHUNITHM NEW"
+ },
+ "Crack": {
+  "date": "2021-11-25",
+  "order": 72,
+  "version": "CHUNITHM NEW"
+ },
+ "DDDD": {
+  "date": "2021-11-25",
+  "order": 73,
+  "version": "CHUNITHM NEW"
+ },
+ "創世のコンツェルティーナ": {
+  "date": "2021-11-25",
+  "order": 74,
+  "version": "CHUNITHM NEW"
+ },
+ "Super Kitsch Mode": {
+  "date": "2021-11-25",
+  "order": 75,
+  "version": "CHUNITHM NEW"
+ },
+ "Fantasm": {
+  "date": "2021-11-25",
+  "order": 76,
+  "version": "CHUNITHM NEW"
+ },
+ "[CRYSTAL_ACCESS]": {
+  "date": "2021-11-25",
+  "order": 77,
+  "version": "CHUNITHM NEW"
+ },
+ "UltraNeon": {
+  "date": "2021-11-25",
+  "order": 78,
+  "version": "CHUNITHM NEW"
+ },
+ "蜘蛛の糸": {
+  "date": "2021-11-25",
+  "order": 79,
+  "version": "CHUNITHM NEW"
+ },
+ "幽霊東京": {
+  "date": "2021-10-21",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ポジティブ・パレード": {
+  "date": "2021-10-21",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ロストワードクロニカル": {
+  "date": "2021-10-07",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Yakumo ＞＞JOINT STRUGGLE(2019 Update)": {
+  "date": "2021-10-07",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "全力ハッピーライフ": {
+  "date": "2021-10-07",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "明星ロケット": {
+  "date": "2021-10-07",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "神々が恋した幻想郷": {
+  "date": "2021-10-07",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "乙女のルートはひとつじゃない！": {
+  "date": "2021-09-30",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Love & Justice": {
+  "date": "2021-09-30",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "祈-我ら神祖と共に歩む者なり-": {
+  "date": "2021-09-30",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "月詠に鳴る": {
+  "date": "2021-09-16",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Blessed Rain": {
+  "date": "2021-09-16",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Elemental Ethnic": {
+  "date": "2021-09-16",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "TECHNOPOLIS 2085": {
+  "date": "2021-09-16",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "X7124": {
+  "date": "2021-09-16",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "I believe what you said": {
+  "date": "2021-09-02",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "スーサイドパレヱド": {
+  "date": "2021-09-02",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "永遠にゲームで対戦したいキリタン": {
+  "date": "2021-09-02",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "アンヘル": {
+  "date": "2021-09-02",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "自分勝手Dazzling": {
+  "date": "2021-08-19",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Utopithm": {
+  "date": "2021-08-19",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "妖怪ですから": {
+  "date": "2021-08-19",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Glory Days": {
+  "date": "2021-08-19",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Spiral Fortune": {
+  "date": "2021-08-19",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "No.1": {
+  "date": "2021-08-05",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ザ・ライブ革命でSHOW！": {
+  "date": "2021-08-05",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Yes! Party Time!!": {
+  "date": "2021-08-05",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Kattobi舞高Riders": {
+  "date": "2021-08-05",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Good bye, Merry-Go-Round.": {
+  "date": "2021-08-05",
+  "order": 7,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ハルシナイト": {
+  "date": "2021-07-21",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Dark Diver": {
+  "date": "2021-07-21",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Tattoo": {
+  "date": "2021-07-21",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "呪歌-JyuKa-": {
+  "date": "2021-07-21",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "再生不能": {
+  "date": "2021-07-21",
+  "order": 6,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Deep in Abyss": {
+  "date": "2021-07-08",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ここからはじまるプロローグ。": {
+  "date": "2021-07-08",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "福宿音屋魂音泉": {
+  "date": "2021-07-08",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ベースラインやってる？笑": {
+  "date": "2021-06-24",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "GranFatalité": {
+  "date": "2021-06-24",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "SWEET SHAKE!!": {
+  "date": "2021-06-24",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "What color...": {
+  "date": "2021-06-24",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ふぃーばー": {
+  "date": "2021-06-10",
+  "order": 1,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Earthquake Super Shock": {
+  "date": "2021-06-10",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "はたてのバッコイ殺人事件": {
+  "date": "2021-06-10",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ポーカーフェイス": {
+  "date": "2021-06-10",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "こちら、幸福安心委員会です。": {
+  "date": "2021-05-27",
+  "order": 2,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "彗星ハネムーン": {
+  "date": "2021-05-27",
+  "order": 3,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "ぷよぷよのうた ピコピコミックス": {
+  "date": "2021-05-27",
+  "order": 4,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "町かどタンジェント": {
+  "date": "2021-05-27",
+  "order": 5,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "異世界かるてっと": {
+  "date": "2021-05-27",
+  "order": 6,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Paradise Lost": {
+  "date": "2021-05-27",
+  "order": 7,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "脳裏上のクラッカー": {
+  "date": "2021-05-27",
+  "order": 8,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "もってけ!セーラーふく": {
+  "date": "2021-05-27",
+  "order": 9,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Wizdomiot": {
+  "date": "2021-05-27",
+  "order": 11,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "BATTLE NO.1": {
+  "date": "2021-05-27",
+  "order": 12,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Over Heart": {
+  "date": "2021-05-27",
+  "order": 14,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "レイニーカラー・ウォーターカラー": {
+  "date": "2021-05-27",
+  "order": 15,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "おいでよ！ 高須らいむランド": {
+  "date": "2021-05-27",
+  "order": 16,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Charlatan": {
+  "date": "2021-05-27",
+  "order": 17,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "萌豚♥功夫♥大乱舞": {
+  "date": "2021-05-27",
+  "order": 18,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "つっぱれ！にゃんきー魂": {
+  "date": "2021-05-27",
+  "order": 19,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "C ＆ B": {
+  "date": "2021-05-27",
+  "order": 20,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "Blazing:Storm": {
+  "date": "2021-05-27",
+  "order": 21,
+  "version": "CHUNITHM PARADISE LOST"
+ },
+ "歩いていこう！": {
+  "date": "2021-04-28",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "真千年女王": {
+  "date": "2021-04-28",
+  "order": 2,
+  "version": "CHUNITHM PARADISE"
+ },
+ "《狂乱》 ～ Cataclysm": {
+  "date": "2021-04-15",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "《投影》 ～ Oh My Baby Doll": {
+  "date": "2021-04-15",
+  "order": 2,
+  "version": "CHUNITHM PARADISE"
+ },
+ "《信仰》 ～ Eudaimonia": {
+  "date": "2021-04-15",
+  "order": 3,
+  "version": "CHUNITHM PARADISE"
+ },
+ "《選別》 ～ Refuge": {
+  "date": "2021-04-15",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "《本能》 ～ ReCoda": {
+  "date": "2021-04-15",
+  "order": 5,
+  "version": "CHUNITHM PARADISE"
+ },
+ "甲賀忍法帖": {
+  "date": "2021-04-01",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "董卓討つべし": {
+  "date": "2021-04-01",
+  "order": 2,
+  "version": "CHUNITHM PARADISE"
+ },
+ "赤壁、大炎上！！": {
+  "date": "2021-04-01",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "LINK LINK FEVER!!!": {
+  "date": "2021-03-18",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "DX超性能フルメタル少女": {
+  "date": "2021-03-18",
+  "order": 2,
+  "version": "CHUNITHM PARADISE"
+ },
+ "SKYSCRAPER": {
+  "date": "2021-03-18",
+  "order": 3,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Lemegeton -little key of solomon-": {
+  "date": "2021-03-18",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "BUCHiGiRE Berserker": {
+  "date": "2021-03-18",
+  "order": 5,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ANU": {
+  "date": "2021-03-18",
+  "order": 6,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Shiny Smily Story": {
+  "date": "2021-03-04",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "キラメキライダー☆": {
+  "date": "2021-03-04",
+  "order": 2,
+  "version": "CHUNITHM PARADISE"
+ },
+ "疾走あんさんぶる": {
+  "date": "2021-03-04",
+  "order": 3,
+  "version": "CHUNITHM PARADISE"
+ },
+ "しゅわスパ大作戦☆": {
+  "date": "2021-03-04",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "LOVE EAST": {
+  "date": "2021-03-04",
+  "order": 5,
+  "version": "CHUNITHM PARADISE"
+ },
+ "モノノケ・イン・ザ・フィクション": {
+  "date": "2021-02-18",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ぽかぽかの星": {
+  "date": "2021-02-18",
+  "order": 3,
+  "version": "CHUNITHM PARADISE"
+ },
+ "スターナイトスノウ": {
+  "date": "2021-02-18",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "白ゆき": {
+  "date": "2021-02-18",
+  "order": 5,
+  "version": "CHUNITHM PARADISE"
+ },
+ "クロートーと星の観測者": {
+  "date": "2021-02-04",
+  "order": 1,
+  "version": "CHUNITHM PARADISE"
+ },
+ "宙の隣": {
+  "date": "2021-02-04",
+  "order": 3,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Just You": {
+  "date": "2021-02-04",
+  "order": 4,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Insane Gamemode": {
+  "date": "2021-02-04",
+  "order": 5,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Parad'ox": {
+  "date": "2021-02-04",
+  "order": 6,
+  "version": "CHUNITHM PARADISE"
+ },
+ "君のせい": {
+  "date": "2021-02-04",
+  "order": 7,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Pretender": {
+  "date": "2021-02-04",
+  "order": 8,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Phantom Joke": {
+  "date": "2021-02-04",
+  "order": 9,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ごまかし": {
+  "date": "2021-02-04",
+  "order": 10,
+  "version": "CHUNITHM PARADISE"
+ },
+ "だから僕は音楽を辞めた": {
+  "date": "2021-02-04",
+  "order": 11,
+  "version": "CHUNITHM PARADISE"
+ },
+ "真赤な誓い": {
+  "date": "2021-02-04",
+  "order": 12,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ドラマツルギー": {
+  "date": "2021-02-04",
+  "order": 14,
+  "version": "CHUNITHM PARADISE"
+ },
+ "アンクローズ・ヒューマン": {
+  "date": "2021-02-04",
+  "order": 15,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ベノム": {
+  "date": "2021-02-04",
+  "order": 16,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ナイト・オブ・ナイツ (USAO Remix)": {
+  "date": "2021-02-04",
+  "order": 17,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Cyaegha": {
+  "date": "2021-02-04",
+  "order": 18,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Arcahv": {
+  "date": "2021-02-04",
+  "order": 19,
+  "version": "CHUNITHM PARADISE"
+ },
+ "AttraqtiA": {
+  "date": "2021-02-04",
+  "order": 20,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Viyella's Tears": {
+  "date": "2021-02-04",
+  "order": 23,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Paqqin (tpz Despair Remix)": {
+  "date": "2021-02-04",
+  "order": 24,
+  "version": "CHUNITHM PARADISE"
+ },
+ "テリトリーバトル": {
+  "date": "2021-02-04",
+  "order": 25,
+  "version": "CHUNITHM PARADISE"
+ },
+ "ROAD TO DREAM": {
+  "date": "2021-02-04",
+  "order": 26,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Hey Yeah!!": {
+  "date": "2021-02-04",
+  "order": 27,
+  "version": "CHUNITHM PARADISE"
+ },
+ "絶対トキメキデリバリー": {
+  "date": "2021-02-04",
+  "order": 28,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Yume no hajimari": {
+  "date": "2021-02-04",
+  "order": 29,
+  "version": "CHUNITHM PARADISE"
+ },
+ "B100d Hunter": {
+  "date": "2021-02-04",
+  "order": 30,
+  "version": "CHUNITHM PARADISE"
+ },
+ "Last Celebration": {
+  "date": "2021-02-04",
+  "order": 31,
+  "version": "CHUNITHM PARADISE"
+ },
+ "SAMBISTA": {
+  "date": "2016-07-28",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "洗脳": {
+  "date": "2016-07-28",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "Contrapasso -inferno-": {
+  "date": "2016-07-28",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "楽園ファンファーレ": {
+  "date": "2016-07-07",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "ウミユリ海底譚": {
+  "date": "2016-07-07",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "アスノヨゾラ哨戒班": {
+  "date": "2016-07-07",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "天樂": {
+  "date": "2016-07-07",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "Crazy ∞ nighT": {
+  "date": "2016-07-07",
+  "order": 6,
+  "version": "CHUNITHM PLUS"
+ },
+ "カミサマネジマキ": {
+  "date": "2016-07-07",
+  "order": 7,
+  "version": "CHUNITHM PLUS"
+ },
+ "Lapis": {
+  "date": "2016-06-23",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "Heart To Heart": {
+  "date": "2016-06-09",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "Last regrets": {
+  "date": "2016-06-09",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "Little Busters! ～TV animation ver.～": {
+  "date": "2016-06-09",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "WHITE ALBUM Live at Campus Fes": {
+  "date": "2016-06-09",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "届かない恋 '13": {
+  "date": "2016-06-09",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "橙の幻想郷音頭": {
+  "date": "2016-05-26",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "東方妖々夢 ～the maximum moving about～": {
+  "date": "2016-05-26",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "蒼空に舞え、墨染の桜": {
+  "date": "2016-05-26",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "少女幻葬戦慄曲 ～ Necro Fantasia": {
+  "date": "2016-05-26",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "Jimang Shot": {
+  "date": "2016-05-26",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "FREEDOM DiVE": {
+  "date": "2016-05-26",
+  "order": 6,
+  "version": "CHUNITHM PLUS"
+ },
+ "Help me, あーりん！": {
+  "date": "2016-05-12",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "なるとなぎのパーフェクトロックンロール教室": {
+  "date": "2016-05-12",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "GOLDEN RULE": {
+  "date": "2016-05-12",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "宛城、炎上！！": {
+  "date": "2016-05-12",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "如月アテンション": {
+  "date": "2016-04-21",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "夜咄ディセイブ": {
+  "date": "2016-04-21",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "DRAGONLADY": {
+  "date": "2016-04-21",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "このふざけた素晴らしき世界は、僕の為にある": {
+  "date": "2016-04-07",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "Mr. Wonderland": {
+  "date": "2016-04-07",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "星屑ユートピア": {
+  "date": "2016-04-07",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "いろは唄": {
+  "date": "2016-04-07",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "愛迷エレジー": {
+  "date": "2016-04-07",
+  "order": 6,
+  "version": "CHUNITHM PLUS"
+ },
+ "激情！ミルキィ大作戦": {
+  "date": "2016-03-17",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "Falling Roses": {
+  "date": "2016-03-17",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "無敵We are one!!": {
+  "date": "2016-03-17",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "GEMINI -C-": {
+  "date": "2016-03-17",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "Jack-the-Ripper◆": {
+  "date": "2016-03-03",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "Garakuta Doll Play": {
+  "date": "2016-03-03",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "Genesis": {
+  "date": "2016-03-03",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "名も無い鳥": {
+  "date": "2016-03-03",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "L'épisode": {
+  "date": "2016-03-03",
+  "order": 6,
+  "version": "CHUNITHM PLUS"
+ },
+ "君色シグナル": {
+  "date": "2016-02-18",
+  "order": 1,
+  "version": "CHUNITHM PLUS"
+ },
+ "カラフル。": {
+  "date": "2016-02-18",
+  "order": 2,
+  "version": "CHUNITHM PLUS"
+ },
+ "Halcyon": {
+  "date": "2016-02-18",
+  "order": 3,
+  "version": "CHUNITHM PLUS"
+ },
+ "ハート・ビート": {
+  "date": "2016-02-18",
+  "order": 4,
+  "version": "CHUNITHM PLUS"
+ },
+ "回レ！雪月花": {
+  "date": "2016-02-18",
+  "order": 5,
+  "version": "CHUNITHM PLUS"
+ },
+ "楽園の翼": {
+  "date": "2016-02-18",
+  "order": 6,
+  "version": "CHUNITHM PLUS"
+ },
+ "oath sign": {
+  "date": "2016-02-18",
+  "order": 7,
+  "version": "CHUNITHM PLUS"
+ },
+ "ファッとして桃源郷": {
+  "date": "2016-02-18",
+  "order": 8,
+  "version": "CHUNITHM PLUS"
+ },
+ "シュガーソングとビターステップ": {
+  "date": "2016-02-18",
+  "order": 9,
+  "version": "CHUNITHM PLUS"
+ },
+ "XL TECHNO": {
+  "date": "2016-02-18",
+  "order": 11,
+  "version": "CHUNITHM PLUS"
+ },
+ "SNIPE WHOLE": {
+  "date": "2016-02-18",
+  "order": 13,
+  "version": "CHUNITHM PLUS"
+ },
+ "MUSIC PЯAYER": {
+  "date": "2016-02-18",
+  "order": 14,
+  "version": "CHUNITHM PLUS"
+ },
+ "Cyberozar": {
+  "date": "2016-02-18",
+  "order": 15,
+  "version": "CHUNITHM PLUS"
+ },
+ "Chocolate Happy": {
+  "date": "2018-10-11",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "オモイヨシノ": {
+  "date": "2018-10-11",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "チルノおかんのさいきょう☆バイブスごはん": {
+  "date": "2018-10-04",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "つるぺったん": {
+  "date": "2018-10-04",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "volcanic": {
+  "date": "2018-10-04",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "メニメニマニマニ": {
+  "date": "2018-09-20",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ニホンゴワカリマセン": {
+  "date": "2018-09-20",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Get goal!": {
+  "date": "2018-09-20",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Rolling Rolling!": {
+  "date": "2018-09-20",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "灼熱スイッチ": {
+  "date": "2018-09-20",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Dual Fractal": {
+  "date": "2018-09-06",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Drivessover": {
+  "date": "2018-09-06",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Surveiller et punir": {
+  "date": "2018-09-06",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "macrocosmos": {
+  "date": "2018-09-06",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "業 -善なる神とこの世の悪について-": {
+  "date": "2018-09-06",
+  "order": 6,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "あ・え・い・う・え・お・あお!!": {
+  "date": "2018-08-23",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "かーてんこーる!!!!!": {
+  "date": "2018-08-23",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Los! Los! Los!": {
+  "date": "2018-08-23",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Uncontrollable": {
+  "date": "2018-08-23",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "碧き孤島のアングゥィス": {
+  "date": "2018-08-23",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ヒビカセ": {
+  "date": "2018-08-09",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "TOMORROW": {
+  "date": "2018-08-02",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Scream out! -CHUNITHM Tuning-": {
+  "date": "2018-08-02",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Floating Darkness": {
+  "date": "2018-08-02",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Spring of Dreams": {
+  "date": "2018-08-02",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "むしとりのうた": {
+  "date": "2018-07-19",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Candyland Symphony": {
+  "date": "2018-07-19",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ここで一席！ Oshama Scramble!": {
+  "date": "2018-07-19",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "The wheel to the Night～インド人が夢に!?～": {
+  "date": "2018-07-19",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ガヴリールドロップキック": {
+  "date": "2018-07-05",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "厨病激発ボーイ": {
+  "date": "2018-07-05",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "放課後ストライド": {
+  "date": "2018-07-05",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "StargazeR": {
+  "date": "2018-07-05",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "頓珍漢の宴": {
+  "date": "2018-07-05",
+  "order": 6,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ラブって♡ジュエリー♪えんじぇる☆ブレイク！！": {
+  "date": "2018-06-21",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ぶれいくるみるくらぶ！": {
+  "date": "2018-06-21",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Sentimental Snow": {
+  "date": "2018-06-21",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "サンシャインサマー☆夏期講習": {
+  "date": "2018-06-21",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "NYAN-NYA, More! ラブシャイン、Chu♥": {
+  "date": "2018-06-21",
+  "order": 6,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "羽ばたきのバースデイ": {
+  "date": "2018-06-07",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "楔": {
+  "date": "2018-06-07",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "SEVENTH HAVEN": {
+  "date": "2018-06-07",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Bravely You": {
+  "date": "2018-06-07",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Link with U": {
+  "date": "2018-06-07",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ゴーゴー幽霊船": {
+  "date": "2018-05-24",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "マトリョシカ": {
+  "date": "2018-05-24",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "AVALON": {
+  "date": "2018-05-24",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "La Flesvelka": {
+  "date": "2018-05-24",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "星色夜空": {
+  "date": "2018-05-10",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "物凄い勢いでけーねが物凄いうた": {
+  "date": "2018-05-10",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "きゅうりバーにダイブ": {
+  "date": "2018-05-10",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "WARNING×WARNING×WARNING": {
+  "date": "2018-05-10",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "サドマミホリック": {
+  "date": "2018-05-10",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ねぇ、壊れタ人形ハ何処へ棄テらレるノ？": {
+  "date": "2018-04-26",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "popcorn": {
+  "date": "2018-04-19",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Pastel Party": {
+  "date": "2018-04-19",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "はちみつアドベンチャー": {
+  "date": "2018-04-19",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "CHOCOLATE BOMB!!!!": {
+  "date": "2018-04-19",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Twilight": {
+  "date": "2018-04-19",
+  "order": 6,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "未来イマジネーション！": {
+  "date": "2018-04-05",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "純情-SAKURA-": {
+  "date": "2018-04-05",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "青春サイダー": {
+  "date": "2018-04-05",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ゆけむり魂温泉 II": {
+  "date": "2018-04-05",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "otorii INNOVATED -[i]3-": {
+  "date": "2018-04-01",
+  "order": 1,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "アルカリレットウセイ": {
+  "date": "2018-03-22",
+  "order": 2,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "グラーヴェ": {
+  "date": "2018-03-22",
+  "order": 3,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "レトロマニア狂想曲": {
+  "date": "2018-03-22",
+  "order": 4,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "キレキャリオン": {
+  "date": "2018-03-22",
+  "order": 5,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ヒトリゴト": {
+  "date": "2018-03-22",
+  "order": 6,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "adrenaline!!!": {
+  "date": "2018-03-22",
+  "order": 7,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "ネ！コ！": {
+  "date": "2018-03-22",
+  "order": 8,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "全力バタンキュー": {
+  "date": "2018-03-22",
+  "order": 9,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "夢路らびりんす": {
+  "date": "2018-03-22",
+  "order": 10,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Last Proof": {
+  "date": "2018-03-22",
+  "order": 11,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "拝啓ドッペルゲンガー": {
+  "date": "2018-03-22",
+  "order": 13,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "色は匂へど散りぬるを": {
+  "date": "2018-03-22",
+  "order": 14,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Doppelganger": {
+  "date": "2018-03-22",
+  "order": 15,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "BlazinG AIR": {
+  "date": "2018-03-22",
+  "order": 17,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "The Darkness of Valhalla": {
+  "date": "2018-03-22",
+  "order": 18,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Sparking Revolver": {
+  "date": "2018-03-22",
+  "order": 19,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Gate of Doom": {
+  "date": "2018-03-22",
+  "order": 20,
+  "version": "CHUNITHM STAR PLUS"
+ },
+ "Hyper Active": {
+  "date": "2018-02-22",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "L'épilogue": {
+  "date": "2018-02-22",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "D✪N’T ST✪P R✪CKIN’～[✪_✪] MIX～": {
+  "date": "2018-02-22",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Caliburne～Story of the Legendary sword～": {
+  "date": "2018-02-22",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "Vitalization": {
+  "date": "2018-02-08",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "虹色のフリューゲル": {
+  "date": "2018-02-08",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Absolunote": {
+  "date": "2018-02-08",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "木彫り鯰と右肩ゾンビ": {
+  "date": "2018-02-08",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "WAVE": {
+  "date": "2018-02-08",
+  "order": 6,
+  "version": "CHUNITHM STAR"
+ },
+ "アマツキツネ": {
+  "date": "2018-02-08",
+  "order": 7,
+  "version": "CHUNITHM STAR"
+ },
+ "星灯": {
+  "date": "2018-01-25",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "亡國覚醒カタルシス": {
+  "date": "2018-01-25",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "ETERNAL DRAIN": {
+  "date": "2018-01-25",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "G e n g a o z o": {
+  "date": "2018-01-25",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "不安定な神様": {
+  "date": "2018-01-11",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "Philosophyz": {
+  "date": "2018-01-11",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Melody！": {
+  "date": "2018-01-11",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Burning Hearts ～炎のANGEL～": {
+  "date": "2018-01-11",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "La Baguette Magique": {
+  "date": "2017-12-21",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "EXECUTOR": {
+  "date": "2017-12-21",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "bubble attack": {
+  "date": "2017-12-21",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Rendezvous": {
+  "date": "2017-12-21",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "時の冒険者": {
+  "date": "2017-12-21",
+  "order": 6,
+  "version": "CHUNITHM STAR"
+ },
+ "セハガガガンバッちゃう！！": {
+  "date": "2017-12-07",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "Cosmic twinkle star": {
+  "date": "2017-12-07",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "終わりなき物語": {
+  "date": "2017-12-07",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "Our Fighting": {
+  "date": "2017-12-07",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "VERTeX": {
+  "date": "2017-12-07",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "炉心融解": {
+  "date": "2017-11-22",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Fire◎Flower": {
+  "date": "2017-11-22",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "卑怯戦隊うろたんだー": {
+  "date": "2017-11-22",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Change me": {
+  "date": "2017-11-22",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "ホシトハナ": {
+  "date": "2017-11-09",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "プレパレード": {
+  "date": "2017-11-09",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "オレンジ": {
+  "date": "2017-11-09",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "ホーリーナイト": {
+  "date": "2017-11-09",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "セイクリッド ルイン": {
+  "date": "2017-11-02",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "極圏": {
+  "date": "2017-11-02",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Scarlet Lance": {
+  "date": "2017-11-02",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "Xevel": {
+  "date": "2017-11-02",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "天狗の落とし文 feat. ｙｔｒ": {
+  "date": "2017-10-19",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "風に乗せた願い": {
+  "date": "2017-10-19",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Last Moments": {
+  "date": "2017-10-19",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "ケロ⑨destiny": {
+  "date": "2017-10-19",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "チルノのパーフェクトさんすう教室⑨周年バージョン": {
+  "date": "2017-10-19",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "Glorious Crown(tpz over-Over-OVERCUTE REMIX)": {
+  "date": "2017-10-05",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "Wake up Dreamer": {
+  "date": "2017-10-05",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Twice up Scenery": {
+  "date": "2017-10-05",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "World Vanquisher": {
+  "date": "2017-10-05",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Iudicium": {
+  "date": "2017-10-05",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "SAKURAスキップ": {
+  "date": "2017-09-21",
+  "order": 1,
+  "version": "CHUNITHM STAR"
+ },
+ "Now Loading!!!!": {
+  "date": "2017-09-21",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "Clover Heart's": {
+  "date": "2017-09-21",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "ガチャガチャきゅ～と・ふぃぎゅ@メイト": {
+  "date": "2017-09-21",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "Vampire": {
+  "date": "2017-09-21",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "Palette": {
+  "date": "2017-09-07",
+  "order": 2,
+  "version": "CHUNITHM STAR"
+ },
+ "パーフェクト生命": {
+  "date": "2017-09-07",
+  "order": 3,
+  "version": "CHUNITHM STAR"
+ },
+ "のぼれ！すすめ！高い塔": {
+  "date": "2017-09-07",
+  "order": 4,
+  "version": "CHUNITHM STAR"
+ },
+ "害虫": {
+  "date": "2017-09-07",
+  "order": 5,
+  "version": "CHUNITHM STAR"
+ },
+ "前前前世": {
+  "date": "2017-09-07",
+  "order": 7,
+  "version": "CHUNITHM STAR"
+ },
+ "Paradisus-Paradoxum": {
+  "date": "2017-09-07",
+  "order": 8,
+  "version": "CHUNITHM STAR"
+ },
+ "ようこそジャパリパークへ": {
+  "date": "2017-09-07",
+  "order": 9,
+  "version": "CHUNITHM STAR"
+ },
+ "MEMORIA": {
+  "date": "2017-09-07",
+  "order": 10,
+  "version": "CHUNITHM STAR"
+ },
+ "MIRU key way": {
+  "date": "2017-09-07",
+  "order": 11,
+  "version": "CHUNITHM STAR"
+ },
+ "ハレ晴レユカイ": {
+  "date": "2017-09-07",
+  "order": 12,
+  "version": "CHUNITHM STAR"
+ },
+ "華鳥風月": {
+  "date": "2017-09-07",
+  "order": 14,
+  "version": "CHUNITHM STAR"
+ },
+ "儚きもの人間": {
+  "date": "2017-09-07",
+  "order": 15,
+  "version": "CHUNITHM STAR"
+ },
+ "Calamity Fortune": {
+  "date": "2017-09-07",
+  "order": 16,
+  "version": "CHUNITHM STAR"
+ },
+ "夢と夢～あの日のメロディ～": {
+  "date": "2017-09-07",
+  "order": 18,
+  "version": "CHUNITHM STAR"
+ },
+ "AMAZING MIGHTYYYY!!!!": {
+  "date": "2017-09-07",
+  "order": 19,
+  "version": "CHUNITHM STAR"
+ },
+ "光線チューニング": {
+  "date": "2017-09-07",
+  "order": 20,
+  "version": "CHUNITHM STAR"
+ },
+ "哀しみ集め": {
+  "date": "2017-09-07",
+  "order": 21,
+  "version": "CHUNITHM STAR"
+ },
+ "キラメケ→Shoot it Now!": {
+  "date": "2017-09-07",
+  "order": 22,
+  "version": "CHUNITHM STAR"
+ },
+ "トリスメギストス": {
+  "date": "2017-09-07",
+  "order": 23,
+  "version": "CHUNITHM STAR"
+ },
+ "PinqPiq": {
+  "date": "2017-09-07",
+  "order": 24,
+  "version": "CHUNITHM STAR"
+ },
+ "立川浄穢捕物帳": {
+  "date": "2017-09-07",
+  "order": 25,
+  "version": "CHUNITHM STAR"
+ },
+ "WE GOTTA SOUL": {
+  "date": "2017-09-07",
+  "order": 26,
+  "version": "CHUNITHM STAR"
+ },
+ "眠れぬ夜君を想フ": {
+  "date": "2017-09-07",
+  "order": 27,
+  "version": "CHUNITHM STAR"
+ },
+ "JIGOKU STATION CENTRAL GATE": {
+  "date": "2017-09-07",
+  "order": 28,
+  "version": "CHUNITHM STAR"
+ },
+ "Kattobi KEIKYU Rider": {
+  "date": "2017-09-07",
+  "order": 29,
+  "version": "CHUNITHM STAR"
+ },
+ "Paradisoda": {
+  "date": "2023-11-22",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Yorugao": {
+  "date": "2023-11-22",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Let's Starry Party！": {
+  "date": "2023-11-22",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Singularity": {
+  "date": "2023-11-22",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "茉子の日常": {
+  "date": "2023-11-09",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "キズナヒトツ": {
+  "date": "2023-11-09",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Love Cheat!": {
+  "date": "2023-11-09",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ドーナドーナのうた": {
+  "date": "2023-11-09",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "未来への咆哮": {
+  "date": "2023-11-09",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "HiGHER": {
+  "date": "2023-10-26",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "めっちゃ煽ってくるタイプの音ゲーボス曲ちゃんなんかに負けないが？？？？？": {
+  "date": "2023-10-26",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Breaking Dawn (feat. 棗いつき)": {
+  "date": "2023-10-26",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Odin": {
+  "date": "2023-10-26",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Wildfire": {
+  "date": "2023-10-26",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Chaotic Ørder": {
+  "date": "2023-10-26",
+  "order": 7,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Sad Creature": {
+  "date": "2023-10-12",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Goodbye Innocence": {
+  "date": "2023-10-12",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "カリスマ煉獄天神": {
+  "date": "2023-10-12",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "シアワセうさぎ": {
+  "date": "2023-10-12",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "《真紅》 ～ Pavane Pour La Flamme": {
+  "date": "2023-09-28",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "《楽土》 ～ One and Only One": {
+  "date": "2023-09-28",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "《散華》 ～ EMBARK": {
+  "date": "2023-09-28",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "《慈雨》 ～ La Symphonie de Salacia: Agony Movement": {
+  "date": "2023-09-28",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "《創造》 ～ Cries, beyond The End": {
+  "date": "2023-09-28",
+  "order": 6,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ちょっとあざとい": {
+  "date": "2023-09-14",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "snooze": {
+  "date": "2023-09-14",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "story": {
+  "date": "2023-08-31",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ばかみたい【Taxi Driver Edition】": {
+  "date": "2023-08-31",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "セガサターン起動音[H.][Remix]": {
+  "date": "2023-08-31",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Night Spider": {
+  "date": "2023-08-17",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "#あくあ色ぱれっと": {
+  "date": "2023-08-17",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "夢と幻想の終点にて": {
+  "date": "2023-08-03",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Superbia": {
+  "date": "2023-08-03",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "空間創造理論": {
+  "date": "2023-08-03",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "βlαnoir": {
+  "date": "2023-08-03",
+  "order": 6,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "カノン": {
+  "date": "2023-07-20",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "異星にいこうね": {
+  "date": "2023-07-20",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "悪魔の踊り方": {
+  "date": "2023-07-20",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ド屑": {
+  "date": "2023-07-20",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "うたかたのせかいで": {
+  "date": "2023-07-06",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "とあちゃんのおもちゃ箱": {
+  "date": "2023-07-06",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "白庭": {
+  "date": "2023-07-06",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "REL0VE REL1VE": {
+  "date": "2023-07-06",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "deadeye": {
+  "date": "2023-07-06",
+  "order": 6,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Shine In The Sky☆": {
+  "date": "2023-06-22",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "よりみちリトルスター": {
+  "date": "2023-06-22",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ハイファイ☆デイズ": {
+  "date": "2023-06-22",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Hydra": {
+  "date": "2023-06-22",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Survive": {
+  "date": "2023-06-22",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Pris-Magic!": {
+  "date": "2023-06-08",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "放課後マーメイド": {
+  "date": "2023-06-08",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ゴー・トゥ・大都会": {
+  "date": "2023-06-08",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "幻想症候群": {
+  "date": "2023-05-25",
+  "order": 1,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "夜のサーカス": {
+  "date": "2023-05-25",
+  "order": 2,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "フリーフォール": {
+  "date": "2023-05-25",
+  "order": 3,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Invisible Frenzy": {
+  "date": "2023-05-25",
+  "order": 4,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Quon": {
+  "date": "2023-05-25",
+  "order": 5,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "青春コンプレックス": {
+  "date": "2023-05-25",
+  "order": 6,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ギターと孤独と蒼い惑星": {
+  "date": "2023-05-25",
+  "order": 7,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "INTERNET OVERDOSE": {
+  "date": "2023-05-25",
+  "order": 8,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "新時代(ウタfrom ONE PIECE FILM RED)": {
+  "date": "2023-05-25",
+  "order": 9,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "祝福": {
+  "date": "2023-05-25",
+  "order": 10,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "刃渡り2億センチ(TV edit)": {
+  "date": "2023-05-25",
+  "order": 11,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "おとせサンダー": {
+  "date": "2023-05-25",
+  "order": 12,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "サラマンダー": {
+  "date": "2023-05-25",
+  "order": 14,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "酔いどれ知らず": {
+  "date": "2023-05-25",
+  "order": 15,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "もぺもぺ": {
+  "date": "2023-05-25",
+  "order": 16,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "neu": {
+  "date": "2023-05-25",
+  "order": 17,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "プライマリー進化論": {
+  "date": "2023-05-25",
+  "order": 18,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "オンソクデイズ!!": {
+  "date": "2023-05-25",
+  "order": 20,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "雷切-RAIKIRI-": {
+  "date": "2023-05-25",
+  "order": 21,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "LAMIA": {
+  "date": "2023-05-25",
+  "order": 22,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "やめらんないな!": {
+  "date": "2023-05-25",
+  "order": 23,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Dive a Wave": {
+  "date": "2023-05-25",
+  "order": 24,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ASH": {
+  "date": "2023-05-25",
+  "order": 25,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "ウルガレオン": {
+  "date": "2023-05-25",
+  "order": 26,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "Makear": {
+  "date": "2023-05-25",
+  "order": 27,
+  "version": "CHUNITHM SUN PLUS"
+ },
+ "VIIIbit Explorer": {
+  "date": "2023-04-26",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "MAXRAGE": {
+  "date": "2023-04-26",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "ぱくぱく☆がーる": {
+  "date": "2023-04-26",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "Resolution": {
+  "date": "2023-04-26",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "SUPER AMBULANCE": {
+  "date": "2023-04-26",
+  "order": 6,
+  "version": "CHUNITHM SUN"
+ },
+ "五等分のカタチ": {
+  "date": "2023-04-13",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "少女レイ": {
+  "date": "2023-04-13",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "幻想即興曲": {
+  "date": "2023-04-01",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "月の光": {
+  "date": "2023-04-01",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "「四季」より「冬」": {
+  "date": "2023-04-01",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "Alexandrite": {
+  "date": "2023-03-23",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "PRAGMATISM -RESURRECTION-": {
+  "date": "2023-03-23",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "Alice's Suitcase": {
+  "date": "2023-03-23",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "迷える音色は恋の唄": {
+  "date": "2023-03-23",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "Sheriruth": {
+  "date": "2023-03-23",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "アマカミサマ": {
+  "date": "2023-03-09",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "だじゃれくりえぃしょん": {
+  "date": "2023-03-09",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "フューチャー・イヴ": {
+  "date": "2023-03-09",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "To：Be Continued": {
+  "date": "2023-03-02",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "RELOAD": {
+  "date": "2023-02-27",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "盟月": {
+  "date": "2023-02-22",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "Bitter Juicy": {
+  "date": "2023-02-22",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "Disruptor Array": {
+  "date": "2023-02-22",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "Daphnis": {
+  "date": "2023-02-22",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "Ready Steady": {
+  "date": "2023-02-09",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "群青讃歌": {
+  "date": "2023-02-09",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "キャットラビング": {
+  "date": "2023-02-09",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "マーシャル・マキシマイザー": {
+  "date": "2023-02-09",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "irony": {
+  "date": "2023-01-26",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "お空のニュークリアフュージョン道場": {
+  "date": "2023-01-26",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "全人類ノ非想天則": {
+  "date": "2023-01-26",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "三妖精SAY YA!!!": {
+  "date": "2023-01-26",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "シンデレラ": {
+  "date": "2023-01-12",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "パラサイト": {
+  "date": "2023-01-12",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "きゅうくらりん": {
+  "date": "2023-01-12",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "生きる": {
+  "date": "2023-01-12",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "Advance（CHUNITHM edit）": {
+  "date": "2022-12-22",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "任せてJC陰陽師☆八雲ちゃん": {
+  "date": "2022-12-22",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "†大闘士＝クライン・フォーゲル・シュピール＝えりか†": {
+  "date": "2022-12-22",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "Fallin' Darlin' Rollin'": {
+  "date": "2022-12-22",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "恋するみたいに☆かませレッドヘルズ": {
+  "date": "2022-12-22",
+  "order": 6,
+  "version": "CHUNITHM SUN"
+ },
+ "アイロニック": {
+  "date": "2022-12-08",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "孤独毒毒": {
+  "date": "2022-12-08",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "スティールユー": {
+  "date": "2022-12-08",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "マチガイサガシ": {
+  "date": "2022-12-08",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "Let you DIVE!": {
+  "date": "2022-11-24",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "Knight Rider": {
+  "date": "2022-11-24",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "ADAM": {
+  "date": "2022-11-24",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "Exitium": {
+  "date": "2022-11-24",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "eden": {
+  "date": "2022-11-24",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "INSIDE IDENTITY": {
+  "date": "2022-11-10",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "Van!shment Th!s World": {
+  "date": "2022-11-10",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "レッド・ルーラー": {
+  "date": "2022-11-10",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "がんばれ！蜘蛛子さんのテーマ": {
+  "date": "2022-11-10",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "Viyella's Scream": {
+  "date": "2022-11-10",
+  "order": 7,
+  "version": "CHUNITHM SUN"
+ },
+ "Desperado Waltz": {
+  "date": "2022-11-10",
+  "order": 8,
+  "version": "CHUNITHM SUN"
+ },
+ "4月1日でございました": {
+  "date": "2022-11-10",
+  "order": 9,
+  "version": "CHUNITHM SUN"
+ },
+ "Revived": {
+  "date": "2022-10-27",
+  "order": 1,
+  "version": "CHUNITHM SUN"
+ },
+ "デザイアシューティング": {
+  "date": "2022-10-27",
+  "order": 2,
+  "version": "CHUNITHM SUN"
+ },
+ "Mami Mami Zone": {
+  "date": "2022-10-27",
+  "order": 3,
+  "version": "CHUNITHM SUN"
+ },
+ "Armageddon": {
+  "date": "2022-10-27",
+  "order": 4,
+  "version": "CHUNITHM SUN"
+ },
+ "田中": {
+  "date": "2022-10-27",
+  "order": 5,
+  "version": "CHUNITHM SUN"
+ },
+ "MOB CHOIR": {
+  "date": "2022-10-27",
+  "order": 6,
+  "version": "CHUNITHM SUN"
+ },
+ "Before I Rise": {
+  "date": "2022-10-27",
+  "order": 7,
+  "version": "CHUNITHM SUN"
+ },
+ "Burn My Soul": {
+  "date": "2022-10-27",
+  "order": 8,
+  "version": "CHUNITHM SUN"
+ },
+ "ミックスナッツ": {
+  "date": "2022-10-27",
+  "order": 9,
+  "version": "CHUNITHM SUN"
+ },
+ "阿修羅ちゃん": {
+  "date": "2022-10-27",
+  "order": 10,
+  "version": "CHUNITHM SUN"
+ },
+ "なにやってもうまくいかない": {
+  "date": "2022-10-27",
+  "order": 11,
+  "version": "CHUNITHM SUN"
+ },
+ "ユメヲカケル！": {
+  "date": "2022-10-27",
+  "order": 12,
+  "version": "CHUNITHM SUN"
+ },
+ "いただきバベル (Prod. ケンモチヒデフミ)": {
+  "date": "2022-10-27",
+  "order": 13,
+  "version": "CHUNITHM SUN"
+ },
+ "神っぽいな": {
+  "date": "2022-10-27",
+  "order": 15,
+  "version": "CHUNITHM SUN"
+ },
+ "トンデモワンダーズ": {
+  "date": "2022-10-27",
+  "order": 16,
+  "version": "CHUNITHM SUN"
+ },
+ "スカーレット警察のゲットーパトロール24時": {
+  "date": "2022-10-27",
+  "order": 17,
+  "version": "CHUNITHM SUN"
+ },
+ "I'm so Happy": {
+  "date": "2022-10-27",
+  "order": 18,
+  "version": "CHUNITHM SUN"
+ },
+ "Random": {
+  "date": "2022-10-27",
+  "order": 19,
+  "version": "CHUNITHM SUN"
+ },
+ "Aleph-0": {
+  "date": "2022-10-27",
+  "order": 20,
+  "version": "CHUNITHM SUN"
+ },
+ "TEmPTaTiON": {
+  "date": "2022-10-27",
+  "order": 23,
+  "version": "CHUNITHM SUN"
+ },
+ "Girl's Party Planet!": {
+  "date": "2022-10-27",
+  "order": 24,
+  "version": "CHUNITHM SUN"
+ },
+ "Falsum Atlantis.": {
+  "date": "2022-10-27",
+  "order": 25,
+  "version": "CHUNITHM SUN"
+ },
+ "ミラージュ・フレイグランス": {
+  "date": "2022-10-27",
+  "order": 26,
+  "version": "CHUNITHM SUN"
+ },
+ "インパアフェクシオン・ホワイトガアル": {
+  "date": "2022-10-27",
+  "order": 27,
+  "version": "CHUNITHM SUN"
+ },
+ "クリーパー": {
+  "date": "2022-10-27",
+  "order": 28,
+  "version": "CHUNITHM SUN"
+ },
+ "Ignition": {
+  "date": "2022-10-27",
+  "order": 29,
+  "version": "CHUNITHM SUN"
+ },
+ "推してもダメならひいてみな！": {
+  "date": "2022-10-27",
+  "order": 30,
+  "version": "CHUNITHM SUN"
+ },
+ "ガチ恋ラビリンス": {
+  "date": "2022-10-27",
+  "order": 31,
+  "version": "CHUNITHM SUN"
+ },
+ "CELERITAS": {
+  "date": "2022-10-27",
+  "order": 32,
+  "version": "CHUNITHM SUN"
+ },
+ "グラウンドスライダー協奏曲第一番「風唄」": {
+  "date": "2022-10-27",
+  "order": 33,
+  "version": "CHUNITHM SUN"
+ },
+ "Crawler / Flyer": {
+  "date": "2022-10-27",
+  "order": 34,
+  "version": "CHUNITHM SUN"
+ },
+ "Re:Credits": {
+  "date": "2022-10-27",
+  "order": 35,
+  "version": "CHUNITHM SUN"
+ },
+ "Cheat Sheet": {
+  "date": "2022-10-27",
+  "order": 36,
+  "version": "CHUNITHM SUN"
+ },
+ "One Room Sky": {
+  "date": "2022-10-27",
+  "order": 37,
+  "version": "CHUNITHM SUN"
+ },
+ "デスパレイト": {
+  "date": "2025-07-03",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "Swift Swing": {
+  "date": "2025-07-03",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Galaxy Blaster": {
+  "date": "2025-07-03",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "BOUNCE & DANCE": {
+  "date": "2025-07-03",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "Paradoxes": {
+  "date": "2025-06-19",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "Running to the straight ver1.01": {
+  "date": "2025-06-19",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "you (Vocal)": {
+  "date": "2025-06-19",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Southern Cross": {
+  "date": "2025-06-19",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "A c i - L": {
+  "date": "2025-06-19",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "ゆりかご": {
+  "date": "2025-06-05",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ひつぎとふたご": {
+  "date": "2025-06-05",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "MegiddØ": {
+  "date": "2025-06-05",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "Crossmythos Rhapsodia": {
+  "date": "2025-06-05",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "超最終鬼畜妹フランドール・S": {
+  "date": "2025-05-21",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "Help me, ERINNNNNN!!": {
+  "date": "2025-05-21",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "宵の平安京 Stargazer": {
+  "date": "2025-05-21",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Destined Marionette": {
+  "date": "2025-05-21",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "シリウスの輝きのように": {
+  "date": "2025-05-08",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "革命ダンス": {
+  "date": "2025-05-08",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "I Wanna": {
+  "date": "2025-05-08",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "ザムザ": {
+  "date": "2025-05-08",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "あいたい星人": {
+  "date": "2025-04-24",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ハオ": {
+  "date": "2025-04-24",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "殺屋中毒": {
+  "date": "2025-04-10",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "旅星に渇く": {
+  "date": "2025-04-10",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ずんずんサファリ": {
+  "date": "2025-04-10",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "jaQup": {
+  "date": "2025-04-10",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "HeinousЯeaper": {
+  "date": "2025-04-10",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "淵底のグレイ・ユークロニア": {
+  "date": "2025-03-27",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "オーバーライド": {
+  "date": "2025-03-19",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ライアーダンサー": {
+  "date": "2025-03-19",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "黒塗り世界宛て書簡": {
+  "date": "2025-03-19",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "ONLY YOUR STARS!（Trickstar Ver.）": {
+  "date": "2025-03-06",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "BRAND NEW STARS!!(ALKALOID ver.)": {
+  "date": "2025-03-06",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "One with One(Eden ver.)": {
+  "date": "2025-03-06",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Surprising Thanks!!(Crazy:B ver.)": {
+  "date": "2025-03-06",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "INFiNiTE ENERZY -Overdoze-": {
+  "date": "2025-03-06",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "Crush the Dystopia": {
+  "date": "2025-03-06",
+  "order": 6,
+  "version": "CHUNITHM VERSE"
+ },
+ "Aether Crest: Celestial": {
+  "date": "2025-02-27",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "ノンブレス・オブリージュ": {
+  "date": "2025-02-20",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ももいろの鍵": {
+  "date": "2025-02-20",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "新人類": {
+  "date": "2025-02-20",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "リアライズ": {
+  "date": "2025-02-20",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "〚隔絶〛 ～Flame of Determination": {
+  "date": "2025-02-06",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "〚献身〛 ～Paradox of Choice": {
+  "date": "2025-02-06",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "〚盲従〛 ～Fantasia Sonata Flower": {
+  "date": "2025-02-06",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "〚空虚〛 ～Pyrophilia": {
+  "date": "2025-02-06",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "ジョハリ": {
+  "date": "2025-01-23",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "Black MInD": {
+  "date": "2025-01-23",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "It's a pit world": {
+  "date": "2025-01-23",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "VOLT": {
+  "date": "2025-01-23",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "キミとボクへの葬送歌": {
+  "date": "2025-01-23",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "夜もすがら君想ふ (10th Anniv.)": {
+  "date": "2025-01-09",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "ジェヘナ": {
+  "date": "2025-01-09",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Not On The Sidelines - Street Fighter 6 Main Theme": {
+  "date": "2025-01-09",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "激烈!!!!ファミレスガールは帰しま1000!!!!": {
+  "date": "2025-01-09",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "inkar-usi": {
+  "date": "2024-12-19",
+  "order": 1,
+  "version": "CHUNITHM VERSE"
+ },
+ "Tie me down gently": {
+  "date": "2024-12-19",
+  "order": 2,
+  "version": "CHUNITHM VERSE"
+ },
+ "Ringed Genesis": {
+  "date": "2024-12-19",
+  "order": 3,
+  "version": "CHUNITHM VERSE"
+ },
+ "Tempestissimo": {
+  "date": "2024-12-19",
+  "order": 4,
+  "version": "CHUNITHM VERSE"
+ },
+ "Campus mode!!": {
+  "date": "2024-12-19",
+  "order": 5,
+  "version": "CHUNITHM VERSE"
+ },
+ "Fighting My Way": {
+  "date": "2024-12-19",
+  "order": 6,
+  "version": "CHUNITHM VERSE"
+ },
+ "On your mark (104期 Ver.)": {
+  "date": "2024-12-19",
+  "order": 7,
+  "version": "CHUNITHM VERSE"
+ },
+ "眩耀夜行（104期Ver.）": {
+  "date": "2024-12-19",
+  "order": 8,
+  "version": "CHUNITHM VERSE"
+ },
+ "KNOT（104期Ver.）": {
+  "date": "2024-12-19",
+  "order": 9,
+  "version": "CHUNITHM VERSE"
+ },
+ "アイデンティティ（104期NEW Ver.）": {
+  "date": "2024-12-19",
+  "order": 10,
+  "version": "CHUNITHM VERSE"
+ },
+ "晴る": {
+  "date": "2024-12-19",
+  "order": 11,
+  "version": "CHUNITHM VERSE"
+ },
+ "ビビデバ": {
+  "date": "2024-12-19",
+  "order": 12,
+  "version": "CHUNITHM VERSE"
+ },
+ "愛包ダンスホール": {
+  "date": "2024-12-19",
+  "order": 13,
+  "version": "CHUNITHM VERSE"
+ },
+ "VERSE": {
+  "date": "2024-12-19",
+  "order": 14,
+  "version": "CHUNITHM VERSE"
+ },
+ "絶対敵対メチャキライヤー": {
+  "date": "2024-12-19",
+  "order": 16,
+  "version": "CHUNITHM VERSE"
+ },
+ "好きな惣菜発表ドラゴン": {
+  "date": "2024-12-19",
+  "order": 17,
+  "version": "CHUNITHM VERSE"
+ },
+ "有頂天ドリーマーズ": {
+  "date": "2024-12-19",
+  "order": 18,
+  "version": "CHUNITHM VERSE"
+ },
+ "Igallta": {
+  "date": "2024-12-19",
+  "order": 19,
+  "version": "CHUNITHM VERSE"
+ },
+ "Synthesis.": {
+  "date": "2024-12-19",
+  "order": 20,
+  "version": "CHUNITHM VERSE"
+ },
+ "Chronomia": {
+  "date": "2024-12-19",
+  "order": 21,
+  "version": "CHUNITHM VERSE"
+ },
+ "≠彡\"/了→": {
+  "date": "2024-12-19",
+  "order": 23,
+  "version": "CHUNITHM VERSE"
+ },
+ "イルミネーション": {
+  "date": "2024-12-19",
+  "order": 24,
+  "version": "CHUNITHM VERSE"
+ },
+ "Ai C": {
+  "date": "2024-12-19",
+  "order": 25,
+  "version": "CHUNITHM VERSE"
+ },
+ "Theatore Creatore": {
+  "date": "2024-12-19",
+  "order": 26,
+  "version": "CHUNITHM VERSE"
+ },
+ "ドリームケッチャー": {
+  "date": "2024-12-19",
+  "order": 27,
+  "version": "CHUNITHM VERSE"
+ },
+ "ラブリージャッジメント": {
+  "date": "2024-12-19",
+  "order": 28,
+  "version": "CHUNITHM VERSE"
+ },
+ "房総★ミラクル☆てんたくる!?": {
+  "date": "2024-12-19",
+  "order": 29,
+  "version": "CHUNITHM VERSE"
+ },
+ "Crystallize": {
+  "date": "2024-12-19",
+  "order": 30,
+  "version": "CHUNITHM VERSE"
+ },
+ "Oracle": {
+  "date": "2024-12-19",
+  "order": 31,
+  "version": "CHUNITHM VERSE"
+ },
+ "The Devil Incarnate": {
+  "date": "2024-12-19",
+  "order": 32,
+  "version": "CHUNITHM VERSE"
+ },
+ "メッちゅう殴打": {
+  "date": "2024-12-19",
+  "order": 33,
+  "version": "CHUNITHM VERSE"
+ },
+ "Kaleidoscope": {
+  "date": "2025-11-27",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "hyperreality": {
+  "date": "2025-11-27",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Deep Blue": {
+  "date": "2025-11-27",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "DEvourER": {
+  "date": "2025-11-27",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "創 -汝ら新世界へ歩む者なり-": {
+  "date": "2025-11-27",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ウィーアーピコピコハンマーズ!!!!": {
+  "date": "2025-11-20",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ジェットブラック": {
+  "date": "2025-11-20",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "トレジャーガーデン": {
+  "date": "2025-11-20",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "電光刹歌": {
+  "date": "2025-11-20",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Warp Speed": {
+  "date": "2025-11-06",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "In the Straying Story": {
+  "date": "2025-11-06",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "PhenomenoN": {
+  "date": "2025-11-06",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "輪廻玲々": {
+  "date": "2025-11-06",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Worlders": {
+  "date": "2025-10-16",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Idoratrize World": {
+  "date": "2025-10-16",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Necromantic": {
+  "date": "2025-10-16",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Galaxy Collapse": {
+  "date": "2025-10-16",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ナラク・オン・エア": {
+  "date": "2025-10-02",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "システム": {
+  "date": "2025-10-02",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "恋伯色": {
+  "date": "2025-10-02",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "OUTRAGE": {
+  "date": "2025-10-02",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "オブソミート": {
+  "date": "2025-09-18",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "スーパーヒーロー": {
+  "date": "2025-09-18",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "カルチャ": {
+  "date": "2025-09-18",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "スパイダーダンス": {
+  "date": "2025-09-18",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "夢と希望": {
+  "date": "2025-09-18",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "内臓♡マニピ": {
+  "date": "2025-09-04",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Steamed on the Beat": {
+  "date": "2025-09-04",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Challenger!!": {
+  "date": "2025-09-04",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Everything Will Be One": {
+  "date": "2025-09-04",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "1番輝く星": {
+  "date": "2025-08-21",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "うい麦畑でつかまえて": {
+  "date": "2025-08-21",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "幽霊船戦": {
+  "date": "2025-08-21",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "きゅびずむ": {
+  "date": "2025-08-21",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "きゅびびびびずむ": {
+  "date": "2025-08-21",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ノーライ": {
+  "date": "2025-08-07",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "あの日、あの部屋で、あったこと": {
+  "date": "2025-08-07",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Star Saveler": {
+  "date": "2025-08-07",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Tru'nembra": {
+  "date": "2025-08-07",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "私の歯医者さん": {
+  "date": "2025-07-31",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "少女A": {
+  "date": "2025-07-31",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "え？あぁ、そう。- 10th Anniversary Edition -": {
+  "date": "2025-07-31",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ぎゅむ！": {
+  "date": "2025-07-31",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "TAIDADA": {
+  "date": "2025-07-31",
+  "order": 7,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "モエチャッカファイア": {
+  "date": "2025-07-31",
+  "order": 8,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "はいよろこんで": {
+  "date": "2025-07-31",
+  "order": 9,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "テトリス": {
+  "date": "2025-07-31",
+  "order": 11,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "モ ミ ア ゲ ヲ シ ャ カ ア ゲ ヲ": {
+  "date": "2025-07-31",
+  "order": 12,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "最終鬼畜妹フランドール・S(Chroma Remix)": {
+  "date": "2025-07-31",
+  "order": 13,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "RE Aoharu": {
+  "date": "2025-07-31",
+  "order": 14,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Unwelcome School": {
+  "date": "2025-07-31",
+  "order": 15,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "彩りキャンバス": {
+  "date": "2025-07-31",
+  "order": 16,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ニルヴの心臓": {
+  "date": "2025-07-31",
+  "order": 17,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Daydreama": {
+  "date": "2025-07-31",
+  "order": 20,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "エモーション・キャプチャー": {
+  "date": "2025-07-31",
+  "order": 21,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Flap&Clap": {
+  "date": "2025-07-31",
+  "order": 22,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "luminoid love PART2": {
+  "date": "2025-07-31",
+  "order": 23,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "χρόνος": {
+  "date": "2025-07-31",
+  "order": 24,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "TOXIC": {
+  "date": "2025-07-31",
+  "order": 25,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "並行天涯": {
+  "date": "2025-07-31",
+  "order": 26,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "Wing:No.6223": {
+  "date": "2025-07-31",
+  "order": 27,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "神鳴": {
+  "date": "2025-07-31",
+  "order": 28,
+  "version": "CHUNITHM X-VERSE"
+ },
+ "ARAIS": {
+  "date": "2026-06-18",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "アイシング・ドリーム": {
+  "date": "2026-06-18",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "いちげき！のテーマ": {
+  "date": "2026-06-18",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Pastel Sprinkles": {
+  "date": "2026-06-18",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "恋せよ乙女！": {
+  "date": "2026-06-11",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "sweet treasure": {
+  "date": "2026-06-11",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "さくらんぼキッス～爆発だも～ん～": {
+  "date": "2026-06-11",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "空気力学少女と少年の詩": {
+  "date": "2026-06-11",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "こころに響く恋ほたる": {
+  "date": "2026-06-11",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "BANG!": {
+  "date": "2026-05-28",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "All Over Again": {
+  "date": "2026-05-28",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Amatsu": {
+  "date": "2026-05-28",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Reverie ft. xia": {
+  "date": "2026-05-28",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Imprinting": {
+  "date": "2026-05-28",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "キスキツネ": {
+  "date": "2026-05-14",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "WWW": {
+  "date": "2026-05-14",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "うたかたよいかないで": {
+  "date": "2026-05-14",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "愛して愛して愛して": {
+  "date": "2026-05-14",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "†渚の小悪魔ラヴリィ～レイディオ†": {
+  "date": "2026-04-23",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "聖者の息吹": {
+  "date": "2026-04-23",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "超MANJIラッシュ": {
+  "date": "2026-04-23",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Lips XTC -Sorist Remix-": {
+  "date": "2026-04-23",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ALTER EGO": {
+  "date": "2026-04-23",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Marigold": {
+  "date": "2026-04-23",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "glory MAX -to the MAXimum-": {
+  "date": "2026-04-23",
+  "order": 7,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "DESTRUCTION 3,2,1": {
+  "date": "2026-04-23",
+  "order": 8,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Ré：Ré": {
+  "date": "2026-04-23",
+  "order": 9,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "μ3": {
+  "date": "2026-04-23",
+  "order": 11,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Beenden": {
+  "date": "2026-04-23",
+  "order": 12,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "EFX": {
+  "date": "2026-04-23",
+  "order": 13,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "薄明のクオリア": {
+  "date": "2026-04-23",
+  "order": 14,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "月葬": {
+  "date": "2026-04-23",
+  "order": 15,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "YOUNITHM": {
+  "date": "2026-04-23",
+  "order": 16,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Melodiniq": {
+  "date": "2026-04-23",
+  "order": 17,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Linked Tune": {
+  "date": "2026-04-23",
+  "order": 18,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "バンバード～Piano Version～": {
+  "date": "2026-04-16",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "無双の咆哮 Warcry Overload": {
+  "date": "2026-04-16",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "God only knows": {
+  "date": "2026-04-16",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "New Starlight": {
+  "date": "2026-04-16",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "僕達のギャグマンガ日和": {
+  "date": "2026-04-01",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ふぁんぶる！": {
+  "date": "2026-04-01",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "パステル・シタイ！": {
+  "date": "2026-03-19",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "彩祭ワンダーワン！": {
+  "date": "2026-03-19",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Fly Better!": {
+  "date": "2026-03-19",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Phantom Crisis": {
+  "date": "2026-03-19",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "無敵的ハピネス！(SOS団5人Ver.)": {
+  "date": "2026-03-05",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Chasing destiny": {
+  "date": "2026-03-05",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Colorful Starting Line": {
+  "date": "2026-03-05",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "DOMiNUS_GRAiL": {
+  "date": "2026-03-05",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Verse X": {
+  "date": "2026-03-05",
+  "order": 7,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "もっと！": {
+  "date": "2026-02-19",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "はっぴーでいず！": {
+  "date": "2026-02-19",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Behavior": {
+  "date": "2026-02-19",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "LEMON MELON COOKIE": {
+  "date": "2026-02-19",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "天地のうた": {
+  "date": "2026-02-05",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Aether Wind": {
+  "date": "2026-02-05",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "そして春めくモノローグ": {
+  "date": "2026-02-05",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Sweet & Sour": {
+  "date": "2026-02-05",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Choose!!!": {
+  "date": "2026-01-22",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "愛と煩悩と輪廻と常識の極彩世界": {
+  "date": "2026-01-22",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ゼイタクするまで抱きしめて": {
+  "date": "2026-01-22",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "LAST PROPOZE": {
+  "date": "2026-01-22",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "A-Yah-YAh-YaH-YAH!": {
+  "date": "2026-01-08",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "アマノジャクリバース feat. ｙｔｒ": {
+  "date": "2026-01-08",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "The Music of Violent Eating": {
+  "date": "2026-01-08",
+  "order": 3,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "New World": {
+  "date": "2026-01-08",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "メイドノココロハアヤツリドール": {
+  "date": "2026-01-08",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "アイドゥーミー！": {
+  "date": "2025-12-18",
+  "order": 1,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Edelied": {
+  "date": "2025-12-18",
+  "order": 2,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "バカ通信": {
+  "date": "2025-12-18",
+  "order": 4,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ヤババイナ": {
+  "date": "2025-12-18",
+  "order": 5,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "BOW AND ARROW（アニメ・オープニングver.）": {
+  "date": "2025-12-18",
+  "order": 6,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Ave Mujica": {
+  "date": "2025-12-18",
+  "order": 7,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "KiLLKiSS": {
+  "date": "2025-12-18",
+  "order": 8,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "怪獣": {
+  "date": "2025-12-18",
+  "order": 9,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "一旦ステイ TONIGHT": {
+  "date": "2025-12-18",
+  "order": 10,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "化けの花": {
+  "date": "2025-12-18",
+  "order": 12,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "キャンディークッキーチョコレート": {
+  "date": "2025-12-18",
+  "order": 13,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Ultimate taste": {
+  "date": "2025-12-18",
+  "order": 14,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "AiAe": {
+  "date": "2025-12-18",
+  "order": 15,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ビッグブリッヂの死闘-シアトリズムFFAC Arrange- from FFV": {
+  "date": "2025-12-18",
+  "order": 16,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "MORNINGLOOM": {
+  "date": "2025-12-18",
+  "order": 17,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Angelic Layer": {
+  "date": "2025-12-18",
+  "order": 18,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "WakeUP MakeUP FEVER!": {
+  "date": "2025-12-18",
+  "order": 21,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Starlight★Limited": {
+  "date": "2025-12-18",
+  "order": 22,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "魔法に照らされたアンコール": {
+  "date": "2025-12-18",
+  "order": 23,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "ジナ": {
+  "date": "2025-12-18",
+  "order": 24,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "Road to Aventura": {
+  "date": "2025-12-18",
+  "order": 25,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "☆をつなぐシュトラール": {
+  "date": "2025-12-18",
+  "order": 26,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "MOMOCO68000": {
+  "date": "2025-12-18",
+  "order": 27,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "〚回帰〛 ～Scherzo ~フォルトゥーナの悪戯~": {
+  "date": "2025-12-18",
+  "order": 28,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "tHE uNcontRollaBle ciNdeRella": {
+  "date": "2025-12-18",
+  "order": 29,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "轆轤首": {
+  "date": "2025-12-18",
+  "order": 30,
+  "version": "CHUNITHM X-VERSE-X"
+ },
+ "elegante": {
+  "date": "2016-01-21",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "DETARAME ROCK&ROLL THEORY": {
+  "date": "2016-01-21",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "ぼくらの16bit戦争": {
+  "date": "2016-01-07",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "すろぉもぉしょん": {
+  "date": "2016-01-07",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "裏表ラバーズ": {
+  "date": "2016-01-07",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "ネトゲ廃人シュプレヒコール": {
+  "date": "2016-01-07",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "脳漿炸裂ガール": {
+  "date": "2016-01-07",
+  "order": 6,
+  "version": "CHUNITHM"
+ },
+ "ジングルベル": {
+  "date": "2015-12-17",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "conflict": {
+  "date": "2015-12-17",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "私の中の幻想的世界観及びその顕現を想起させたある現実での出来事に関する一考察": {
+  "date": "2015-12-17",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "言ノ葉遊戯": {
+  "date": "2015-12-17",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "夕暮れワンルーム": {
+  "date": "2015-12-03",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "乗り切れ受験ウォーズ": {
+  "date": "2015-12-03",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "stella=steLLa": {
+  "date": "2015-12-03",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "とーきょー全域★アキハバラ？": {
+  "date": "2015-12-03",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "エンドマークに希望と涙を添えて": {
+  "date": "2015-12-03",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "Vallista": {
+  "date": "2015-11-26",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "フォルテシモBELL": {
+  "date": "2015-11-26",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "エピクロスの虹はもう見えない": {
+  "date": "2015-11-12",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "Yet Another \"drizzly rain\"": {
+  "date": "2015-11-12",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "四次元跳躍機関": {
+  "date": "2015-11-12",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "緋色のDance": {
+  "date": "2015-11-12",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "最終鬼畜妹・一部声": {
+  "date": "2015-11-12",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "Äventyr": {
+  "date": "2015-10-22",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "SAVIOR OF SONG": {
+  "date": "2015-10-08",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "ブルー・フィールド": {
+  "date": "2015-10-08",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "ギガンティックO.T.N": {
+  "date": "2015-10-08",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "シリョクケンサ": {
+  "date": "2015-10-08",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "イカサマライフゲイム": {
+  "date": "2015-10-08",
+  "order": 6,
+  "version": "CHUNITHM"
+ },
+ "セツナトリップ": {
+  "date": "2015-10-08",
+  "order": 7,
+  "version": "CHUNITHM"
+ },
+ "HAELEQUIN (Original Remaster)": {
+  "date": "2015-09-24",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "brilliant better": {
+  "date": "2015-09-24",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "スカイクラッドの観測者": {
+  "date": "2015-09-10",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "Alma": {
+  "date": "2015-09-10",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "STAR": {
+  "date": "2015-09-10",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "Tango Rouge": {
+  "date": "2015-09-10",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "Gustav Battle": {
+  "date": "2015-09-10",
+  "order": 6,
+  "version": "CHUNITHM"
+ },
+ "怒槌": {
+  "date": "2015-09-10",
+  "order": 7,
+  "version": "CHUNITHM"
+ },
+ "The Formula": {
+  "date": "2015-08-27",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "Signs Of Love (\"Never More\"ver.)": {
+  "date": "2015-08-13",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "Your Affection (Daisuke Asakura Remix)": {
+  "date": "2015-08-13",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "Dance!": {
+  "date": "2015-08-13",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "コネクト": {
+  "date": "2015-07-28",
+  "order": 1,
+  "version": "CHUNITHM"
+ },
+ "Magia": {
+  "date": "2015-07-28",
+  "order": 2,
+  "version": "CHUNITHM"
+ },
+ "君の知らない物語": {
+  "date": "2015-07-28",
+  "order": 3,
+  "version": "CHUNITHM"
+ },
+ "staple stable": {
+  "date": "2015-07-28",
+  "order": 4,
+  "version": "CHUNITHM"
+ },
+ "天体観測": {
+  "date": "2015-07-28",
+  "order": 5,
+  "version": "CHUNITHM"
+ },
+ "紅蓮の弓矢": {
+  "date": "2015-07-28",
+  "order": 6,
+  "version": "CHUNITHM"
+ },
+ "情熱大陸": {
+  "date": "2015-07-28",
+  "order": 7,
+  "version": "CHUNITHM"
+ },
+ "そばかす": {
+  "date": "2015-07-28",
+  "order": 8,
+  "version": "CHUNITHM"
+ },
+ "1／3の純情な感情": {
+  "date": "2015-07-28",
+  "order": 9,
+  "version": "CHUNITHM"
+ },
+ "STAY AWAY": {
+  "date": "2015-07-28",
+  "order": 10,
+  "version": "CHUNITHM"
+ },
+ "睡蓮花": {
+  "date": "2015-07-28",
+  "order": 11,
+  "version": "CHUNITHM"
+ },
+ "ブルーバード": {
+  "date": "2015-07-28",
+  "order": 12,
+  "version": "CHUNITHM"
+ },
+ "空色デイズ": {
+  "date": "2015-07-28",
+  "order": 13,
+  "version": "CHUNITHM"
+ },
+ "crossing field": {
+  "date": "2015-07-28",
+  "order": 14,
+  "version": "CHUNITHM"
+ },
+ "魂のルフラン": {
+  "date": "2015-07-28",
+  "order": 15,
+  "version": "CHUNITHM"
+ },
+ "Butter-Fly": {
+  "date": "2015-07-28",
+  "order": 16,
+  "version": "CHUNITHM"
+ },
+ "V.I.P": {
+  "date": "2015-07-28",
+  "order": 17,
+  "version": "CHUNITHM"
+ },
+ "only my railgun": {
+  "date": "2015-07-28",
+  "order": 18,
+  "version": "CHUNITHM"
+ },
+ "Emotions": {
+  "date": "2015-07-28",
+  "order": 19,
+  "version": "CHUNITHM"
+ },
+ "マジLOVE1000%": {
+  "date": "2015-07-28",
+  "order": 20,
+  "version": "CHUNITHM"
+ },
+ "太陽曰く燃えよカオス": {
+  "date": "2015-07-28",
+  "order": 21,
+  "version": "CHUNITHM"
+ },
+ "キラーボール": {
+  "date": "2015-07-28",
+  "order": 22,
+  "version": "CHUNITHM"
+ },
+ "Scatman (Ski Ba Bop Ba Dop Bop)": {
+  "date": "2015-07-28",
+  "order": 23,
+  "version": "CHUNITHM"
+ },
+ "Sweet Devil": {
+  "date": "2015-07-28",
+  "order": 25,
+  "version": "CHUNITHM"
+ },
+ "天ノ弱": {
+  "date": "2015-07-28",
+  "order": 26,
+  "version": "CHUNITHM"
+ },
+ "ストリーミングハート": {
+  "date": "2015-07-28",
+  "order": 27,
+  "version": "CHUNITHM"
+ },
+ "一触即発☆禅ガール": {
+  "date": "2015-07-28",
+  "order": 28,
+  "version": "CHUNITHM"
+ },
+ "ODDS＆ENDS": {
+  "date": "2015-07-28",
+  "order": 29,
+  "version": "CHUNITHM"
+ },
+ "千本桜": {
+  "date": "2015-07-28",
+  "order": 30,
+  "version": "CHUNITHM"
+ },
+ "腐れ外道とチョコレゐト": {
+  "date": "2015-07-28",
+  "order": 31,
+  "version": "CHUNITHM"
+ },
+ "M.S.S.Planet": {
+  "date": "2015-07-28",
+  "order": 32,
+  "version": "CHUNITHM"
+ },
+ "タイガーランペイジ": {
+  "date": "2015-07-28",
+  "order": 33,
+  "version": "CHUNITHM"
+ },
+ "ロストワンの号哭": {
+  "date": "2015-07-28",
+  "order": 34,
+  "version": "CHUNITHM"
+ },
+ "Bad Apple!! feat.nomico": {
+  "date": "2015-07-28",
+  "order": 35,
+  "version": "CHUNITHM"
+ },
+ "ナイト・オブ・ナイツ": {
+  "date": "2015-07-28",
+  "order": 36,
+  "version": "CHUNITHM"
+ },
+ "魔理沙は大変なものを盗んでいきました": {
+  "date": "2015-07-28",
+  "order": 37,
+  "version": "CHUNITHM"
+ },
+ "sweet little sister": {
+  "date": "2015-07-28",
+  "order": 39,
+  "version": "CHUNITHM"
+ },
+ "チルノのパーフェクトさんすう教室": {
+  "date": "2015-07-28",
+  "order": 40,
+  "version": "CHUNITHM"
+ },
+ "Dreaming": {
+  "date": "2015-07-28",
+  "order": 41,
+  "version": "CHUNITHM"
+ },
+ "Unlimited Spark!": {
+  "date": "2015-07-28",
+  "order": 42,
+  "version": "CHUNITHM"
+ },
+ "Blue Noise": {
+  "date": "2015-07-28",
+  "order": 45,
+  "version": "CHUNITHM"
+ },
+ "JET": {
+  "date": "2015-07-28",
+  "order": 46,
+  "version": "CHUNITHM"
+ },
+ "L9": {
+  "date": "2015-07-28",
+  "order": 47,
+  "version": "CHUNITHM"
+ },
+ "Altale": {
+  "date": "2015-07-28",
+  "order": 48,
+  "version": "CHUNITHM"
+ },
+ "Aragami": {
+  "date": "2015-07-28",
+  "order": 49,
+  "version": "CHUNITHM"
+ },
+ "B.B.K.K.B.K.K.": {
+  "date": "2015-07-28",
+  "order": 50,
+  "version": "CHUNITHM"
+ },
+ "The Concept of Love": {
+  "date": "2015-07-28",
+  "order": 52,
+  "version": "CHUNITHM"
+ },
+ "All I Want": {
+  "date": "2015-07-28",
+  "order": 53,
+  "version": "CHUNITHM"
+ },
+ "Change Our MIRAI！": {
+  "date": "2015-07-28",
+  "order": 54,
+  "version": "CHUNITHM"
+ },
+ "言ノ葉カルマ": {
+  "date": "2015-07-28",
+  "order": 55,
+  "version": "CHUNITHM"
+ },
+ "Invitation": {
+  "date": "2015-07-28",
+  "order": 56,
+  "version": "CHUNITHM"
+ },
+ "ＧＯ！ＧＯ！ラブリズム♥": {
+  "date": "2015-07-28",
+  "order": 57,
+  "version": "CHUNITHM"
+ },
+ "Theme of SeelischTact": {
+  "date": "2015-07-28",
+  "order": 58,
+  "version": "CHUNITHM"
+ },
+ "Infantoon Fantasy": {
+  "date": "2015-07-28",
+  "order": 59,
+  "version": "CHUNITHM"
+ },
+ "Counselor": {
+  "date": "2015-07-28",
+  "order": 60,
+  "version": "CHUNITHM"
+ },
+ "Guilty": {
+  "date": "2015-07-28",
+  "order": 61,
+  "version": "CHUNITHM"
+ },
+ "幾四音-Ixion-": {
+  "date": "2015-07-28",
+  "order": 62,
+  "version": "CHUNITHM"
+ },
+ "Grab your sword": {
+  "date": "2015-07-28",
+  "order": 63,
+  "version": "CHUNITHM"
+ },
+ "My First Phone": {
+  "date": "2015-07-28",
+  "order": 64,
+  "version": "CHUNITHM"
+ },
+ "今ぞ♡崇め奉れ☆オマエらよ！！～姫の秘メタル渇望～": {
+  "date": "2015-07-28",
+  "order": 65,
+  "version": "CHUNITHM"
+ },
+ "Anemone": {
+  "date": "2015-07-28",
+  "order": 66,
+  "version": "CHUNITHM"
+ },
+ "リリーシア": {
+  "date": "2015-07-28",
+  "order": 67,
+  "version": "CHUNITHM"
+ },
+ "砂漠のハンティングガール♡": {
+  "date": "2015-07-28",
+  "order": 68,
+  "version": "CHUNITHM"
+ },
+ "昵懇レファレンス": {
+  "date": "2015-07-28",
+  "order": 69,
+  "version": "CHUNITHM"
+ },
+ "Teriqma": {
+  "date": "2015-07-28",
+  "order": 70,
+  "version": "CHUNITHM"
+ },
+ "After the rain": {
+  "date": "2015-07-28",
+  "order": 71,
+  "version": "CHUNITHM"
+ },
+ "The ether": {
+  "date": "2015-07-28",
+  "order": 72,
+  "version": "CHUNITHM"
+ },
+ "We Gonna Journey": {
+  "date": "2015-07-28",
+  "order": 73,
+  "version": "CHUNITHM"
+ },
+ "overcome": {
+  "date": "2015-07-28",
+  "order": 74,
+  "version": "CHUNITHM"
+ },
+ "Memories of Sun and Moon": {
+  "date": "2015-07-28",
+  "order": 75,
+  "version": "CHUNITHM"
+ },
+ "luna blu": {
+  "date": "2015-07-28",
+  "order": 76,
+  "version": "CHUNITHM"
+ },
+ "閃鋼のブリューナク": {
+  "date": "2015-07-28",
+  "order": 77,
+  "version": "CHUNITHM"
+ },
+ "Gate of Fate": {
+  "date": "2015-07-28",
+  "order": 78,
+  "version": "CHUNITHM"
+ },
+ "こころここから": {
+  "date": "2015-07-28",
+  "order": 79,
+  "version": "CHUNITHM"
+ },
+ "The wheel to the right": {
+  "date": "2015-07-28",
+  "order": 80,
+  "version": "CHUNITHM"
  }
 }

@@ -194,6 +194,23 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
 
   const routes = [];
 
+  // wiki 逐曲页面的「解禁方法」里抽出来的首次配信日期
+  const songDates = (function () {
+    try {
+      const p = path.join(hexo.base_dir, 'tools/song-dates.json');
+      if (!fs.existsSync(p)) return {};
+      const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+      const m = {};
+      for (const k of Object.keys(raw)) {
+        const key = String(k).normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+        m[key] = raw[k];
+      }
+      return m;
+    } catch (err) {
+      return {};
+    }
+  })();
+
   // wiki「楽曲一覧(追加日順)」：曲名 -> 追加日 + 页面顺序
   const addOrder = (function () {
     try {
@@ -236,9 +253,15 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
             return dnum * 1000 + (1000 - (Number(w.order) || 0));
           }
         }
+        // 其次用「解禁方法」里的首次配信日期（wiki 逐曲页面，覆盖 1900+ 首）
+        const wd = songDates[key];
+        if (wd) {
+          const dm2 = String(wd).match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+          if (dm2) return (Number(dm2[1]) * 10000 + Number(dm2[2]) * 100 + Number(dm2[3])) * 1000;
+        }
         const t = String(e.raw.release || '');
         const m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
-        return m ? Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3]) : 0;
+        return m ? (Number(m[1]) * 10000 + Number(m[2]) * 100 + Number(m[3])) * 1000 : 0;
       })(),
       b: e.raw.bpm,
       cov: e.cover,
