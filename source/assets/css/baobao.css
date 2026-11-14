@@ -2318,3 +2318,19 @@ html.darkmode .chuni-parts-note { color: #7d8a96; }
   vertical-align: 2px;
   line-height: 1.45;
 }
+
+/* 详情/履历/称号表：表头和数据统一居中 */
+.chuni-detail-table th,
+.chuni-detail-table td {
+  text-align: center !important;
+}
+/* 版本那一列保留左对齐，读起来更顺 */
+.chuni-history-table td:first-child,
+.chuni-history-table th:first-child {
+  text-align: left !important;
+}
+/* 称号条件比较长，居中后换行也好看 */
+.chuni-titles-table th,
+.chuni-titles-table td {
+  text-align: center !important;
+}
