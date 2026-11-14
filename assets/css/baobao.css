@@ -2714,3 +2714,12 @@ html.darkmode .chuni-diff-top {
 @media (max-width: 640px) {
   #chuni-designer-grid { max-height: 120px; }
 }
+
+/* 手机端：版本切换只留「日服 / 国服」，把按谱师筛选挤回第一行 */
+@media (max-width: 640px) {
+  .chuni-seg-sub { display: none; }
+  .chuni-seg-btn { padding: 5px 10px; font-size: 12.5px; }
+  .chuni-toolbar-main { gap: 6px; }
+  .chuni-toolbar-main .chuni-select { max-width: 104px; padding: 6px 8px; font-size: 12.5px; }
+  .chuni-toolbar-main #chuni-designer-toggle { padding: 5px 9px; font-size: 12.5px; margin-left: 0; }
+}
