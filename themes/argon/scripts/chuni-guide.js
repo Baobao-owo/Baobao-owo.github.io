@@ -438,6 +438,41 @@ const versionLabel = new Map(d.versions.map(function (v) {
     }
   });
 
+  // 定数履历最后一列是当前版本：用曲目的真实定数补齐（wiki 表可能没跟上改定）
+  function fixHistoryRows(extraObj, sheets) {
+    if (!extraObj) return extraObj;
+    const rows = extraObj.history_expanded;
+    if (!Array.isArray(rows) || rows.length < 2) return extraObj;
+    const head = rows[0] || [];
+    const LETTER = { B: 'basic', A: 'advanced', E: 'expert', M: 'master', U: 'ultima' };
+    const FULL = { B: 'basic', A: 'advanced', E: 'expert', M: 'master', U: 'ultima' };
+    const colOf = {};
+    head.forEach(function (h, i) {
+      const hv = String(h).trim().toUpperCase();
+      Object.keys(LETTER).forEach(function (L) {
+        if (hv === L || hv === L + 'SIC' || hv === ({ B: 'BASIC', A: 'ADVANCED', E: 'EXPERT', M: 'MASTER', U: 'ULTIMA' })[L]) colOf[L] = i;
+      });
+    });
+    const cur = {};
+    (sheets || []).forEach(function (sh) {
+      const L = DIFF_LETTER[sh.difficulty];
+      if (!L) return;
+      const iv = Number(sh.internalValue);
+      if (!isNaN(iv)) cur[L] = (iv % 1 === 0 ? String(iv) : String(iv));
+    });
+    const last = rows[rows.length - 1].slice();
+    Object.keys(cur).forEach(function (L) {
+      const ci = colOf[L];
+      const oldCell = String(last[ci]).trim();
+      if (ci <= 0 || oldCell === '—' || oldCell === '-') return;
+      // 跟随原表格的小数习惯：原来写 11.0 就保留一位小数
+      const iv = Number(cur[L]);
+      last[ci] = oldCell.indexOf('.') !== -1 ? iv.toFixed(1) : String(iv);
+    });
+    extraObj = Object.assign({}, extraObj, { history_expanded: rows.slice(0, -1).concat([last]) });
+    return extraObj;
+  }
+
   songs.forEach(function (entry) {
     routes.push({
       path: 'chuni/' + entry.slug + '/index.html',
@@ -449,7 +484,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
         slug: entry.slug,
         versionLabel: entry.versionLabel,
         guide: { updated: d.updated, categories: d.categories, versions: d.versions },
-        extra: extra[entry.raw.id] || extra[String(entry.raw.title).trim()] || null,
+        extra: fixHistoryRows(extra[entry.raw.id] || extra[String(entry.raw.title).trim()] || null, entry.raw.sheets),
         notes: notesMap[String(entry.raw.title).trim()] || null,
         collabParts: partsOf(entry.raw.title)
       }
