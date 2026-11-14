@@ -41,6 +41,7 @@
 				<div class="chuni-toolbar-filters">
 					<button type="button" class="chuni-removed-btn" id="chuni-hide-removed">不显示删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">仅显示删除曲</button>
+					<button type="button" class="chuni-removed-btn" id="chuni-big">大合作</button>
 					<button type="button" class="chuni-removed-btn chuni-we-btn" id="chuni-we">WORLD'S END</button>
 				</div>
 			</div>
@@ -90,7 +91,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, big: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -335,6 +336,7 @@
 				// 「删除曲」里只放普通谱面；被删除的 WE 谱面归 WORLD'S END 开关管
 				if (isWE && !state.we) return false;
 			}
+			if (state.big && !r.big) return false;
 			if (state.we && !isWE) return false;
 			// 删除曲默认跟着正常曲一起显示；WORLD'S END 仍然单独隔开
 			if (!state.removed && !state.we && isWE) return false;
@@ -498,7 +500,7 @@
 			return '<a class="chuni-row" href="' + r.u + '">' +
 				'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
 				'<div class="chuni-row-main">' +
-				'<div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + ((r.cnrm || r.rm) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + dsTag + '</div>' +
+				'<div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + ((r.cnrm || r.rm) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + (r.big ? '<span class="chuni-row-tag-big">大合作</span>' : '') + dsTag + '</div>' +
 				'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 				'</div>' +
 				'<div class="chuni-row-badges">' + badges + '</div>' +
@@ -809,6 +811,14 @@
 	if (st) st.addEventListener('input', function () { state.qt = st.value; state.page = 1; renderRows(); });
 	var sa = document.getElementById('chuni-search-artist');
 	if (sa) sa.addEventListener('input', function () { state.qa = sa.value; state.page = 1; renderRows(); });
+
+	var bigBtn = document.getElementById('chuni-big');
+	if (bigBtn) bigBtn.addEventListener('click', function () {
+		state.big = !state.big;
+		bigBtn.classList.toggle('active', state.big);
+		state.page = 1;
+		renderRows();
+	});
 
 	var weBtn = document.getElementById('chuni-we');
 	if (weBtn) weBtn.addEventListener('click', function () {

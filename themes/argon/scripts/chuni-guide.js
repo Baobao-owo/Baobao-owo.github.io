@@ -49,6 +49,36 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const designerAlias = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_alias) || {};
   // 合作曲分工表（wiki 曲目页的「担当箇所 / 担当ND」）
   const collabParts = (hexo.locals.get('data') && hexo.locals.get('data').collab_parts) || {};
+  const collabSongs = (function () {
+    try {
+      const f = hexo.base_dir + 'source/assets/data/collab.json';
+      return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')).songs || {}) : {};
+    } catch (e) { return {}; }
+  })();
+  function collabPeopleCount(title) {
+    const key = String(title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const rec = collabSongs[key];
+    if (!rec) return 0;
+    const ppl = new Set();
+    ['b', 'a', 'e', 'm', 'u'].forEach(function (d) { (rec[d] || []).forEach(function (x) { ppl.add(x); }); });
+    return ppl.size;
+  }
+  // 大合作：有 wiki 分工表，或者 3 人以上联名
+  var partNormList = null;
+  function isBigCollab(title) {
+    // 有 wiki 分工表的，或者 3 人以上联名
+    var t = normTitle(title);
+    if (partsByNorm[t]) return true;
+    if (!partNormList) partNormList = Object.keys(partsByNorm);
+    // 分工表的标题常是简称（Caliburne / LAMIA），用互相包含来判断
+    for (var i = 0; i < partNormList.length; i++) {
+      var pn = partNormList[i];
+      // 只认「开头互相包含」，避免 No.1 这种短名误伤
+      if (pn.length >= 5 && t.indexOf(pn) === 0) return true;
+      if (t.length >= 9 && pn.indexOf(t) === 0) return true;
+    }
+    return collabPeopleCount(title) >= 3;
+  }
   const cnData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn) || {};
   const cnSongMap = cnData.songs || {};
   const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
@@ -272,6 +302,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       max: e.maxLevel,
       cn: e.inCN ? 1 : 0,
       rm: e.removed ? 1 : 0,
+      big: isBigCollab(e.raw.title) ? 1 : 0,
       cnrm: e.cnRemoved ? 1 : 0,
       we: (function () {
         var stars = [];
