@@ -322,7 +322,7 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
         slug: entry.slug,
         versionLabel: entry.versionLabel,
         guide: { updated: d.updated, categories: d.categories, versions: d.versions },
-        extra: extra[entry.raw.id] || null,
+        extra: extra[entry.raw.id] || extra[String(entry.raw.title).trim()] || null,
         notes: notesMap[String(entry.raw.title).trim()] || null,
         collabParts: partsOf(entry.raw.title)
       }
