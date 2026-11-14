@@ -2518,3 +2518,17 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
   .chuni-titles-table th:first-child, .chuni-titles-table td:first-child { width: 48%; }
   .chuni-titles-table th:last-child, .chuni-titles-table td:last-child { width: 52%; }
 }
+
+/* 大合作标签 */
+.chuni-row-tag-big {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: 2px;
+  background: #fdf1e3;
+  color: #b06a2a;
+  flex: none;
+}
