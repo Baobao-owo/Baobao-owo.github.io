@@ -2439,7 +2439,7 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
 /* 工具栏：谱师筛选提到第一行；倒序放到排序组最右 */
 .chuni-toolbar-main { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .chuni-toolbar-main #chuni-designer-toggle { margin-left: 4px; }
-.chuni-toolbar-main .chuni-sort { margin-left: auto; }
+.chuni-toolbar-main .chuni-sort { margin-left: 4px; }
 .chuni-sort .chuni-dir-btn { margin-left: 10px; }
 @media (max-width: 720px) {
   .chuni-toolbar-main .chuni-sort { margin-left: 0; }
