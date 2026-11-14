@@ -2217,3 +2217,38 @@ html.darkmode .post-content details.about-more {
   background: #f6fafd;
   border-radius: 4px;
 }
+
+/* 谱师留言：收紧行距、标题左对齐 */
+.chuni-note summary {
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  line-height: 1.5;
+}
+.chuni-note-body {
+  margin-top: 6px;
+  line-height: 1.65;
+}
+.chuni-note-jp,
+.chuni-note-zh {
+  white-space: pre-line;
+  line-height: 1.65;
+}
+.chuni-note-jp {
+  padding: 6px 10px;
+  margin-bottom: 8px;
+}
+.chuni-note-zh {
+  padding: 6px 10px;
+}
+
+/* 覆盖：模板里的换行不能被 pre-wrap 当空行 */
+.chuni-note,
+.chuni-note-body {
+  white-space: normal;
+}
+.chuni-note-jp,
+.chuni-note-zh {
+  white-space: pre-line;
+}
