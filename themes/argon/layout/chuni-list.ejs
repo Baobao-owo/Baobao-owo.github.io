@@ -88,7 +88,7 @@
 	var VERSION_KEYS = <%- JSON.stringify(versions.map(function (v) { return v.key; })) %>;
 	var CN_VERSIONS = <%- JSON.stringify(cfg.cn_versions || []) %>;
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], stars: [], sort: 'version', dir: -1, removed: false, hideRemoved: true, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -121,6 +121,7 @@
 			Object.keys(savedListState.state || {}).forEach(function (k) { state[k] = savedListState.state[k]; });
 			syncControls();
 			syncDesignerUI();
+			if (typeof renderLevelChips === 'function') renderLevelChips();
 		} catch (e) {}
 		listStateApplied = true;
 	}
@@ -208,6 +209,19 @@
 
 	function renderLevelChips() {
 		if (!levelsEl) return;
+		// WORLD'S END 开启时，难度按钮换成星级
+		if (state.we) {
+			var stars = [1, 2, 3, 4, 5];
+			levelsEl.classList.add('is-we');
+			levelsEl.innerHTML = stars.map(function (n) {
+				return '<button type="button" class="chuni-lv-chip chuni-star-chip we-star-' + n + '" data-star="' + n + '">' + n + ' 星</button>';
+			}).join('');
+			levelsEl.querySelectorAll('button[data-star]').forEach(function (b) {
+				if ((state.stars || []).indexOf(Number(b.getAttribute('data-star'))) >= 0) b.classList.add('active');
+			});
+			return;
+		}
+		levelsEl.classList.remove('is-we');
 		var levels = collectLevels();
 		levelsEl.innerHTML = levels.map(function (lv) {
 			return '<button type="button" class="chuni-lv-chip tier-' + tierOf(lv) + '" data-level="' + lv + '">' + lv + '</button>';
@@ -244,6 +258,13 @@
 		var map = { b: 'basic', a: 'advanced', e: 'expert', m: 'master', u: 'ultima' };
 		var k = visibleKeys(r);
 		return k ? k.map(function (x) { return map[x]; }) : null;
+	}
+
+	function starMatch(r) {
+		if (!(state.stars || []).length) return true;
+		var list = (r.we || []).map(Number);
+		if (!list.length) return false;
+		return state.stars.some(function (n) { return list.indexOf(Number(n)) !== -1; });
 	}
 
 	function levelMatch(r) {
@@ -321,7 +342,7 @@
 				if (!collabEntry(r)) return false;
 				if ((state.designer || state.designerRaw) && !matcher(r).some(function (x) { return x.kind === 'collab'; })) return false;
 			}
-			if (!levelMatch(r)) return false;
+			if (state.we ? !starMatch(r) : !levelMatch(r)) return false;
 			if (qt && String(r.t).toLowerCase().indexOf(qt) === -1) return false;
 			if (qa && String(r.a).toLowerCase().indexOf(qa) === -1) return false;
 			return true;
@@ -546,9 +567,22 @@
 
 	if (levelsEl) {
 		levelsEl.addEventListener('click', function (e) {
+			// WE 模式下这一排是星级
+			var sb = e.target.closest('button[data-star]');
+			if (sb) {
+				var n = Number(sb.getAttribute('data-star'));
+				if (!state.stars) state.stars = [];
+				var i2 = state.stars.indexOf(n);
+				if (i2 === -1) state.stars.push(n); else state.stars.splice(i2, 1);
+				sb.classList.toggle('active');
+				state.page = 1;
+				renderRows();
+				return;
+			}
 			var b = e.target.closest('.chuni-lv-chip');
 			if (!b) return;
 			var lv = b.getAttribute('data-level');
+			if (!lv) return;
 			var i = state.levels.indexOf(lv);
 			if (i === -1) state.levels.push(lv); else state.levels.splice(i, 1);
 			b.classList.toggle('active');
@@ -756,6 +790,10 @@
 	if (weBtn) weBtn.addEventListener('click', function () {
 		state.we = !state.we;
 		weBtn.classList.toggle('active', state.we);
+		// 切到 WE：难度按钮换成星级；切回来再换回难度
+		if (state.we) state.levels = [];
+		else state.stars = [];
+		renderLevelChips();
 		state.page = 1;
 		renderRows();
 	});

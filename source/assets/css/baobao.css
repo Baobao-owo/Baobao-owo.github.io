@@ -2401,3 +2401,37 @@ html.darkmode .chuni-toolbar-filters .chuni-we-btn.active {
   flex: none;
   margin-left: 0;
 }
+
+/* WORLD'S END 模式下，难度按钮换成星级 */
+.chuni-levels.is-we { gap: 8px; }
+.chuni-star-chip {
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #4d4356;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #ff9d9d, #ffc978) border-box;
+}
+.chuni-star-chip.we-star-1 { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#9fe3a8,#7cc9f0) border-box; }
+.chuni-star-chip.we-star-2 { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#7cc9f0,#b39df3) border-box; }
+.chuni-star-chip.we-star-3 { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#b39df3,#ff9dd6) border-box; }
+.chuni-star-chip.we-star-4 { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff9dd6,#ff9d9d) border-box; }
+.chuni-star-chip.we-star-5 { background: linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff9d9d,#ffc978,#9fe3a8,#7cc9f0,#b39df3) border-box; }
+.chuni-star-chip.active {
+  color: #fff;
+  border-color: transparent;
+  background:
+    linear-gradient(90deg,#9fe3a8,#7cc9f0,#b39df3,#ff9dd6) padding-box,
+    linear-gradient(90deg,#9fe3a8,#7cc9f0,#b39df3,#ff9dd6) border-box;
+}
+.chuni-star-chip.active.we-star-5 {
+  background:
+    linear-gradient(90deg,#ff9d9d,#ffc978,#9fe3a8,#7cc9f0,#b39df3) padding-box,
+    linear-gradient(90deg,#ff9d9d,#ffc978,#9fe3a8,#7cc9f0,#b39df3) border-box;
+}
+html.darkmode .chuni-star-chip { color: #cfc2e8; background: linear-gradient(#333945,#333945) padding-box, linear-gradient(90deg,#9fe3a8,#7cc9f0) border-box; }
+html.darkmode .chuni-star-chip.active { color: #2b2f38; }
