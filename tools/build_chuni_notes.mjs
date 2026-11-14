@@ -48,11 +48,16 @@ function tidy(text) {
 
 // 「Techno Kitchen（嘉宾）Techno Kitchen（ゲスト）」这种重复写法，只留前半段
 function cleanDesigner(name) {
-  const t = String(name || '').trim();
+  let t = String(name || '').trim();
+  // 「＜“すきやき奉行”的通知＞＜“すきやき奉行”からのお知らせ＞」这种取引号里的名字
+  const q = t.match(/[“「]([^”」]+)[”」]/);
+  if (q) return q[1].trim();
+  t = t.replace(/^[＜<《「【\[（(]+/, '').replace(/[＞>》」】\]）)]+$/, '').trim();
   const m = t.match(/^(.+?)（([^）]*)）(.+)$/);
   if (m && m[3].startsWith(m[1].trim())) return m[1].trim() + '（' + m[2] + '）';
   return t;
 }
+
 
 function fixZh(text) {
   let t = tidy(text);
@@ -101,6 +106,7 @@ const MANUAL_MAP = {
   '多重未来のカルテット': '多重未来のカルテット -Quartet Theme-',
   'ENDYMION(EXPERT)': 'ENDYMION',
   '巫女みこナース（EXP）': '巫女みこナース・愛のテーマ',
+  '巫女みこナース': '巫女みこナース・愛のテーマ',
   'Your Affection': 'Your Affection(Daisuke Asakura Remix)',
   '・盟月【MASTER】': '盟月',
   '新時代': '新時代（ウタfrom ONE PIECE FILM RED）',
