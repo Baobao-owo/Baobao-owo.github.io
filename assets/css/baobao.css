@@ -2484,3 +2484,37 @@ html.darkmode .chuni-star-chip.active { color: #2b2f38; }
   .chuni-detail-table th, .chuni-detail-table td { padding: 6px 6px; }
   .chuni-history-table th { font-size: 10.5px; }
 }
+
+/* 单曲页表格：列宽合理分配 + 行距压缩，能一行的别折行 */
+.chuni-detail-table { table-layout: auto; }
+.chuni-detail-table th,
+.chuni-detail-table td { padding: 5px 10px; line-height: 1.4; }
+
+/* 详细表：难度窄一点，数字列定宽，谱面作者吃掉剩余宽度 */
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:first-child,
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:first-child { width: 30%; }
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(2),
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(2),
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(3),
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(3),
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) th:nth-child(4),
+.chuni-detail-table:not(.chuni-history-table):not(.chuni-titles-table) td:nth-child(4) { width: 12%; white-space: nowrap; }
+
+/* 称号表：称号与条件按 55 : 45 分，条件尽量一行放完 */
+.chuni-titles-table th:first-child,
+.chuni-titles-table td:first-child { width: 52%; text-align: left !important; }
+.chuni-titles-table th:last-child,
+.chuni-titles-table td:last-child { width: 48%; text-align: left !important; overflow-wrap: break-word; }
+
+/* 定数履历：各难度列等宽，行高更紧 */
+.chuni-history-table th:not(:first-child),
+.chuni-history-table td:not(:first-child) { width: 14%; }
+.chuni-history-table th:first-child,
+.chuni-history-table td:first-child { white-space: normal; }
+.chuni-history-table td { padding: 4px 8px; }
+
+@media (max-width: 520px) {
+  .chuni-detail-table th, .chuni-detail-table td { padding: 4px 6px; font-size: 12px; }
+  .chuni-titles-table th:first-child, .chuni-titles-table td:first-child { width: 48%; }
+  .chuni-titles-table th:last-child, .chuni-titles-table td:last-child { width: 52%; }
+}
