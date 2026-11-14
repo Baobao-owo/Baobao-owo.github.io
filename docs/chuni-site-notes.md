@@ -221,3 +221,9 @@
 - 本文件是唯一权威版：`docs/chuni-site-notes.md`（仓库内，GitHub 可看）
 - 每次大改动后：更新本文件 → `python tools/make_site_notes_docx.py` → 提交推送
 - Word 版：`_tmp/中二节奏曲库站维护说明.docx`（不入库，按需生成）
+
+## 9. 更新记录
+
+- 2026-11-14：曲库站大整理——合作判定扩展（`supported by` 等 17 种写法）、作者不明不再误判合作、列表绿标常显、谱师成员括号规则、定数履历当前行按真实定数覆盖、定数文本补全 196 张、c2s 署名补全 396 张、难度 chip 默认五档全选并在取消时灰显。
+- 2026-11-15：从 wiki 补搬时间段分工表（17 → 28 首），参与者写入 `collab.json`；修复正/倒序按钮未绑定、旧筛选状态恢复导致遮罩失效；新增 `collab-exclude.json` 排除名单与两份谱师清单 exporter。
+- wiki 上确实没有分工表的 10 个曲名：`Grip & Break down !!`、`ここで一席！　Oshama Scramble!`、`Mass Destruction ("P3" + "P3F" ver.)`、`Athlete Killer "Meteor"`、`紅`（wiki 条目为 紅華刑）、`Re:Credits`、`Flap&Clap`（两首同名）、`RE:UNION -Duo Blade Against-`、`[IMPERIALDISORDER]`、`Little Busters!～TV animation ver.～`。
