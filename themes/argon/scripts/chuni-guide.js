@@ -33,7 +33,11 @@ hexo.extend.generator.register('chuni_guide', function (locals) {
   const cnVersions = new Set((cfg && cfg.cn_versions) || []);
 
   const versionIndex = new Map(d.versions.map(function (v, i) { return [v.key, i]; }));
-  const versionLabel = new Map(d.versions.map(function (v) { return [v.key, v.abbr]; }));
+  // 版本显示名：官方缩写里的 VERSE+ / VERSE++ 容易被误读，直接用 X-VERSE / X-VERSE-X
+const VERSION_LABEL_FIX = { 'VERSE+': 'X-VERSE', 'VERSE++': 'X-VERSE-X' };
+const versionLabel = new Map(d.versions.map(function (v) {
+  return [v.key, VERSION_LABEL_FIX[v.abbr] || v.abbr];
+}));
 
   const designerMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designers) || {};
   const designerFill = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_fill) || {};
