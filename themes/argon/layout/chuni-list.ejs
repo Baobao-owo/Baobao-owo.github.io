@@ -1,4 +1,4 @@
-<%
+﻿<%
 	const g = page.guide || {};
 	const cats = g.categories || [];
 	const versions = g.versions || [];
@@ -90,21 +90,37 @@
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
 		try {
-			sessionStorage.setItem(LIST_STATE_KEY, JSON.stringify({ state: state, scroll: window.scrollY }));
+			sessionStorage.setItem(LIST_STATE_KEY, JSON.stringify({ state: state, scroll: window.scrollY, ts: Date.now() }));
 		} catch (e) {}
 	}
 	function loadListState() {
 		try {
+			// 列表页点进曲目页时会写这个 key；回来就恢复（2 小时内有效）
 			var raw = sessionStorage.getItem(LIST_STATE_KEY);
 			if (!raw) return null;
-			sessionStorage.removeItem(LIST_STATE_KEY);
-			return JSON.parse(raw);
+			var obj = JSON.parse(raw);
+			if (obj.ts && Date.now() - obj.ts > 2 * 3600 * 1000) {
+				sessionStorage.removeItem(LIST_STATE_KEY);
+				return null;
+			}
+			return obj;
 		} catch (e) {
 			return null;
 		}
 	}
 	var DESIGNERS = null;
 	var COLLAB = null;
+	var savedListState = null;
+	var listStateApplied = false;
+	function applySavedListState() {
+		if (!savedListState || listStateApplied) return;
+		try {
+			Object.keys(savedListState.state || {}).forEach(function (k) { state[k] = savedListState.state[k]; });
+			syncControls();
+			syncDesignerUI();
+		} catch (e) {}
+		listStateApplied = true;
+	}
 
 	var all = [];
 	var listEl = document.getElementById('chuni-list');
@@ -583,6 +599,19 @@
 		if (toggle) toggle.classList.toggle('active', !!label);
 	}
 
+	// 从详情页返回时，把谱师/合作这些面板状态也一起恢复
+	function syncDesignerUI() {
+		updateDesignerHint();
+		markDesignerChips();
+		var cToggle = panelEl('chuni-collab-toggle');
+		if (cToggle) cToggle.classList.toggle('active', !!state.collab);
+		var dToggle = panelEl('chuni-designer-toggle');
+		if (dToggle) {
+			var active = !!(state.designer || state.designerRaw || state.collab);
+			dToggle.classList.toggle('active', active);
+		}
+	}
+
 	function pickDesigner(name) {
 		var same = (state.designer === name) || (state.designerRaw === name);
 		if (same) {
@@ -685,12 +714,8 @@
 			renderLevelChips();
 			if (loadingEl) loadingEl.remove();
 			var saved = loadListState();
-			if (saved && saved.state) {
-				try {
-					Object.keys(saved.state).forEach(function (k) { if (k !== 'designer' && k !== 'designerRaw' && k !== 'designerDiff' && k !== 'collab') state[k] = saved.state[k]; });
-					syncControls();
-				} catch (e) {}
-			}
+			if (saved && saved.state) savedListState = saved;
+			applySavedListState();
 			renderRows();
 			if (saved && saved.scroll) {
 				setTimeout(function () { window.scrollTo(0, saved.scroll); }, 80);
@@ -716,6 +741,8 @@
 		.then(function (r) { return r.json(); })
 		.then(function (data) {
 			COLLAB = data;
+			// 合作数据可能比曲目数据晚到：把返回时要恢复的筛选补上，再重画一次
+			applySavedListState();
 			if (state.designer || state.designerRaw || state.collab) renderRows();
 		})
 		.catch(function () {
