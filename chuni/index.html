@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=2fce7807">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=c3377cb0">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -564,6 +564,14 @@
 					<span class="chuni-count" id="chuni-count"></span>
 					<button type="button" class="chuni-sort-btn chuni-dir-btn" id="chuni-dir" data-sort="dir">倒序 ↓</button>
 				</div>
+				<div class="chuni-designer-diff chuni-diff-top" id="chuni-designer-diff">
+					<button type="button" class="chuni-diff-chip" data-diff="all">全部难度</button>
+					<button type="button" class="chuni-diff-chip diff-b" data-diff="b">BASIC</button>
+					<button type="button" class="chuni-diff-chip diff-a" data-diff="a">ADVANCED</button>
+					<button type="button" class="chuni-diff-chip diff-e active" data-diff="e">EXPERT</button>
+					<button type="button" class="chuni-diff-chip diff-m active" data-diff="m">MASTER</button>
+					<button type="button" class="chuni-diff-chip diff-u active" data-diff="u">ULTIMA</button>
+				</div>
 				<div class="chuni-toolbar-filters">
 					<button type="button" class="chuni-removed-btn" id="chuni-hide-removed">不显示删除曲</button>
 					<button type="button" class="chuni-removed-btn" id="chuni-removed">仅显示删除曲</button>
@@ -580,13 +588,7 @@
 						<button type="button" class="chuni-designer-close" id="chuni-designer-close">收起</button>
 					</span>
 				</div>
-				<div class="chuni-designer-diff" id="chuni-designer-diff">
-					<button type="button" class="chuni-diff-chip" data-diff="all">全部难度</button>
-					<button type="button" class="chuni-diff-chip diff-b" data-diff="b">BASIC</button>
-					<button type="button" class="chuni-diff-chip diff-a" data-diff="a">ADVANCED</button>
-					<button type="button" class="chuni-diff-chip diff-e active" data-diff="e">EXPERT</button>
-					<button type="button" class="chuni-diff-chip diff-m active" data-diff="m">MASTER</button>
-					<button type="button" class="chuni-diff-chip diff-u active" data-diff="u">ULTIMA</button>
+				<div class="chuni-designer-diff">
 					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
@@ -1225,7 +1227,7 @@
 		updateDesignerHint();
 		markDesignerChips();
 		// 难度 chip 回显（多选）
-		var dp = panelEl('chuni-designer-panel');
+		var dp = panelEl('chuni-designer-diff');
 		if (dp) {
 			dp.querySelectorAll('.chuni-diff-chip[data-diff]').forEach(function (x) {
 				var v = x.getAttribute('data-diff');
@@ -1293,10 +1295,9 @@
 		renderRows();
 	});
 
-	var dPanel = panelEl('chuni-designer-panel');
-	if (dPanel) dPanel.addEventListener('click', function (e) {
-		var chip = e.target.closest('.chuni-dz-chip');
-		if (chip) { pickDesigner(chip.getAttribute('data-who')); return; }
+	// 难度 chip 现在在顶部工具栏，单独绑
+	var diffBar = panelEl('chuni-designer-diff');
+	if (diffBar) diffBar.addEventListener('click', function (e) {
 		var diff = e.target.closest('.chuni-diff-chip');
 		if (diff && diff.hasAttribute('data-diff')) {
 			var d = diff.getAttribute('data-diff');
@@ -1310,7 +1311,7 @@
 				if (i === -1) arr.push(d); else arr.splice(i, 1);
 				state.designerDiff = arr;
 			}
-			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) {
+			diffBar.querySelectorAll('.chuni-diff-chip').forEach(function (x) {
 				if (!x.hasAttribute('data-diff')) return;
 				var v = x.getAttribute('data-diff');
 				var on = v === 'all' ? (state.designerDiff && state.designerDiff.length === 5) : (state.designerDiff || []).indexOf(v) !== -1;
@@ -1320,6 +1321,12 @@
 			renderDesignerPanel();
 			renderRows();
 		}
+	});
+
+	var dPanel = panelEl('chuni-designer-panel');
+	if (dPanel) dPanel.addEventListener('click', function (e) {
+		var chip = e.target.closest('.chuni-dz-chip');
+		if (chip) pickDesigner(chip.getAttribute('data-who'));
 	});
 
 	var dq = panelEl('chuni-designer-q');
