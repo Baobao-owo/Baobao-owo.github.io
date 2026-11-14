@@ -107,7 +107,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
     } catch (e) { return new Set(); }
   })();
   const COLLAB_SEP = /\s*(?:&|＆|\bVS\b|\bvs\b|×|＋)\s*/;
+  // docx（谱师学ep0.5）里列过的曲目一律算合作曲
+  const collabDocxSet = new Set(((hexo.locals.get('data') && hexo.locals.get('data').collab_docx_titles) || []).map(function (t) { return normTitle(t); }));
   function isCollabSong(title, sheets) {
+    if (collabDocxSet.has(normTitle(title))) return true;
     if (collabPeopleCount(title) >= 2) return true;
     return (sheets || []).some(function (sh) {
       const d = String(sh.designer || '');
