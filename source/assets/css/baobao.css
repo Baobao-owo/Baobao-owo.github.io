@@ -2382,3 +2382,22 @@ html.darkmode .chuni-toolbar-filters .chuni-we-btn.active {
     linear-gradient(90deg, #ff8a8a, #ffc36b, #ffe66b, #8fe08f, #7cc9f0, #b39df3, #ff8ad4) border-box;
   color: #efe6ff;
 }
+
+/* 行标题：曲名单独一个可截断的块，标签跟它同一行且不被裁掉 */
+.chuni-row-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.chuni-row-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chuni-row-tag-removed,
+.chuni-row-tag-ds {
+  flex: none;
+  margin-left: 0;
+}
