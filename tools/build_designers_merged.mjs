@@ -77,8 +77,22 @@ function lookupWho(raw) {
   return '';
 }
 
+// 手工确认过的错字/写法差异（只收明显是笔误的，见 tools/designer-typos.json）
+const typoMap = new Map();
+const typoFile = 'tools/designer-typos.json';
+if (fs.existsSync(typoFile)) {
+  for (const [bad, good] of Object.entries(JSON.parse(fs.readFileSync(typoFile, 'utf8')))) {
+    typoMap.set(norm(bad), good);
+  }
+}
+
 function resolveWho(raw) {
   if (!raw) return '';
+  const fixed = typoMap.get(norm(raw));
+  if (fixed) {
+    const hit = alias2who.get(norm(fixed)) || aliasSquashed.get(squash(fixed));
+    if (hit) return hit;
+  }
   return lookupWho(raw);
 }
 
@@ -217,19 +231,41 @@ for (const pseudo of [TEAM_WHO, '制作者不明']) {
   });
 }
 
+// 已经进合作数据的名义（A vs B / supported by …）不算「待指派」，
+// 它们在「仅显示合作」里有自己的展示方式
+const collabData = (function () {
+  try {
+    return JSON.parse(fs.readFileSync('source/assets/data/collab.json', 'utf8')).songs || {};
+  } catch (e) {
+    return {};
+  }
+})();
+const coveredByCollab = new Set();
+for (const [title, entry] of Object.entries(songsOut)) {
+  const c = collabData[title] || {};
+  for (const [diff, cell] of Object.entries(entry)) {
+    if (cell.who || !cell.raw) continue;
+    const people = c[diff];
+    if (people && people.length >= 2) coveredByCollab.add(norm(cell.raw));
+  }
+}
+
 const loose = [...looseSongs.entries()]
+  .filter(([name]) => !coveredByCollab.has(norm(name)))
   .map(([name, set]) => ({ name, songs: set.size }))
   .sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
 
-// c2s 里出现、但别名表里没有的名义，也进 loose（避免遗漏）
+// c2s 里有、但站内没有任何曲目挂着它的名义：只留一份备查，不进面板
+// （之前这些会把「其他名义」从 47 撑到 291，面板上其实根本不显示）
 const seenLoose = new Set(loose.map((x) => norm(x.name)));
+const c2sOnly = [];
 for (const [k, who] of Object.entries(c2s)) {
   if (!who) continue;
   if (resolveWho(who)) continue;
   if (teamOf(who)) continue;
   if (seenLoose.has(norm(who))) continue;
   seenLoose.add(norm(who));
-  loose.push({ name: who, songs: 0, c2sOnly: true });
+  c2sOnly.push(who);
 }
 
 const payload = {
@@ -241,6 +277,7 @@ const payload = {
   },
   designers,
   loose,
+  c2sOnly,
   songs: songsOut,
 };
 
