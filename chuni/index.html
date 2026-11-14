@@ -793,8 +793,8 @@
 				if (!ds) return;
 				// 署名是组合/团队别名（归不到具体谱师）也算合作
 				var rec = ent[k];
-				// 只有「归不到具体谱师」或「别名本身就是双人组合」才算团队名义
-				var teamAlias = rec && (!rec.who || rec.who === '制作者不明' || !!sh.mem);
+				// 只有「别名本身就是双人组合」才算合作；作者不明的谱面既不算合作也不算单人
+				var teamAlias = !!sh.mem;
 				if (teamAlias || COLLAB_SEP.test(ds) || LOOSE_SET[ds.toLowerCase()] || COLLAB_TEAM_RE.test(ds)) out.push(k);
 			});
 		}
@@ -1045,11 +1045,20 @@
 				}
 				// 组合别名（レモンとアロエ → じゃこレモン × 夕凪アロエ）也一并显示
 				(r.sh || []).forEach(function (sh) {
-					if (!sh.mem) return;
 					var k = DIFF_KEY[sh.d];
 					if (!k) return;
-					var label = k.toUpperCase() + ' 合作 ' + sh.mem;
-					if (cParts.indexOf(label) === -1 && cParts.join(' ').indexOf(sh.mem) === -1) cParts.push(label);
+					if (sh.mem) {
+						var label = k.toUpperCase() + ' 合作 ' + sh.mem;
+						if (cParts.indexOf(label) === -1 && cParts.join(' ').indexOf(sh.mem) === -1) cParts.push(label);
+						return;
+					}
+					// 署名里带「supported by / vs / &」这类写法，直接拆人
+					var ds = String(sh.ds || '');
+					if (!COLLAB_SEP.test(ds)) return;
+					var ppl = ds.split(COLLAB_SEP).map(function (x) { return x.trim(); }).filter(Boolean);
+					if (ppl.length < 2) return;
+					var lbl = k.toUpperCase() + ' 合作 ' + ppl.join(' × ');
+					if (cParts.indexOf(lbl) === -1) cParts.push(lbl);
 				});
 				if (cParts.length) dsTag = '<span class="chuni-row-tag-ds is-collab">' + cParts.join(' / ') + '</span>';
 			}
