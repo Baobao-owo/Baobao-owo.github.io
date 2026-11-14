@@ -2306,3 +2306,15 @@ html.darkmode .chuni-parts-note { color: #7d8a96; }
   vertical-align: middle;
   line-height: 1.5;
 }
+
+/* 删除曲标记：再抬一点，与曲名基线对齐 */
+.chuni-row-tag-removed {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: 2px;
+  line-height: 1.45;
+}
