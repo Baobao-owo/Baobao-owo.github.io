@@ -1284,10 +1284,30 @@
 	var dToggle = panelEl('chuni-designer-toggle');
 	if (dToggle) dToggle.addEventListener('click', function () {
 		var panel = panelEl('chuni-designer-panel');
-		openDesignerPanel(!!panel && panel.hidden);
+		var willOpen = !!panel && panel.hidden;
+	openDesignerPanel(willOpen);
+	if (!willOpen) resetDesignerPanelFilters();
 	});
+	// 收起谱师面板时，把面板里的过滤条件一起清掉（谱师 / 合作模式 / 搜索词）
+	function resetDesignerPanelFilters() {
+		state.designer = '';
+		state.designerRaw = '';
+		state.collab = false;
+		state.solo = false;
+		state.big = false;
+		var q = panelEl('chuni-designer-q');
+		if (q) q.value = '';
+		updateDesignerHint();
+		markDesignerChips();
+		syncModeChips();
+		state.page = 1;
+		renderRows();
+	}
 	var dClose = panelEl('chuni-designer-close');
-	if (dClose) dClose.addEventListener('click', function () { openDesignerPanel(false); });
+	if (dClose) dClose.addEventListener('click', function () {
+		openDesignerPanel(false);
+		resetDesignerPanelFilters();
+	});
 	var dClear = panelEl('chuni-designer-clear');
 	if (dClear) dClear.addEventListener('click', function () {
 		state.designer = '';
