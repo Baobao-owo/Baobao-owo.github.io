@@ -504,15 +504,24 @@
 				var isCollab = dInfo.some(function (x) { return x.kind === 'collab'; });
 				dsTag = '<span class="chuni-row-tag-ds' + (isCollab ? ' is-collab' : '') + '">' + parts.join(' / ') + '</span>';
 			}
-			if (!dsTag && state.collab) {
-				var ceRow = collabEntry(r);
+			// 只要是确认过的合作谱，就一直显示绿底分工（不再依赖筛选状态）
+			if (!dsTag) {
 				var cParts = [];
+				var ceRow = collabEntry(r);
 				if (ceRow) {
-					['e', 'm', 'u'].forEach(function (k) {
+					['b', 'a', 'e', 'm', 'u'].forEach(function (k) {
 						var ppl = ceRow[k];
 						if (ppl && ppl.length > 1) cParts.push(k.toUpperCase() + ' 合作 ' + ppl.join(' × '));
 					});
 				}
+				// 组合别名（レモンとアロエ → じゃこレモン × 夕凪アロエ）也一并显示
+				(r.sh || []).forEach(function (sh) {
+					if (!sh.mem) return;
+					var k = DIFF_KEY[sh.d];
+					if (!k) return;
+					var label = k.toUpperCase() + ' 合作 ' + sh.mem;
+					if (cParts.indexOf(label) === -1 && cParts.join(' ').indexOf(sh.mem) === -1) cParts.push(label);
+				});
 				if (cParts.length) dsTag = '<span class="chuni-row-tag-ds is-collab">' + cParts.join(' / ') + '</span>';
 			}
 			// WORLD'S END 独占曲：没有 B/A/E/M/U 谱面，就只显示一个 WE 徽章
@@ -967,7 +976,7 @@
 			COLLAB = data;
 			// 合作数据可能比曲目数据晚到：把返回时要恢复的筛选补上，再重画一次
 			applySavedListState();
-			if (state.designer || state.designerRaw || state.collab) renderRows();
+			renderRows();
 		})
 		.catch(function () {
 			var toggle = panelEl('chuni-collab-toggle');

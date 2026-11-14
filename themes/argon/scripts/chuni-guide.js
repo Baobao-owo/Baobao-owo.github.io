@@ -391,7 +391,9 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const letter = DIFF_LETTER[sh.difficulty];
         const known = isKnownDesigner(e.raw.title, letter) ? 1 : 0;
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
-        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '', kn: known };
+        const rawName = String(sh.designer || '').trim();
+        const memName = (rawName && DESIGNER_ALIAS[rawName] && DESIGNER_ALIAS[rawName].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[rawName] : '';
+        return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '', kn: known, mem: memName };
       })
     };
   });
