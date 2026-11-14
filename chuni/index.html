@@ -577,12 +577,12 @@
 					</span>
 				</div>
 				<div class="chuni-designer-diff" id="chuni-designer-diff">
-					<button type="button" class="chuni-diff-chip active" data-diff="all">全部难度</button>
+					<button type="button" class="chuni-diff-chip" data-diff="all">全部难度</button>
 					<button type="button" class="chuni-diff-chip diff-b" data-diff="b">BASIC</button>
 					<button type="button" class="chuni-diff-chip diff-a" data-diff="a">ADVANCED</button>
-					<button type="button" class="chuni-diff-chip diff-e" data-diff="e">EXPERT</button>
-					<button type="button" class="chuni-diff-chip diff-m" data-diff="m">MASTER</button>
-					<button type="button" class="chuni-diff-chip diff-u" data-diff="u">ULTIMA</button>
+					<button type="button" class="chuni-diff-chip diff-e active" data-diff="e">EXPERT</button>
+					<button type="button" class="chuni-diff-chip diff-m active" data-diff="m">MASTER</button>
+					<button type="button" class="chuni-diff-chip diff-u active" data-diff="u">ULTIMA</button>
 					<button type="button" class="chuni-diff-chip chuni-collab-chip" id="chuni-collab-toggle" title="只显示合作谱：对不上的难度定数会变灰">仅显示合作</button>
 				</div>
 				<input type="search" class="chuni-search chuni-designer-q" id="chuni-designer-q" placeholder="搜索谱师名（49 位）…" />
@@ -613,7 +613,7 @@
 	var VERSION_KEYS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X","Mate"];
 	var CN_VERSIONS = ["CHUNITHM","CHUNITHM PLUS","AIR","AIR PLUS","STAR","STAR PLUS","AMAZON","AMAZON PLUS","CRYSTAL","CRYSTAL PLUS","PARADISE","PARADISE LOST","CHUNITHM NEW","CHUNITHM NEW PLUS","SUN","SUN PLUS","LUMINOUS","LUMINOUS PLUS","VERSE","X-VERSE","X-VERSE-X"];
 	var PAGE_SIZE = 50;
-	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: [], collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
+	var state = { version: 'all', qt: '', qa: '', cat: 'all', designer: '', designerRaw: '', designerDiff: ['e', 'm', 'u'], collab: false, levels: [], sort: 'title', dir: 1, removed: false, we: false, page: 1 };
 	// 返回列表时恢复上次的筛选/排序/滚动位置
 	var LIST_STATE_KEY = 'chuni-list-state-v1';
 	function saveListState() {
@@ -1217,7 +1217,9 @@
 		if (diff && diff.hasAttribute('data-diff')) {
 			var d = diff.getAttribute('data-diff');
 			if (d === 'all') {
-				state.designerDiff = [];
+				// 全部难度 = 五档全选；已经全选时再点一次就只留默认的红紫黑
+				var allKeys = ['b', 'a', 'e', 'm', 'u'];
+				state.designerDiff = (state.designerDiff || []).length === allKeys.length ? ['e', 'm', 'u'] : allKeys;
 			} else {
 				var arr = (state.designerDiff || []).slice();
 				var i = arr.indexOf(d);
@@ -1227,7 +1229,7 @@
 			dPanel.querySelectorAll('.chuni-diff-chip').forEach(function (x) {
 				if (!x.hasAttribute('data-diff')) return;
 				var v = x.getAttribute('data-diff');
-				var on = v === 'all' ? (!state.designerDiff || !state.designerDiff.length) : state.designerDiff.indexOf(v) !== -1;
+				var on = v === 'all' ? (state.designerDiff && state.designerDiff.length === 5) : (state.designerDiff || []).indexOf(v) !== -1;
 				x.classList.toggle('active', on);
 			});
 			state.page = 1;
