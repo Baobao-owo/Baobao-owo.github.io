@@ -245,3 +245,27 @@
 - 每次动手改曲库站之前，先读一遍 `docs/chuni-site-notes.md`（仓库根目录 `AGENTS.md` 有指针）
 - 改完数据或模板，跑 `npm run build` 本地确认，再按 stash → pull --rebase → push 流程推送
 - 线上验证用带 `?cb=` 的 URL，等待 3–5 分钟让 Pages 缓存刷新
+
+## 12. 博客后台（/admin）维护
+
+线上后台是 Decap CMS，登录走 **DecapBridge**（配置见 `source/admin/config.yml`，站点 ID `8f0f951c-346f-401d-ad2b-c39dc10f739e`）。
+
+常见故障与处理：
+
+- 页面提示 `site administrator to reissue the Git Gateway token`：DecapBridge 里存的 GitHub 令牌失效。
+  1. GitHub → Settings → Developer settings → Personal access tokens 生成新令牌（Fine-grained，选中本仓库，`Contents` 与 `Pull requests` 设为 Read and write，期限选 No expiration）
+  2. <https://decapbridge.com> → My Sites → **Manage site** → **Settings** → 清空 `Github access token` → 粘贴新令牌 → Save
+  3. 回 `/admin` 强刷后重新登录
+- 页面能开但登录后空白/无限跳转：多半同样是令牌问题，或浏览器缓存了旧的 PKCE 状态，先强刷再试
+- 站点在 DecapBridge 被删除：新建站点绑定仓库，拿到新 Site ID 后替换 `config.yml` 里 `auth_endpoint` / `auth_token_endpoint` 的 ID
+
+## 13. 本地后台（不依赖 DecapBridge）
+
+需要改文章又不想折腾线上登录时：
+
+1. 双击仓库根目录 `启动本地后台.bat`
+2. 它会开两个窗口：`npx decap-server`（8081）与 `npm run dev`（4000），并自动打开 `http://localhost:4000/admin/`
+3. 点「登录」直接进入（配置里 `local_backend: true`）
+4. 编辑保存写的是本地文件；改完关窗口，让 agent 按正常流程提交推送
+
+注意：本地后台的两个窗口不能关，关了会断开。
