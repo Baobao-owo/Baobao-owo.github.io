@@ -239,7 +239,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const fixKey = String(s.title).trim() + '::' + String(sh.difficulty).toLowerCase();
         const fixVal = (DESIGNER_FIX.overrides || {})[fixKey];
         if (typeof fixVal === 'string') name = fixVal;
-        const mem = (name && DESIGNER_ALIAS[name] && DESIGNER_ALIAS[name].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[name] : '';
+        const RAW_HAS_SEP = /\s*(?:vs\.?|&|＆|×|＋|\+)\s*/i;
+        const mem = (name && !RAW_HAS_SEP.test(name) && DESIGNER_ALIAS[name] && DESIGNER_ALIAS[name].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[name] : '';
         return Object.assign({}, sh, {
           designer: name,
           mem: mem
@@ -402,7 +403,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
         const known = isKnownDesigner(e.raw.title, letter) ? 1 : 0;
         const cnVal = e.cnConsts && e.cnConsts[letter] != null ? Number(e.cnConsts[letter]) : null;
         const rawName = String(sh.designer || '').trim();
-        const memName = (rawName && DESIGNER_ALIAS[rawName] && DESIGNER_ALIAS[rawName].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[rawName] : '';
+        const RAW_SEP_RE = /\s*(?:vs\.?|&|＆|×|＋|\+)\s*/i;
+        const memName = (rawName && !RAW_SEP_RE.test(rawName) && DESIGNER_ALIAS[rawName] && DESIGNER_ALIAS[rawName].indexOf(' × ') !== -1) ? DESIGNER_ALIAS[rawName] : '';
         return { d: sh.difficulty, lv: sh.level, iv: Number(sh.internalValue), cn: isNaN(cnVal) || cnVal == null ? null : cnVal, ds: sh.designer || '', kn: known, mem: memName };
       })
     };
