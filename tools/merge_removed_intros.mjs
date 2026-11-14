@@ -12,7 +12,7 @@ const decode = (s) =>
 
 const intros = JSON.parse(fs.readFileSync('_tmp/wiki/removed-intros.json', 'utf8'));
 const zh = {};
-for (const f of ['b1', 'b2', 'b3', 'b4']) {
+for (const f of ['b1', 'b2', 'b3', 'b4', 'b5']) {
   const p = `_tmp/tr/${f}.json`;
   if (!fs.existsSync(p)) continue;
   Object.assign(zh, JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, '')));

@@ -23,7 +23,7 @@ function plain(html) {
     .trim();
 }
 
-const STOP = /^(攻略|コメント|関連項目|外部リンク|脚注|参考|更新履歴|名前|※|詳細|解禁|譜面|称号|デザイン|イラスト|配信|収録|ジャンル|アーティスト|BPM|タイトル|難易度|備考|その他|こちらの|注意|余談)/;
+const STOP = /^(Lv|攻略|コメント|関連項目|外部リンク|脚注|参考|更新履歴|名前|※|詳細|解禁|譜面|称号|デザイン|イラスト|配信|収録|ジャンル|アーティスト|BPM|タイトル|難易度|備考|その他|こちらの|注意|余談)/;
 const out = {};
 const files = fs.readdirSync(DIR).filter((f) => /^\d+\.html$/.test(f));
 for (const f of files) {
@@ -32,12 +32,13 @@ for (const f of files) {
   if (!title) continue;
   const text = plain(fs.readFileSync(path.join(DIR, f), 'utf8'));
   const lines = text.split('\n').map((l) => l.trim());
-  const at = lines.findIndex((l) => l === '情報');
+  const at = lines.findIndex((l) => l.startsWith('情報'));
   if (at < 0) continue;
   const buf = [];
   for (let i = at + 1; i < lines.length; i++) {
     const l = lines[i];
     if (!l) continue;
+    if (/^情報/.test(l) || /Font Awesome/.test(l)) continue;
     if (STOP.test(l)) break;
     buf.push(l);
     if (buf.length >= 8) break;
