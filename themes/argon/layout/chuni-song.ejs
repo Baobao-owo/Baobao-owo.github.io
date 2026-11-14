@@ -84,7 +84,7 @@
 				<% page.notes.forEach(function (n, ni) { %>
 					<details class="chuni-note">
 						<summary>
-							<span class="chuni-note-meta"><%= n.r %><% if (n.d) { %> · <%= n.d %><% } %><% if (n.df) { %> · <%= n.df %><% } %></span>
+							<span class="chuni-note-meta"><% if (n.d) { %><%= n.d %> · <% } %><%= n.r %><% if (n.df) { %> [<%= n.df %>]<% } %></span>
 						</summary>
 						<div class="chuni-note-body">
 							<% if (n.jp) { %>

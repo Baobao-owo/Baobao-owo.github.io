@@ -26,8 +26,25 @@ const TERM_FIX = [
   [/分数值|定数值/g, '定数'],
 ];
 
+// 合并多余空行：原文里每段之间常夹空行，直接 pre-wrap 会拉出大片空白
+function tidy(text) {
+  return String(text || '')
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .join('\n');
+}
+
+// 「Techno Kitchen（嘉宾）Techno Kitchen（ゲスト）」这种重复写法，只留前半段
+function cleanDesigner(name) {
+  const t = String(name || '').trim();
+  const m = t.match(/^(.+?)（([^）]*)）(.+)$/);
+  if (m && m[3].startsWith(m[1].trim())) return m[1].trim() + '（' + m[2] + '）';
+  return t;
+}
+
 function fixZh(text) {
-  let t = String(text || '');
+  let t = tidy(text);
   for (const [re, to] of TERM_FIX) t = t.replace(re, to);
   return t.trim();
 }
@@ -46,9 +63,9 @@ for (const r of recs) {
   }
   const item = {
     r: r.round,
-    d: r.designer || '',
+    d: cleanDesigner(r.designer),
     df: r.diff || '',
-    jp: String(r.jp || '').trim(),
+    jp: tidy(r.jp),
     zh: fixZh(r.zh),
   };
   if (!item.jp && !item.zh) continue;
