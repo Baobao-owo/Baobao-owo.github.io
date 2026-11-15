@@ -324,3 +324,14 @@
 - 实现位置：`themes/argon/layout/chuni-list.ejs` 的 `filtered()`，判断 `state.designerDiff` 长度 1–4 时，要求 `r.sh` 里存在对应难度。
 - 合作 / 单独模式不受这条影响（它们有自己的可见谱判定），默认五档全选时也不受影响。
 - 2026-11-16 实测：默认 1689 首，只勾 MASTER 仍 1689（每首都有 M），只勾 ULTIMA 为 113 首。
+
+
+### 10.12 首页入口与页面外壳
+
+2026-11-16 调整后，站点入口的层级和外壳约定：
+
+- 首页工具站横幅（`themes/argon/layout/home.ejs` 的 `.tool-banner`）只放一行标题「中二节奏工具站」+ 副标题「中二节奏wiki整理」，前面带一个白点；点击进入落地页。
+- 导航链路：首页横幅 → `/categories/中二节奏/`（`chuni-landing.ejs`）→ 落地页「进入曲目导览」→ `/chuni/` 列表。落地页左上角有「← 返回首页」，列表页有「← 返回 中二节奏」。
+- 页脚已整条移除（`themes/argon/layout/footer.ejs` 不再输出 `<footer>`），内容区由 `#primary { padding-bottom: 36px }` 留底部空隙。
+- 文章列表卡片整块可点：`source/assets/js/card-click.js`（在 `source/_data/argon.yml` 的 `custom_html_foot` 里引入），点卡片任意位置进文章，点标签/按钮/选中文字时不拦截。
+- 首页「全部分类 →」入口已删除；分类入口走各板块卡片。
