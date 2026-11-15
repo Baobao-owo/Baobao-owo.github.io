@@ -431,6 +431,15 @@ const versionLabel = new Map(d.versions.map(function (v) {
         var hit = (e.raw.sheets || []).find(function (sh) { return /^【.*】$/.test(String(sh.difficulty)); });
         return hit ? String(hit.difficulty).replace(/[【】]/g, '') : '';
       })(),
+      // 没有按谱面拆开的 WE 伪条目：用 chuni_we.pseudo 里按服务器记的存活状态
+      weDelJP: (function () {
+        var ps = (weRaw.pseudo || {})[String(e.raw.title || '').trim()];
+        return ps ? (ps.jp ? 0 : 1) : 1;
+      })(),
+      weDelCN: (function () {
+        var ps = (weRaw.pseudo || {})[String(e.raw.title || '').trim()];
+        return ps ? (ps.cn ? 0 : 1) : 1;
+      })(),
       sh: e.raw.sheets.map(function (sh) {
         const letter = DIFF_LETTER[sh.difficulty];
         const known = isKnownDesigner(e.raw.title, letter) ? 1 : 0;

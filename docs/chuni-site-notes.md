@@ -373,3 +373,4 @@
 - 国服存活来源：落雪（lxns）歌曲列表里 `difficulty=5` 的 musicId，用的是 2026-11-12 的本地快照 `_tmp/lxns-songs.json`。
 - UI：`themes/argon/layout/chuni-list.ejs` 的 `weDeleted(r)` 按 `state.version` 取对应字段，`rowDeleted(r)` 统一给筛选用；WE-only 伪条目没有按谱拆出来的 id 时，退回曲目级的 `rm` / `cnrm`。
 - 行为：勾上 WORLD'S END 后，「不显示删除曲」默认只列该服仍存活的 WE 谱；「仅显示删除曲」只列该服已删的 WE 谱，行内带「删除曲」标签。
+- 8 条没有按谱拆开的 WE 伪条目（Love & Justice、九龍メタルゾネス、luminoid love PART2、Flap&Clap、ヤババイナ、黒塗り世界宛て書簡、熱異常、]-[|/34<#!）在 `chuni_we.json` 的 `pseudo` 里按服务器记存活状态（从全量 Music.xml 的 pack 名判断，`mate*` 算日服、`xvx*` 算国服）；其中只有九龍メタルゾネス 在国服还活着。
