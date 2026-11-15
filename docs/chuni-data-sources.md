@@ -214,27 +214,16 @@
 - 写入 chuni_extra.json 时**两个键都要写**：wiki_comment 实际读取的是 extra[String(s.id)]，而 id 是曲名不是 musicId；只写数字 musicId 键页面会显示「wiki 的曲目介绍还没搬」。
 - Over Heart 定数差异是同类曲名撞车：站内 Over Heart（イロドリミドリ）与 Overhea[r]t（ORIGINAL）不同曲，镜像按标题匹配会串。
 
-### 待办：c2s 素材位置
+### c2s 素材位置（2026-11-15 实测修正）
 
-- 2026-11-15 检查时，D:\SDHD - CHUNITHM Mate\HDD\data\A000\music 与 D:\XVX\HDD\data\A000\music 下都只剩 GenreSort.xml / MusicSort.xml，c2s 不在原处；日服多了一层 HDD 目录。
-- 影响：剩余 12 张预览（_tmp/reports/preview-missing.tsv）暂时无法渲染，等用户重新解包或指定目录。
+- 扁平目录 `...\HDD\data\A000\music` 和 `...\HDD\bin\option\A300\music` 里只有 `GenreSort.xml` / `MusicSort.xml`；真正的谱面在**每首歌一个子目录**：`...\bin\option\A001\music\music0242\0242_00.c2s`，`...\HDD\data\A000\music\music2175\`。
+- 所以找素材要递归找 `musicXXXX` 目录，别只看平铺的 `music` 目录。日服根目录多一层 `HDD`：`D:\SDHD - CHUNITHM Mate\HDD\{data,bin\option}`。
+- 2026-11-15 按这个结构补渲染了 11 张预览（0024_04、0567_04、0575_04、0242_00~03、0779_00~03），清单 8096 → 8107。
 
-**待补预览清单（2026-11-15 记下，先不动）**：用户确认这 12 张 c2s 本地可能确实没有，等以后有了再补。
+**剩余待补：1 张**
 
-| key | musicId | 曲目 | 难度 |
-|---|---|---|---|
-| 24_4 | 24 | ドーナツホール | ULTIMA |
-| 567_4 | 567 | はちみつアドベンチャー | ULTIMA |
-| 575_4 | 575 | マトリョシカ | ULTIMA |
-| 2175_4 | 2175 | シル・ヴ・プレジデント | ULTIMA |
-| 242_0 | 242 | Garakuta Doll Play (sasakure.UK clutter remix) | BASIC |
-| 242_1 | 242 | 同上 | ADVANCED |
-| 242_2 | 242 | 同上 | EXPERT |
-| 242_3 | 242 | 同上 | MASTER |
-| 779_0 | 779 | WORLD'S END | BASIC |
-| 779_1 | 779 | WORLD'S END | ADVANCED |
-| 779_2 | 779 | WORLD'S END | EXPERT |
-| 779_3 | 779 | WORLD'S END | MASTER |
+| key | musicId | 曲目 | 难度 | 说明 |
+|---|---|---|---|---|
+| 2175_4 | 2175 | シル・ヴ・プレジデント | ULTIMA | `music2175` 只有 00~03，本地确实没有 ULTIMA |
 
-渲染命令：c2s 放回 <4位id>_<2位难度>.c2s（如 0242_00.c2s）后跑 
-ode tools/render_new_previews.mjs <目录>，会补齐并上传 release。
+渲染命令：把 c2s 按 `<4位id>_<2位难度>.c2s` 放进任意目录，跑 `node tools/render_new_previews.mjs <目录>`，会自动跳过清单已有的、渲染缺失的并上传 release。
