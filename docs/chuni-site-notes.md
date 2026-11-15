@@ -364,3 +364,12 @@
 渐变高度取 banner 的 50%，正好从标题下方开始，不会糊到标题。
 
 试过把 `#content` 的 `margin-top` 从 `-30vh` 改成 `-25px`（让内容从封面底边开始、完全不重叠），版式会变，用户觉得不如原来好看，已回退，保留「内容压在封面上 + 底部淡出」的方案。
+
+### 10.15 WORLD'S END 的删除标记按服务器分开
+两服存活的 WE 谱并不一致，所以 WE 行不能只看曲目本身是否下架。
+
+- 数据：`source/_data/chuni_we.json` 的 `byId` 每条 WE 谱记录都带 `delJP` / `delCN`（1 = 该服已删）。
+- 日服存活来源：Mate 的 `Music.xml`，排除 `mate_a300`（削除曲包），取 WorldsEnd 谱 `enable=true` 的 musicId。
+- 国服存活来源：落雪（lxns）歌曲列表里 `difficulty=5` 的 musicId，用的是 2026-11-12 的本地快照 `_tmp/lxns-songs.json`。
+- UI：`themes/argon/layout/chuni-list.ejs` 的 `weDeleted(r)` 按 `state.version` 取对应字段，`rowDeleted(r)` 统一给筛选用；WE-only 伪条目没有按谱拆出来的 id 时，退回曲目级的 `rm` / `cnrm`。
+- 行为：勾上 WORLD'S END 后，「不显示删除曲」默认只列该服仍存活的 WE 谱；「仅显示删除曲」只列该服已删的 WE 谱，行内带「删除曲」标签。

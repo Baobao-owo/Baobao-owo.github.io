@@ -183,7 +183,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       const v = byId[id] || {};
       const t = String(v.title || '').trim();
       if (!t) return;
-      (byTitle[t] = byTitle[t] || []).push({ id: Number(id), attr: v.attr || '', stars: v.stars == null ? null : Number(v.stars), designer: v.designer || '' });
+      (byTitle[t] = byTitle[t] || []).push({ id: Number(id), attr: v.attr || '', stars: v.stars == null ? null : Number(v.stars), designer: v.designer || '', delJP: v.delJP ? 1 : 0, delCN: v.delCN ? 1 : 0 });
     });
     Object.keys(byTitle).forEach(function (t) {
       byTitle[t].sort(function (a, b) { return a.id - b.id; });
@@ -467,6 +467,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
           wid: c.id,
           we: [c.stars == null ? 1 : c.stars],
           weAttr: c.attr,
+          weDelJP: c.delJP,
+          weDelCN: c.delCN,
           sh: []
         });
       });
