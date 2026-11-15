@@ -1,1 +1,2 @@
-objectId,display_name,email,password,type,url,avatar,label,github,twitter,facebook,google,weibo,qq,oidc,createdAt,updatedAt
+display_name,url,email,password,type,id
+FDShijing,https://baobao-owo.github.io/,3330308398@qq.com,$2b$10$86VaQPNmbOQAYLOBnNcEW.FMWqVoNsztiwWT81jxoDOU/YTAN9Xh6,administrator,aq3jtvn6kxv
