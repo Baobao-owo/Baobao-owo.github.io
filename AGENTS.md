@@ -13,3 +13,4 @@
 - 复杂 JS 一律写成 `.mjs` 执行，不要内联进 PowerShell
 - 合作谱 / 谱师 / 定数的判定改动，先看说明文档第 2、3、10 节，避免破坏既有规则
 - 重扫曲库前先读 `docs/chuni-data-sources.md`：日服 Mate 本体 + `bin\option\A300` 是删曲来源，`D:\XVX` 只做国服对照；A300 目录顺序不是官方曲序
+- 找数据源先看 `docs/chuni-data-sources.md` 第 7 节（本地 JSON / 网站 / GitHub 项目清单），第 8 节是尚未裁定的「内部对撞」清单——不要按对撞点里未确认的那一侧批量改数据
