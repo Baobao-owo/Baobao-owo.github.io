@@ -1584,7 +1584,7 @@ html.darkmode .chuni-wiki-info-val { color: #cfdae4; }
 }
 .tool-banner:hover { text-decoration: none; transform: translateY(-1px); transition: transform .15s ease; }
 .tool-banner-kicker { font-size: 11px; letter-spacing: .18em; opacity: .8; margin-bottom: 6px; }
-.tool-banner-title { margin: 0 0 6px; font-size: 21px; color: #fff; }
+.tool-banner-title { margin: 0; font-size: 21px; color: #fff; }
 .tool-banner-desc { margin: 0; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.88); max-width: 720px; }
 .tool-banner-cta {
   flex: 0 0 auto;
