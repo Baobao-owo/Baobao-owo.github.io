@@ -237,6 +237,11 @@
 		levelsEl.innerHTML = levels.map(function (lv) {
 			return '<button type="button" class="chuni-lv-chip tier-' + tierOf(lv) + '" data-level="' + lv + '">' + lv + '</button>';
 		}).join('');
+		// 重建后要把当前筛选状态画回去，否则从曲目页返回时按钮会变灰
+		levelsEl.querySelectorAll('button[data-level]').forEach(function (b) {
+			if ((state.levels || []).indexOf(b.getAttribute('data-level')) >= 0) b.classList.add('active');
+		});
+		levelsEl.classList.toggle('filtering', !!(state.levels && state.levels.length));
 	}
 
 	function songLevelKeys(r) {
