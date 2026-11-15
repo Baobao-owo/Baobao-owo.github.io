@@ -207,3 +207,14 @@
 - **#13 翻译索引**：\	ools/build_translation_index.mjs\ 扫 143 个 batch*.json → \	ools/translation-index.json\（9365 条，介绍 6161 / 由来 2026 / 称号 1177 / 紹介 1，去重 63；另有 \_tmp/zh-lines.jsonl\ 1213 个 id 的中文整段）。译文已经落到 \chuni_extra.json\ 的 \wiki_comment_zh / titles_zh / origins_zh\。
 - **#8 预览缺口**：按 \<musicId>_<0-4>\ 口径只有 12 张缺（ドーナツホール等 4 张 ULTIMA、Garakuta remix 4 张、WORLD'S END 779 四张）；另有 76 张 WE-only 行没有 musicId。本地两个 HDD 的 \music\ 目录现在只剩 MusicSort.xml，c2s 已不在原处，需要重新解包或指定目录才能补。
 - **目录变化**：日服现在是 \D:\SDHD - CHUNITHM Mate\HDD\{data,bin\option}\（多了一层 HDD）；旧路径 \D:\SDHD - CHUNITHM Mate\data\...\ 已不存在。
+
+### 2026-11-15 补记：5 首缺介绍已补
+
+- 全部抓自日文 wiki，页面名与曲名不一致的记在这里：ODDS&ENDS → ODDS＆ENDS（全角 &）、トリスメギストス → トリスメギストス(楽曲名)、-OutsideR:RequieM- → 同曲名（冒号是全角）、ウルガレオン → ウルガレオン(楽曲名)、≠彡"/了→ → キミツアー。
+- 写入 chuni_extra.json 时**两个键都要写**：wiki_comment 实际读取的是 extra[String(s.id)]，而 id 是曲名不是 musicId；只写数字 musicId 键页面会显示「wiki 的曲目介绍还没搬」。
+- Over Heart 定数差异是同类曲名撞车：站内 Over Heart（イロドリミドリ）与 Overhea[r]t（ORIGINAL）不同曲，镜像按标题匹配会串。
+
+### 待办：c2s 素材位置
+
+- 2026-11-15 检查时，D:\SDHD - CHUNITHM Mate\HDD\data\A000\music 与 D:\XVX\HDD\data\A000\music 下都只剩 GenreSort.xml / MusicSort.xml，c2s 不在原处；日服多了一层 HDD 目录。
+- 影响：剩余 12 张预览（_tmp/reports/preview-missing.tsv）暂时无法渲染，等用户重新解包或指定目录。
