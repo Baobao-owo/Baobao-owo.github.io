@@ -374,3 +374,9 @@
 - UI：`themes/argon/layout/chuni-list.ejs` 的 `weDeleted(r)` 按 `state.version` 取对应字段，`rowDeleted(r)` 统一给筛选用；WE-only 伪条目没有按谱拆出来的 id 时，退回曲目级的 `rm` / `cnrm`。
 - 行为：勾上 WORLD'S END 后，「不显示删除曲」默认只列该服仍存活的 WE 谱；「仅显示删除曲」只列该服已删的 WE 谱，行内带「删除曲」标签。
 - 8 条没有按谱拆开的 WE 伪条目（Love & Justice、九龍メタルゾネス、luminoid love PART2、Flap&Clap、ヤババイナ、黒塗り世界宛て書簡、熱異常、]-[|/34<#!）在 `chuni_we.json` 的 `pseudo` 里按服务器记存活状态（从全量 Music.xml 的 pack 名判断，`mate*` 算日服、`xvx*` 算国服）；其中只有九龍メタルゾネス 在国服还活着。
+
+### 10.16 占位符谱师按 c2s 补
+
+详情表里谱面作者显示 `/` 或 `-`，说明站内这份只是占位符，不代表真的没有作者。先从本地谱面文件读 `CREATOR` 原文再回填，别照着别的难度猜。
+
+例：Melodiniq（id 2999）的 EXPERT/MASTER 在 chuni.json 里是 `/`，c2s 的 `CREATOR` 是 `Memoir of "AdministratoR"`，和 ULTIMA 一致，已回填。
