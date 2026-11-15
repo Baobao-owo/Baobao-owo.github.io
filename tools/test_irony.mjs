@@ -1,0 +1,18 @@
+﻿import puppeteer from 'puppeteer-core';
+const browser = await puppeteer.launch({ executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe', headless: 'new', args: ['--no-sandbox','--disable-gpu'] });
+const page = await browser.newPage();
+await page.setViewport({ width: 1440, height: 1100 });
+await page.goto('https://baobao-owo.github.io/chuni/', { waitUntil: 'networkidle2', timeout: 60000 });
+await new Promise(r => setTimeout(r, 2200));
+await page.click('#chuni-designer-toggle');
+await page.type('#chuni-designer-q', 'Techno Kitchen');
+await new Promise(r => setTimeout(r, 300));
+await page.evaluate(() => document.querySelector('#chuni-designer-grid .chuni-dz-chip').click());
+await page.evaluate(() => document.querySelector('#chuni-collab-toggle').click());
+await page.evaluate(() => document.querySelector('#chuni-removed').click());
+await new Promise(r => setTimeout(r, 600));
+await page.evaluate(() => { const el = document.querySelector('#chuni-search-title'); el.value='irony'; el.dispatchEvent(new Event('input',{bubbles:true})); });
+await new Promise(r => setTimeout(r, 700));
+const rows = await page.evaluate(() => Array.from(document.querySelectorAll('.chuni-row')).map(r => ({ t: r.querySelector('.chuni-row-title')?.textContent.trim(), tag: r.querySelector('.chuni-row-tag-ds')?.textContent.trim()||'' })));
+console.log(JSON.stringify(rows));
+await browser.close();

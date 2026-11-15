@@ -9,3 +9,9 @@ tools/_pkg/
 .DS_Store
 
 _tmp/
+
+# 生成物，不进仓库
+tools/out/
+tools/queues/
+tools/translation-index.json
+_docs-archive/

@@ -42,7 +42,7 @@ for (const s of [...site.songs, ...removed]) {
 }
 const knownKey = (title) => titleNorm.get(norm(title)) || titleSquash.get(squash(title)) || null;
 
-const SPLIT = /\s*(?:vs\.?|VS\.?|Vs\.?|＆|&|\+|＋|×|✕|と|\bwith\b|\bmeets\b|\bsupported by\b|\bfumbled by\b|\bfused with\b|\bfeat\b\.?|\bby\b)\s*/i;
+const SPLIT = /\s*(?:vs\.?|VS\.?|Vs\.?|＆|&|\+|＋|×|✕|と|\bwith\b|\bcooperated with\b|\bmeets\b|\bsupported by\b|\bfumbled by\b|\bfused with\b|\bfeat\b\.?|\bby\b)\s*/i;
 
 function cleanToken(s) {
   return String(s || '')
