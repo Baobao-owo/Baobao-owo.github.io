@@ -2877,3 +2877,12 @@ html.darkmode .chuni-feedback-btn { background: #262a3d; border-color: #3a3f55; 
 #primary {
   padding-bottom: 36px;
 }
+
+/* 暗色模式：封面图与大板块的衔接
+   原来 #content 在暗色下仍大幅压在封面图上（-30vh），
+   卡片不透明，封面只剩左右两条窄边露出来，看起来像没对齐的色块。
+   暗色下把内容收到封面图结束处，封面底部本来就是渐变到页面底色，
+   衔接就变成一条自然的过渡。 */
+html.darkmode #content {
+  margin-top: -25px;
+}
