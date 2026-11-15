@@ -14,47 +14,55 @@
 		var ANON_NAME = '匿名用户';
 		var anonOn = false;
 		var savedNick = '';
-		var observer = null;
 
 		function findNickInput() {
-			var inputs = document.querySelectorAll('#waline .wl-header input, #waline input');
+			var inputs = document.querySelectorAll('#waline input');
 			for (var i = 0; i < inputs.length; i++) {
-				var p = (inputs[i].getAttribute('placeholder') || '') + (inputs[i].name || '');
-				if (p.indexOf('昵称') !== -1 || p.indexOf('nick') !== -1) return inputs[i];
+				var p = (inputs[i].getAttribute('placeholder') || '') + ' ' + (inputs[i].name || '') + ' ' + (inputs[i].id || '');
+				if (p.indexOf('昵称') !== -1 || /nick/i.test(p)) return inputs[i];
 			}
 			return null;
+		}
+
+		function setValue(input, value) {
+			var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+			setter.call(input, value);
+			input.dispatchEvent(new Event('input', { bubbles: true }));
+			input.dispatchEvent(new Event('change', { bubbles: true }));
 		}
 
 		function applyAnon() {
 			var input = findNickInput();
 			if (!input) return;
 			if (anonOn) {
-				if (input.value !== ANON_NAME) savedNick = input.value || savedNick;
-				input.value = ANON_NAME;
+				if (input.value && input.value !== ANON_NAME) savedNick = input.value;
+				if (input.value !== ANON_NAME) setValue(input, ANON_NAME);
 				input.setAttribute('readonly', 'readonly');
 				input.classList.add('wl-anon-input');
 			} else {
 				input.removeAttribute('readonly');
 				input.classList.remove('wl-anon-input');
-				if (input.value === ANON_NAME) input.value = savedNick;
+				if (input.value === ANON_NAME) setValue(input, savedNick);
 			}
 		}
 
-		function observe() {
-			var root = document.getElementById('waline');
-			if (!root || observer) return;
-			observer = new MutationObserver(function () {
+		var box = document.getElementById('wl-anon-toggle');
+		if (box) {
+			box.addEventListener('change', function () {
+				anonOn = box.checked;
 				applyAnon();
 			});
-			observer.observe(root, { childList: true, subtree: true });
 		}
+		setInterval(applyAnon, 400);
 
-		function init() {
-			if (!window.Waline || !window.Waline.init) {
-				setTimeout(init, 200);
+		function startWaline() {
+			var api = window.Waline;
+			var init = api && typeof api.init === 'function' ? api.init : null;
+			if (!init) {
+				setTimeout(startWaline, 200);
 				return;
 			}
-			Waline.init({
+			init({
 				el: '#waline',
 				serverURL: '<%= theme.waline.server_url %>',
 				lang: 'zh-CN',
@@ -67,19 +75,8 @@
 				search: false,
 				dark: 'html.darkmode',
 			});
-			var box = document.getElementById('wl-anon-toggle');
-			if (box) {
-				box.addEventListener('change', function () {
-					anonOn = box.checked;
-					applyAnon();
-				});
-			}
-			setTimeout(function () {
-				applyAnon();
-				observe();
-			}, 800);
 		}
 
-		init();
+		startWaline();
 	})();
 </script>
