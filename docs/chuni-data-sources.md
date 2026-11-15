@@ -53,7 +53,7 @@
 | 分类（POPS & ANIME / niconico / VARIETY / 东方 / 原创 / 游戏） | `Music.xml` 的 `<genreName>` / `<genreId>` |
 | 版本（无印 / … / X-VERSE / Mate） | `Music.xml` 的 `<releaseTagName>/<str>` + `chuni_ids.json` 对照；站点显示用 `VERSION_LABEL_FIX` 归一 |
 | 等级（13+） | `Music.xml` 各难度 `<level>` |
-| 定数（13.5） | `Music.xml` 的 `<levelDecimal>`（`internalValue`）；显示文本 `internal` 缺失时用 `tools/fix_internal_consts.mjs` 补 |
+| 定数（13.5） | `Music.xml` 的 `<levelDecimal>`（`internalValue`）；显示文本 `internal` 缺失时用 `tools/data/fix_internal_consts.mjs` 补 |
 | 物量（tap/hold/slide/air/flick） | `Music.xml` 的 `<notesData>/<Notes>` 计数 |
 | 谱面作者 | `.c2s` 文件头 `CREATOR` 字段；一节一张，`XXXX_00.c2s` 对应 BASIC，以此类推 |
 | 删除曲 | Mate `A300\music` 里出现、`data\A000\music` 里没有的 ID |
@@ -121,7 +121,7 @@
 | 谱师留言报告 | `_tmp/nr_*.html`、`_tmp/nr_script*.js`、`_tmp/note_report_index.html` |
 | 人工清单 docx | `_tmp/待确认清单.docx`、`谱师分类整理.docx`、`谱师分类-无归属谱面.docx`、`谱师留言-未匹配清单-4.docx`、`中二节奏曲库站维护说明.docx` |
 | 文本参考 | `_tmp/refs/CHUNITHM.txt`、`_tmp/refs/用语.txt`、`_tmp/refs/梗.txt`、`_tmp/refs/copel` |
-| 审计脚本 | `tools/audit_sources.mjs`、`audit_shapes.mjs`、`audit_conflicts*.mjs`（本次盘点用） |
+| 审计脚本 | `tools/reports/audit_sources.mjs`、`audit_shapes.mjs`、`audit_conflicts*.mjs`（本次盘点用） |
 
 ### 7.3 网站
 
@@ -179,14 +179,14 @@
 | WORLD'S END 专属条目（8xxx / ID_ 谱） | 235 | 不进普通删曲表，走 WE 数据；其中 `779 WORLD'S END` 本身是普通曲，已作为删除曲导入 |
 | 合计 | 528 | |
 
-- 处理脚本：`tools/check_a300.mjs`（分类）→ `tools/move_a300_removed.mjs`（迁移，先备份到 `_tmp/chuni.before-a300.json`）。
+- 处理脚本：`tools/check_a300.mjs`（分类）→ `tools/data/move_a300_removed.mjs`（迁移，先备份到 `_tmp/chuni.before-a300.json`）。
 - 结果：曲库 2011 → 1855，删除曲 140 → 297，页面合计 2152。
 - 删曲列表里的 `cover` 沿用原现役条目的封面 URL（cloudfront），没有重新转 webp。
 
 ### 9.2 版本回填
 
-- `tools/scan_music_xml.mjs` 扫 Mate 本体 + A300 + XVX 本体 + XVX A300，输出 `_tmp/game/music-xml.json`（含 artist / genre / releaseDate / releaseTag / 各难度 level+levelDecimal）。
-- `tools/analyze_xml.mjs` 从 21 条 releaseTag 学到站内版本名，`tools/apply_version_backfill.mjs` 回填 182 首；剩 10 首是 2025 新曲，本地两个 HDD 没有对应 XML，需要等新包。
+- `tools/fetch/scan_music_xml.mjs` 扫 Mate 本体 + A300 + XVX 本体 + XVX A300，输出 `_tmp/game/music-xml.json`（含 artist / genre / releaseDate / releaseTag / 各难度 level+levelDecimal）。
+- `tools/reports/analyze_xml.mjs` 从 21 条 releaseTag 学到站内版本名，`tools/data/apply_version_backfill.mjs` 回填 182 首；剩 10 首是 2025 新曲，本地两个 HDD 没有对应 XML，需要等新包。
 
 ### 9.3 国服 / 日服定数分开存
 
@@ -203,7 +203,7 @@
 
 ## 10. 2026-11-15 裁定执行记录（续）
 
-- **#14 chunithm-data.json**：`tools/normalize_chunithm_data.mjs` 把它摊平成 title → per-diff 定数，与站内 6355 张可比，只有 7 处不同（`_tmp/reports/mirror-const-diff.tsv`：FLOWER adv/mas、Over Heart 四张、狂命 mas）。结论：**可用作第三方参考，不直接回写**。
+- **#14 chunithm-data.json**：`tools/data/normalize_chunithm_data.mjs` 把它摊平成 title → per-diff 定数，与站内 6355 张可比，只有 7 处不同（`_tmp/reports/mirror-const-diff.tsv`：FLOWER adv/mas、Over Heart 四张、狂命 mas）。结论：**可用作第三方参考，不直接回写**。
 - **#13 翻译索引**：`tools/build_translation_index.mjs` 扫 143 个 batch*.json → `tools/translation-index.json`（9365 条，介绍 6161 / 由来 2026 / 称号 1177 / 紹介 1，去重 63；另有 `_tmp/zh-lines.jsonl` 1213 个 id 的中文整段）。译文已经落到 `chuni_extra.json` 的 `wiki_comment_zh / titles_zh / origins_zh`。
 - **#8 预览缺口**：按 `<musicId>_<0-4>` 口径只有 12 张缺（ドーナツホール等 4 张 ULTIMA、Garakuta remix 4 张、WORLD'S END 779 四张）；另有 76 张 WE-only 行没有 musicId。**c2s 实际都在** `music\musicXXXX\` 子目录里（见下文修正），当时写成「不在原处」是错的。
 - **目录变化**：日服现在是 \D:\SDHD - CHUNITHM Mate\HDD\{data,bin\option}\（多了一层 HDD）；旧路径 \D:\SDHD - CHUNITHM Mate\data\...\ 已不存在。
@@ -226,14 +226,14 @@
 |---|---|---|---|---|
 | 2175_4 | 2175 | シル・ヴ・プレジデント | ULTIMA | `music2175` 只有 00~03，本地确实没有 ULTIMA |
 
-渲染命令：把 c2s 按 `<4位id>_<2位难度>.c2s` 放进任意目录，跑 `node tools/render_new_previews.mjs <目录>`，会自动跳过清单已有的、渲染缺失的并上传 release。
+渲染命令：把 c2s 按 `<4位id>_<2位难度>.c2s` 放进任意目录，跑 `node tools/previews/render_new_previews.mjs <目录>`，会自动跳过清单已有的、渲染缺失的并上传 release。
 
 
 ## 11. 重犯清单（动手前先扫一眼）
 
 这一节只记「已经犯过一次、别再犯第二次」的事，按发现时间排。
 
-1. **c2s 不是「没有」，是没搜到**（2026-11-15，犯过两次）。平铺的 `music` 目录只剩 `MusicSort.xml`，谱面在 `music\musicXXXX\` 子目录里；日服多一层 `HDD`。报「本地没有」之前必须跑 `npm run scan:c2s`（= `node tools/scan_c2s_recursive.mjs`），它递归扫两个盘并按 `<musicId>_<难度>` 对清单，输出「可渲染但缺清单」的条目。
+1. **c2s 不是「没有」，是没搜到**（2026-11-15，犯过两次）。平铺的 `music` 目录只剩 `MusicSort.xml`，谱面在 `music\musicXXXX\` 子目录里；日服多一层 `HDD`。报「本地没有」之前必须跑 `npm run scan:c2s`（= `node tools/fetch/scan_c2s_recursive.mjs`），它递归扫两个盘并按 `<musicId>_<难度>` 对清单，输出「可渲染但缺清单」的条目。
 2. **id 是曲名，不是 musicId**。`chuni_extra.json`、`chuni_designers.json` 一类按曲名索引；写介绍要同时写数字 musicId 键和曲名键，否则页面显示「wiki 的曲目介绍还没搬」（chuni-song.ejs 取 `extra[String(s.id)]`）。
 3. **标点差异会把差集撑大**。比较两套曲名先归一全角/半角、空格、`！`/`!`、`～`/`~`，否则 33/15 会虚高成 26/8。
 4. **同名不同曲**：Over Heart（イロドリミドリ）≠ Overhea[r]t（ORIGINAL）；Sinfonie Nr. 9 也有普通版和 (Master) 版两个 musicId。按标题匹配前先确认 musicId。
@@ -261,27 +261,27 @@
 ### 2026-11-15 WE 数据并入（待定项第 8 项）
 
 - 用户选 A（并入 `chuni_we`，带数据）。
-- `tools/sync_we_from_wiki.mjs`：抓 wiki 的 `WORLD'S END` 页面表格（楽曲/属性/☆/NOTES DESIGNER），解析成 80 首当前 WE，与 `chuni_we.json` 比对；脚注 `*7` 之类要剥掉，标点和大小写差异不算冲突。
-- `tools/merge_a300_we.mjs`：从 `_tmp/game/music-xml.json` 的 `mate_a300` 取 WE 已启用条目（224 条），谱师来自 `A300` 的 `{id}_04.c2s` 的 CREATOR；站内没有的新增，已有的只补空字段。
+- `tools/data/sync_we_from_wiki.mjs`：抓 wiki 的 `WORLD'S END` 页面表格（楽曲/属性/☆/NOTES DESIGNER），解析成 80 首当前 WE，与 `chuni_we.json` 比对；脚注 `*7` 之类要剥掉，标点和大小写差异不算冲突。
+- `tools/data/merge_a300_we.mjs`：从 `_tmp/game/music-xml.json` 的 `mate_a300` 取 WE 已启用条目（224 条），谱师来自 `A300` 的 `{id}_04.c2s` 的 CREATOR；站内没有的新增，已有的只补空字段。
 - 结果：`chuni_we.json` 83 → 251 首（其中 168 首标 `from: A300`）。这 168 首没有星数（wiki 的「配信終了」页面只给属性），页面显示 `☆?`，生成器已把回退从 `☆1` 改成 `☆?`。
 - 冲突清单：`_tmp/reports/a300-we-merge.tsv`（A300 与站内名义不一致 10 条）、`_tmp/reports/we-wiki-sync.tsv`（wiki 与站内不一致 7 条），已汇总成 `_tmp/WE冲突待裁定.xlsx` 交用户判断。
 
 ### 2026-11-15 WE 冲突裁定：以 Mate A300 为准
 
 - 用户裁定（m05214）：「这个冲突全部以我的那个 mate A300 为准。」
-- `tools/merge_a300_we.mjs` 改为冲突时直接覆盖站内值（谱师以 A300 的 `{id}_04.c2s` CREATOR 为准），并修了一个坑：同名不同写法的曲名会写出重复键 → 现在优先写回站内已有键。
+- `tools/data/merge_a300_we.mjs` 改为冲突时直接覆盖站内值（谱师以 A300 的 `{id}_04.c2s` CREATOR 为准），并修了一个坑：同名不同写法的曲名会写出重复键 → 现在优先写回站内已有键。
 - 同名 WE 变体（同一曲名多首，如 `The Concept of Love` 8004/8073、`Invitation` 8006/8009）：站内按曲名只能存一份，取 id 最小的一首，共 31 组，清单在 `_tmp/reports/a300-we-merge.tsv` 的 `dup-title` 行。
 - wiki 与 A300 不一致的 13 条（`Blue Noise`、`ジングルベル`、`volcanic`、`FREEDOM DiVE` 等）：按裁定保持 A300，不动。
 
 #### WE 星数与 ID（2026-11-15）
 
 - 星数来源：A300 的 `Music.xml` 里 `<starDifType>`，取值 1/3/5/7/9，映射 `☆1~☆5` 用 `Math.ceil(n / 2)`；`<worldsEndTagName><str>` 是 WE 属性（改/狂/止/弾/招/…）。
-- `tools/scan_music_xml.mjs` 现在一并抓 `weAttr` / `weStars`；`chuni_we.json` 的每首歌补了 `attr` / `stars` / `id`，另加 `byId`（292 条，按 musicId 索引全部 WE 谱），为以后「一张 WE 谱一个 ID」做准备。
+- `tools/fetch/scan_music_xml.mjs` 现在一并抓 `weAttr` / `weStars`；`chuni_we.json` 的每首歌补了 `attr` / `stars` / `id`，另加 `byId`（292 条，按 musicId 索引全部 WE 谱），为以后「一张 WE 谱一个 ID」做准备。
 - 现状：站点列表里一个曲名只对应一条 WE 行（153 条），A300 有 224 条，缺的 70 多张只能靠加行才能显示；加行会动到路由与列表，需要单独确认。
 
 #### 扫描范围修正（2026-11-15）
 
-- 之前 `tools/scan_music_xml.mjs` 只扫 `data/A000` 与 `bin/option/A300`，新曲常常只存在于 `A001/A071~A074/A081/A091~A093/AKOP` 这些包里，会漏。
+- 之前 `tools/fetch/scan_music_xml.mjs` 只扫 `data/A000` 与 `bin/option/A300`，新曲常常只存在于 `A001/A071~A074/A081/A091~A093/AKOP` 这些包里，会漏。
 - 现在扫全部 option 包（日服 11 个、国服 A300/A301/A302），并解码 `&amp; / &lt; / &gt;` 等实体（不解码会把 `ODDS&ENDS` 当成缺失曲）。
 - 扫描结果：2283 个 musicId；站内缺的只有 3 个 —— `Sinfonie Nr. 9 d-moll op. 125`（50）、同曲 Master（81）、`怒槌～光吉猛修一部謎～`（8147，WE）。
 - A093 实测只有 4 首：2317 きゅうくらりん、3057 Your Reality、3058 LaVI-Bavellabion、3059 奇々解体；9 首新曲（コトバノ廃都、Fox Hunt、雑魚…）不在任何 Music.xml 里。

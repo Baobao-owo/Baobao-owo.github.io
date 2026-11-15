@@ -36,7 +36,7 @@
 - `notes`：物量（tap / hold / slide / air / flick / total）
 - `regions`：日服/国际服可用性
 
-> 坑：只有 `internalValue` 没有 `internal` 时表格显示 `—`，用 `tools/fix_internal_consts.mjs` 补。
+> 坑：只有 `internalValue` 没有 `internal` 时表格显示 `—`，用 `tools/data/fix_internal_consts.mjs` 补。
 
 ### 1.2 谱师
 
@@ -120,12 +120,12 @@
 
 **流程脚本**：
 
-- `tools/import_song_wiki.mjs "曲名"`：按 wiki 索引找页面（自动处理 `U＆iVERSE ‐銀河鸞翔‐` 这类全角差异），补 `wiki_info`、`origins`、物量
-- `tools/build_glossary.mjs` → `_tmp/chuni-glossary.json`：汇总专有名词与既有译法，`glossary-fill*.json` 是人工补充
-- `tools/apply_translations.mjs` / `apply_rule_translations.mjs`：把确认过的译文写回数据
-- `tools/export_zh_pending.mjs` / `export_zh_lines.mjs`：导待译清单；`merge_extra_translations.mjs` 合并
-- `tools/fix_title_translations.mjs`：修称号条件的机翻硬错误
-- `tools/trim_title_notes.mjs`：砍掉串进称号列的「※…」备注
+- `tools/data/import_song_wiki.mjs "曲名"`：按 wiki 索引找页面（自动处理 `U＆iVERSE ‐銀河鸞翔‐` 这类全角差异），补 `wiki_info`、`origins`、物量
+- `tools/data/build_glossary.mjs` → `_tmp/chuni-glossary.json`：汇总专有名词与既有译法，`glossary-fill*.json` 是人工补充
+- `tools/data/apply_translations.mjs` / `apply_rule_translations.mjs`：把确认过的译文写回数据
+- `tools/reports/export_zh_pending.mjs` / `export_zh_lines.mjs`：导待译清单；`merge_extra_translations.mjs` 合并
+- `tools/data/fix_title_translations.mjs`：修称号条件的机翻硬错误
+- `tools/data/trim_title_notes.mjs`：砍掉串进称号列的「※…」备注
 
 **规整约定**：
 
@@ -138,11 +138,11 @@
 ## 4. 梗 / 由来（neta）
 
 - `tools/fetch_*.mjs` 抓 wiki / bilibili / copel 等原始资料，落 `_tmp/wiki/`
-- `tools/build_wiki_page_index.mjs` 建曲名 → wiki 页面名索引（`_tmp/wiki/page-index.json`）
-- `tools/neta_research.mjs`：逐曲整理「由来」，输出 `_tmp/neta/<slug>.json` 与 `_summary.json`，字段含原文、出处、译文
-- `tools/build_neta_evidence_strict.mjs` / `build_neta_review_docx.py`：生成证据与评审 docx，交人工确认
+- `tools/data/build_wiki_page_index.mjs` 建曲名 → wiki 页面名索引（`_tmp/wiki/page-index.json`）
+- `tools/data/neta_research.mjs`：逐曲整理「由来」，输出 `_tmp/neta/<slug>.json` 与 `_summary.json`，字段含原文、出处、译文
+- `tools/data/build_neta_evidence_strict.mjs` / `build_neta_review_docx.py`：生成证据与评审 docx，交人工确认
 - 确认后的内容进 `chuni_extra.json` 的 `origins(_zh)` / `wiki_comment_zh`，页面按「ND 名义与称号的由来」区块展示
-- WE 谱名的梗另有 `tools/apply_we_names.mjs`、`_assign_we_jokes.mjs`
+- WE 谱名的梗另有 `tools/data/apply_we_names.mjs`、`_assign_we_jokes.mjs`
 
 ## 5. 谱面预览
 
@@ -179,19 +179,19 @@
 
 | 用途 | 脚本 |
 |---|---|
-| 从 wiki 补单曲资料 | `tools/import_song_wiki.mjs "曲名"` |
-| 从 wiki 由来里抽分工表 | `tools/import_parts_from_origins.mjs "曲名"` |
+| 从 wiki 补单曲资料 | `tools/data/import_song_wiki.mjs "曲名"` |
+| 从 wiki 由来里抽分工表 | `tools/data/import_parts_from_origins.mjs "曲名"` |
 | 重建谱师索引 | `tools/build_designers_merged.mjs` |
 | 重建别名表 | `tools/build_designer_alias.mjs` |
-| 单张改署名 | `tools/set_sheet_designer.mjs "曲名" m "署名"` |
-| 补定数文本 | `tools/fix_internal_consts.mjs` |
-| 合作数据清洗 | `tools/clean_collab.mjs` / `rebuild_collab.mjs` |
+| 单张改署名 | `tools/data/set_sheet_designer.mjs "曲名" m "署名"` |
+| 补定数文本 | `tools/data/fix_internal_consts.mjs` |
+| 合作数据清洗 | `tools/data/clean_collab.mjs` / `rebuild_collab.mjs` |
 | 手填合作写回 | `tools/apply_manual_collab.mjs` |
 | 自 VS 归一单人 | `tools/fix_same_person_credits.mjs` |
-| 合作疑问清单 | `tools/list_questionable_collab.mjs` → `make_collab_questions_docx.py` |
+| 合作疑问清单 | `tools/reports/list_questionable_collab.mjs` → `make_collab_questions_docx.py` |
 | 应用确认结论 | `tools/apply_collab_decisions.mjs` + `verify_collab_decisions.mjs` |
-| 称号翻译修正 | `tools/fix_title_translations.mjs` / `trim_title_notes.mjs` |
-| 梗/由来研究 | `tools/neta_research.mjs` |
+| 称号翻译修正 | `tools/data/fix_title_translations.mjs` / `trim_title_notes.mjs` |
+| 梗/由来研究 | `tools/data/neta_research.mjs` |
 
 ## 9. 2026-11-14 本次改动与决策（对话压缩）
 
@@ -277,7 +277,7 @@
 ## 11. 维护纪律
 
 - 每次动手改曲库站之前，按顺序读：`AGENTS.md` → `docs/chuni-site-notes.md` → `docs/chuni-data-sources.md` 的第 0、7、8、11 节；看完再动代码
-- 说「本地没有 / 数据缺失」之前必须有搜索证据：先跑 `node tools/scan_c2s_recursive.mjs`（谱面）或列出搜过的根目录与匹配规则，不允许只看一层目录就下结论
+- 说「本地没有 / 数据缺失」之前必须有搜索证据：先跑 `node tools/fetch/scan_c2s_recursive.mjs`（谱面）或列出搜过的根目录与匹配规则，不允许只看一层目录就下结论
 - 踩过的坑当天写回 `docs/chuni-data-sources.md` 第 11 节「重犯清单」，并在这里补一条纪律；不要只靠对话记忆
 - 改完数据或模板，跑 `npm run build` 本地确认，再按 stash → pull --rebase → push 流程推送
 - 线上验证用带 `?cb=` 的 URL，等待 3–5 分钟让 Pages 缓存刷新

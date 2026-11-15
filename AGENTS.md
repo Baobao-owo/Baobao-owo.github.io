@@ -12,7 +12,7 @@
 
 ## 硬性约定
 
-- **不要假设文件不存在**：说「本地没有」之前先递归搜（谱面跑 `node tools/scan_c2s_recursive.mjs`），搜索根目录和匹配规则一并写进回复
+- **不要假设文件不存在**：说「本地没有」之前先递归搜（谱面跑 `node tools/fetch/scan_c2s_recursive.mjs`），搜索根目录和匹配规则一并写进回复
 - **踩过的坑当天归档**：写进 `docs/chuni-data-sources.md` 第 11 节，并在 `docs/chuni-site-notes.md` 第 11 节补纪律；不靠对话记忆
 - 部署：`main` 推送 → GitHub Actions → `gh-pages`；推送前 `git stash push -m tmp` → `git pull --rebase origin main` → `git push origin main` → `git stash pop`
 - 禁止本地 `hexo deploy`；另一个会话也在改同一仓库，冲突用 rebase 解决

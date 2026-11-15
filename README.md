@@ -96,9 +96,9 @@ tags: [Hexo, 建站]
 - 合作谱：tag 里加「合作谱」，卡片和标题旁会自动出现「合作」标记
 - 难度分类（14+ / 15+ / 速）显示在原来星数的位置
 - 没带 `chuni` 数据的文章（比如笔记）会排在卡片下面，单列成「笔记 / 其它」
-- 批量导入：`node tools/import_chuni.mjs`（数据来自 pgko.dev 上自己的歌包；已导入的按歌包 id 跳过）
-- 补视频链接：`node tools/backfill_chuni_video.mjs`（给已导入但没视频的文章补 B 站链接）
-- 补视频简介：`node tools/backfill_chuni_desc.mjs`（把 B 站视频简介搬进 `chuni.video_desc`）
+- 批量导入：`node tools/data/import_chuni.mjs`（数据来自 pgko.dev 上自己的歌包；已导入的按歌包 id 跳过）
+- 补视频链接：`node tools/data/backfill_chuni_video.mjs`（给已导入但没视频的文章补 B 站链接）
+- 补视频简介：`node tools/data/backfill_chuni_desc.mjs`（把 B 站视频简介搬进 `chuni.video_desc`）
 
 顶层「中二节奏」板块留作成绩、研究笔记，普通列表版式。
 
@@ -110,8 +110,8 @@ tags: [Hexo, 建站]
 - 每张卡片读文章 front-matter 里的 `map` 字段：`artist`、`mapper`、`keys`、`bpm`、`status`、`set_id`、`beatmap_id`、`diffs`、`cover`
 - `diffs` 是难度列表（`name` / `sr` / `keys` / `id` / `length`），文章页顶部会渲染成一排可点的难度（点了去 osu 对应难度）
 - 填了 `set_id` 会自动用 osu 的封面图（`assets.ppy.sh/beatmaps/<id>/covers/cover.jpg`），也可以用 `cover` 传自己的图
-- 加新谱面：`node tools/fetch_set.mjs 2285703` 会从镜像站接口拉出整套难度，输出直接粘进 front-matter（记得手动补 BPM）
-- 批量导入自己 osu 上的谱面：`node tools/import_osu_maps.mjs`（先加 `--dry` 看清单）。它会从 osu.direct 搜索接口拿列表、用 sayobot 补难度数据，给每套谱生成一篇文章；已经导入过的 `set_id` 会自动跳过，可以反复跑
+- 加新谱面：`node tools/fetch/fetch_set.mjs 2285703` 会从镜像站接口拉出整套难度，输出直接粘进 front-matter（记得手动补 BPM）
+- 批量导入自己 osu 上的谱面：`node tools/data/import_osu_maps.mjs`（先加 `--dry` 看清单）。它会从 osu.direct 搜索接口拿列表、用 sayobot 补难度数据，给每套谱生成一篇文章；已经导入过的 `set_id` 会自动跳过，可以反复跑
 - 卡片点进去就是文章，正文里写做谱思路
 
 文章分类要写成层级：先 `谱面记录`，再选一个子分类。
