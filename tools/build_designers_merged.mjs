@@ -14,6 +14,7 @@ const C2S = '_tmp/game/c2s-designers-all.json';
 const IDS = 'source/_data/chuni_ids.json';
 const SITE = 'source/_data/chuni.json';
 const REMOVED = 'source/_data/chuni_removed_songs.json';
+const FILL = 'source/_data/chuni_designer_fill.json';
 const OUT = 'source/assets/data/designers.json';
 
 const friend = JSON.parse(fs.readFileSync(FRIEND, 'utf8'));
@@ -21,6 +22,7 @@ const c2s = JSON.parse(fs.readFileSync(C2S, 'utf8'));
 const ids = JSON.parse(fs.readFileSync(IDS, 'utf8').replace(/^\uFEFF/, ''));
 const site = JSON.parse(fs.readFileSync(SITE, 'utf8'));
 const removed = JSON.parse(fs.readFileSync(REMOVED, 'utf8'));
+const fill = fs.existsSync(FILL) ? JSON.parse(fs.readFileSync(FILL, 'utf8')) : {};
 
 // 别名 → 人
 const alias2who = new Map();
@@ -192,6 +194,21 @@ for (const s of allSongs) {
       if (v) raw = v;
     }
     if (!raw) raw = fd[diff] || '';
+    // 兜底：c2s / 朋友数据里没有 B/A 时，用站内已有的谱面作者原文
+    // （Mate 新曲的黄绿谱常常只有站内数据，缺了它「仅显示单独」会把这些谱灰掉）
+    if (!raw) {
+      const sheet = (s.sheets || []).find((sh) => {
+        const mm = { basic: 'b', advanced: 'a', expert: 'e', master: 'm', ultima: 'u' };
+        return mm[sh.difficulty] === diff;
+      });
+      const txt = sheet && String(sheet.designer || '').trim();
+      if (txt && txt !== '-' && txt !== '—') raw = txt;
+      if (!raw) {
+        const fm = { b: 'B', a: 'A', e: 'E', m: 'M', u: 'U' };
+        const fv = (fill[title] || {})[fm[diff]];
+        if (fv && String(fv).trim()) raw = String(fv).trim();
+      }
+    }
     const fixedWho = songCreditWho(key, diff);
     if (!raw && !fixedWho) continue;
     if (!raw) raw = fixedWho;
