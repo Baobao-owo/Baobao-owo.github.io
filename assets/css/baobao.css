@@ -2738,3 +2738,50 @@ html.darkmode .chuni-diff-top {
   color: #8b98a5;
   margin-top: 2px;
 }
+
+/* ===== Waline 评论区（B 站风格） ===== */
+.wl-wrap { margin-top: 4px; }
+.wl-anon-bar {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f6f9fc;
+  border: 1px solid #e7eef6;
+}
+.wl-anon-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #4a5a68; }
+.wl-anon-label input { width: 16px; height: 16px; accent-color: #00aeec; }
+.wl-anon-label span { font-weight: 600; color: #1f2d3a; }
+.wl-anon-label small { color: #8b98a5; font-weight: 400; }
+html.darkmode .wl-anon-bar { background: #262b33; border-color: #3a404b; }
+html.darkmode .wl-anon-label { color: #b9c4cf; }
+html.darkmode .wl-anon-label span { color: #e3e9ef; }
+
+#waline { --waline-theme-color: #00aeec; --waline-active-color: #00c3ff; }
+#waline .wl-panel { border: none; background: transparent; }
+#waline .wl-editor { min-height: 110px; border-radius: 12px; border: 1px solid #e3ebf3; background: #fff; font-size: 15px; }
+#waline .wl-editor:focus { border-color: #00aeec; box-shadow: 0 0 0 3px rgba(0,174,236,.12); }
+#waline .wl-header { gap: 8px; }
+#waline .wl-header .wl-input { border-radius: 8px; background: #f6f8fa; border: 1px solid #e3ebf3; }
+#waline .wl-header .wl-input:focus { background: #fff; border-color: #00aeec; }
+#waline .wl-btn.primary { background: #00aeec; border-radius: 8px; }
+#waline .wl-btn.primary:hover { background: #00c3ff; }
+#waline .wl-card { padding: 16px 4px; border-bottom: 1px solid #eef2f6; }
+#waline .wl-card:hover { background: #fafcff; }
+#waline .wl-user-avatar img, #waline .wl-avatar { border-radius: 50%; }
+#waline .wl-head .wl-nick { font-weight: 700; font-size: 15px; color: #1f2d3a; }
+#waline .wl-head .wl-nick::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #00aeec; margin-right: 6px; vertical-align: middle; opacity: .8; }
+#waline .wl-time { color: #98a6b3; font-size: 12px; }
+#waline .wl-content { font-size: 15px; line-height: 1.75; color: #2c3a47; margin-top: 2px; }
+#waline .wl-reaction, #waline .wl-comment-stat { color: #8b98a5; }
+#waline .wl-anon-input { background: #eef4f9 !important; color: #6b7c8c !important; cursor: not-allowed; }
+html.darkmode #waline .wl-editor,
+html.darkmode #waline .wl-header .wl-input { background: #262b33; border-color: #3a404b; color: #e3e9ef; }
+html.darkmode #waline .wl-content { color: #d6dee6; }
+html.darkmode #waline .wl-card { border-bottom-color: #343a44; }
+html.darkmode #waline .wl-card:hover { background: #262b33; }
+
+@media (max-width: 640px) {
+  .wl-anon-label { flex-wrap: wrap; }
+  .wl-anon-label small { flex: 1 1 100%; margin-left: 24px; }
+  #waline .wl-header { flex-direction: column; }
+}
