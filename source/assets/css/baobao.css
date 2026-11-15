@@ -2785,3 +2785,11 @@ html.darkmode #waline .wl-card:hover { background: #262b33; }
   .wl-anon-label small { flex: 1 1 100%; margin-left: 24px; }
   #waline .wl-header { flex-direction: column; }
 }
+
+/* 评论区：隐藏 UA / 地点等元信息，并修头像对齐 */
+#waline .wl-meta { display: none !important; }
+#waline .wl-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#waline .wl-user { display: flex; align-items: flex-start; }
+#waline .wl-user .wl-avatar, #waline .wl-user img { margin-top: 2px; }
+#waline .wl-nick { line-height: 1.4; }
+#waline .wl-comment { align-items: flex-start; }
