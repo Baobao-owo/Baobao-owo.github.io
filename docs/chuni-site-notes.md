@@ -11,6 +11,7 @@
 4. 提交前固定动作：`git stash push -m tmp` → `git pull --rebase origin main` → `git push origin main` → `git stash pop`。
 5. 禁止本地 `hexo deploy`；另一个会话也会同时改这个仓库。
 6. 验证线上要加 `?cb=随机数`，Pages 有 3–5 分钟 CDN 缓存。
+7. 要重扫曲库数据：先读 `docs/chuni-data-sources.md`（Mate 本体 + A300 删曲、XVX 对照、字段来源、扫描约定与已知坑）。
 
 ## 1. 数据文件
 
