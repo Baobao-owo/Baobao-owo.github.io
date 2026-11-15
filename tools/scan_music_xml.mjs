@@ -18,6 +18,10 @@ function parseMusicXML(xml) {
   const artist = strip((xml.match(/<artistName>\s*<id>[^<]*<\/id>\s*<str>([\s\S]*?)<\/str>/) || [])[1] || '');
   const genre = strip((xml.match(/<genreNames>[\s\S]*?<str>([\s\S]*?)<\/str>/) || [])[1] || '');
   const releaseDate = strip((xml.match(/<releaseDate>([\s\S]*?)<\/releaseDate>/) || [])[1] || '');
+  const weAttr = strip((xml.match(/<worldsEndTagName>[\s\S]*?<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+  const weStarsRaw = Number(strip((xml.match(/<starDifType>([\s\S]*?)<\/starDifType>/) || [])[1] || 0)) || 0;
+  // starDifType 是 1/3/5/7/9，对应 ☆1~☆5
+  const weStars = weStarsRaw ? Math.ceil(weStarsRaw / 2) : 0;
   const sheets = [];
   const re = /<MusicFumenData>([\s\S]*?)<\/MusicFumenData>/g;
   let m;
@@ -31,7 +35,7 @@ function parseMusicXML(xml) {
     if (!type) continue;
     sheets.push({ type, level, dec, enable, designer, const: level + dec / 100 });
   }
-  return { id, name, artist, genre, releaseDate, releaseTag, releaseId, sheets };
+  return { id, name, artist, genre, releaseDate, releaseTag, releaseId, weAttr, weStars, sheets };
 }
 
 const result = {};

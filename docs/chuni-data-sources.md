@@ -273,3 +273,9 @@
 - 同名 WE 变体（同一曲名多首，如 `The Concept of Love` 8004/8073、`Invitation` 8006/8009）：站内按曲名只能存一份，取 id 最小的一首，共 31 组，清单在 `_tmp/reports/a300-we-merge.tsv` 的 `dup-title` 行。
 - wiki 与 A300 不一致的 13 条（`Blue Noise`、`ジングルベル`、`volcanic`、`FREEDOM DiVE` 等）：按裁定保持 A300，不动。
 
+#### WE 星数与 ID（2026-11-15）
+
+- 星数来源：A300 的 `Music.xml` 里 `<starDifType>`，取值 1/3/5/7/9，映射 `☆1~☆5` 用 `Math.ceil(n / 2)`；`<worldsEndTagName><str>` 是 WE 属性（改/狂/止/弾/招/…）。
+- `tools/scan_music_xml.mjs` 现在一并抓 `weAttr` / `weStars`；`chuni_we.json` 的每首歌补了 `attr` / `stars` / `id`，另加 `byId`（292 条，按 musicId 索引全部 WE 谱），为以后「一张 WE 谱一个 ID」做准备。
+- 现状：站点列表里一个曲名只对应一条 WE 行（153 条），A300 有 224 条，缺的 70 多张只能靠加行才能显示；加行会动到路由与列表，需要单独确认。
+
