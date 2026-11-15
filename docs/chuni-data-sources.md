@@ -200,3 +200,10 @@
 - 第 6 条（版本 null）：182 首回填，剩 10 首无 XML。
 - 第 4 条（国日服定数）：拆成两份，互不覆盖。
 - 第 3 条（谱师原文）：现役与删曲都显示 c2s 原文，筛选走 `chuni_designer_alias.json`。
+
+## 10. 2026-11-15 裁定执行记录（续）
+
+- **#14 chunithm-data.json**：\	ools/normalize_chunithm_data.mjs\ 把它摊平成 title → per-diff 定数，与站内 6355 张可比，只有 7 处不同（\_tmp/reports/mirror-const-diff.tsv\：FLOWER adv/mas、Over Heart 四张、狂命 mas）。结论：**可用作第三方参考，不直接回写**。
+- **#13 翻译索引**：\	ools/build_translation_index.mjs\ 扫 143 个 batch*.json → \	ools/translation-index.json\（9365 条，介绍 6161 / 由来 2026 / 称号 1177 / 紹介 1，去重 63；另有 \_tmp/zh-lines.jsonl\ 1213 个 id 的中文整段）。译文已经落到 \chuni_extra.json\ 的 \wiki_comment_zh / titles_zh / origins_zh\。
+- **#8 预览缺口**：按 \<musicId>_<0-4>\ 口径只有 12 张缺（ドーナツホール等 4 张 ULTIMA、Garakuta remix 4 张、WORLD'S END 779 四张）；另有 76 张 WE-only 行没有 musicId。本地两个 HDD 的 \music\ 目录现在只剩 MusicSort.xml，c2s 已不在原处，需要重新解包或指定目录才能补。
+- **目录变化**：日服现在是 \D:\SDHD - CHUNITHM Mate\HDD\{data,bin\option}\（多了一层 HDD）；旧路径 \D:\SDHD - CHUNITHM Mate\data\...\ 已不存在。
