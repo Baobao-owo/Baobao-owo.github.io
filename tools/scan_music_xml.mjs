@@ -1,14 +1,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 日服：本体 + 所有 option 包（新曲经常只在 A0xx 包里，光扫 A000/A300 会漏）
+// 日服/国服：本体 + option 下所有包（包名会变，不要写死列表）
+const fsx = fs;
 const MATE = 'D:/SDHD - CHUNITHM Mate/HDD';
 const XVX = 'D:/XVX/HDD';
-const OPTION_PACKS = ['A001', 'A071', 'A072', 'A073', 'A074', 'A081', 'A091', 'A092', 'A093', 'A300', 'AKOP'];
+function optionPacks(base) {
+  const dir = base + '/bin/option';
+  if (!fsx.existsSync(dir)) return [];
+  return fsx.readdirSync(dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && fsx.existsSync(dir + '/' + d.name + '/music'))
+    .map((d) => d.name)
+    .sort();
+}
 const roots = [['mate', MATE + '/data/A000/music']];
-for (const pack of OPTION_PACKS) roots.push(['mate_' + pack.toLowerCase(), MATE + '/bin/option/' + pack + '/music']);
+for (const pack of optionPacks(MATE)) roots.push(['mate_' + pack.toLowerCase(), MATE + '/bin/option/' + pack + '/music']);
 roots.push(['xvx', XVX + '/data/A000/music']);
-for (const pack of ['A300', 'A301', 'A302']) roots.push(['xvx_' + pack.toLowerCase(), XVX + '/bin/option/' + pack + '/music']);
+for (const pack of optionPacks(XVX)) roots.push(['xvx_' + pack.toLowerCase(), XVX + '/bin/option/' + pack + '/music']);
 
 const decode = (x) => String(x || '')
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
