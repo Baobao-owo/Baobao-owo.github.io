@@ -366,7 +366,9 @@
 		var out = [];
 		['e', 'm', 'u'].forEach(function (k) {
 			var hit = e && e[k];
-			var isCollab = !!(state.collab && state.designer && c && c[k] && c[k].indexOf(state.designer) !== -1);
+			var who = state.designer || state.designerRaw || '';
+			var names = who ? aliasNamesOf(who) : [];
+			var isCollab = !!(who && c && Array.isArray(c[k]) && c[k].some(function (p) { return names.indexOf(p) !== -1; }));
 			// 合作优先：一张谱既是「署名归了他」又在合作名单里，就当合作处理，
 			// 否则「仅显示合作」会把它筛掉
 			if (isCollab) {
@@ -738,14 +740,24 @@
 	}
 
 	// 谱师曲数：只数当前底池里、且落在所选难度上的谱
+	// 合作谱里作为「成员」出现也算（否则羽田の白い彗星这种只有合作署名的人永远显示 0）
+	function aliasNamesOf(name) {
+		if (!DESIGNERS || !DESIGNERS.designers) return [name];
+		var d = DESIGNERS.designers.filter(function (x) { return x.name === name; })[0];
+		return [name].concat((d && d.aliasNames) || []);
+	}
+
 	function countFor(name, diffs) {
 		var keys = diffs && diffs.length ? diffs : ['e', 'm', 'u'];
+		var names = aliasNamesOf(name);
 		return designerBaseRows().filter(function (r) {
 			var e = designerEntry(r);
-			if (!e) return false;
+			var c = collabEntry(r);
 			return keys.some(function (d) {
-				var x = e[d];
-				return x && (x.who === name || x.raw === name);
+				var x = e && e[d];
+				if (x && (x.who === name || x.raw === name)) return true;
+				if (!c || !Array.isArray(c[d])) return false;
+				return c[d].some(function (p) { return names.indexOf(p) !== -1; });
 			});
 		}).length;
 	}

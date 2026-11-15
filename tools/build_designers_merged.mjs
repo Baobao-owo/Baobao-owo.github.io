@@ -251,6 +251,7 @@ const designers = (friend.designers || [])
     charts: whoCharts.get(d.name) || 0,
     songs: (whoSongs.get(d.name) || new Set()).size,
     aliases: (d.aliases || []).length,
+    aliasNames: d.aliases || [],
   }))
   .filter((d) => d.songs > 0)
   .sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
@@ -296,18 +297,36 @@ const collabCount = (() => {
     for (const people of Object.values(entry)) {
       if (!Array.isArray(people)) continue;
       for (const p of people) {
-        if (!m.has(p)) m.set(p, new Set());
+        const canon = alias2who.get(norm(p)) || p;
+        for (const n of new Set([p, canon])) if (!m.has(n)) m.set(n, new Set());
       }
     }
   }
   for (const [title, entry] of Object.entries(collabData)) {
     for (const [diff, people] of Object.entries(entry)) {
       if (!Array.isArray(people)) continue;
-      for (const p of people) m.get(p).add(title + '.' + diff);
+      for (const p of people) {
+        const canon = alias2who.get(norm(p)) || p;
+        m.get(p) && m.get(p).add(title + '.' + diff);
+        if (canon !== p) m.get(canon) && m.get(canon).add(title + '.' + diff);
+      }
     }
   }
   return m;
 })();
+function collabChartsOf(name) {
+  let n = 0;
+  for (const entry of Object.values(collabData)) {
+    for (const people of Object.values(entry)) {
+      if (!Array.isArray(people)) continue;
+      for (const p of people) {
+        if (p === name || alias2who.get(norm(p)) === name) n++;
+      }
+    }
+  }
+  return n;
+}
+
 for (const d of manualDesigners) {
   const solo = whoSongs.get(d.name);
   const collabSet = collabCount.get(d.name) || new Set();
@@ -319,9 +338,10 @@ for (const d of manualDesigners) {
   designers.push({
     name: d.name,
     id: 'manual-' + d.name,
-    charts: whoCharts.get(d.name) || 0,
+    charts: (whoCharts.get(d.name) || 0) + collabChartsOf(d.name),
     songs: total.size,
     aliases: (d.aliases || []).length,
+    aliasNames: d.aliases || [],
   });
 }
 designers.sort((a, b) => b.songs - a.songs || a.name.localeCompare(b.name, 'ja'));
