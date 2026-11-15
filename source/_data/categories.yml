@@ -1,26 +1,12 @@
-# 板块（分类）管理
-# 后台「分类管理」里改的就是这个文件。
-#
-# name        显示名，也是文章里该填的分类名
-# order       首页板块的先后（数字小的在前）
-# description 板块/子分类下面的说明，可留空
-# children    子分类；只有写了 children 的板块在首页点进去会先看到子分类
-# aliases     曾用名，逗号分隔；构建时会自动把文章里的旧分类名改成 name
-#
-# 写法：文章 front-matter 里属层级分类
-#   categories:
-#     - 谱面记录
-#     - 4k下落式
-
 categories:
   - name: 杂谈
     order: 1
-    description: 闲聊、杂谈、记录，想到什么写什么
-    aliases: ''
+    description: 杂谈，记录
+    aliases: ""
   - name: 谱面记录
-    order: 2
+    order: 1
     description: 记录情感的瞬间
-    aliases: '4k谱面记录'
+    aliases: 4k谱面记录
     children:
       - name: 4k下落式
         description: osu!mania 之类的 4K 下落式
@@ -32,5 +18,5 @@ categories:
   - name: 中二节奏
     order: 3
     description: CHUNITHM 曲目导览、谱面信息
-    aliases: ''
+    aliases: ""
     style: tool
