@@ -17,8 +17,18 @@ const norm = (t) => String(t).normalize('NFKC').toLowerCase().replace(/\s+/g, ''
 const weByNorm = new Map(Object.keys(we.songs).map((t) => [norm(t), t]));
 const delByNorm = new Map(del.songs.map((s) => [norm(s.title), s]));
 
+// 同名 WE 变体（例如两首 The Concept of Love）站内只能按曲名存一份，取 id 最小的那首
+const wikiLike = Object.values(xml.mate_a300 || {}).filter((v) => (v.sheets || []).some((s) => s.type === 'WorldsEnd' && s.enable));
+const byNorm = new Map();
+const dupNotes = [];
+for (const v of wikiLike.sort((a, b) => Number(a.id) - Number(b.id))) {
+  const n = norm(v.name);
+  if (!byNorm.has(n)) byNorm.set(n, v);
+  else dupNotes.push({ id: v.id, title: v.name, kept: byNorm.get(n).id });
+}
+
 const rows = [];
-for (const v of Object.values(xml.mate_a300 || {})) {
+for (const v of byNorm.values()) {
   const sheet = (v.sheets || []).find((s) => s.type === 'WorldsEnd' && s.enable);
   if (!sheet) continue;
   const key = String(v.id);
@@ -56,18 +66,21 @@ for (const v of Object.values(xml.mate_a300 || {})) {
   });
 }
 
+for (const d of dupNotes) rows.push({ id: d.id, title: d.title, action: 'dup-title', conflict: '同名 WE 变体，站内按曲名只能存一首；已取 id ' + d.kept });
 const counts = rows.reduce((m, r) => ((m[r.action] = (m[r.action] || 0) + 1), m), {});
 const gaps = rows.filter((r) => !r.attr || !r.stars);
 
 if (WRITE) {
   for (const r of rows) {
-    if (!(r.action === 'add' || r.action === 'fill-designer')) continue;
-    const t = r.title;
+    if (!(r.action === 'add' || r.action === 'fill-designer' || r.action === 'conflict')) continue;
+    // 同一个曲名可能因为全角/半角写法不同，站内已有键时写回原键，避免出现重复条目
+    const t = weByNorm.get(norm(r.title)) || r.title;
     const prev = we.songs[t] || {};
     we.songs[t] = {
       attr: prev.attr || r.attr || '',
       stars: prev.stars || null,
-      designer: prev.designer || r.designer || '',
+      // 用户裁定：主数据以 Mate A300 为准，冲突时直接覆盖站内旧值
+      designer: r.designer || prev.designer || '',
       from: prev.from || 'A300',
     };
   }

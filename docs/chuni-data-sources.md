@@ -266,3 +266,10 @@
 - 结果：`chuni_we.json` 83 → 251 首（其中 168 首标 `from: A300`）。这 168 首没有星数（wiki 的「配信終了」页面只给属性），页面显示 `☆?`，生成器已把回退从 `☆1` 改成 `☆?`。
 - 冲突清单：`_tmp/reports/a300-we-merge.tsv`（A300 与站内名义不一致 10 条）、`_tmp/reports/we-wiki-sync.tsv`（wiki 与站内不一致 7 条），已汇总成 `_tmp/WE冲突待裁定.xlsx` 交用户判断。
 
+### 2026-11-15 WE 冲突裁定：以 Mate A300 为准
+
+- 用户裁定（m05214）：「这个冲突全部以我的那个 mate A300 为准。」
+- `tools/merge_a300_we.mjs` 改为冲突时直接覆盖站内值（谱师以 A300 的 `{id}_04.c2s` CREATOR 为准），并修了一个坑：同名不同写法的曲名会写出重复键 → 现在优先写回站内已有键。
+- 同名 WE 变体（同一曲名多首，如 `The Concept of Love` 8004/8073、`Invitation` 8006/8009）：站内按曲名只能存一份，取 id 最小的一首，共 31 组，清单在 `_tmp/reports/a300-we-merge.tsv` 的 `dup-title` 行。
+- wiki 与 A300 不一致的 13 条（`Blue Noise`、`ジングルベル`、`volcanic`、`FREEDOM DiVE` 等）：按裁定保持 A300，不动。
+
