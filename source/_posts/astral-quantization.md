@@ -2,7 +2,7 @@
 title: Astral Quantization
 date: 2026-08-03 20:00:00
 categories:
-  - 谱面记录
+  - 个人谱面存档记录
   - 4k下落式
 tags: [osu!mania, 4k, Arcaea]
 map:

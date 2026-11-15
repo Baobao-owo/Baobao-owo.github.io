@@ -2,7 +2,7 @@
 title: 'Bloom in Two'
 date: 2026-03-03 12:00:00
 categories:
-  - 谱面记录
+  - 个人谱面存档记录
   - 中二节奏谱面
 tags: [CHUNITHM, 自制谱]
 chuni:

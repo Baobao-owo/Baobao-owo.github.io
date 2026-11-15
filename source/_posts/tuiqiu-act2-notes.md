@@ -1,7 +1,7 @@
 ---
 title: 推球杯 Act.2 杂记（上）
 date: 2026-10-08 23:51:00
-categories: 杂谈
+categories: 杂谈，文章
 tags: [比赛]
 thumbnail: /assets/img/bili-opus-act2/cover.webp
 ---
