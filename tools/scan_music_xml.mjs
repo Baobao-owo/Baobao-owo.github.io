@@ -1,0 +1,54 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const roots = [
+  ['mate', 'D:/SDHD - CHUNITHM Mate/HDD/data/A000/music'],
+  ['mate_a300', 'D:/SDHD - CHUNITHM Mate/HDD/bin/option/A300/music'],
+  ['xvx', 'D:/XVX/HDD/data/A000/music'],
+  ['xvx_a300', 'D:/XVX/HDD/bin/option/A300/music'],
+];
+
+const strip = (x) => String(x || '').replace(/<[^>]+>/g, '').trim();
+
+function parseMusicXML(xml) {
+  const id = Number(strip((xml.match(/<dataName>\s*music(\d+)\s*<\/dataName>/) || [])[1] || 0)) || null;
+  const name = strip((xml.match(/<name>\s*<id>[^<]*<\/id>\s*<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+  const releaseTag = strip((xml.match(/<releaseTagName>[\s\S]*?<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+  const releaseId = Number(strip((xml.match(/<releaseTagName>[\s\S]*?<id>([\s\S]*?)<\/id>/) || [])[1] || -1)) || -1;
+  const artist = strip((xml.match(/<artistName>\s*<id>[^<]*<\/id>\s*<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+  const genre = strip((xml.match(/<genreNames>[\s\S]*?<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+  const releaseDate = strip((xml.match(/<releaseDate>([\s\S]*?)<\/releaseDate>/) || [])[1] || '');
+  const sheets = [];
+  const re = /<MusicFumenData>([\s\S]*?)<\/MusicFumenData>/g;
+  let m;
+  while ((m = re.exec(xml))) {
+    const block = m[1];
+    const type = strip((block.match(/<type>[\s\S]*?<str>([\s\S]*?)<\/str>/) || [])[1] || '');
+    const level = Number(strip((block.match(/<level>([\s\S]*?)<\/level>/) || [])[1] || 0)) || 0;
+    const dec = Number(strip((block.match(/<levelDecimal>([\s\S]*?)<\/levelDecimal>/) || [])[1] || 0)) || 0;
+    const enable = strip((block.match(/<enable>([\s\S]*?)<\/enable>/) || [])[1] || 'false') === 'true';
+    const designer = strip((block.match(/<notesDesigner>([\s\S]*?)<\/notesDesigner>/) || [])[1] || '');
+    if (!type) continue;
+    sheets.push({ type, level, dec, enable, designer, const: level + dec / 100 });
+  }
+  return { id, name, artist, genre, releaseDate, releaseTag, releaseId, sheets };
+}
+
+const result = {};
+for (const [tag, dir] of roots) {
+  result[tag] = {};
+  if (!fs.existsSync(dir)) { console.log('missing', tag, dir); continue; }
+  const dirs = fs.readdirSync(dir).filter(d => /^music\d+$/.test(d));
+  for (const d of dirs) {
+    const xmlPath = path.join(dir, d, 'Music.xml');
+    if (!fs.existsSync(xmlPath)) continue;
+    try {
+      const parsed = parseMusicXML(fs.readFileSync(xmlPath, 'utf8'));
+      if (parsed.id != null) result[tag][parsed.id] = parsed;
+    } catch (e) { /* skip */ }
+  }
+  console.log(tag, dirs.length, 'dirs', Object.keys(result[tag]).length, 'parsed');
+}
+fs.mkdirSync('_tmp/game', { recursive: true });
+fs.writeFileSync('_tmp/game/music-xml.json', JSON.stringify(result), 'utf8');
+console.log('saved _tmp/game/music-xml.json', (fs.statSync('_tmp/game/music-xml.json').size / 1024 / 1024).toFixed(2), 'MB');

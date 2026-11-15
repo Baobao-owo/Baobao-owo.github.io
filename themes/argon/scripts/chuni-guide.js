@@ -43,6 +43,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const designerFill = (hexo.locals.get('data') && hexo.locals.get('data').chuni_designer_fill) || {};
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
+  const cnConsts = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_consts) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const notesMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_notes) || {};
@@ -488,7 +489,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
         guide: { updated: d.updated, categories: d.categories, versions: d.versions },
         extra: fixHistoryRows(extra[entry.raw.id] || extra[String(entry.raw.title).trim()] || null, entry.raw.sheets),
         notes: notesMap[String(entry.raw.title).trim()] || null,
-        collabParts: partsOf(entry.raw.title)
+        collabParts: partsOf(entry.raw.title),
+        cnConsts: cnConsts[String(entry.raw.title).trim()] || null
       }
     });
   });

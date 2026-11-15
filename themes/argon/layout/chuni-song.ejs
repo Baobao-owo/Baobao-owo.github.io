@@ -139,7 +139,7 @@
 						<tr>
 							<td><span class="chuni-badge chuni-badge-<%= sh.difficulty %> chuni-badge-letter"><%= diffLetter[sh.difficulty] %></span> <span class="chuni-diff-name"><%= diffName[sh.difficulty] %></span></td>
 							<td class="chuni-lv chuni-col-center"><%= lvText %></td>
-							<td class="chuni-iv chuni-col-center"><%= ivText %></td>
+							<td class="chuni-iv chuni-col-center"><%= ivText %><% if (page.cnConsts && page.cnConsts[sh.difficulty] != null) { %><span class="chuni-iv-cn">国服 <%= Number(page.cnConsts[sh.difficulty]).toFixed(2) %></span><% } %></td>
 							<td class="chuni-col-center"><%= n.total || '—' %></td>
 							<td class="chuni-designer"><%= sh.designer && sh.designer !== '-' ? sh.designer : '—' %><% if (sh.mem) { %><span class="chuni-designer-mem">（<%= sh.mem %>）</span><% } %></td>
 						</tr>

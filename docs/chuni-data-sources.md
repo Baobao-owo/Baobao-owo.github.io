@@ -22,7 +22,7 @@
 数量核验（2026-11-15）：
 
 - Mate 本体 1699 + A300 删曲 529 − 重叠 6 = **2222 个不同 musicId**
-- 站内目前：曲库 2151 首 + 删除曲 142 首
+- 站内目前（2026-11-15 A300 对账后）：曲库 1855 首 + 删除曲 297 首 = 合计 2152 首
 
 ## 2. A300 补充包是什么
 
@@ -89,13 +89,13 @@
 
 | 文件 | 大小 | 用途 |
 |---|---|---|
-| `source/_data/chuni.json` | 2.4MB | 曲库主表，`songs` 2011 首；含 `id/title/artist/category/version/bpm/cover/sheets` |
+| `source/_data/chuni.json` | 2.4MB | 曲库主表，`songs` 1855 首；含 `id/title/artist/category/version/bpm/cover/sheets` |
 | `source/_data/chuni_extra.json` | 5.3MB | wiki 介绍：`wiki_comment`（日文原文）、`wiki_comment_zh`（中文）、`titles/titles_zh`、`origins/origins_zh`、`history` |
 | `source/_data/chuni_notes.json` | 644KB | 谱师留言（477 条，按曲名索引） |
 | `source/_data/chuni_previews.json` | 913KB | 谱面预览图清单，键 = `musicId_难度序号`（8092 条） |
 | `source/_data/chuni_designers.json` | 288KB | 每首每难度的谱面作者，键 = 曲名，值 = `{B,A,E,M,U,W}` |
 | `source/_data/chuni_designer_alias.json` | 50KB | 别名表 953 条，`原文 → 归一后名字`（含 51 条 `A × B` 合作写法） |
-| `source/_data/chuni_removed_songs.json` | 164KB | 删除曲 140 首，`id` 形如 `REMOVED:<曲名>` |
+| `source/_data/chuni_removed_songs.json` | 164KB | 删除曲 297 首（原 140 + A300 对账移入 157），`id` 形如 `REMOVED:<曲名>` |
 | `source/_data/chuni_ids.json` | 65KB | 曲名 → 游戏 musicId（1990 条） |
 | `source/_data/chuni_cn.json` | 263KB | 国服数据（4 条） |
 | `source/_data/chuni_we.json` / `chuni_we_deleted.json` | 9.4KB / 6.1KB | WORLD'S END 谱面 |
@@ -110,7 +110,7 @@
 
 | 类别 | 文件 |
 |---|---|
-| 全量曲目元数据 | `_tmp/chunithm-data.json`（4MB，`songs` 2011，含 `sheets`）、`_tmp/data.json`（4MB）、`_tmp/SongInfo.json`（1.85MB）、`_tmp/lxns-songs.json`（1.4MB，落雪查分器，1466 首） |
+| 全量曲目元数据 | `_tmp/chunithm-data.json`（4MB，`songs` 2011，含 `sheets`，旧快照）、`_tmp/data.json`（4MB）、`_tmp/SongInfo.json`（1.85MB）、`_tmp/lxns-songs.json`（1.4MB，落雪查分器，1466 首） |
 | 定数 / 难度曲线 | `_tmp/kadai_difficulty.json`（1.42MB）、`_tmp/difficulty_curves.json`（1.19MB） |
 | 标题 / HDD 扫描 | `_tmp/song_titles.json`（1.14MB）、`_tmp/hdd-music.json`（237KB）、`_tmp/hdd-music2.json`、`_tmp/new-pack-songs.json`、`_tmp/charts-removed.json`、`_tmp/hdd-we-charts.json` |
 | 别的音游（查同名混淆） | `_tmp/sdvx-all.json`（1.45MB）、`_tmp/ongeki.json`（1.47MB） |
@@ -166,3 +166,37 @@
 12. **总数口径混用。** 2011（`chuni.json` 本体）、2151（含删除曲，页面显示）、1855（唯一曲名）三个数在不同文档/脚本里都出现过，写的时候要标清是哪个。
 13. **翻译两套文件。** `batch1–78-raw/translated.json` 与 `zh-*.jsonl` 各自成体系，没有总索引，不知道哪批最后合进了 `chuni_extra.json`。
 14. **cdata 没真正参与对照。** `_tmp/chunithm-data.json` 的 `sheets` 结构与站内不同（`type` 是数字/字符串混用），本次审计比对 0 条——它不是可用作定数校对的源。
+
+## 9. A300 对账与国日服分离（2026-11-15 执行结果）
+
+### 9.1 A300 528 个有效条目的去向
+
+| 类别 | 数量 | 处理 |
+|---|---|---|
+| 与 Mate 本体重复（同 musicId） | 6 | 不算删除 |
+| 已在删除曲列表 | 139 | 保持原样 |
+| 站内仍标现存、musicId 相同 | 148 个曲名（156 条记录，8 组同名普通/WE 双条目） | 从 `chuni.json` 移入 `chuni_removed_songs.json`，`removedFromMate: true` |
+| WORLD'S END 专属条目（8xxx / ID_ 谱） | 235 | 不进普通删曲表，走 WE 数据；其中 `779 WORLD'S END` 本身是普通曲，已作为删除曲导入 |
+| 合计 | 528 | |
+
+- 处理脚本：`tools/check_a300.mjs`（分类）→ `tools/move_a300_removed.mjs`（迁移，先备份到 `_tmp/chuni.before-a300.json`）。
+- 结果：曲库 2011 → 1855，删除曲 140 → 297，页面合计 2152。
+- 删曲列表里的 `cover` 沿用原现役条目的封面 URL（cloudfront），没有重新转 webp。
+
+### 9.2 版本回填
+
+- `tools/scan_music_xml.mjs` 扫 Mate 本体 + A300 + XVX 本体 + XVX A300，输出 `_tmp/game/music-xml.json`（含 artist / genre / releaseDate / releaseTag / 各难度 level+levelDecimal）。
+- `tools/analyze_xml.mjs` 从 21 条 releaseTag 学到站内版本名，`tools/apply_version_backfill.mjs` 回填 182 首；剩 10 首是 2025 新曲，本地两个 HDD 没有对应 XML，需要等新包。
+
+### 9.3 国服 / 日服定数分开存
+
+- 同 musicId 可比 6798 张，44 张不同（41 首），差异写入 `source/_data/chuni_cn_consts.json`（只存不同的难度）。
+- 曲目详情页「定数」列在日服值下面补一行「国服 x.xx」（`.chuni-iv-cn`），不改变筛选、排序用的日服数值。
+- 明细：`_tmp/reports/cn-vs-jp-consts.tsv`。已知差异多为 XVX 与 Mate 版本调整（Äventyr MASTER 14.00 / 13.80、緋色のDance MASTER 13.00 / 12.60、Xevel ADVANCED 8.50 / 8.00）。
+
+### 9.4 对撞清单的落点
+
+- 第 5 条（删除曲数量）：已按上表拆清，530 是目录数，实际新删曲 157 条。
+- 第 6 条（版本 null）：182 首回填，剩 10 首无 XML。
+- 第 4 条（国日服定数）：拆成两份，互不覆盖。
+- 第 3 条（谱师原文）：现役与删曲都显示 c2s 原文，筛选走 `chuni_designer_alias.json`。
