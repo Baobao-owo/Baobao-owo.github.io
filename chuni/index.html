@@ -914,6 +914,20 @@
 		return matcher(r).length > 0;
 	}
 
+	function weDeleted(r) {
+		// WORLD'S END 谱面按服务器分开判断是否已下架
+		if (!(r.we && r.we.length)) return false;
+		var v = state.version === 'cn' ? r.weDelCN : r.weDelJP;
+		// 没有按谱面拆出来的 WE 伪条目，退回曲目级的删除标记
+		if (v === undefined || v === null) return !!(state.version === 'cn' ? r.cnrm : r.rm);
+		return !!v;
+	}
+
+	function rowDeleted(r) {
+		if (r.we && r.we.length) return weDeleted(r);
+		return !!(r.rm || r.cnrm);
+	}
+
 	function filtered() {
 		var qt = state.qt.trim().toLowerCase();
 		var qa = state.qa.trim().toLowerCase();
@@ -921,7 +935,7 @@
 			// 国服模式下，国服下架的曲目也算国服曲库（之前只有点「仅显示删除曲」才露面，
 			// 导致「不显示删除曲」开关在国服几乎不起作用）
 			if (state.version === 'cn' && !r.cn && !r.cnrm) return false;
-			var isDel = !!(r.rm || r.cnrm);
+			var isDel = rowDeleted(r);
 			var isWE = !!(r.we && r.we.length);
 			if (state.hideRemoved && isDel) return false;
 			if (state.removed) {
@@ -1045,7 +1059,7 @@
 				var stars = r.we.map(function (n) { return '<span class="chuni-badge chuni-badge-we">☆' + n + (r.weAttr ? ' ' + r.weAttr : '') + '</span>'; }).join('');
 				return '<a class="chuni-row" href="' + r.u + '">' +
 					'<img class="chuni-thumb" src="' + r.cov + '" alt="" loading="lazy" />' +
-					'<div class="chuni-row-main"><div class="chuni-row-title">' + r.t + '</div>' +
+					'<div class="chuni-row-main"><div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + (weDeleted(r) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + '</div>' +
 					'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div></div>' +
 					'<div class="chuni-row-badges">' + stars + '</div>' +
 					'</a>';
@@ -1103,7 +1117,7 @@
 				return '<a class="chuni-row" href="' + r.u + '">' +
 					'<img class="chuni-thumb" src="' + (r.cov || '') + '" alt="" loading="lazy">' +
 					'<div class="chuni-row-main">' +
-					'<div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + ((r.cnrm || r.rm) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + dsTag + '</div>' +
+					'<div class="chuni-row-title"><span class="chuni-row-name">' + r.t + '</span>' + (rowDeleted(r) ? '<span class="chuni-row-tag-removed">删除曲</span>' : '') + dsTag + '</div>' +
 					'<div class="chuni-row-sub">' + r.a + ' · BPM ' + (r.b || '?') + ' · ' + r.v + '</div>' +
 					'</div>' +
 					'<div class="chuni-row-badges"><span class="chuni-badge chuni-badge-we">WE ' + weAttr + starTxt + '</span></div>' +
@@ -1253,7 +1267,7 @@
 	// 面板计数用的底池：先过掉「删除曲 / WE / 版本」这些行级开关
 	function designerBaseRows() {
 		return all.filter(function (r) {
-			var isDel = !!(r.rm || r.cnrm);
+			var isDel = rowDeleted(r);
 			var isWE = !!(r.we && r.we.length);
 			// 国服模式下，国服下架的曲目也算国服曲库（之前只有点「仅显示删除曲」才露面，
 			// 导致「不显示删除曲」开关在国服几乎不起作用）
