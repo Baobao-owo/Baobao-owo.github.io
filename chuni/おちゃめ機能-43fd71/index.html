@@ -1184,34 +1184,113 @@ CHUNITHM 收录的是专辑《Upload feat.Vocalist》收录的翻唱版。
 				<div class="chuni-section-title">评论</div>
 				
 					<div class="chuni-comment-box">
-						<div id="giscus"></div>
+						<div class="wl-wrap">
+	<div class="wl-anon-bar">
+		<label class="wl-anon-label">
+			<input type="checkbox" id="wl-anon-toggle" />
+			<span>匿名评论</span>
+			<small>勾选后公屏显示为「匿名用户」，但你的账号仍会被站长后台记录</small>
+		</label>
+	</div>
+	<div id="waline"></div>
+</div>
+
 <script>
-  function loadGiscus() {
-    const old = document.querySelector('#giscus script');
-    if (old) old.remove();
+	(function () {
+		// 用不可见字符做标记，评论内容里带上它，渲染时据此改显示
+		var MARK = '\u2063\u2063';
+		var ANON_NAME = '匿名用户';
+		var ANON_AVATAR =
+			'data:image/svg+xml;utf8,' +
+			encodeURIComponent(
+				'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#00aeec"/><circle cx="32" cy="25" r="11" fill="#fff"/><path d="M12 60c2-13 10-20 20-20s18 7 20 20" fill="#fff"/></svg>',
+			);
+		var box = document.getElementById('wl-anon-toggle');
 
-    const script = document.createElement('script');
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "Baobao-owo/Baobao-owo.github.io");
-    script.setAttribute("data-repo-id", "R_kgDOVqnN2A");
-    script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", "DIC_kwDOVqnN2M4DK41l");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-input-position", "top");
-    script.setAttribute("data-theme", "light");
-    script.setAttribute("data-lang", "zh-CN");
-    script.setAttribute("data-loading", "lazy");
-    script.async = true;
-    script.crossOrigin = "anonymous";
+		function getEditor() {
+			return document.querySelector('#waline .wl-editor');
+		}
 
-    document.getElementById("giscus").appendChild(script);
-  }
+		function hasMark(text) {
+			return String(text || '').indexOf(MARK) === 0;
+		}
 
-  loadGiscus();
+		// 提交前把标记塞进正文；用户之后的编辑会原样保留
+		document.addEventListener(
+			'click',
+			function (e) {
+				if (!box || !box.checked) return;
+				var btn = e.target && e.target.closest ? e.target.closest('#waline .wl-btn.primary') : null;
+				if (!btn) return;
+				var ed = getEditor();
+				if (!ed) return;
+				var text = ed.value != null ? ed.value : ed.textContent;
+				if (hasMark(text)) return;
+				var next = MARK + text;
+				if (ed.value != null) {
+					var setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+					setter.call(ed, next);
+				} else {
+					ed.textContent = next;
+				}
+				ed.dispatchEvent(new Event('input', { bubbles: true }));
+			},
+			true,
+		);
 
-  document.addEventListener('pjax:end', () => {
-    loadGiscus();
-  });
+		function anonymize() {
+			var cards = document.querySelectorAll('#waline .wl-card');
+			for (var i = 0; i < cards.length; i++) {
+				var card = cards[i];
+				var content = card.querySelector('.wl-content');
+				if (!content || content.getAttribute('data-anon-done')) continue;
+				if (!hasMark(content.textContent)) continue;
+				content.setAttribute('data-anon-done', '1');
+				var html = content.innerHTML;
+				while (html.indexOf(MARK) !== -1) html = html.replace(MARK, '');
+				content.innerHTML = html;
+
+				var nick = card.querySelector('.wl-nick');
+				if (nick) {
+					nick.textContent = ANON_NAME;
+					nick.removeAttribute('href');
+				}
+				var link = card.querySelector('.wl-nick a, a.wl-nick');
+				if (link) link.removeAttribute('href');
+				var img = card.querySelector('.wl-user img, .wl-avatar img, img.wl-avatar');
+				if (img) {
+					img.src = ANON_AVATAR;
+					img.srcset = '';
+				}
+			}
+		}
+
+		setInterval(anonymize, 600);
+
+		function startWaline() {
+			var api = window.Waline;
+			var init = api && typeof api.init === 'function' ? api.init : null;
+			if (!init) {
+				setTimeout(startWaline, 200);
+				return;
+			}
+			init({
+				el: '#waline',
+				serverURL: 'https://waline-example-baobao-owo.vercel.app',
+				lang: 'zh-CN',
+				login: 'enable',
+				meta: ['nick'],
+				requiredMeta: ['nick'],
+				pageview: false,
+				comment: true,
+				reaction: false,
+				search: false,
+				dark: 'html.darkmode',
+			});
+		}
+
+		startWaline();
+	})();
 </script>
 
 					</div>
