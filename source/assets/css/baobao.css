@@ -2793,3 +2793,71 @@ html.darkmode #waline .wl-card:hover { background: #262b33; }
 #waline .wl-user .wl-avatar, #waline .wl-user img { margin-top: 2px; }
 #waline .wl-nick { line-height: 1.4; }
 #waline .wl-comment { align-items: flex-start; }
+
+/* 内容纠错卡片：文章页 + 曲目页 */
+.chuni-feedback-card {
+  padding: 18px 20px 14px;
+  margin-top: 18px;
+}
+.chuni-feedback-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.chuni-feedback-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #32325d;
+}
+.chuni-feedback-sub {
+  font-size: 13px;
+  color: #7d8290;
+}
+.chuni-feedback-tips {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #6b7280;
+}
+.chuni-feedback-tips b {
+  color: #4b5563;
+  font-weight: 600;
+}
+.chuni-feedback-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.chuni-feedback-btn {
+  border: 1px solid #dfe3ec;
+  background: #fff;
+  color: #4b5563;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.chuni-feedback-btn:hover {
+  border-color: #5e72e4;
+  color: #5e72e4;
+}
+.chuni-feedback-hint {
+  font-size: 12px;
+  color: #9aa0ac;
+}
+html.darkmode .chuni-feedback-card { background: #1f2233; }
+html.darkmode .chuni-feedback-title { color: #e5e7eb; }
+html.darkmode .chuni-feedback-sub,
+html.darkmode .chuni-feedback-tips,
+html.darkmode .chuni-feedback-hint { color: #9aa0ac; }
+html.darkmode .chuni-feedback-btn { background: #262a3d; border-color: #3a3f55; color: #c9cdd6; }
+@media (max-width: 640px) {
+  .chuni-feedback-card { padding: 14px 14px 10px; }
+  .chuni-feedback-tips { font-size: 12px; line-height: 1.8; }
+}

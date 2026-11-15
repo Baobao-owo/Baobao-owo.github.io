@@ -107,9 +107,7 @@
 	</div>
 <% } %>
 <% if (theme.giscus.enable) { %>
-	<div id="post_comment" class="card shadow-sm">
-		<%- partial('_comment/giscus') %>
-	</div>
+	<%- partial('_partial/feedback') %>
 <% } %>
 <% if (theme.waline.enable) { %>
 	<div id="post_comment" class="card shadow-sm">
