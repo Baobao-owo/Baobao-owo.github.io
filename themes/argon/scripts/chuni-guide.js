@@ -103,6 +103,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
     const x = rec[String(letter).toLowerCase()];
     if (!x) return false;
     const raw = String(x.raw || '').trim();
+    const who = String(x.who || '').trim();
+    if (who && DESIGNER_IDX.names.has(who)) return true;
     if (!raw) return false;
     if (DESIGNER_IDX.names.has(raw)) return true;
     const mapped = DESIGNER_ALIAS[raw];
