@@ -1,14 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const roots = [
-  ['mate', 'D:/SDHD - CHUNITHM Mate/HDD/data/A000/music'],
-  ['mate_a300', 'D:/SDHD - CHUNITHM Mate/HDD/bin/option/A300/music'],
-  ['xvx', 'D:/XVX/HDD/data/A000/music'],
-  ['xvx_a300', 'D:/XVX/HDD/bin/option/A300/music'],
-];
+// 日服：本体 + 所有 option 包（新曲经常只在 A0xx 包里，光扫 A000/A300 会漏）
+const MATE = 'D:/SDHD - CHUNITHM Mate/HDD';
+const XVX = 'D:/XVX/HDD';
+const OPTION_PACKS = ['A001', 'A071', 'A072', 'A073', 'A074', 'A081', 'A091', 'A092', 'A093', 'A300', 'AKOP'];
+const roots = [['mate', MATE + '/data/A000/music']];
+for (const pack of OPTION_PACKS) roots.push(['mate_' + pack.toLowerCase(), MATE + '/bin/option/' + pack + '/music']);
+roots.push(['xvx', XVX + '/data/A000/music']);
+for (const pack of ['A300', 'A301', 'A302']) roots.push(['xvx_' + pack.toLowerCase(), XVX + '/bin/option/' + pack + '/music']);
 
-const strip = (x) => String(x || '').replace(/<[^>]+>/g, '').trim();
+const decode = (x) => String(x || '')
+  .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+  .replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+const strip = (x) => decode(String(x || '').replace(/<[^>]+>/g, '')).trim();
 
 function parseMusicXML(xml) {
   const id = Number(strip((xml.match(/<dataName>\s*music(\d+)\s*<\/dataName>/) || [])[1] || 0)) || null;

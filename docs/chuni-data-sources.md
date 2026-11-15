@@ -279,3 +279,10 @@
 - `tools/scan_music_xml.mjs` 现在一并抓 `weAttr` / `weStars`；`chuni_we.json` 的每首歌补了 `attr` / `stars` / `id`，另加 `byId`（292 条，按 musicId 索引全部 WE 谱），为以后「一张 WE 谱一个 ID」做准备。
 - 现状：站点列表里一个曲名只对应一条 WE 行（153 条），A300 有 224 条，缺的 70 多张只能靠加行才能显示；加行会动到路由与列表，需要单独确认。
 
+#### 扫描范围修正（2026-11-15）
+
+- 之前 `tools/scan_music_xml.mjs` 只扫 `data/A000` 与 `bin/option/A300`，新曲常常只存在于 `A001/A071~A074/A081/A091~A093/AKOP` 这些包里，会漏。
+- 现在扫全部 option 包（日服 11 个、国服 A300/A301/A302），并解码 `&amp; / &lt; / &gt;` 等实体（不解码会把 `ODDS&ENDS` 当成缺失曲）。
+- 扫描结果：2283 个 musicId；站内缺的只有 3 个 —— `Sinfonie Nr. 9 d-moll op. 125`（50）、同曲 Master（81）、`怒槌～光吉猛修一部謎～`（8147，WE）。
+- A093 实测只有 4 首：2317 きゅうくらりん、3057 Your Reality、3058 LaVI-Bavellabion、3059 奇々解体；9 首新曲（コトバノ廃都、Fox Hunt、雑魚…）不在任何 Music.xml 里。
+
