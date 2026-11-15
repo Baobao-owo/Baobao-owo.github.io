@@ -299,3 +299,8 @@
 - 谱师从 `A101` / `A082` 的 c2s 提取，写进 `chuni_designer_fill.json`（页面显示用）与 `chuni_designers.json`（筛选/统计用）；只写 designers 不写 fill，页面仍会显示「—」。
 - `chuni_ids.json` 补 9 条；仍缺 id 的剩 10 首（P-KATSU、天天天国地獄国、さっきゅんライト（2025）等），本地数据更旧，暂不补。
 
+#### 用户拍板：暂时不补的项（2026-11-15）
+
+- 仍缺 musicId 的 10 首：先不管（P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅんライト（2025）、物凄い狂っとるフランちゃんが物凄いうた、ふたりのスタートボタン、Amusing Flavor、ぴるぐライド!、Dark Falchion、Metaverse Do Be Like This、HYPER SAMPLER）。
+- 游戏数据里有、站内没页面的 3 首：先算了，只记录 —— `Sinfonie Nr. 9 d-moll op. 125`（musicId 50）、同曲 Master（81）、`怒槌～光吉猛修一部謎～`（8147，WORLD'S END）。
+
