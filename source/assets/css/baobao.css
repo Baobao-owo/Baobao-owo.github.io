@@ -2870,3 +2870,8 @@ html.darkmode .chuni-feedback-btn { background: #262a3d; border-color: #3a3f55; 
   line-height: 1.2;
   color: #b06a2a;
 }
+
+/* 页脚移除后，给内容区块留一点底部呼吸空间 */
+#primary {
+  padding-bottom: 36px;
+}
