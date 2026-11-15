@@ -16,7 +16,7 @@
 <meta property="og:description" content="闲聊，杂谈，记录，部分工具">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-20T19:42:41.000Z">
-<meta property="article:modified_time" content="2026-11-15T06:02:02.576Z">
+<meta property="article:modified_time" content="2026-11-15T06:03:57.992Z">
 <meta property="article:author" content="FDShijing">
 <meta property="article:tag" content="4k">
 <meta property="article:tag" content="CHUNITHM SUN">
@@ -562,7 +562,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2023-5-21 3:42:41 | 编辑于 2026-11-15 14:02:02">2023-5-21 3:42
+							<time title="发布于 2023-5-21 3:42:41 | 编辑于 2026-11-15 14:03:57">2023-5-21 3:42
 							</time>
 						</div>
 					
@@ -899,7 +899,7 @@
 		<label class="wl-anon-label">
 			<input type="checkbox" id="wl-anon-toggle" />
 			<span>匿名评论</span>
-			<small>公屏会显示为「匿名用户」，站长后台仍能看到你的邮箱与 IP</small>
+			<small>勾选后公屏显示为「匿名用户」，但你的账号仍会被站长后台记录</small>
 		</label>
 	</div>
 	<div id="waline"></div>
@@ -907,49 +907,75 @@
 
 <script>
 	(function () {
+		// 用不可见字符做标记，评论内容里带上它，渲染时据此改显示
+		var MARK = '\u2063\u2063';
 		var ANON_NAME = '匿名用户';
-		var anonOn = false;
-		var savedNick = '';
-
-		function findNickInput() {
-			var inputs = document.querySelectorAll('#waline input');
-			for (var i = 0; i < inputs.length; i++) {
-				var p = (inputs[i].getAttribute('placeholder') || '') + ' ' + (inputs[i].name || '') + ' ' + (inputs[i].id || '');
-				if (p.indexOf('昵称') !== -1 || /nick/i.test(p)) return inputs[i];
-			}
-			return null;
-		}
-
-		function setValue(input, value) {
-			var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-			setter.call(input, value);
-			input.dispatchEvent(new Event('input', { bubbles: true }));
-			input.dispatchEvent(new Event('change', { bubbles: true }));
-		}
-
-		function applyAnon() {
-			var input = findNickInput();
-			if (!input) return;
-			if (anonOn) {
-				if (input.value && input.value !== ANON_NAME) savedNick = input.value;
-				if (input.value !== ANON_NAME) setValue(input, ANON_NAME);
-				input.setAttribute('readonly', 'readonly');
-				input.classList.add('wl-anon-input');
-			} else {
-				input.removeAttribute('readonly');
-				input.classList.remove('wl-anon-input');
-				if (input.value === ANON_NAME) setValue(input, savedNick);
-			}
-		}
-
+		var ANON_AVATAR =
+			'data:image/svg+xml;utf8,' +
+			encodeURIComponent(
+				'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#00aeec"/><circle cx="32" cy="25" r="11" fill="#fff"/><path d="M12 60c2-13 10-20 20-20s18 7 20 20" fill="#fff"/></svg>',
+			);
 		var box = document.getElementById('wl-anon-toggle');
-		if (box) {
-			box.addEventListener('change', function () {
-				anonOn = box.checked;
-				applyAnon();
-			});
+
+		function getEditor() {
+			return document.querySelector('#waline .wl-editor');
 		}
-		setInterval(applyAnon, 400);
+
+		function hasMark(text) {
+			return String(text || '').indexOf(MARK) === 0;
+		}
+
+		// 提交前把标记塞进正文；用户之后的编辑会原样保留
+		document.addEventListener(
+			'click',
+			function (e) {
+				if (!box || !box.checked) return;
+				var btn = e.target && e.target.closest ? e.target.closest('#waline .wl-btn.primary') : null;
+				if (!btn) return;
+				var ed = getEditor();
+				if (!ed) return;
+				var text = ed.value != null ? ed.value : ed.textContent;
+				if (hasMark(text)) return;
+				var next = MARK + text;
+				if (ed.value != null) {
+					var setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+					setter.call(ed, next);
+				} else {
+					ed.textContent = next;
+				}
+				ed.dispatchEvent(new Event('input', { bubbles: true }));
+			},
+			true,
+		);
+
+		function anonymize() {
+			var cards = document.querySelectorAll('#waline .wl-card');
+			for (var i = 0; i < cards.length; i++) {
+				var card = cards[i];
+				var content = card.querySelector('.wl-content');
+				if (!content || content.getAttribute('data-anon-done')) continue;
+				if (!hasMark(content.textContent)) continue;
+				content.setAttribute('data-anon-done', '1');
+				var html = content.innerHTML;
+				while (html.indexOf(MARK) !== -1) html = html.replace(MARK, '');
+				content.innerHTML = html;
+
+				var nick = card.querySelector('.wl-nick');
+				if (nick) {
+					nick.textContent = ANON_NAME;
+					nick.removeAttribute('href');
+				}
+				var link = card.querySelector('.wl-nick a, a.wl-nick');
+				if (link) link.removeAttribute('href');
+				var img = card.querySelector('.wl-user img, .wl-avatar img, img.wl-avatar');
+				if (img) {
+					img.src = ANON_AVATAR;
+					img.srcset = '';
+				}
+			}
+		}
+
+		setInterval(anonymize, 600);
 
 		function startWaline() {
 			var api = window.Waline;
