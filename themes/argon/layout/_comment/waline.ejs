@@ -1,7 +1,85 @@
-<div id="waline"></div>
+<div class="wl-wrap">
+	<div class="wl-anon-bar">
+		<label class="wl-anon-label">
+			<input type="checkbox" id="wl-anon-toggle" />
+			<span>匿名评论</span>
+			<small>公屏会显示为「匿名用户」，站长后台仍能看到你的邮箱与 IP</small>
+		</label>
+	</div>
+	<div id="waline"></div>
+</div>
+
 <script>
-  Waline({
-	el: '#waline',
-	serverURL: '<%= theme.waline.server_url %>',
-  });
+	(function () {
+		var ANON_NAME = '匿名用户';
+		var anonOn = false;
+		var savedNick = '';
+		var observer = null;
+
+		function findNickInput() {
+			var inputs = document.querySelectorAll('#waline .wl-header input, #waline input');
+			for (var i = 0; i < inputs.length; i++) {
+				var p = (inputs[i].getAttribute('placeholder') || '') + (inputs[i].name || '');
+				if (p.indexOf('昵称') !== -1 || p.indexOf('nick') !== -1) return inputs[i];
+			}
+			return null;
+		}
+
+		function applyAnon() {
+			var input = findNickInput();
+			if (!input) return;
+			if (anonOn) {
+				if (input.value !== ANON_NAME) savedNick = input.value || savedNick;
+				input.value = ANON_NAME;
+				input.setAttribute('readonly', 'readonly');
+				input.classList.add('wl-anon-input');
+			} else {
+				input.removeAttribute('readonly');
+				input.classList.remove('wl-anon-input');
+				if (input.value === ANON_NAME) input.value = savedNick;
+			}
+		}
+
+		function observe() {
+			var root = document.getElementById('waline');
+			if (!root || observer) return;
+			observer = new MutationObserver(function () {
+				applyAnon();
+			});
+			observer.observe(root, { childList: true, subtree: true });
+		}
+
+		function init() {
+			if (!window.Waline || !window.Waline.init) {
+				setTimeout(init, 200);
+				return;
+			}
+			Waline.init({
+				el: '#waline',
+				serverURL: '<%= theme.waline.server_url %>',
+				lang: 'zh-CN',
+				login: 'disable',
+				meta: ['nick', 'mail'],
+				requiredMeta: ['nick', 'mail'],
+				pageview: false,
+				comment: true,
+				reaction: false,
+				search: false,
+				dark: 'html.darkmode',
+			});
+			var box = document.getElementById('wl-anon-toggle');
+			if (box) {
+				box.addEventListener('change', function () {
+					anonOn = box.checked;
+					applyAnon();
+				});
+			}
+			setTimeout(function () {
+				applyAnon();
+				observe();
+			}, 800);
+		}
+
+		init();
+	})();
 </script>
