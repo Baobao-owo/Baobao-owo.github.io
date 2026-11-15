@@ -139,7 +139,7 @@ gitalk:
   clientID: ''
   clientSecret: ''
 giscus: # https://giscus.app/zh-CN
-  enable: false
+  enable: true
   song_enable: true
   repo: 'Baobao-owo/Baobao-owo.github.io'
   repo_id: 'R_kgDOVqnN2A'
@@ -151,7 +151,7 @@ giscus: # https://giscus.app/zh-CN
   lang: zh-CN
   loading: lazy
 waline:
-  enable: true
+  enable: false
   server_url: 'https://waline-example-baobao-owo.vercel.app'
 twikoo:
   enable: false
