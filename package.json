@@ -10,7 +10,8 @@
     "new": "hexo new",
     "deploy": "hexo deploy",
     "publish": "hexo clean && hexo generate && hexo deploy",
-    "redeploy": "hexo clean && hexo generate"
+    "redeploy": "hexo clean && hexo generate",
+    "scan:c2s": "node tools/scan_c2s_recursive.mjs"
   },
   "hexo": {
     "version": "8.1.2"

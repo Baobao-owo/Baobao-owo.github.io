@@ -4,8 +4,16 @@
 
 **动手前必读：`docs/chuni-site-notes.md`（站点规则）和 `docs/chuni-data-sources.md`（游戏数据源路径、Mate A300 语义、扫描约定）**——里面记录了曲库数据结构、合作谱判定规则、谱师显示约定、筛选与遮罩逻辑、翻译/梗研究流程、部署流程和已知坑。
 
+每次开新任务，按这个顺序先读一遍再动手：
+
+1. `AGENTS.md`（本文件）
+2. `docs/chuni-site-notes.md` 第 10 节（筛选规则）、第 11 节（维护纪律）
+3. `docs/chuni-data-sources.md` 第 0 节（一句话）、第 7 节（数据清单）、第 8 节（未裁定对撞）、第 11 节（重犯清单）
+
 ## 硬性约定
 
+- **不要假设文件不存在**：说「本地没有」之前先递归搜（谱面跑 `node tools/scan_c2s_recursive.mjs`），搜索根目录和匹配规则一并写进回复
+- **踩过的坑当天归档**：写进 `docs/chuni-data-sources.md` 第 11 节，并在 `docs/chuni-site-notes.md` 第 11 节补纪律；不靠对话记忆
 - 部署：`main` 推送 → GitHub Actions → `gh-pages`；推送前 `git stash push -m tmp` → `git pull --rebase origin main` → `git push origin main` → `git stash pop`
 - 禁止本地 `hexo deploy`；另一个会话也在改同一仓库，冲突用 rebase 解决
 - 改完数据/模板：`npm run clean && npm run build`，确认无 ERROR 再推

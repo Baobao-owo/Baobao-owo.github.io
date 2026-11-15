@@ -203,9 +203,9 @@
 
 ## 10. 2026-11-15 裁定执行记录（续）
 
-- **#14 chunithm-data.json**：\	ools/normalize_chunithm_data.mjs\ 把它摊平成 title → per-diff 定数，与站内 6355 张可比，只有 7 处不同（\_tmp/reports/mirror-const-diff.tsv\：FLOWER adv/mas、Over Heart 四张、狂命 mas）。结论：**可用作第三方参考，不直接回写**。
-- **#13 翻译索引**：\	ools/build_translation_index.mjs\ 扫 143 个 batch*.json → \	ools/translation-index.json\（9365 条，介绍 6161 / 由来 2026 / 称号 1177 / 紹介 1，去重 63；另有 \_tmp/zh-lines.jsonl\ 1213 个 id 的中文整段）。译文已经落到 \chuni_extra.json\ 的 \wiki_comment_zh / titles_zh / origins_zh\。
-- **#8 预览缺口**：按 \<musicId>_<0-4>\ 口径只有 12 张缺（ドーナツホール等 4 张 ULTIMA、Garakuta remix 4 张、WORLD'S END 779 四张）；另有 76 张 WE-only 行没有 musicId。本地两个 HDD 的 \music\ 目录现在只剩 MusicSort.xml，c2s 已不在原处，需要重新解包或指定目录才能补。
+- **#14 chunithm-data.json**：`tools/normalize_chunithm_data.mjs` 把它摊平成 title → per-diff 定数，与站内 6355 张可比，只有 7 处不同（`_tmp/reports/mirror-const-diff.tsv`：FLOWER adv/mas、Over Heart 四张、狂命 mas）。结论：**可用作第三方参考，不直接回写**。
+- **#13 翻译索引**：`tools/build_translation_index.mjs` 扫 143 个 batch*.json → `tools/translation-index.json`（9365 条，介绍 6161 / 由来 2026 / 称号 1177 / 紹介 1，去重 63；另有 `_tmp/zh-lines.jsonl` 1213 个 id 的中文整段）。译文已经落到 `chuni_extra.json` 的 `wiki_comment_zh / titles_zh / origins_zh`。
+- **#8 预览缺口**：按 `<musicId>_<0-4>` 口径只有 12 张缺（ドーナツホール等 4 张 ULTIMA、Garakuta remix 4 张、WORLD'S END 779 四张）；另有 76 张 WE-only 行没有 musicId。**c2s 实际都在** `music\musicXXXX\` 子目录里（见下文修正），当时写成「不在原处」是错的。
 - **目录变化**：日服现在是 \D:\SDHD - CHUNITHM Mate\HDD\{data,bin\option}\（多了一层 HDD）；旧路径 \D:\SDHD - CHUNITHM Mate\data\...\ 已不存在。
 
 ### 2026-11-15 补记：5 首缺介绍已补
@@ -227,3 +227,16 @@
 | 2175_4 | 2175 | シル・ヴ・プレジデント | ULTIMA | `music2175` 只有 00~03，本地确实没有 ULTIMA |
 
 渲染命令：把 c2s 按 `<4位id>_<2位难度>.c2s` 放进任意目录，跑 `node tools/render_new_previews.mjs <目录>`，会自动跳过清单已有的、渲染缺失的并上传 release。
+
+
+## 11. 重犯清单（动手前先扫一眼）
+
+这一节只记「已经犯过一次、别再犯第二次」的事，按发现时间排。
+
+1. **c2s 不是「没有」，是没搜到**（2026-11-15，犯过两次）。平铺的 `music` 目录只剩 `MusicSort.xml`，谱面在 `music\musicXXXX\` 子目录里；日服多一层 `HDD`。报「本地没有」之前必须跑 `npm run scan:c2s`（= `node tools/scan_c2s_recursive.mjs`），它递归扫两个盘并按 `<musicId>_<难度>` 对清单，输出「可渲染但缺清单」的条目。
+2. **id 是曲名，不是 musicId**。`chuni_extra.json`、`chuni_designers.json` 一类按曲名索引；写介绍要同时写数字 musicId 键和曲名键，否则页面显示「wiki 的曲目介绍还没搬」（chuni-song.ejs 取 `extra[String(s.id)]`）。
+3. **标点差异会把差集撑大**。比较两套曲名先归一全角/半角、空格、`！`/`!`、`～`/`~`，否则 33/15 会虚高成 26/8。
+4. **同名不同曲**：Over Heart（イロドリミドリ）≠ Overhea[r]t（ORIGINAL）；Sinfonie Nr. 9 也有普通版和 (Master) 版两个 musicId。按标题匹配前先确认 musicId。
+5. **chuni_ids.json 的值是字符串**（`'9'`），比较前先 `Number()`。
+6. **WE 伪条目**：`chuni.json` 里有 153 条 `(WE) 曲名` 的行，WE 谱删掉后会显示成 rm，看起来像「删除曲变多」，实际总数 2152 没变。
+7. **预览 key 是 `<musicId>_<difficulty>`**，文件名是 4 位 id + 2 位难度（`0242_00.c2s` → key `242_0`），正则要写 `\d{1,2}`，别写单个 `\d`。

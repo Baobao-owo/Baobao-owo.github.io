@@ -243,7 +243,9 @@
 
 ## 11. 维护纪律
 
-- 每次动手改曲库站之前，先读一遍 `docs/chuni-site-notes.md`（仓库根目录 `AGENTS.md` 有指针）
+- 每次动手改曲库站之前，按顺序读：`AGENTS.md` → `docs/chuni-site-notes.md` → `docs/chuni-data-sources.md` 的第 0、7、8、11 节；看完再动代码
+- 说「本地没有 / 数据缺失」之前必须有搜索证据：先跑 `node tools/scan_c2s_recursive.mjs`（谱面）或列出搜过的根目录与匹配规则，不允许只看一层目录就下结论
+- 踩过的坑当天写回 `docs/chuni-data-sources.md` 第 11 节「重犯清单」，并在这里补一条纪律；不要只靠对话记忆
 - 改完数据或模板，跑 `npm run build` 本地确认，再按 stash → pull --rebase → push 流程推送
 - 线上验证用带 `?cb=` 的 URL，等待 3–5 分钟让 Pages 缓存刷新
 
