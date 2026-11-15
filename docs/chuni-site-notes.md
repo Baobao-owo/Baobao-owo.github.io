@@ -307,3 +307,12 @@
 注意：本地后台的两个窗口不能关，关了会断开。
 
 - **c2s 素材位置**（2026-11-15）：谱面不在平铺的 `music` 目录（那里只有 MusicSort.xml），而在 `music\musicXXXX\` 子目录里，例如 `HDD\bin\option\A001\music\music0242\0242_00.c2s`；日服根目录多一层 `HDD`。找素材要递归搜。
+
+
+### 10.10 WORLD'S END 按谱面拆行
+
+- `chuni_we.json` 有 `songs`（按曲名，兼容旧页面）与 `byId`（按 musicId，一谱一条）两套索引。
+- 列表数据生成时，同一曲名有多张 WE 谱会拆成多行，每行带 `wid`（musicId）、`we:[星数]`、`weAttr`，星数与属性都取自该谱面自己的 `Music.xml`（`starDifType` → ☆ = ceil(n/2)，`worldsEndTagName` → 属性）。
+- 只有开启「WORLD'S END」开关时这些行才出现；默认列表不受影响。
+- 同一曲名如果有「WE 专属条目」，WE 行只挂在它上面，避免和普通谱条目重复；拆行时按 `曲名|wid` 去重。
+- 2026-11-15 状态：`byId` 292 条，列表挂上 284 条（8 条在站内没有对应条目），全库行数 2152 → 2278。

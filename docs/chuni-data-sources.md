@@ -304,3 +304,13 @@
 - 仍缺 musicId 的 10 首：先不管（P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅんライト（2025）、物凄い狂っとるフランちゃんが物凄いうた、ふたりのスタートボタン、Amusing Flavor、ぴるぐライド!、Dark Falchion、Metaverse Do Be Like This、HYPER SAMPLER）。
 - 游戏数据里有、站内没页面的 3 首：先算了，只记录 —— `Sinfonie Nr. 9 d-moll op. 125`（musicId 50）、同曲 Master（81）、`怒槌～光吉猛修一部謎～`（8147，WORLD'S END）。
 
+
+
+## 13. WORLD'S END 分谱索引（2026-11-15）
+
+`source/_data/chuni_we.json`：
+
+- `songs`: 按曲名一条，给页面回退用。
+- `byId`: 按 musicId 一条，共 292 条；字段 `title/attr/stars/designer/from`。
+- 星数来自 `Music.xml` 的 `starDifType`（1/3/5/7/9 → ☆1..5），属性来自 `worldsEndTagName`。
+- 列表里每张 WE 谱单独成行，唯一键 `曲名|wid`；全库行数 2278，其中 WE 行 284。

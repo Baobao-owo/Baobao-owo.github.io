@@ -173,7 +173,23 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const removedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed) || {};
   const removedIds = new Set((removedData.matched || []).map(function (x) { return String(x.id); }));
   const cnRemovedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_removed) || {};
-  const weData = ((hexo.locals.get('data') && hexo.locals.get('data').chuni_we) || {}).songs || {};
+  const weRaw = ((hexo.locals.get('data') && hexo.locals.get('data').chuni_we) || {});
+  const weData = weRaw.songs || {};
+  // 每张 WORLD'S END 谱面都有自己的 musicId：列表按谱面拆行，一张谱一条索引
+  const weChartsByTitle = (function () {
+    const byTitle = {};
+    const byId = weRaw.byId || {};
+    Object.keys(byId).forEach(function (id) {
+      const v = byId[id] || {};
+      const t = String(v.title || '').trim();
+      if (!t) return;
+      (byTitle[t] = byTitle[t] || []).push({ id: Number(id), attr: v.attr || '', stars: v.stars == null ? null : Number(v.stars), designer: v.designer || '' });
+    });
+    Object.keys(byTitle).forEach(function (t) {
+      byTitle[t].sort(function (a, b) { return a.id - b.id; });
+    });
+    return byTitle;
+  })();
   const weDeletedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_we_deleted) || {};
   const weDeletedSet = new Set((weDeletedData.songs || []).map(function (x) { return normTitle(x.title); }));
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
@@ -425,7 +441,41 @@ const versionLabel = new Map(d.versions.map(function (v) {
       })
     };
   });
-  hexo.route.set('chuni-songs.json', JSON.stringify(compact));
+  // WORLD'S END 按谱面拆行：每张谱一个索引（同一曲名可以出现多行）
+  const compactSplit = (function () {
+    const out = [];
+    const weOnlyTitles = {};
+    compact.forEach(function (r) {
+      const isWEOnly = (r.sh || []).length && r.sh.every(function (sh) { return /^【.*】$/.test(String(sh.d)); });
+      if (isWEOnly) weOnlyTitles[String(r.t || '').trim()] = 1;
+    });
+    const seenWid = {};
+    compact.forEach(function (r) {
+      const title = String(r.t || '').trim();
+      const charts = weChartsByTitle[title] || [];
+      const isWEOnly = (r.sh || []).length && r.sh.every(function (sh) { return /^【.*】$/.test(String(sh.d)); });
+      // 同一曲名有「WE 专属条目」时，WE 谱只挂在它上面，避免和普通谱条目重复
+      if (!isWEOnly && weOnlyTitles[title]) { out.push(r); return; }
+      if (!charts.length) { out.push(r); return; }
+      const weRows = charts.filter(function (c) {
+        const key = title + '|' + c.id;
+        if (seenWid[key]) return false;
+        seenWid[key] = 1;
+        return true;
+      }).map(function (c) {
+        return Object.assign({}, r, {
+          wid: c.id,
+          we: [c.stars == null ? 1 : c.stars],
+          weAttr: c.attr,
+          sh: []
+        });
+      });
+      if (isWEOnly) out.push.apply(out, weRows);
+      else { out.push(r); out.push.apply(out, weRows); }
+    });
+    return out;
+  })();
+  hexo.route.set('chuni-songs.json', JSON.stringify(compactSplit));
 
   routes.push({
     path: 'chuni/index.html',
