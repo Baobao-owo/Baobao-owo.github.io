@@ -2861,3 +2861,12 @@ html.darkmode .chuni-feedback-btn { background: #262a3d; border-color: #3a3f55; 
   .chuni-feedback-card { padding: 14px 14px 10px; }
   .chuni-feedback-tips { font-size: 12px; line-height: 1.8; }
 }
+
+/* 国服定数（与日服不同时补在定数下面） */
+.chuni-iv-cn {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #b06a2a;
+}
