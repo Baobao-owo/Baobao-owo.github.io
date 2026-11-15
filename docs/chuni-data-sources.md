@@ -1,4 +1,4 @@
-# 中二节奏曲库站 · 游戏数据源清单
+﻿# 中二节奏曲库站 · 游戏数据源清单
 
 > 记录时间：2026-11-15。用于扫描曲库、补谱师、补定数、更新删除曲时确定「读哪个盘、读哪个包」。
 > 换会话 / 上下文丢失时，先读这份，再动手。
@@ -102,7 +102,7 @@
 | `source/_data/collab_parts.json` | 13.8KB | 合作分工表（28 首，按归一化曲名索引，`rows` 为「担当箇所 / 担当ND」） |
 | `source/_data/collab_docx_titles.json` | 3.9KB | 谱师学 docx 抽出的合作曲白名单（166 首） |
 | `source/_data/chuni_confirm.json` / `chuni_designer_fill.json` / `chuni_designer_fix.json` | 167KB / 132KB / 0.2KB | 人工校正、补名、单点修正 |
-| `source/assets/data/collab.json` | 16.6KB | 每首每难度的合作参与者（148 首），`stats/ songs` |
+| `source/assets/data/collab.json` | 16.6KB | 每首每难度的合作参与者（167 首，用户逐条裁定后），`stats/ songs` |
 | `source/assets/data/designers.json` | 518KB | 谱师 → 曲目倒排（49 位，1967 首），面板计数用 |
 | `source/assets/data/collab-parts.json` | 13.8KB | 与 `_data/collab_parts.json` **内容相同**（见 8.11） |
 
@@ -161,7 +161,7 @@
 7. **介绍缺 15 首。** `chuni_extra.json` 2145 条，曲库 2151 首，15 首查不到条目（`ODDS&ENDS`、`トリスメギストス`、`-OutsideR:RequieM-`、`Title`、`GEMINI -M-` …）；另有 2 条缺日文原文、2 条缺中文。
 8. **预览图缺 88 张**（按 `musicId_难度` 计，7495 张应有）。
 9. **谱师留言 477 条，只对上 466 首**（11 条按曲名找不到歌）；之前统计「537 首有留言」是重复标题被重复计数。
-10. **合作判定四套并存。** `collab.json` 148 首、docx 白名单 166 首、分工表 28 首、别名表里 51 条 `A × B`（45 条进了显示）。同一首可能 docx 说是合作、`collab.json` 却没有参与者。
+10. **合作判定四套并存。** `collab.json` 167 首、docx 白名单 166 首、分工表 28 首、别名表里 51 条 `A × B`（45 条进了显示）。2026-11-15 用户按「合作曲待裁定.xlsx」逐条判定后：21 首补了 per-diff 参与者，7 首归为单人并进 `tools/collab-exclude.json`（现 14 条）。。同一首可能 docx 说是合作、`collab.json` 却没有参与者。
 11. **分工表存两份。** `source/_data/collab_parts.json` 与 `source/assets/data/collab-parts.json` 现在内容相同（构建读 `_data`），但两份分开维护，之前就出过「一份 5 条、一份 17 条」的事故。
 12. **总数口径混用。** 2011（`chuni.json` 本体）、2151（含删除曲，页面显示）、1855（唯一曲名）三个数在不同文档/脚本里都出现过，写的时候要标清是哪个。
 13. **翻译两套文件。** `batch1–78-raw/translated.json` 与 `zh-*.jsonl` 各自成体系，没有总索引，不知道哪批最后合进了 `chuni_extra.json`。
