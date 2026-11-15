@@ -273,7 +273,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
         if (!/^【.*】$/.test(sh.difficulty)) return sh;
         return Object.assign({}, sh, {
           attr: sh.difficulty,
-          level: '☆' + (weInfo.stars || 1),
+          level: weInfo.stars ? ('☆' + weInfo.stars) : '☆?',
           designer: weInfo.designer || sh.designer || ''
         });
       });

@@ -257,3 +257,12 @@
 - 第 9 项（合作 7 首）：选 **A（保持）**，并要求把 docx 漏掉的 7 首补回白名单 —— 已补，`collab_docx_titles.json` 166 → 173。
 - 第 10 项（同名 WE 成对）：选 **A**，保持并排显示。
 - 第 2 项（新曲缺谱师）：用户提示 Mate 的 **A093** 里有部分数据 —— 已从 `A093\music\music3057、3058` 提取 CREATOR，补上 `Your Reality (Kenji Mizuno Remix)`、`LaVI-Bavellabion` 的谱师；其余 16 首本地无 XML/谱面，先保留。
+
+### 2026-11-15 WE 数据并入（待定项第 8 项）
+
+- 用户选 A（并入 `chuni_we`，带数据）。
+- `tools/sync_we_from_wiki.mjs`：抓 wiki 的 `WORLD'S END` 页面表格（楽曲/属性/☆/NOTES DESIGNER），解析成 80 首当前 WE，与 `chuni_we.json` 比对；脚注 `*7` 之类要剥掉，标点和大小写差异不算冲突。
+- `tools/merge_a300_we.mjs`：从 `_tmp/game/music-xml.json` 的 `mate_a300` 取 WE 已启用条目（224 条），谱师来自 `A300` 的 `{id}_04.c2s` 的 CREATOR；站内没有的新增，已有的只补空字段。
+- 结果：`chuni_we.json` 83 → 251 首（其中 168 首标 `from: A300`）。这 168 首没有星数（wiki 的「配信終了」页面只给属性），页面显示 `☆?`，生成器已把回退从 `☆1` 改成 `☆?`。
+- 冲突清单：`_tmp/reports/a300-we-merge.tsv`（A300 与站内名义不一致 10 条）、`_tmp/reports/we-wiki-sync.tsv`（wiki 与站内不一致 7 条），已汇总成 `_tmp/WE冲突待裁定.xlsx` 交用户判断。
+
