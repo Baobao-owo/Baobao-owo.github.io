@@ -16,7 +16,7 @@
 <meta property="og:description" content="闲聊，杂谈，记录，部分工具">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-14T04:08:03.000Z">
-<meta property="article:modified_time" content="2026-11-15T07:00:03.727Z">
+<meta property="article:modified_time" content="2026-11-15T07:03:58.533Z">
 <meta property="article:author" content="FDShijing">
 <meta property="article:tag" content="4k">
 <meta property="article:tag" content="osu!mania">
@@ -37,7 +37,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=8f7d6e39">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=d0136c47">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -558,7 +558,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-5-14 12:08:03 | 编辑于 2026-11-15 15:00:03">2021-5-14 12:08
+							<time title="发布于 2021-5-14 12:08:03 | 编辑于 2026-11-15 15:03:58">2021-5-14 12:08
 							</time>
 						</div>
 					
@@ -888,8 +888,21 @@
 
 
 
-	<div id="post_comment" class="card shadow-sm">
-		<div id="giscus"></div>
+	<div id="post_feedback" class="card shadow-sm chuni-feedback-card">
+	<div class="chuni-feedback-head">
+		<span class="chuni-feedback-title">内容纠错</span>
+		<span class="chuni-feedback-sub">发现错别字、数据错误、翻译不准或失效链接？</span>
+	</div>
+	<ul class="chuni-feedback-tips">
+		<li><b>说位置</b>：小节标题、原文那一句，或第几行</li>
+		<li><b>说问题</b>：哪里不对、为什么不对</li>
+		<li><b>说改法</b>：建议改成什么（没有也行）</li>
+	</ul>
+	<div class="chuni-feedback-actions">
+		<button type="button" id="feedback-copy-link" class="chuni-feedback-btn">复制本页链接</button>
+		<span class="chuni-feedback-hint">提交需要 GitHub 账号登录</span>
+	</div>
+	<div id="giscus"></div>
 <script>
   function loadGiscus() {
     const old = document.querySelector('#giscus script');
@@ -906,6 +919,7 @@
     script.setAttribute("data-theme", "light");
     script.setAttribute("data-lang", "zh-CN");
     script.setAttribute("data-loading", "lazy");
+    script.setAttribute("data-reactions-enabled", "0");
     script.async = true;
     script.crossOrigin = "anonymous";
 
@@ -919,7 +933,36 @@
   });
 </script>
 
-	</div>
+</div>
+<script>
+	(function () {
+		var btn = document.getElementById('feedback-copy-link');
+		if (!btn) return;
+		btn.addEventListener('click', function () {
+			var url = window.location.href;
+			var done = function () {
+				btn.textContent = '已复制';
+				setTimeout(function () {
+					btn.textContent = '复制本页链接';
+				}, 2000);
+			};
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(url).then(done, done);
+				return;
+			}
+			var input = document.createElement('input');
+			document.body.appendChild(input);
+			input.value = url;
+			input.select();
+			try {
+				document.execCommand('copy');
+			} catch (e) {}
+			document.body.removeChild(input);
+			done();
+		});
+	})();
+</script>
+
 
 
 

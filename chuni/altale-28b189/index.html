@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=8f7d6e39">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=d0136c47">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -1089,10 +1089,22 @@ BMS 活动「G2R2014」个人战分数部门优胜曲，曲风是 fantasy。
 			</div>
 
 			<div class="chuni-section chuni-comment-section" id="chuni-comment">
-				<div class="chuni-section-title">评论</div>
 				
-					<div class="chuni-comment-box">
-						<div id="giscus"></div>
+					<div id="post_feedback" class="card shadow-sm chuni-feedback-card">
+	<div class="chuni-feedback-head">
+		<span class="chuni-feedback-title">内容纠错</span>
+		<span class="chuni-feedback-sub">发现错别字、数据错误、翻译不准或失效链接？</span>
+	</div>
+	<ul class="chuni-feedback-tips">
+		<li><b>说位置</b>：小节标题、原文那一句，或第几行</li>
+		<li><b>说问题</b>：哪里不对、为什么不对</li>
+		<li><b>说改法</b>：建议改成什么（没有也行）</li>
+	</ul>
+	<div class="chuni-feedback-actions">
+		<button type="button" id="feedback-copy-link" class="chuni-feedback-btn">复制本页链接</button>
+		<span class="chuni-feedback-hint">提交需要 GitHub 账号登录</span>
+	</div>
+	<div id="giscus"></div>
 <script>
   function loadGiscus() {
     const old = document.querySelector('#giscus script');
@@ -1109,6 +1121,7 @@ BMS 活动「G2R2014」个人战分数部门优胜曲，曲风是 fantasy。
     script.setAttribute("data-theme", "light");
     script.setAttribute("data-lang", "zh-CN");
     script.setAttribute("data-loading", "lazy");
+    script.setAttribute("data-reactions-enabled", "0");
     script.async = true;
     script.crossOrigin = "anonymous";
 
@@ -1122,7 +1135,36 @@ BMS 活动「G2R2014」个人战分数部门优胜曲，曲风是 fantasy。
   });
 </script>
 
-					</div>
+</div>
+<script>
+	(function () {
+		var btn = document.getElementById('feedback-copy-link');
+		if (!btn) return;
+		btn.addEventListener('click', function () {
+			var url = window.location.href;
+			var done = function () {
+				btn.textContent = '已复制';
+				setTimeout(function () {
+					btn.textContent = '复制本页链接';
+				}, 2000);
+			};
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(url).then(done, done);
+				return;
+			}
+			var input = document.createElement('input');
+			document.body.appendChild(input);
+			input.value = url;
+			input.select();
+			try {
+				document.execCommand('copy');
+			} catch (e) {}
+			document.body.removeChild(input);
+			done();
+		});
+	})();
+</script>
+
 				
 			</div>
 		</div>
