@@ -253,6 +253,13 @@
 - 默认隐藏删除曲时，只在删除曲里出现的合作不会被计入；想看全量要打开「仅显示删除曲」。
 - Verse X 的 MASTER 谱面作者：原署名是 `Thank you for 10 years of CHUNITHM`，按谱面汇报留言（夕凪アロエ 说去帮了 ぴちネコ）改为 `ぴちネコ × 夕凪アロエ`，并加入 collab.json（`m` 两位成员）。
 
+## 10.8 B/A 谱面作者索引（2026-11-15）
+
+- 现象：Mate 新曲在「仅显示单独」里 B/A 谱是灰的——`kn`（作者已知）标记来自 `designers.json` 的 songs 索引，而索引原先只从 c2s / 朋友数据取，Mate 新曲的黄绿谱只有站内 `chuni_designer_fill.json` 有署名，索引里查不到。
+- 修法：`tools/build_designers_merged.mjs` 取 raw 时按顺序兜底 —— c2s → 朋友数据 → `chuni.json` 的 sheet.designer 原文 → `chuni_designer_fill.json`（键是大写 B/A/E/M/U）。
+- 效果：狂命、SAN値直葬、雑魚、Fox Hunt 等 B/A 恢复彩色；谱师面板各人曲数同步上涨。
+- 仍未收录的：`supported by …`、`A vs B`、`+ ?*10`、`/` 这类组合写法（solo 模式下本就该灰），以及 `ざぁこレモン`、`◆ミニミライト( ; >ω<)`、`逆風オールバック` 等不确定名义，等用户决策后再映射。
+
 ## 11. 维护纪律
 
 - 每次动手改曲库站之前，按顺序读：`AGENTS.md` → `docs/chuni-site-notes.md` → `docs/chuni-data-sources.md` 的第 0、7、8、11 节；看完再动代码
