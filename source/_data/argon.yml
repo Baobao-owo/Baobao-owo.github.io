@@ -89,7 +89,7 @@ enable_into_article_animation: false
 enable_mobile_scale: false
 
 # 页脚
-footer_html: '<div>用 <i class="fa fa-heart"></i> 记一点东西</div>'
+footer_html: ''
 
 # 数学公式
 math_render: ''
