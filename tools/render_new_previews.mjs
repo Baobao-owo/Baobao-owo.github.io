@@ -105,7 +105,15 @@ for (const item of queue) {
     await new Promise((r) => setTimeout(r, 2000));
     const out = path.join(ROOT, '_tmp/charts', 'new_' + assetName);
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    await page.screenshot({ path: out, fullPage: true, type: 'webp', quality: 82 });
+    const png = out.replace(/\.webp$/, '.png');
+    await page.screenshot({ path: png, fullPage: true, type: 'png' });
+    const py = 'C:\\Users\\33303\\.dsh\\dsh-runtimes\\dsh-primary-runtime\\dependencies\\python\\python.exe';
+    const conv = 'import sys;from PIL import Image;im=Image.open(sys.argv[1]);w,h=im.size;m=max(w/14000.0,1.0);im=im.resize((int(w/m),int(h/m)),Image.LANCZOS).convert("RGB");im.save(sys.argv[2],"WEBP",quality=80,method=6)';
+    await new Promise((resolve, reject) => {
+      const c = spawn(py, ['-c', conv, png, out], { stdio: 'ignore' });
+      c.on('exit', (code) => code === 0 ? resolve() : reject(new Error('webp convert ' + code)));
+    });
+    fs.unlinkSync(png);
     const buf = fs.readFileSync(out);
     const res = await fetch(`https://uploads.github.com/repos/${OWNER}/${REPO}/releases/${rel.id}/assets?name=${encodeURIComponent(assetName)}`, {
       method: 'POST',
