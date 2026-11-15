@@ -380,3 +380,16 @@
 详情表里谱面作者显示 `/` 或 `-`，说明站内这份只是占位符，不代表真的没有作者。先从本地谱面文件读 `CREATOR` 原文再回填，别照着别的难度猜。
 
 例：Melodiniq（id 2999）的 EXPERT/MASTER 在 chuni.json 里是 `/`，c2s 的 `CREATOR` 是 `Memoir of "AdministratoR"`，和 ULTIMA 一致，已回填。
+
+
+### 10.17 国服模式按「这张谱国服有没有」来筛
+
+国服不是简单地把日服曲库整体搬过来：有的歌国服只有 WE 谱、没有常规谱（例如 Garakuta Doll Play (sasakure.UK clutter remix)），所以不能只按曲目级 `cn` 标记判断。
+
+数据：`source/_data/chuni_cn_diffs.json`，用落雪快照按 musicId 对应曲名，记每首歌国服实际有哪些常规难度（b/a/e/m/u）。
+
+- 生成器给列表行加 `cd` 字段
+- 列表页 `visibleKeys` 在国服模式只保留 `cd` 里的难度，其余显示为空；没有任何国服常规难度的行直接隐藏
+- WE 行不受这套限制，仍按 `weDelCN` 判定存活
+- 实测：国服默认 1413 首、国服 + WORLD'S END 53 行
+

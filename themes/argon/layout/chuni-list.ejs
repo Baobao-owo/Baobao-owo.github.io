@@ -300,7 +300,7 @@
 		return ['b', 'a', 'e', 'm', 'u'].filter(function (k) { return col.indexOf(k) === -1 && known[k]; });
 	}
 
-	function visibleKeys(r) {
+	function visibleKeysBase(r) {
 		// 合作 / 单独：只亮对应写法的谱，其余变灰
 		if (state.collab) return collabKeysOf(r);
 		if (state.solo) {
@@ -320,6 +320,15 @@
 		// 没选谱师时：取消勾选的难度灰掉
 		if (sel.length && sel.length < 5) return sel.slice();
 		return null;
+	}
+
+	function visibleKeys(r) {
+		var k = visibleKeysBase(r);
+		// 国服模式下，只保留国服确实有这张谱的难度；WE 行不参与（它自己按存活状态管）
+		if (state.version !== 'cn' || (r.we && r.we.length)) return k;
+		var cd = r.cd || [];
+		var arr = k || ['b', 'a', 'e', 'm', 'u'];
+		return arr.filter(function (d) { return cd.indexOf(d) !== -1; });
 	}
 
 	function designerDiffKeys(r) {
@@ -408,7 +417,7 @@
 		var rows = all.filter(function (r) {
 			// 国服模式下，国服下架的曲目也算国服曲库（之前只有点「仅显示删除曲」才露面，
 			// 导致「不显示删除曲」开关在国服几乎不起作用）
-			if (state.version === 'cn' && !r.cn && !r.cnrm) return false;
+			if (state.version === 'cn' && !r.cn && !r.cnrm && !((r.we && r.we.length) && !weDeleted(r))) return false;
 			var isDel = rowDeleted(r);
 			var isWE = !!(r.we && r.we.length);
 			if (state.hideRemoved && isDel) return false;

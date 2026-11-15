@@ -44,6 +44,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const cnConsts = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_consts) || {};
+  const cnDiffs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_diffs) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
   const notesMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_notes) || {};
@@ -415,6 +416,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       big: isBigCollab(e.raw.title) ? 1 : 0,
       cl: isCollabSong(e.raw.title, e.raw.sheets) ? 1 : 0,
       cnrm: e.cnRemoved ? 1 : 0,
+      cd: (function () { var hit = cnDiffs[normTitle(e.raw.title)]; return hit ? hit.d.slice() : []; })(),
       we: (function () {
         var stars = [];
         (e.raw.sheets || []).forEach(function (sh) {
