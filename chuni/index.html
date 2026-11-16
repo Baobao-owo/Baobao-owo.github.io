@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=4c6d85e6">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=aaf60b2c">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -851,7 +851,7 @@
 	function visibleKeys(r) {
 		var k = visibleKeysBase(r);
 		// 国服模式下，只保留国服确实有这张谱的难度；WE 行不参与（它自己按存活状态管）
-		if (state.version !== 'cn' || (r.we && r.we.length)) return k;
+		if (state.version !== 'cn' || (r.we && r.we.length) || rowDeleted(r)) return k;
 		var cd = r.cd || [];
 		var arr = k || ['b', 'a', 'e', 'm', 'u'];
 		return arr.filter(function (d) { return cd.indexOf(d) !== -1; });

@@ -2908,3 +2908,32 @@ html.darkmode.amoled-dark #banner::after {
     rgba(21, 21, 21, 0.78) 70%,
     #151515 100%);
 }
+
+/* 手机端：曲目落地页排版 */
+@media (max-width: 640px) {
+  .chuni-landing { padding: 2px 0; }
+  .chuni-landing-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
+  .chuni-landing-text { width: 100%; }
+  .chuni-landing-title { font-size: 21px; line-height: 1.35; }
+  .chuni-landing-desc { max-width: none; font-size: 13.5px; line-height: 1.85; }
+  .chuni-landing-cta {
+    display: inline-block;
+    padding: 9px 18px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .chuni-landing-version { margin-top: 10px; line-height: 1.6; }
+  .chuni-landing-mark {
+    align-self: flex-end;
+    font-size: 18px;
+    letter-spacing: .08em;
+    opacity: .7;
+  }
+  .chuni-landing .map-back { display: inline-block; margin-bottom: 10px; }
+}
