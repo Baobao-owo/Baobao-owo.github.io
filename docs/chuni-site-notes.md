@@ -447,3 +447,15 @@
 隐藏某张谱：在 front matter 加 `published: false`，Hexo 不生成该文章（分类网格与详情页都消失）。要恢复改成 `true` 或删掉这一行。
 
 不是本人制作的谱面直接删文件（`git rm source/_posts/osu-*.md`），别用发布开关留着。2026-11-16 的 OVER THE SKY（osu-2316400）就是这种情况：一度以为是 set_id 写错，用户指出不是他的谱，整篇删掉了。
+
+### 10.23 列表里的 BPM 显示 ?
+
+WE 拆出来的行会从「WE 专属条目」复制字段，而专属条目本身没有 BPM，所以副标题会显示「BPM ?」，但点进详情页其实有 BPM（详情页读的是 wiki 那套数据）。
+
+补法（都在 `themes/argon/scripts/chuni-guide.js`）：
+
+1. `bpmByTitle`：同一曲名如果有普通条目且有真实 BPM，WE 行直接借用；
+2. `wikiBpmByTitle`：从 `chuni_extra` 每条 `wiki_info['BPM']` 建表，按 `normTitle` 兜底——这和详情页「曲目信息」同源；
+3. `compactSplit` 末尾统一补一遍，先查 1 再查 2。
+
+结果：列表缺 BPM 的行从 153 降到 8。剩下 8 行是 WE 专属、详情页也没有 BPM 的（九龍メタルゾネス、ふたりのスタートボタン、Amusing Flavor、三个「3D サウンド」系列、なるがちゃん…、ラストバトル），保持「?」。

@@ -453,6 +453,29 @@ const versionLabel = new Map(d.versions.map(function (v) {
       })
     };
   });
+  // 曲名 → wiki 里的 BPM（详情页「曲目信息」用的就是它）
+  const wikiBpmByTitle = (function () {
+    const map = {};
+    Object.keys(extra).forEach(function (k) {
+      const info = (extra[k] || {}).wiki_info || {};
+      const v = info['BPM'];
+      if (!v) return;
+      const key = normTitle(k);
+      if (!(key in map)) map[key] = String(v).trim();
+    });
+    return map;
+  })();
+  // 曲名 → 真实 BPM：WE 专属条目自己没写 BPM 时，从同名的普通条目补
+  const bpmByTitle = (function () {
+    const map = {};
+    const ok = function (v) { const t = String(v == null ? '' : v).trim(); return t && t !== '?'; };
+    compact.forEach(function (r) {
+      if (!ok(r.b)) return;
+      const k = String(r.t || '').trim();
+      if (!(k in map)) map[k] = r.b;
+    });
+    return map;
+  })();
   // WORLD'S END 按谱面拆行：每张谱一个索引（同一曲名可以出现多行）
   const compactSplit = (function () {
     const out = [];
@@ -475,7 +498,10 @@ const versionLabel = new Map(d.versions.map(function (v) {
         seenWid[key] = 1;
         return true;
       }).map(function (c) {
+        const ownBpm = String(r.b == null ? '' : r.b).trim();
+        const fbBpm = bpmByTitle[title];
         return Object.assign({}, r, {
+          b: (ownBpm && ownBpm !== '?') ? r.b : (fbBpm != null ? fbBpm : r.b),
           wid: c.id,
           we: [c.stars == null ? 1 : c.stars],
           weAttr: c.attr,
@@ -489,6 +515,16 @@ const versionLabel = new Map(d.versions.map(function (v) {
     });
     return out;
   })();
+  // WE 伪条目（不在 byId 里）没有 BPM 时，同样按曲名从普通条目补
+  compactSplit.forEach(function (r) {
+    const own = String(r.b == null ? '' : r.b).trim();
+    if (own && own !== '?') return;
+    const t = String(r.t || '').trim();
+    const fb = bpmByTitle[t];
+    if (fb != null) { r.b = fb; return; }
+    const wb = wikiBpmByTitle[normTitle(t)];
+    if (wb) r.b = wb;
+  });
   hexo.route.set('chuni-songs.json', JSON.stringify(compactSplit));
 
   routes.push({
