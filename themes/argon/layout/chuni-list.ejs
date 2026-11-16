@@ -882,7 +882,9 @@
 		if (open) {
 			renderDesignerPanel();
 			var q = panelEl('chuni-designer-q');
-			if (q) q.focus({ preventScroll: true });
+			// 触屏设备不自动聚焦，否则一点开面板就弹键盘
+			var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+			if (q && canHover) q.focus({ preventScroll: true });
 		}
 	}
 

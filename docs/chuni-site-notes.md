@@ -536,3 +536,9 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 
 
 2026-11-16 补记：用户决定「隐藏的 10 首新曲先用 wiki 的定数」，已把 `chuni.json` 里这些隐藏条目的 `internalValue` 改成 wiki 值（9 首 11 格：P-KATSU、さっきゅんライト（2025）、物凄い狂っとるフランちゃん、Amusing Flavor、ぴるぐライド!、Dark Falchion、Metaverse Do Be Like This、HYPER SAMPLER、天天天国地獄国）。等级标签（如 14+ / 15）未动；这些曲仍隐藏，站内暂不显示。`地獄の端にて君を待つ` 不在隐藏组，仍以 Mate 的 13.30 为准。
+
+
+### 10.30 手机端：定数 chip 行距与谱师面板不弹键盘
+
+- 定数 chip 行在手机上 `margin-top: 18px; padding-top: 5px; padding-bottom: 6px`，给点亮态的 `outline` 留出空间，不再贴着上面的工具栏。
+- 谱师面板打开时原来会 `focus()` 搜索框，手机上会直接弹键盘；改成只在 `(hover: hover) and (pointer: fine)` 的设备上聚焦，触屏不聚焦（桌面行为不变）。改在 `themes/argon/layout/chuni-list.ejs` 的 `openDesignerPanel`。

@@ -2963,3 +2963,13 @@ html.darkmode .chuni-credit-list li {
     font-size: 13px;
   }
 }
+
+/* 手机端：定数 chip 行与上方拉开，给点亮态的描边留空间 */
+@media (max-width: 640px) {
+  .chuni-levels {
+    margin-top: 18px;
+    margin-bottom: 12px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+  }
+}
