@@ -469,3 +469,14 @@ WE 拆出来的行会从「WE 专属条目」复制字段，而专属条目本�
 - 卸载 `hexo-generator-tag`（`npm uninstall hexo-generator-tag`），`public/tags/` 不再生成，旧 `/tags/...` 链接变 404。
 
 文章 front matter 里的 `tags` 字段保留不删，只是不再渲染；以后想恢复，重新装插件并把上面几段加回去即可。
+
+### 10.25 内容纠错与评论区已移除
+
+用户跟人讨论后确认不需要（2026-11-16）：
+
+- 删掉 `themes/argon/layout/_partial/feedback.ejs` 与 `_comment/giscus.ejs`；
+- `_partial/article-bottom.ejs` 去掉 giscus 的 feedback 引用，`chuni-song.ejs` 去掉整个 `chuni-comment-section` 区块；
+- `header.ejs` 删掉「评论」悬浮按钮（`#fabtn_go_to_comment`），本来 `fab_show_gotocomment_button` 就是 false；
+- `source/_data/argon.yml` 摘掉 custom_html_foot 里同步 giscus 主题的那段脚本，`giscus.enable` / `giscus.song_enable` 都设为 false。
+
+giscus 仓库里的历史 discussion 没删，只是页面不再加载；以后要恢复，把文件与引用加回来、把 enable 打开即可。

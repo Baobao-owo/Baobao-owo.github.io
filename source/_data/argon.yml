@@ -101,32 +101,6 @@ code_theme: atom-one-light
 # 自定义脚本
 custom_html_head: '' # baobao.css 现在在 header.ejs 里带版本号引入
 custom_html_foot: |
-  <script>
-    (function () {
-      var last = null;
-      function want() {
-        return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
-      }
-      function sync() {
-        var f = document.querySelector('iframe.giscus-frame');
-        if (!f || !f.contentWindow) return;
-        var t = want();
-        if (t === last) return;
-        last = t;
-        f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
-      }
-      document.addEventListener('DOMContentLoaded', function () {
-        if (window.setDarkmode) {
-          var orig = window.setDarkmode;
-          window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
-        }
-        window.addEventListener('message', function (e) {
-          if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
-        });
-        setTimeout(sync, 1500);
-      });
-    })();
-  </script>
   <link rel="stylesheet" href="/assets/css/mobile-drawer.css?v=1">
   <script src="/assets/js/mobile-drawer.js?v=1"></script>
   <script src="/assets/js/card-click.js?v=1"></script>
@@ -140,8 +114,8 @@ gitalk:
   clientID: ''
   clientSecret: ''
 giscus: # https://giscus.app/zh-CN
-  enable: true
-  song_enable: true
+  enable: false
+  song_enable: false
   repo: 'Baobao-owo/Baobao-owo.github.io'
   repo_id: 'R_kgDOVqnN2A'
   category: 'Announcements'
