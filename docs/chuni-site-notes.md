@@ -443,3 +443,5 @@
 排查方法：访问 `https://osu.ppy.sh/beatmaps/<beatmap_id>`，页面会 301 到 `/beatmapsets/<set_id>#mania/<beatmap_id>`，跳转后的数字才是 set_id。
 
 隐藏某张谱：在 front matter 加 `published: false`，Hexo 不生成该文章（分类网格与详情页都消失）。要恢复改成 `true` 或删掉这一行。
+
+不是本人制作的谱面直接删文件（`git rm source/_posts/osu-*.md`），别用发布开关留着。2026-11-16 的 OVER THE SKY（osu-2316400）就是这种情况：一度以为是 set_id 写错，用户指出不是他的谱，整篇删掉了。
