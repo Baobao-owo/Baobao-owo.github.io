@@ -899,7 +899,7 @@
 		var e = designerEntry(r);
 		var c = collabEntry(r);
 		var out = [];
-		['e', 'm', 'u'].forEach(function (k) {
+		['b', 'a', 'e', 'm', 'u'].forEach(function (k) {
 			var hit = e && e[k];
 			var who = state.designer || state.designerRaw || '';
 			var names = who ? aliasNamesOf(who) : [];
@@ -1301,7 +1301,7 @@
 	}
 
 	function countFor(name, diffs) {
-		var keys = diffs && diffs.length ? diffs : ['e', 'm', 'u'];
+		var keys = diffs && diffs.length ? diffs : ['b', 'a', 'e', 'm', 'u'];
 		var names = aliasNamesOf(name);
 		return designerBaseRows().filter(function (r) {
 			var e = designerEntry(r);
