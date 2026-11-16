@@ -421,3 +421,16 @@
 做法：`_tmp/game/c2s-designers-all.json`（键 `<musicId>_<难度序号>`）覆盖 `source/_data/chuni.json` 的 `sheet.designer`，本轮改动 3391 格、其中 3240 格是原本的 `-` 占位（主要是 BASIC/ADVANCED），重跑 `tools/build_designers_merged.mjs` 重建索引。
 
 效果：B.B.K.K.B.K.K. 的 B/A 显示 ロシェ＠ペンギン / Jack；未知谱面从 248 降到 152。组合写法的成员解释仍以括号附在原文后面（如 `Ataraxia vs Ragnarok（Ataraxia × Ragnarok）`），不替换原文。
+
+
+### 10.21 谱面预览默认最高难度、其余按需加载
+
+歌曲页的谱面预览原本默认选第一个难度（BASIC），进页面时还会在空闲时把所有难度都预加载一遍。用户觉得应该反过来：默认显示最高难度，其他难度等切换再加载。
+
+改法（`themes/argon/layout/chuni-song.ejs`）：
+
+- 模板里算 `defaultIdx`：按 `diffRank = { basic:0, advanced:1, expert:2, master:3, ultima:4 }` 取最大的那个，作为 `active` 标签、初始 `img.src` 与放大链接
+- 删掉页面底部那段 `requestIdleCallback` 全量预加载脚本
+- 切难度时的点击逻辑保持原样：把 `img.src` / `link.href` 换成该难度的 URL，浏览器此时才请求
+
+实测 Verse X：进页面只请求 `2949_03.webp`（MASTER），点 EXPERT 才请求 `2949_02.webp`；点 BASIC 同理。
