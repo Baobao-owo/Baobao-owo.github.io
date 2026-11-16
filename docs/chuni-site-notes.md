@@ -490,3 +490,16 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 做法：在 `source/_data/chuni.json` 对应条目加 `"hidden": true`，生成器 `themes/argon/scripts/chuni-guide.js` 里 `allSongs.filter(s => !s.hidden)`，列表行、单曲页、JSON 全部不出现。列表从 2278 行变 2268 行。
 
 等 c2s / Music.xml 到手、补齐 `chuni_ids.json` 后，把 `hidden` 字段删掉（或设 false）再构建即可恢复。
+
+### 10.27 定数以 Music.xml 的 level+levelDecimal 为准
+
+用户核 SAN値直葬 紫谱时发现站内写 15.0。查本地 Mate 的 `Music.xml`，MASTER 是 `<level>15</level><levelDecimal>10</levelDecimal>`，即 15.1。
+
+顺手把全库和有 XML 的曲目对了一遍，只有 4 首新曲的 6 格不符（都是之前缺 XML 时按等级猜的）：
+
+- 雑魚 MASTER 13.0 → 13.1
+- SAN値直葬 MASTER 15.0 → 15.1
+- コンクエスト・チャレンジ EXPERT 11.0 → 11.3、MASTER 14.5 → 14.7
+- ハイボルテージガール EXPERT 11.5 → 11.9、MASTER 14.0 → 14.1
+
+等级（15 / 14+ / 11+ 等）没变。以后补新曲定数，优先从 `Music.xml` 的 `level` + `levelDecimal` 取，别再按等级上限猜。
