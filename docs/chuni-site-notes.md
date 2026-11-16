@@ -530,3 +530,6 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 
 
 去重：曲目页渲染时，日文介绍里与「制作名单」逐行相同的署名行会被过滤掉（`chuni-song.ejs` 里按 NFKC + 去空格 + 冒号统一后比对），中文翻译块保留原样。这样署名只出现一次，列表在有名单的曲目上方。实测千本桜介绍只剩正文，39 的 キーボード/シンセ 这类未进名单的行仍在。
+
+
+定数差异复核（2026-11-16）：`地獄の端にて君を待つ` 查 Mate HDD 的 `HDD\data\A000\music\music0662\Music.xml`，MASTER 为 `<level>13</level><levelDecimal>30</levelDecimal>` = 13.30，与站内一致；wiki 的 13.20 是旧值，不采用。`Metaverse Do Be Like This` 在 Mate 全盘 Music.xml 里查无（属于缺 XML 的 10 首新曲，站内已隐藏），wiki 给 EXP 13.60 / MAS 14.90，站内现有 13.50 / 14.50 无游戏文件可核，暂不修改。
