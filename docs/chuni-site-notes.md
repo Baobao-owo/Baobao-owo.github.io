@@ -503,3 +503,17 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 - ハイボルテージガール EXPERT 11.5 → 11.9、MASTER 14.0 → 14.1
 
 等级（15 / 14+ / 11+ 等）没变。以后补新曲定数，优先从 `Music.xml` 的 `level` + `levelDecimal` 取，别再按等级上限猜。
+
+
+### 10.28 补 wiki 介绍与清理抓取残留
+
+2026-11-16 扫 `chuni_extra.json`，按 id / 曲名 / `(WE) 曲名` / `REMOVED:曲名` 四种键一起找，实际只缺 11 首：
+
+- 现役 5 首（都是 WE-only）：Title、GEMINI -M-、Starlight Disco、コーチンズカップ・クラシック、九龍メタルゾネス
+- 删除曲 6 首：なるがちゃん…、两个「3D サウンド」、「ゆっくり実況」、ラストバトル、WORLD'S END（セブンスシスターズ 那首）
+
+抓取坑：`fetch` 直接请求 wikiwiki.jp 会拿到 Cloudflare 的 403，puppeteer 打开同一个 URL 可以正常过检，所以批量抓介绍统一走 puppeteer，不要在脚本里用 http 抓。
+
+补法：现役 WE 曲的页面 key 是 `(WE) 曲名`，不是数字 id；删除曲用 `REMOVED:曲名` + 曲名双键。介绍写 `wiki_comment`（日文）与 `wiki_comment_zh`（中文）两个字段。WORLD'S END 那首 wiki 没有独立页面，用 RemyWiki 的 trivia 写了简短介绍，并在文中注明日本版限定。
+
+另外清掉抓取残留：`情報 Font Awesome fontawesome.com -->` 这类前缀在 1788 个字段里都出现过（有的在正文中间、重复多次），统一用正则删除后再压缩多余空白，构建后单曲页已无残留（0 页命中）。
