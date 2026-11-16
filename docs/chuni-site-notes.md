@@ -434,3 +434,12 @@
 - 切难度时的点击逻辑保持原样：把 `img.src` / `link.href` 换成该难度的 URL，浏览器此时才请求
 
 实测 Verse X：进页面只请求 `2949_03.webp`（MASTER），点 EXPERT 才请求 `2949_02.webp`；点 BASIC 同理。
+
+
+### 10.22 谱面存档帖：隐藏与链接
+
+谱面存档（`source/_posts/osu-*.md`）的 `map.set_id` 必须是 **beatmapset id**，不是 beatmap id。写错会同时错封面和「谱面链接」，表现为卡片封面 404、点开跳到不存在的谱面集。
+
+排查方法：访问 `https://osu.ppy.sh/beatmaps/<beatmap_id>`，页面会 301 到 `/beatmapsets/<set_id>#mania/<beatmap_id>`，跳转后的数字才是 set_id。
+
+隐藏某张谱：在 front matter 加 `published: false`，Hexo 不生成该文章（分类网格与详情页都消失）。要恢复改成 `true` 或删掉这一行。
