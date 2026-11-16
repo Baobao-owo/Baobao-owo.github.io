@@ -325,9 +325,6 @@
 	<button id="fabtn_back_to_top" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" aria-label="Back To Top" tooltip="回到顶部">
 		<span class="btn-inner--icon"><i class="fa fa-angle-up"></i></span>
 	</button>
-	<button id="fabtn_go_to_comment" class="btn btn-icon btn-neutral fabtn shadow-sm d-none" type="button" style='display: none;'  aria-label="Comment" tooltip="评论">
-		<span class="btn-inner--icon"><i class="fa fa-comment-o"></i></span>
-	</button>
 	<button id="fabtn_toggle_darkmode" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button"  aria-label="Toggle Darkmode" tooltip-darkmode="夜间模式" tooltip-blackmode="暗黑模式" tooltip-lightmode="日间模式">
 		<span class="btn-inner--icon"><i class="fa fa-moon-o"></i><i class='fa fa-lightbulb-o'></i></span>
 	</button>
@@ -1145,47 +1142,6 @@
 				
 			</div>
 
-			<div class="chuni-section chuni-comment-section" id="chuni-comment">
-				
-					<div id="post_feedback" class="card shadow-sm chuni-feedback-card">
-	<div class="chuni-feedback-head">
-		<span class="chuni-feedback-title">内容纠错</span>
-	</div>
-	<div id="giscus"></div>
-<script>
-  function loadGiscus() {
-    const old = document.querySelector('#giscus script');
-    if (old) old.remove();
-
-    const script = document.createElement('script');
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "Baobao-owo/Baobao-owo.github.io");
-    script.setAttribute("data-repo-id", "R_kgDOVqnN2A");
-    script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", "DIC_kwDOVqnN2M4DK41l");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-input-position", "top");
-    script.setAttribute("data-theme", "light");
-    script.setAttribute("data-lang", "zh-CN");
-    script.setAttribute("data-loading", "lazy");
-    script.setAttribute("data-reactions-enabled", "0");
-    script.async = true;
-    script.crossOrigin = "anonymous";
-
-    document.getElementById("giscus").appendChild(script);
-  }
-
-  loadGiscus();
-
-  document.addEventListener('pjax:end', () => {
-    loadGiscus();
-  });
-</script>
-
-</div>
-
-				
-			</div>
 		</div>
 	</div>
 </article>
@@ -1217,32 +1173,6 @@
 </noscript>
 </body>
 
-<script>
-  (function () {
-    var last = null;
-    function want() {
-      return document.documentElement.classList.contains('darkmode') ? 'dark' : 'light';
-    }
-    function sync() {
-      var f = document.querySelector('iframe.giscus-frame');
-      if (!f || !f.contentWindow) return;
-      var t = want();
-      if (t === last) return;
-      last = t;
-      f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      if (window.setDarkmode) {
-        var orig = window.setDarkmode;
-        window.setDarkmode = function (v) { orig(v); setTimeout(sync, 80); };
-      }
-      window.addEventListener('message', function (e) {
-        if (e.origin === 'https://giscus.app') setTimeout(sync, 80);
-      });
-      setTimeout(sync, 1500);
-    });
-  })();
-</script>
 <link rel="stylesheet" href="/assets/css/mobile-drawer.css?v=1">
 <script src="/assets/js/mobile-drawer.js?v=1"></script>
 <script src="/assets/js/card-click.js?v=1"></script>
