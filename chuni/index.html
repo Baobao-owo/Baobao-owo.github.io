@@ -34,7 +34,7 @@
 	
 <link rel="stylesheet" href="/style.css">
 
-	<link rel="stylesheet" href="/assets/css/baobao.css?v=3e84580f">
+	<link rel="stylesheet" href="/assets/css/baobao.css?v=6625f5fc">
 	
 <script src="/assets/argon_js_merged.js"></script>
 
@@ -1384,7 +1384,9 @@
 		if (open) {
 			renderDesignerPanel();
 			var q = panelEl('chuni-designer-q');
-			if (q) q.focus({ preventScroll: true });
+			// 触屏设备不自动聚焦，否则一点开面板就弹键盘
+			var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+			if (q && canHover) q.focus({ preventScroll: true });
 		}
 	}
 
