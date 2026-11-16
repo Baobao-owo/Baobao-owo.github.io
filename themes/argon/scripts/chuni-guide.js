@@ -249,7 +249,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
   }
 
   const allSongs = d.songs.concat(Array.isArray(removedSongs) ? removedSongs : []);
-  const songs = allSongs.map(function (s, i) {
+  const songs = allSongs.filter(function (s) { return !s.hidden; }).map(function (s, i) {
     const extraEntry = extra[String(s.id)] || extra[String(s.title).trim()] || {};
     const cnMaxIdx = Math.max.apply(null, Array.from(cnVersions).map(function (v) { return versionIndex.has(v) ? versionIndex.get(v) : -1; }).concat([-1]));
     const cnEntry = cnSongMap[normTitle(s.title)] || null;

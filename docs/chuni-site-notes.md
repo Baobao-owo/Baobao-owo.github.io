@@ -480,3 +480,13 @@ WE 拆出来的行会从「WE 专属条目」复制字段，而专属条目本�
 - `source/_data/argon.yml` 摘掉 custom_html_foot 里同步 giscus 主题的那段脚本，`giscus.enable` / `giscus.song_enable` 都设为 false。
 
 giscus 仓库里的历史 discussion 没删，只是页面不再加载；以后要恢复，把文件与引用加回来、把 enable 打开即可。
+
+### 10.26 缺 musicId 的 10 首暂时隐藏
+
+日服新曲里有 10 首还没拿到 musicId / c2s 信息，谱师、版本、BPM 都不全，先不对外显示：
+
+P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅんライト（2025）、物凄い狂っとるフランちゃんが物凄いうた、ふたりのスタートボタン、Amusing Flavor、ぴるぐライド!、Dark Falchion、Metaverse Do Be Like This、HYPER SAMPLER
+
+做法：在 `source/_data/chuni.json` 对应条目加 `"hidden": true`，生成器 `themes/argon/scripts/chuni-guide.js` 里 `allSongs.filter(s => !s.hidden)`，列表行、单曲页、JSON 全部不出现。列表从 2278 行变 2268 行。
+
+等 c2s / Music.xml 到手、补齐 `chuni_ids.json` 后，把 `hidden` 字段删掉（或设 false）再构建即可恢复。
