@@ -19,7 +19,15 @@
 		{ k: '追加 / 配信', v: page.period || '' }
 	].filter(function (r) { return r.v; });
 
-	const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
+	const jpRaw = extra2.wiki_comment || extra2.wiki_jp || '';
+	// 介绍里已经搬到「制作名单」的署名行，不再重复显示（仅日文原文；中文翻译保留）
+	const creditKey = function (line) {
+		return String(line || '').normalize('NFKC').replace(/\s+/g, '').replace(/[:：]/g, '：');
+	};
+	const creditSet = new Set((Array.isArray(page.credits) ? page.credits : []).map(creditKey));
+	const jpText = String(jpRaw).split('\n').filter(function (line) {
+		return !creditSet.has(creditKey(line));
+	}).join('\n').trim();
 	const zhText = extra2.wiki_comment_zh || extra2.wiki_zh || '';
 	const hist = extra2.history;
 	const isWE = sheets.length > 0 && sheets.every(function (sh) { return /^【.*】$/.test(sh.difficulty); });
