@@ -412,3 +412,12 @@
 `chuni-list.ejs` 里 `matcher()` 原来硬编码遍历 `['e','m','u']`，所以选了谱师之后，黄谱（ADVANCED）和绿谱（BASIC）即使署名对得上也不会亮，标签也不显示。
 
 处理：`matcher()` 和 `countFor()` 的默认难度列表都改成 `['b','a','e','m','u']`，再由 `state.designerDiff` 过滤。实测选 そらいろカリン：默认 515 首，狂命、風呂入るプロファイル 等显示「A そらいろカリン / E そらいろカリン」，单独 513、合作 6。
+
+
+### 10.20 谱面作者列一律用游戏内原文
+
+详情表「谱面作者」这一列显示 c2s 里的 `CREATOR` 原文，不再用合成/整理的写法。之前把 Verse X 的 MASTER 写成「ぴちネコ × 夕凪アロエ」，已按原文改回 `Thank you for 10 years of CHUNITHM`。
+
+做法：`_tmp/game/c2s-designers-all.json`（键 `<musicId>_<难度序号>`）覆盖 `source/_data/chuni.json` 的 `sheet.designer`，本轮改动 3391 格、其中 3240 格是原本的 `-` 占位（主要是 BASIC/ADVANCED），重跑 `tools/build_designers_merged.mjs` 重建索引。
+
+效果：B.B.K.K.B.K.K. 的 B/A 显示 ロシェ＠ペンギン / Jack；未知谱面从 248 降到 152。组合写法的成员解释仍以括号附在原文后面（如 `Ataraxia vs Ragnarok（Ataraxia × Ragnarok）`），不替换原文。
