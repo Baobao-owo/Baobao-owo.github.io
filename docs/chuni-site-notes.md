@@ -366,14 +366,16 @@
 试过把 `#content` 的 `margin-top` 从 `-30vh` 改成 `-25px`（让内容从封面底边开始、完全不重叠），版式会变，用户觉得不如原来好看，已回退，保留「内容压在封面上 + 底部淡出」的方案。
 
 ### 10.15 WORLD'S END 的删除标记按服务器分开
+
 两服存活的 WE 谱并不一致，所以 WE 行不能只看曲目本身是否下架。
 
 - 数据：`source/_data/chuni_we.json` 的 `byId` 每条 WE 谱记录都带 `delJP` / `delCN`（1 = 该服已删）。
-- 日服存活来源：Mate 的 `Music.xml`，排除 `mate_a300`（削除曲包），取 WorldsEnd 谱 `enable=true` 的 musicId。
+- 日服存活来源（2026-11-16 改）：以 wiki 的 WORLD'S END 页面为准，页面列出 = 日服当前可玩。**表格的灰色底纹只是配色，不代表删除**，要一起算存活。抓取用 `tools/data/sync_we_from_wiki.mjs`，再用 `tools/data/sync_we_alive_jp.mjs --write` 写回 `delJP`；同曲多张 WE 谱按「属性一致 > 星数一致」匹配。
 - 国服存活来源：落雪（lxns）歌曲列表里 `difficulty=5` 的 musicId，用的是 2026-11-12 的本地快照 `_tmp/lxns-songs.json`。
 - UI：`themes/argon/layout/chuni-list.ejs` 的 `weDeleted(r)` 按 `state.version` 取对应字段，`rowDeleted(r)` 统一给筛选用；WE-only 伪条目没有按谱拆出来的 id 时，退回曲目级的 `rm` / `cnrm`。
 - 行为：勾上 WORLD'S END 后，「不显示删除曲」默认只列该服仍存活的 WE 谱；「仅显示删除曲」只列该服已删的 WE 谱，行内带「删除曲」标签。
-- 8 条没有按谱拆开的 WE 伪条目（Love & Justice、九龍メタルゾネス、luminoid love PART2、Flap&Clap、ヤババイナ、黒塗り世界宛て書簡、熱異常、]-[|/34<#!）在 `chuni_we.json` 的 `pseudo` 里按服务器记存活状态（从全量 Music.xml 的 pack 名判断，`mate*` 算日服、`xvx*` 算国服）；其中只有九龍メタルゾネス 在国服还活着。
+- 伪条目（Love & Justice、九龍メタルゾネス、luminoid love PART2、Flap&Clap、ヤババイナ、黒塗り世界宛て書簡、熱異常、]-[|/34<#!）在 `chuni_we.json` 的 `pseudo` 里按服务器记存活：wiki 列出的 6 条日服算活，Love & Justice 与 ]-[|/34<#! 两服都删；国服只有九龍メタルゾネス 还活着。
+- 实测（2026-11-16）：WE 行 292，日服存活 82（byId 76 + 伪条目 6），已删 210；国服视角存活 53。
 
 ### 10.16 占位符谱师按 c2s 补
 
