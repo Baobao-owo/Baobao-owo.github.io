@@ -97,15 +97,4 @@
 		<% } %>
 	</div>
 
-	<% if (post.tags.length) { %>
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<%- list_tags(post.tags, {
-				show_count: false,
-				class: 'tag badge badge-secondary post-meta-detail-tag ',
-				style: 'none',
-				separator: ''
-			}) %>
-		</div>
-	<% } %>
 </article>

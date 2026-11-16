@@ -459,3 +459,13 @@ WE 拆出来的行会从「WE 专属条目」复制字段，而专属条目本�
 3. `compactSplit` 末尾统一补一遍，先查 1 再查 2。
 
 结果：列表缺 BPM 的行从 153 降到 8。剩下 8 行是 WE 专属、详情页也没有 BPM 的（九龍メタルゾネス、ふたりのスタートボタン、Amusing Flavor、三个「3D サウンド」系列、なるがちゃん…、ラストバトル），保持「?」。
+
+### 10.24 标签功能已移除
+
+用户觉得标签用不上，整套 UI 拆掉：
+
+- `themes/argon/layout/sidebar.ejs`：删掉侧栏「标签」计数项和 `#blog_tags` 弹窗；
+- `themes/argon/layout/_partial/content-article.ejs`、`content-preview.ejs`：删掉文章底部与卡片里的标签徽章；
+- 卸载 `hexo-generator-tag`（`npm uninstall hexo-generator-tag`），`public/tags/` 不再生成，旧 `/tags/...` 链接变 404。
+
+文章 front matter 里的 `tags` 字段保留不删，只是不再渲染；以后想恢复，重新装插件并把上面几段加回去即可。
