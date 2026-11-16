@@ -149,7 +149,7 @@
 - 生成端：Marisa 前端 + puppeteer 渲染，产物上传 GitHub Release `chuni-previews-extra`
 - manifest：`source/_data/chuni_previews.json`，键 `<musicId>_<diffIdx>`
 - 更新脚本：`render_new_previews.mjs` / `build_preview_manifest.mjs` / `reconcile_previews.mjs`
-- 单曲页空闲预加载最多 6 张
+- 单曲页默认只看最高难度的一张，切难度时才请求对应的图（不再全量预加载）
 
 ## 6. 单曲页结构
 
