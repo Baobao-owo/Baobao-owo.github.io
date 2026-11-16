@@ -771,7 +771,7 @@ DECO*27氏の9thアルバム「TRANSFORM」に収録。
 				
 					<div class="chuni-chart-tabs">
 						
-							<button type="button" class="chuni-chart-tab active" data-url="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_00.webp">
+							<button type="button" class="chuni-chart-tab" data-url="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_00.webp">
 								<span class="chuni-badge chuni-badge-basic">B</span>
 								<span class="chuni-chart-tab-name">BASIC</span>
 								<span class="chuni-chart-tab-lv">3</span>
@@ -789,15 +789,15 @@ DECO*27氏の9thアルバム「TRANSFORM」に収録。
 								<span class="chuni-chart-tab-lv">10</span>
 							</button>
 						
-							<button type="button" class="chuni-chart-tab" data-url="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_03.webp">
+							<button type="button" class="chuni-chart-tab active" data-url="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_03.webp">
 								<span class="chuni-badge chuni-badge-master">M</span>
 								<span class="chuni-chart-tab-name">MASTER</span>
 								<span class="chuni-chart-tab-lv">13</span>
 							</button>
 						
 					</div>
-					<a class="chuni-chart-link" id="chuni-chart-link" target="_blank" href="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_00.webp" rel="noopener">
-						<img id="chuni-chart-img" src="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_00.webp" alt="谱面平面图" loading="lazy" />
+					<a class="chuni-chart-link" id="chuni-chart-link" target="_blank" href="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_03.webp" rel="noopener">
+						<img id="chuni-chart-img" src="https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_03.webp" alt="谱面平面图" loading="lazy" />
 						<span class="chuni-chart-open">点击放大 ⤢</span>
 					</a>
 					<div class="chuni-chart-hint">点图片在页面内放大查看：打开先是整图，拖动移动、双指捏合（或滚轮）缩放、双击在整图 / 原尺寸之间切换，难度用上面的按钮切换。</div>
@@ -1170,31 +1170,7 @@ DECO*27氏の9thアルバム「TRANSFORM」に収録。
 		</div>
 	</div>
 </article>
-<script>
-	// 空闲时把这首歌所有难度的谱面预览都预加载好，点开难度就不卡
-	(function () {
-		var urls = ["https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_00.webp","https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_01.webp","https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-a-05/2901_02.webp","https://github.com/Baobao-owo/Baobao-owo.github.io/releases/download/chuni-previews-b-05/2901_03.webp"];
-		if (!urls.length) return;
-		// 省流量模式或弱网就不预加载
-		var conn = navigator.connection || {};
-		if (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')) return;
-		var loaded = {};
-		function warm() {
-			urls.forEach(function (u) {
-				if (!u || loaded[u]) return;
-				loaded[u] = 1;
-				var img = new Image();
-				img.decoding = 'async';
-				img.src = u;
-			});
-		}
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(warm, { timeout: 3000 });
-		} else {
-			setTimeout(warm, 1200);
-		}
-	})();
-</script>
+
 
 		
 		
