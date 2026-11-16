@@ -194,6 +194,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const weDeletedData = (hexo.locals.get('data') && hexo.locals.get('data').chuni_we_deleted) || {};
   const weDeletedSet = new Set((weDeletedData.songs || []).map(function (x) { return normTitle(x.title); }));
   const cnRemovedIds = new Set((cnRemovedData.matched || []).map(function (x) { return String(x.id); }));
+  const cnRemovedTitles = new Set((cnRemovedData.matched || []).map(function (x) { return normTitle(x.title || ''); }));
   // 补录的删除曲（wiki 配信終了 + 本地游戏数据封面）
   const removedSongs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_removed_songs) || [];  (Array.isArray(removedSongs) ? removedSongs : []).forEach(function (s) {
     removedIds.add(String(s.id));
@@ -330,7 +331,7 @@ const versionLabel = new Map(d.versions.map(function (v) {
       minLevel: levels.length ? Math.min.apply(null, levels) : 0,
       inCN: cnEntry ? true : (Object.keys(cnSongMap).length ? false : cnVersions.has(s.version)),
       removed: removedIds.has(String(s.id)) || ((s.sheets || []).length > 0 && s.sheets.every(function (sh) { return /^【.*】$/.test(String(sh.difficulty)); }) && weDeletedSet.has(normTitle(s.title))),
-      cnRemoved: cnRemovedIds.has(String(s.id)) && !cnEntry,
+      cnRemoved: !cnEntry && (cnRemovedIds.has(String(s.id)) || cnRemovedTitles.has(normTitle(s.title || ''))),
       cnConsts: cnConsts,
       cover: s.cover || ''
     };

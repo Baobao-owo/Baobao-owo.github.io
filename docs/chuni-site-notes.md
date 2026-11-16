@@ -393,3 +393,15 @@
 - WE 行不受这套限制，仍按 `weDelCN` 判定存活
 - 实测：国服默认 1413 首、国服 + WORLD'S END 53 行
 
+
+
+国服删除曲的两个补丁（2026-11-16）：
+
+- `chuni_cn_removed.json` 的 matched 里 id 有些是曲名、有些是「(WE) 曲名」，只按 id 匹配会漏掉已经在日服删除、只存在于 `chuni_removed_songs.json` 里的曲；生成器改成 id 或曲名任一命中都算。国服「仅显示删除曲」从 14 行恢复到 67 行。
+- 国服 `cd` 遮罩对「已删除」的行豁免：删除曲不在落雪当前快照里，如果照样按 `cd` 过滤会被当成国服没有，整行隐藏。
+
+### 10.18 落地页手机端的排版
+
+`/categories/中二节奏/` 的落地页原本是 flex 横排（文字 + 右侧 CHUNITHM 水印），手机上水印不换行，把文字挤成三四个字就折行，按钮也被压成圆形。
+
+处理：`source/assets/css/baobao.css` 在 `max-width: 640px` 下把 `.chuni-landing-top` 改成纵向排列、水印缩小并靠右下、标题 21px、正文不限宽、按钮 `white-space: nowrap`。桌面端不变。

@@ -325,7 +325,7 @@
 	function visibleKeys(r) {
 		var k = visibleKeysBase(r);
 		// 国服模式下，只保留国服确实有这张谱的难度；WE 行不参与（它自己按存活状态管）
-		if (state.version !== 'cn' || (r.we && r.we.length)) return k;
+		if (state.version !== 'cn' || (r.we && r.we.length) || rowDeleted(r)) return k;
 		var cd = r.cd || [];
 		var arr = k || ['b', 'a', 'e', 'm', 'u'];
 		return arr.filter(function (d) { return cd.indexOf(d) !== -1; });
