@@ -533,3 +533,6 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 
 
 定数差异复核（2026-11-16）：`地獄の端にて君を待つ` 查 Mate HDD 的 `HDD\data\A000\music\music0662\Music.xml`，MASTER 为 `<level>13</level><levelDecimal>30</levelDecimal>` = 13.30，与站内一致；wiki 的 13.20 是旧值，不采用。`Metaverse Do Be Like This` 在 Mate 全盘 Music.xml 里查无（属于缺 XML 的 10 首新曲，站内已隐藏），wiki 给 EXP 13.60 / MAS 14.90，站内现有 13.50 / 14.50 无游戏文件可核，暂不修改。
+
+
+2026-11-16 补记：用户决定「隐藏的 10 首新曲先用 wiki 的定数」，已把 `chuni.json` 里这些隐藏条目的 `internalValue` 改成 wiki 值（9 首 11 格：P-KATSU、さっきゅんライト（2025）、物凄い狂っとるフランちゃん、Amusing Flavor、ぴるぐライド!、Dark Falchion、Metaverse Do Be Like This、HYPER SAMPLER、天天天国地獄国）。等级标签（如 14+ / 15）未动；这些曲仍隐藏，站内暂不显示。`地獄の端にて君を待つ` 不在隐藏组，仍以 Mate 的 13.30 为准。
