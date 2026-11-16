@@ -2937,3 +2937,29 @@ html.darkmode.amoled-dark #banner::after {
   }
   .chuni-landing .map-back { display: inline-block; margin-bottom: 10px; }
 }
+
+/* 曲目页「制作名单」 */
+.chuni-credit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+}
+.chuni-credit-list li {
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: #4b5563;
+}
+html.darkmode .chuni-credit-list li {
+  color: #b3b3b3;
+}
+@media (max-width: 640px) {
+  .chuni-credit-list {
+    display: block;
+  }
+  .chuni-credit-list li {
+    font-size: 13px;
+  }
+}

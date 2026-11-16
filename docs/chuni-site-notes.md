@@ -517,3 +517,13 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 补法：现役 WE 曲的页面 key 是 `(WE) 曲名`，不是数字 id；删除曲用 `REMOVED:曲名` + 曲名双键。介绍写 `wiki_comment`（日文）与 `wiki_comment_zh`（中文）两个字段。WORLD'S END 那首 wiki 没有独立页面，用 RemyWiki 的 trivia 写了简短介绍，并在文中注明日本版限定。
 
 另外清掉抓取残留：`情報 Font Awesome fontawesome.com -->` 这类前缀在 1788 个字段里都出现过（有的在正文中间、重复多次），统一用正则删除后再压缩多余空白，构建后单曲页已无残留（0 页命中）。
+
+
+### 10.29 从 wiki 原文补的两块信息（2026-11-16）
+
+按用户勾选，从 `chuni_extra.json` 的 wiki 原文里补了两类：
+
+1. **制作名单**：`tools/data/build_wiki_meta.mjs` 从 `wiki_jp` 抽 `作詞/作曲/編曲/歌唱/使用VOCALOID/吉他…` 行，写进 `source/_data/chuni_credits.json`（830 首），曲目页在「介绍」上方渲染成 `制作名单` 列表。
+2. **追加 / 配信日期**：只在「解锁方式」缺日期时补，写进 `source/_data/chuni_periods.json`（72 首），曲目信息表多一行「追加 / 配信」。
+
+对照报告：`tools/reports/build_wiki_crosscheck.mjs` 对比 `wiki_jp` 的「譜面作者 / 譜面定数」与站内数据（游戏 c2s 原文 / 定数），产出 `_tmp/reports/wiki-author-diff.tsv`、`wiki-const-diff.tsv`；去掉 @/＠、空格、with 这类写法差异后，谱面作者剩 62 处差异、6 处可补空，定数 12 处差异（集中在 10 首缺游戏数据的新曲）。wiki 原文本身有截断（末尾带 …），报告里标了「疑似截断」。

@@ -15,7 +15,8 @@
 		{ k: '艺术家', v: winfo['アーティスト'] || s.artist },
 		{ k: '原曲', v: winfo['原曲'] || '' },
 		{ k: 'BPM', v: winfo['BPM'] || (s.bpm || '') },
-		{ k: '解锁方式', v: winfo['解禁方法'] || (s.release || '') }
+		{ k: '解锁方式', v: winfo['解禁方法'] || (s.release || '') },
+		{ k: '追加 / 配信', v: page.period || '' }
 	].filter(function (r) { return r.v; });
 
 	const jpText = extra2.wiki_comment || extra2.wiki_jp || '';
@@ -78,6 +79,15 @@
 					</div>
 				</div>
 			</div>
+
+			<% if (Array.isArray(page.credits) && page.credits.length) { %>
+			<div class="chuni-section chuni-credits">
+				<div class="chuni-section-title">制作名单</div>
+				<ul class="chuni-credit-list">
+					<% page.credits.forEach(function (c) { %><li><%= c %></li><% }); %>
+				</ul>
+			</div>
+			<% } %>
 
 			<div class="chuni-section">
 				<div class="chuni-section-title">介绍</div>

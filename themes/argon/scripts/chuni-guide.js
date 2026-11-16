@@ -44,6 +44,8 @@ const versionLabel = new Map(d.versions.map(function (v) {
   const idMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_ids) || {};
   const previewMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_previews) || {};
   const cnConsts = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_consts) || {};
+  const creditsMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_credits) || {};
+  const periodsMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_periods) || {};
   const cnDiffs = (hexo.locals.get('data') && hexo.locals.get('data').chuni_cn_diffs) || {};
   const confirmMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_confirm) || {};
   const ytMap = (hexo.locals.get('data') && hexo.locals.get('data').chuni_youtube) || {};
@@ -592,7 +594,9 @@ const versionLabel = new Map(d.versions.map(function (v) {
         extra: fixHistoryRows(extra[entry.raw.id] || extra[String(entry.raw.title).trim()] || null, entry.raw.sheets),
         notes: notesMap[String(entry.raw.title).trim()] || null,
         collabParts: partsOf(entry.raw.title),
-        cnConsts: cnConsts[String(entry.raw.title).trim()] || null
+        cnConsts: cnConsts[String(entry.raw.title).trim()] || null,
+        credits: creditsMap[entry.raw.id] || creditsMap[String(entry.raw.title).trim()] || null,
+        period: periodsMap[entry.raw.id] || periodsMap[String(entry.raw.title).trim()] || null
       }
     });
   });
