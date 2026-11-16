@@ -405,3 +405,10 @@
 `/categories/中二节奏/` 的落地页原本是 flex 横排（文字 + 右侧 CHUNITHM 水印），手机上水印不换行，把文字挤成三四个字就折行，按钮也被压成圆形。
 
 处理：`source/assets/css/baobao.css` 在 `max-width: 640px` 下把 `.chuni-landing-top` 改成纵向排列、水印缩小并靠右下、标题 21px、正文不限宽、按钮 `white-space: nowrap`。桌面端不变。
+
+
+### 10.19 谱师匹配只覆盖 E/M/U 的坑
+
+`chuni-list.ejs` 里 `matcher()` 原来硬编码遍历 `['e','m','u']`，所以选了谱师之后，黄谱（ADVANCED）和绿谱（BASIC）即使署名对得上也不会亮，标签也不显示。
+
+处理：`matcher()` 和 `countFor()` 的默认难度列表都改成 `['b','a','e','m','u']`，再由 `state.designerDiff` 过滤。实测选 そらいろカリン：默认 515 首，狂命、風呂入るプロファイル 等显示「A そらいろカリン / E そらいろカリン」，单独 513、合作 6。
