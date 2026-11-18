@@ -542,3 +542,20 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 
 - 定数 chip 行在手机上 `margin-top: 18px; padding-top: 5px; padding-bottom: 6px`，给点亮态的 `outline` 留出空间，不再贴着上面的工具栏。
 - 谱师面板打开时原来会 `focus()` 搜索框，手机上会直接弹键盘；改成只在 `(hover: hover) and (pointer: fine)` 的设备上聚焦，触屏不聚焦（桌面行为不变）。改在 `themes/argon/layout/chuni-list.ejs` 的 `openDesignerPanel`。
+
+
+### 10.31 称号条件的译法约定
+
+用户规则（2026-11-18）：难度名与评级名保留原文，不翻译。
+
+- 难度：BASIC / ADVANCED / EXPERT / MASTER / ULTIMA
+- 评级与状态：ALL JUSTICE / FULL CHAIN / FULL COMBO / RANK S / SS / SSS
+
+中文只译动作和条件部分，例如：
+
+- `MASTER以下全て/プレイ` → `MASTER 及以下全谱面/游玩`
+- `MASTER以下全て/ ALL JUSTICE 達成` → `MASTER 及以下全谱面达成 ALL JUSTICE`
+- `MASTER /RANK SSS達成` → `MASTER 达成 RANK SSS`
+- `2人以上で店内マッチング/FULL CHAIN達成` → `2 人以上店内匹配/达成 FULL CHAIN`
+
+实现：一次性脚本读 `source/_data/chuni_extra.json` 的 `titles`（日文）与 `titles_zh`，先按完整日文条件映射到规范译名，再对剩余条目做术语替换（大师→MASTER、正义→ALL JUSTICE 等）；本轮共改 893 条。后续用户再给的译法意见，直接改这张映射表并重跑即可。
