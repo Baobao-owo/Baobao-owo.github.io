@@ -253,8 +253,8 @@
 					<tbody>
 						<% titlesRows.slice(1).forEach(function (r, ri) { %>
 							<tr>
-								<% r.forEach(function (c, ci) { %>
-									<td<%- ci === 0 && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
+								<% (Array.isArray(r) ? r : [String(r)]).forEach(function (c, ci) { %>
+									<td<%- ci === 0 && titleKinds && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
 								<% }); %>
 							</tr>
 						<% }); %>
@@ -270,8 +270,8 @@
 							<tbody>
 								<% titlesZh.slice(1).forEach(function (r, ri) { %>
 									<tr>
-										<% r.forEach(function (c, ci) { %>
-											<td<%- ci === 0 && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
+										<% (Array.isArray(r) ? r : [String(r)]).forEach(function (c, ci) { %>
+											<td<%- ci === 0 && titleKinds && titleKinds[ri] ? ' class="chuni-title chuni-title-' + titleKinds[ri] + '"' : '' %>><%= c %></td>
 										<% }); %>
 									</tr>
 								<% }); %>
