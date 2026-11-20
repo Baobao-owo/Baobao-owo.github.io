@@ -653,6 +653,6 @@ P-KATSU、天天天国地獄国 (feat. ななひら & P丸様。)、さっきゅ
 ### 10.33 c2s 的 T_JUDGE 物量与称号行崩溃（2026-11-20）
 
 - c2s 文件末尾有 `T_JUDGE_TAP/HLD/SLD/AIR/FLK/ALL` 段，就是机台统计的物量，比按行数点音符可靠（slide 链、air 链的计法不同）。扫描 `D:\XVX\HDD` 与 Mate 的 `data/A000`、`bin/option/*`，8336 张谱能读到该段。
-- 与站内 6908 张已有物量比对：6876 张一致；26 张有差异（多为 tap/air/flick 拆分口径，总数相同；少数像《投影》《偏愛》是站内数据本身错位），清单在 `_tmp/reports/c2s-note-diff.tsv`，暂不批量覆盖。
+- 与站内 6908 张已有物量比对：按 T_JUDGE 直接取字段后，43 张有差异（部分只是 slide/air ±1 的归类口径；大的如《投影》advanced 356→700、Inpaqq expert 1516→1491、sølips advanced 1201→1205；《偏愛》expert 的 tap/hold 原本写反）。用户拍板「以 c2s 为准」，已全部覆盖；注意 T_JUDGE_TAP 已含 CHR、T_JUDGE_AIR 已含 AHD，不要再相加。
 - 补了 4 张真的空的：風呂入るプロファイル 的 B/A/E/M（469/975/1055/1777）。
 - 修了一个更严重的问题：`chuni-song.ejs` 的称号表格假设 `titlesZh` 每行都是数组，遇到字符串行就 `r.forEach is not a function`，Hexo 仍写出 0 字节文件，导致 932 个曲目页是空的。模板改成 `(Array.isArray(r) ? r : [String(r)])`，并给 `titleKinds` 加空值保护；重建后 0 错误、0 空页。
